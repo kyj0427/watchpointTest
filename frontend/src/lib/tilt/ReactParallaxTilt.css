@@ -1,0 +1,15 @@
+.parallax-effect {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+
+    .inner-element {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateZ(60px);
+    }
+}
