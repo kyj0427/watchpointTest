@@ -7,9 +7,14 @@ import AOSInit from "@/lib/aos/AOSInit";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-  title: "GameCo",
+  title: "WatchPoint",
   description:
     "GameCo is your ultimate destination for the latest games, reviews, and exclusive gaming deals. Join the community and level up your experience!",
+  icons:{
+    icon:"/images/icons/watchpoint_favicon.ico",
+    
+  }
+  
 };
 
 export default function RootLayout({

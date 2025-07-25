@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import logo from "@public/images/icons/logo.png";
+import logo from "@public/images/icons/watchpoint_logo_cut.png";
 import userImage from "@public/images/users/user1.png";
 import Link from "next/link";
 import { useToggle } from "@/hooks";
