@@ -25,8 +25,8 @@ export const homeOneBannerData = [
     {
         id: 1,
         image: heroBanner1,
-        title: "UNITE. PLAY. CONQUER.",
-        game: "Leagues of Legends",
+        title: "A FUTURE WORTH FIGHTING FOR",
+        game: "Overwatch2",
         language: "US English",
         link: "/game-details-one",
     },

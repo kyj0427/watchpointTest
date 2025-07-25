@@ -10,6 +10,9 @@ import { usePathname } from "next/navigation";
 import { navMenu } from "@public/data/navMenu";
 import AnimateHeight from "react-animate-height";
 import {
+  IconSword,
+  IconDeviceGamepad,
+  IconTrophy,
   IconBell,
   IconBookmark,
   IconBrandDiscord,
@@ -107,16 +110,17 @@ const NavBar = () => {
       className:
         "flex flex-col gap-2 rounded-full bg-b-neutral-1 w-fit p-2 shrink-0",
       items: [
-        { href: "/trending", icon: <IconFlame stroke={1.5} size={32} /> },
+        { href: "/trending", icon: <IconDeviceGamepad stroke={1.5} size={32} /> },
         {
           href: "/groups-two",
-          icon: <IconUsersGroup stroke={1.5} size={32} />,
+          icon: <IconTrophy stroke={1.5} size={32} />,
         },
-        { href: "/saved", icon: <IconBookmark stroke={1.5} size={32} /> },
+        { href: "/saved", icon: <IconSword stroke={1.5} size={32} /> },
         {
           href: "/profile/achievements",
-          icon: <IconStar stroke={1.5} size={32} />,
+          icon: <IconUsersGroup stroke={1.5} size={32} />,
         },
+        
       ],
       buttonClass:
         "btn-c btn-c-3xl hover:bg-primary text-white hover:text-b-neutral-4 transition-1",
@@ -124,12 +128,12 @@ const NavBar = () => {
     {
       className: "flex flex-col gap-2 rounded-full w-fit p-2 shrink-0",
       items: [
+        // { href: "/profile", icon: <IconUser stroke={1.5} size={32} /> },
+        { href: "/chat", icon: <IconMessages stroke={1.5} size={32} /> },
         {
           href: "/marketplace-two",
           icon: <IconDiamond stroke={1.5} size={32} />,
         },
-        { href: "/chat", icon: <IconMessages stroke={1.5} size={32} /> },
-        { href: "/profile", icon: <IconUser stroke={1.5} size={32} /> },
       ],
       buttonClass: "btn-c btn-c-3xl btn-neutral-4",
     },
@@ -187,12 +191,13 @@ const NavBar = () => {
                   </Link>
                   <div className="flex items-center lg:gap-x-40p gap-x-2">
                     <div className="hidden lg:flex items-center gap-1 shrink-0">
-                      <Link
+                      {/* <Link
                         href="/shopping-cart"
                         className="btn-c btn-c-xxl btn-c-dark-outline"
                       >
                         <IconShoppingCart stroke={1.5} size={32} />
-                      </Link>
+                      </Link> */}
+                      {/* 알림 드롭다운 위치 (링크삭제하고 드롭다운 추가) */}
                       <Link
                         href="/chat"
                         className="btn-c btn-c-xxl btn-c-dark-outline"
