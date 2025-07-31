@@ -1,0 +1,27 @@
+// Third party libraries
+
+@use "@tabler/icons-webfont/dist/tabler-icons";
+@use "swiper/css/bundle";
+@use "plyr/dist/plyr";
+
+// Custom styles
+@use "./utility/reset";
+
+// Tailwind typography, spacing, sizing and custom utilities
+@use "./utility/typography";
+@use "./utility/spacing";
+@use "./utility/sizing";
+@use "./utility/box_layout";
+// Tailwind ui components
+@use "./components/index";
+
+// custom utility classes
+@use "./utility/utility";
+
+// Project styles
+@use "./utility/global";
+@use "./utility/base";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -1,0 +1,32 @@
+@layer components {
+  .dropdown {
+    @apply relative flex flex-col;
+
+    &-toggle {
+      @apply inline-flex items-center gap-2 cursor-pointer;
+    }
+
+    .toggle-1 {
+      @apply w-full bg-b-neutral-2 text-l-medium text-w-neutral-1 sm:py-3 py-2 px-24p rounded-full;
+    }
+
+    .toggle-2 {
+      @apply w-full bg-b-neutral-4 text-l-medium text-w-neutral-1 sm:py-3 py-2 px-24p rounded-12;
+    }
+
+    .toggle-3 {
+      @apply w-fit text-sm border border-shap text-l-medium text-w-neutral-1 sm:py-3 py-2 px-16p rounded-12;
+    }
+
+    &-content {
+      @apply max-w-sm absolute top-14 right-0 grid grid-cols-1 gap-y-2 p-16p rounded-10 bg-b-neutral-2 w-[200px] max-h-[240px]  overflow-y-auto scrollbar-sm z-20;
+    }
+
+    &-item {
+      @apply inline-flex w-full items-center justify-between gap-2 p-2 text-base text-w-neutral-1 cursor-pointer rounded-lg hover:bg-primary hover:text-b-neutral-4 transition-1;
+      &.active {
+        @apply bg-primary text-b-neutral-4;
+      }
+    }
+  }
+}

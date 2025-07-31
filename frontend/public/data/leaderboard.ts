@@ -1,0 +1,198 @@
+import team12 from "@public/images/teams/team12.webp";
+import team13 from "@public/images/teams/team13.webp";
+import team14 from "@public/images/teams/team14.webp";
+import team15 from "@public/images/teams/team15.webp";
+import team16 from "@public/images/teams/team16.webp";
+import team17 from "@public/images/teams/team17.webp";
+import team18 from "@public/images/teams/team18.webp";
+import team19 from "@public/images/teams/team19.webp";
+import team20 from "@public/images/teams/team20.webp";
+import team21 from "@public/images/teams/team21.webp";
+import avatar1 from "@public/images/users/avatar1.png";
+import avatar2 from "@public/images/users/avatar2.png";
+import avatar3 from "@public/images/users/avatar3.png";
+import avatar4 from "@public/images/users/avatar4.png";
+import avatar5 from "@public/images/users/avatar5.png";
+
+export const leaderboards = [
+    {
+        placement: "01",
+        teamName: "Age of Kings",
+        teamRank: "Gold",
+        teamImage: team12,
+        roster: [
+            avatar1,
+            avatar2,
+            avatar3,
+            avatar4,
+            avatar5,
+        ],
+        win: 59,
+        lose: 57,
+        played: 345,
+        ratio: 75,
+        points: 675,
+    },
+    {
+        placement: "02",
+        teamName: "Velocity Arena",
+        teamRank: "Silber",
+        teamImage: team13,
+        roster: [
+            avatar1,
+            avatar2,
+            avatar3,
+            avatar4,
+            avatar5,
+        ],
+        win: 12,
+        lose: 54,
+        played: 254,
+        ratio: 87,
+        points: 324,
+    },
+    {
+        placement: "03",
+        teamName: "Cursed Requiem",
+        teamRank: "Gold",
+        teamImage: team14,
+        roster: [
+            avatar1,
+            avatar2,
+            avatar3,
+            avatar4,
+            avatar5,
+        ],
+        win: 55,
+        lose: 25,
+        played: 701,
+        ratio: 12,
+        points: 897,
+    },
+    {
+        placement: "04",
+        teamName: "Pixel Quest",
+        teamRank: "Silber",
+        teamImage: team15,
+        roster: [
+            avatar1,
+            avatar2,
+            avatar3,
+            avatar4,
+            avatar5,
+        ],
+        win: 55,
+        lose: 23,
+        played: 109,
+        ratio: 34,
+        points: 566,
+    },
+    {
+        placement: "05",
+        teamName: "Phantom Alliance",
+        teamRank: "Bronze",
+        teamImage: team16,
+        roster: [
+            avatar1,
+            avatar2,
+            avatar3,
+            avatar4,
+            avatar5,
+        ],
+        win: 45,
+        lose: 40,
+        played: 285,
+        ratio: 55,
+        points: 487,
+    },
+    {
+        placement: "06",
+        teamName: "Inferno Raiders",
+        teamRank: "Gold",
+        teamImage: team17,
+        roster: [
+            avatar1,
+            avatar2,
+            avatar3,
+            avatar4,
+            avatar5,
+        ],
+        win: 78,
+        lose: 21,
+        played: 329,
+        ratio: 81,
+        points: 729,
+    },
+    {
+        placement: "07",
+        teamName: "Shadow Blades",
+        teamRank: "Silver",
+        teamImage: team18,
+        roster: [
+            avatar1,
+            avatar2,
+            avatar3,
+            avatar4,
+            avatar5,
+        ],
+        win: 60,
+        lose: 50,
+        played: 412,
+        ratio: 67,
+        points: 612,
+    },
+    {
+        placement: "08",
+        teamName: "Iron Titans",
+        teamRank: "Bronze",
+        teamImage: team19,
+        roster: [
+            avatar1,
+            avatar2,
+            avatar3,
+            avatar4,
+            avatar5,
+        ],
+        win: 30,
+        lose: 60,
+        played: 210,
+        ratio: 33,
+        points: 310,
+    },
+    {
+        placement: "09",
+        teamName: "Blazing Phoenix",
+        teamRank: "Gold",
+        teamImage: team20,
+        roster: [
+            avatar1,
+            avatar2,
+            avatar3,
+            avatar4,
+            avatar5,
+        ],
+        win: 80,
+        lose: 20,
+        played: 500,
+        ratio: 90,
+        points: 890,
+    },
+    {
+        placement: "10",
+        teamName: "Starlight Crusaders",
+        teamRank: "Silver",
+        teamImage: team21,
+        roster: [
+            avatar1,
+            avatar2,
+            avatar3,
+            avatar4,
+            avatar5,
+        ],
+        win: 65,
+        lose: 35,
+        played: 400,
+        ratio: 75,
+        points: 735,
+    },
+];
