@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import logo from "@public/images/icons/logo.png";
+import logo from "@public/images/icons/watchpoint_logo_cut.png";
 import footerIllustration from "@public/images/photos/footerIllustration.webp";
 import { currentYear } from "@/utility/currentYear";
 import {

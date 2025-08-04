@@ -1,8 +1,9 @@
 export const navMenu = [
     {
         id: 1,
-        name: "Home",
+        name: "홈",
         isSubMenu: true,
+        // link : "/"
         subMenu: [
             {
                 id: 1.1,
