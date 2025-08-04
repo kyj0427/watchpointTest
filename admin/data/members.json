@@ -1,0 +1,97 @@
+{
+  "members": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "john@example.com",
+      "joinDate": "2024-01-15",
+      "status": "Active",
+      "battleTag": "JohnDoe#1234",
+      "reports": 0,
+      "lastActive": "2024-01-20",
+      "verified": true,
+      "subscription": "Premium",
+      "totalPosts": 156,
+      "totalComments": 89,
+      "chatRoomsJoined": 23,
+      "avatar": "/placeholder.svg?height=32&width=32"
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "joinDate": "2024-01-10",
+      "status": "Suspended",
+      "battleTag": "JaneSmith#5678",
+      "reports": 3,
+      "lastActive": "2024-01-18",
+      "verified": true,
+      "subscription": "Pro",
+      "totalPosts": 89,
+      "totalComments": 45,
+      "chatRoomsJoined": 12,
+      "avatar": "/placeholder.svg?height=32&width=32"
+    },
+    {
+      "id": "3",
+      "name": "Mike Johnson",
+      "email": "mike@example.com",
+      "joinDate": "2024-01-05",
+      "status": "Active",
+      "battleTag": "MikeJ#9012",
+      "reports": 1,
+      "lastActive": "2024-01-21",
+      "verified": false,
+      "subscription": "Basic",
+      "totalPosts": 234,
+      "totalComments": 123,
+      "chatRoomsJoined": 34,
+      "avatar": "/placeholder.svg?height=32&width=32"
+    }
+  ],
+  "memberDetails": {
+    "1": {
+      "activityHistory": [
+        {
+          "date": "2024-01-21",
+          "action": "Joined chat room",
+          "details": "Overwatch Competitive"
+        },
+        {
+          "date": "2024-01-21",
+          "action": "Posted comment",
+          "details": "Looking for duo partner"
+        },
+        {
+          "date": "2024-01-20",
+          "action": "Updated profile",
+          "details": "Changed battle tag"
+        },
+        {
+          "date": "2024-01-19",
+          "action": "Logged in",
+          "details": "Session duration: 2h 15m"
+        },
+        {
+          "date": "2024-01-18",
+          "action": "Joined chat room",
+          "details": "Coaching Discussion"
+        }
+      ],
+      "reportHistory": [
+        {
+          "date": "2024-01-10",
+          "type": "Spam",
+          "status": "Resolved",
+          "reporter": "User123"
+        },
+        {
+          "date": "2024-01-05",
+          "type": "Inappropriate Content",
+          "status": "Dismissed",
+          "reporter": "User456"
+        }
+      ]
+    }
+  }
+}

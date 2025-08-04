@@ -1,0 +1,170 @@
+{
+  "hotClips": [
+    {
+      "id": "clip_001",
+      "title": "Amazing Genji 6K on King's Row",
+      "author": "ProGenji_KR",
+      "uploadDate": "2024-01-20T10:30:00Z",
+      "status": "approved",
+      "views": 15420,
+      "likes": 892,
+      "dislikes": 23,
+      "comments": 156,
+      "duration": "00:45",
+      "hero": "Genji",
+      "map": "King's Row",
+      "rank": "Grandmaster",
+      "thumbnail": "/placeholder.svg?height=120&width=200",
+      "reports": 0,
+      "featured": true
+    },
+    {
+      "id": "clip_002",
+      "title": "Perfect Reinhardt Shatter Setup",
+      "author": "TankMaster_99",
+      "uploadDate": "2024-01-19T15:45:00Z",
+      "status": "pending",
+      "views": 3240,
+      "likes": 187,
+      "dislikes": 8,
+      "comments": 42,
+      "duration": "00:32",
+      "hero": "Reinhardt",
+      "map": "Hanamura",
+      "rank": "Master",
+      "thumbnail": "/placeholder.svg?height=120&width=200",
+      "reports": 1,
+      "featured": false
+    },
+    {
+      "id": "clip_003",
+      "title": "Widow Headshot Compilation",
+      "author": "SniperElite_OW",
+      "uploadDate": "2024-01-18T20:15:00Z",
+      "status": "rejected",
+      "views": 890,
+      "likes": 45,
+      "dislikes": 12,
+      "comments": 18,
+      "duration": "01:23",
+      "hero": "Widowmaker",
+      "map": "Various",
+      "rank": "Diamond",
+      "thumbnail": "/placeholder.svg?height=120&width=200",
+      "reports": 3,
+      "featured": false,
+      "rejectionReason": "Low quality footage"
+    }
+  ],
+  "guides": [
+    {
+      "id": "guide_001",
+      "title": "Complete Ana Guide for Season 9",
+      "author": "SupportGuru_KR",
+      "category": "Hero Guide",
+      "subcategory": "Support",
+      "publishDate": "2024-01-15T09:00:00Z",
+      "status": "published",
+      "views": 8750,
+      "likes": 456,
+      "bookmarks": 234,
+      "difficulty": "Intermediate",
+      "readTime": "12 min",
+      "tags": ["Ana", "Support", "Positioning", "Cooldown Management"],
+      "featured": true,
+      "lastUpdated": "2024-01-20T14:30:00Z"
+    },
+    {
+      "id": "guide_002",
+      "title": "Tank Synergy Guide: Rein + Zarya",
+      "author": "TankDuo_Pro",
+      "category": "Strategy Guide",
+      "subcategory": "Tank",
+      "publishDate": "2024-01-12T16:20:00Z",
+      "status": "pending",
+      "views": 2340,
+      "likes": 123,
+      "bookmarks": 67,
+      "difficulty": "Advanced",
+      "readTime": "8 min",
+      "tags": ["Reinhardt", "Zarya", "Tank Synergy", "Team Coordination"],
+      "featured": false,
+      "lastUpdated": "2024-01-12T16:20:00Z"
+    }
+  ],
+  "posts": [
+    {
+      "id": "post_001",
+      "title": "New Meta Discussion: Season 9 Changes",
+      "author": "MetaAnalyst_OW",
+      "category": "Discussion",
+      "publishDate": "2024-01-21T11:15:00Z",
+      "status": "approved",
+      "views": 5670,
+      "likes": 234,
+      "comments": 89,
+      "reports": 0,
+      "content": "Let's discuss the recent changes in Season 9 and how they affect the current meta...",
+      "tags": ["Meta", "Season 9", "Balance Changes"]
+    },
+    {
+      "id": "post_002",
+      "title": "Looking for Duo Partner - Diamond Support",
+      "author": "LookingForDuo_KR",
+      "category": "LFG",
+      "publishDate": "2024-01-20T19:30:00Z",
+      "status": "approved",
+      "views": 1230,
+      "likes": 45,
+      "comments": 23,
+      "reports": 0,
+      "content": "Diamond support main looking for tank duo partner for competitive climbing...",
+      "tags": ["LFG", "Diamond", "Support", "Duo"]
+    }
+  ],
+  "reports": [
+    {
+      "id": "report_001",
+      "contentType": "clip",
+      "contentId": "clip_002",
+      "reportedBy": "User_123",
+      "reason": "Inappropriate content",
+      "description": "Contains offensive language in the audio",
+      "reportDate": "2024-01-19T16:00:00Z",
+      "status": "pending",
+      "reviewedBy": null,
+      "reviewDate": null
+    },
+    {
+      "id": "report_002",
+      "contentType": "post",
+      "contentId": "post_003",
+      "reportedBy": "User_456",
+      "reason": "Spam",
+      "description": "Repeated promotional content",
+      "reportDate": "2024-01-18T14:20:00Z",
+      "status": "resolved",
+      "reviewedBy": "admin_001",
+      "reviewDate": "2024-01-18T15:45:00Z",
+      "action": "Content removed"
+    }
+  ],
+  "statistics": {
+    "totalClips": 1247,
+    "pendingClips": 23,
+    "totalGuides": 189,
+    "pendingGuides": 8,
+    "totalPosts": 3456,
+    "pendingReports": 12,
+    "monthlyUploads": {
+      "clips": 156,
+      "guides": 23,
+      "posts": 234
+    },
+    "topCategories": [
+      { "name": "DPS Guides", "count": 67 },
+      { "name": "Tank Strategies", "count": 45 },
+      { "name": "Support Tips", "count": 38 }
+    ]
+  }
+}

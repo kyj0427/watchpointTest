@@ -1,0 +1,82 @@
+{
+  "quickStats": [
+    {
+      "title": "Active Members",
+      "value": "12,345",
+      "icon": "Users",
+      "color": "text-blue-600"
+    },
+    {
+      "title": "Pending Reports",
+      "value": "23",
+      "icon": "Flag",
+      "color": "text-red-600"
+    },
+    {
+      "title": "Active Chat Rooms",
+      "value": "456",
+      "icon": "MessageSquare",
+      "color": "text-green-600"
+    },
+    {
+      "title": "Published Announcements",
+      "value": "8",
+      "icon": "Megaphone",
+      "color": "text-purple-600"
+    }
+  ],
+  "recentActivity": [
+    {
+      "user": "Olivia Martin",
+      "email": "olivia.martin@email.com",
+      "amount": "+$1,999.00",
+      "initials": "OM"
+    },
+    {
+      "user": "Jackson Lee",
+      "email": "jackson.lee@email.com",
+      "amount": "+$39.00",
+      "initials": "JL"
+    },
+    {
+      "user": "Isabella Nguyen",
+      "email": "isabella.nguyen@email.com",
+      "amount": "+$299.00",
+      "initials": "IN"
+    }
+  ],
+  "recentMemberActivity": [
+    {
+      "type": "registration",
+      "message": "New member registered",
+      "time": "1 minutes ago"
+    },
+    {
+      "type": "registration",
+      "message": "New member registered",
+      "time": "2 minutes ago"
+    },
+    {
+      "type": "registration",
+      "message": "New member registered",
+      "time": "3 minutes ago"
+    }
+  ],
+  "systemAlerts": [
+    {
+      "type": "warning",
+      "message": "High report volume detected",
+      "time": "5 min ago"
+    },
+    {
+      "type": "info",
+      "message": "Scheduled maintenance reminder",
+      "time": "1 hour ago"
+    },
+    {
+      "type": "success",
+      "message": "Backup completed successfully",
+      "time": "2 hours ago"
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "subscriptionPlans": [
+    {
+      "id": "free",
+      "name": "Free",
+      "price": 0,
+      "currency": "KRW",
+      "features": ["Basic coaching analysis", "Limited hot clips access", "Community access"],
+      "activeUsers": 15420,
+      "monthlyRevenue": 0
+    },
+    {
+      "id": "premium",
+      "name": "Premium",
+      "price": 9900,
+      "currency": "KRW",
+      "features": ["Advanced AI coaching", "Unlimited hot clips", "Priority matching", "Detailed statistics"],
+      "activeUsers": 3240,
+      "monthlyRevenue": 32076000
+    },
+    {
+      "id": "pro",
+      "name": "Pro",
+      "price": 19900,
+      "currency": "KRW",
+      "features": ["1:1 Pro coaching", "Custom training plans", "Tournament analysis", "Priority support"],
+      "activeUsers": 890,
+      "monthlyRevenue": 17711000
+    }
+  ],
+  "revenueStats": {
+    "totalMonthlyRevenue": 49787000,
+    "totalYearlyRevenue": 597444000,
+    "growthRate": 12.5,
+    "churnRate": 3.2,
+    "averageRevenuePerUser": 2680,
+    "monthlyGrowth": [
+      { "month": "2023-07", "revenue": 42300000 },
+      { "month": "2023-08", "revenue": 44200000 },
+      { "month": "2023-09", "revenue": 45800000 },
+      { "month": "2023-10", "revenue": 47100000 },
+      { "month": "2023-11", "revenue": 48500000 },
+      { "month": "2023-12", "revenue": 49787000 },
+      { "month": "2024-01", "revenue": 51200000 }
+    ]
+  },
+  "payments": [
+    {
+      "id": "pay_001",
+      "userId": "user_12345",
+      "userName": "ProGamer_KR",
+      "plan": "premium",
+      "amount": 9900,
+      "currency": "KRW",
+      "paymentMethod": "Credit Card",
+      "status": "completed",
+      "paymentDate": "2024-01-20T10:30:00Z",
+      "nextBillingDate": "2024-02-20T10:30:00Z",
+      "transactionId": "txn_abc123"
+    },
+    {
+      "id": "pay_002",
+      "userId": "user_67890",
+      "userName": "TankMain_99",
+      "plan": "pro",
+      "amount": 19900,
+      "currency": "KRW",
+      "paymentMethod": "Bank Transfer",
+      "status": "pending",
+      "paymentDate": "2024-01-19T15:45:00Z",
+      "nextBillingDate": "2024-02-19T15:45:00Z",
+      "transactionId": "txn_def456"
+    },
+    {
+      "id": "pay_003",
+      "userId": "user_11111",
+      "userName": "SupportLover",
+      "plan": "premium",
+      "amount": 9900,
+      "currency": "KRW",
+      "paymentMethod": "PayPal",
+      "status": "failed",
+      "paymentDate": "2024-01-18T20:15:00Z",
+      "nextBillingDate": null,
+      "transactionId": "txn_ghi789",
+      "failureReason": "Insufficient funds"
+    }
+  ],
+  "refunds": [
+    {
+      "id": "ref_001",
+      "paymentId": "pay_004",
+      "userId": "user_22222",
+      "userName": "DisappointedUser",
+      "amount": 9900,
+      "reason": "Service not as expected",
+      "requestDate": "2024-01-17T14:20:00Z",
+      "status": "approved",
+      "processedDate": "2024-01-18T09:30:00Z",
+      "processedBy": "admin_002"
+    },
+    {
+      "id": "ref_002",
+      "paymentId": "pay_005",
+      "userId": "user_33333",
+      "userName": "ChangedMind",
+      "amount": 19900,
+      "reason": "Changed mind",
+      "requestDate": "2024-01-16T11:45:00Z",
+      "status": "pending",
+      "processedDate": null,
+      "processedBy": null
+    }
+  ],
+  "promotions": [
+    {
+      "id": "promo_001",
+      "name": "New Year Special",
+      "code": "NEWYEAR2024",
+      "discountType": "percentage",
+      "discountValue": 30,
+      "validFrom": "2024-01-01T00:00:00Z",
+      "validUntil": "2024-01-31T23:59:59Z",
+      "usageLimit": 1000,
+      "usageCount": 234,
+      "applicablePlans": ["premium", "pro"],
+      "status": "active"
+    },
+    {
+      "id": "promo_002",
+      "name": "Student Discount",
+      "code": "STUDENT50",
+      "discountType": "percentage",
+      "discountValue": 50,
+      "validFrom": "2024-01-01T00:00:00Z",
+      "validUntil": "2024-12-31T23:59:59Z",
+      "usageLimit": null,
+      "usageCount": 89,
+      "applicablePlans": ["premium"],
+      "status": "active"
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "personalStats": {
+    "currentRank": "Diamond",
+    "sr": 3245,
+    "seasonHigh": 3456,
+    "seasonLow": 2987,
+    "totalGames": 234,
+    "wins": 145,
+    "losses": 89,
+    "winRate": 61.97,
+    "mainHero": "Ana",
+    "playtime": "156h 23m",
+    "favoriteMap": "King's Row"
+  },
+  "coachingHistory": {
+    "totalSessions": 12,
+    "completedSessions": 10,
+    "upcomingSessions": 2,
+    "totalHours": 18.5,
+    "averageRating": 4.8,
+    "recentSessions": [
+      {
+        "id": "session_001",
+        "coach": "ProCoach_KR",
+        "date": "2024-01-20T15:00:00Z",
+        "duration": "1h 30m",
+        "hero": "Ana",
+        "rating": 5,
+        "notes": "Great improvement in positioning and cooldown management"
+      },
+      {
+        "id": "session_002",
+        "coach": "SupportMaster",
+        "date": "2024-01-18T19:00:00Z",
+        "duration": "1h",
+        "hero": "Mercy",
+        "rating": 4,
+        "notes": "Focus on target prioritization and escape routes"
+      }
+    ]
+  },
+  "achievements": {
+    "totalAchievements": 45,
+    "recentAchievements": [
+      {
+        "id": "achievement_001",
+        "name": "Rank Climber",
+        "description": "Reached Diamond rank",
+        "unlockedDate": "2024-01-15T12:00:00Z",
+        "rarity": "Epic",
+        "icon": "/placeholder.svg?height=50&width=50"
+      },
+      {
+        "id": "achievement_002",
+        "name": "Support Specialist",
+        "description": "Play 100 hours as Support",
+        "unlockedDate": "2024-01-10T18:30:00Z",
+        "rarity": "Rare",
+        "icon": "/placeholder.svg?height=50&width=50"
+      }
+    ],
+    "progress": [
+      {
+        "name": "Master Tier",
+        "description": "Reach Master rank",
+        "progress": 75,
+        "target": 100,
+        "reward": "Exclusive Master Badge"
+      },
+      {
+        "name": "Coaching Veteran",
+        "description": "Complete 20 coaching sessions",
+        "progress": 12,
+        "target": 20,
+        "reward": "Special Coach Recognition"
+      }
+    ]
+  },
+  "socialFeatures": {
+    "friends": {
+      "total": 23,
+      "online": 7,
+      "recentActivity": [
+        {
+          "friend": "TankMain_99",
+          "activity": "Reached Master rank",
+          "time": "2 hours ago"
+        },
+        {
+          "friend": "DPSCarry_KR",
+          "activity": "Completed coaching session",
+          "time": "5 hours ago"
+        }
+      ]
+    },
+    "groups": [
+      {
+        "name": "Diamond Support Mains",
+        "members": 156,
+        "role": "Support",
+        "rank": "Diamond"
+      },
+      {
+        "name": "Korean Overwatch Community",
+        "members": 2341,
+        "role": "All",
+        "rank": "All"
+      }
+    ],
+    "duoPartner": {
+      "current": "TankBuddy_KR",
+      "rank": "Diamond",
+      "role": "Tank",
+      "synergy": 87,
+      "gamesPlayed": 45
+    }
+  },
+  "recentMatches": [
+    {
+      "id": "match_001",
+      "map": "King's Row",
+      "hero": "Ana",
+      "result": "Victory",
+      "sr_change": "+25",
+      "duration": "12m 34s",
+      "date": "2024-01-21T14:30:00Z",
+      "performance": {
+        "healing": 12450,
+        "damage": 3200,
+        "eliminations": 8,
+        "deaths": 2
+      }
+    },
+    {
+      "id": "match_002",
+      "map": "Hanamura",
+      "hero": "Mercy",
+      "result": "Defeat",
+      "sr_change": "-22",
+      "duration": "15m 12s",
+      "date": "2024-01-21T13:45:00Z",
+      "performance": {
+        "healing": 8900,
+        "damage": 1200,
+        "eliminations": 4,
+        "deaths": 5
+      }
+    }
+  ],
+  "preferences": {
+    "notifications": {
+      "coachingReminders": true,
+      "friendActivity": true,
+      "rankUpdates": true,
+      "metaChanges": false
+    },
+    "privacy": {
+      "profileVisibility": "Friends",
+      "statsVisibility": "Public",
+      "matchHistory": "Friends"
+    }
+  }
+}

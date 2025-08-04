@@ -1,0 +1,198 @@
+{
+  "memberGameStats": {
+    "1": {
+      "memberId": "1",
+      "memberName": "John Doe",
+      "battleTag": "JohnDoe#1234",
+      "avatar": "/placeholder.svg?height=64&width=64",
+      "mainGame": "Overwatch",
+      "totalPlayTime": "245h 30m",
+      "lastPlayed": "2024-01-21T18:30:00Z",
+      "overallStats": {
+        "totalMatches": 1247,
+        "wins": 823,
+        "losses": 424,
+        "winRate": 66.0,
+        "averageKDA": 2.4,
+        "rank": "Diamond",
+        "skillRating": 3245
+      },
+      "heroStats": [
+        {
+          "heroName": "Tracer",
+          "playTime": "45h 20m",
+          "matches": 234,
+          "winRate": 68.5,
+          "kda": 2.8,
+          "damage": 8450,
+          "healing": 0,
+          "role": "DPS"
+        },
+        {
+          "heroName": "Mercy",
+          "playTime": "38h 15m",
+          "matches": 198,
+          "winRate": 72.1,
+          "kda": 1.9,
+          "damage": 1200,
+          "healing": 12500,
+          "role": "Support"
+        },
+        {
+          "heroName": "Reinhardt",
+          "playTime": "32h 45m",
+          "matches": 167,
+          "winRate": 64.2,
+          "kda": 2.1,
+          "damage": 6800,
+          "healing": 0,
+          "role": "Tank"
+        },
+        {
+          "heroName": "Ana",
+          "playTime": "28h 30m",
+          "matches": 145,
+          "winRate": 69.7,
+          "kda": 2.3,
+          "damage": 3200,
+          "healing": 11200,
+          "role": "Support"
+        },
+        {
+          "heroName": "Genji",
+          "playTime": "25h 10m",
+          "matches": 128,
+          "winRate": 61.8,
+          "kda": 2.6,
+          "damage": 7900,
+          "healing": 0,
+          "role": "DPS"
+        }
+      ],
+      "personalityTraits": {
+        "aggression": 75,
+        "teamwork": 85,
+        "leadership": 70,
+        "adaptability": 80,
+        "communication": 90,
+        "strategy": 78,
+        "mechanics": 82,
+        "patience": 65
+      },
+      "playstyle": {
+        "primary": "Team Player",
+        "secondary": "Aggressive",
+        "description": "Focuses on team coordination with aggressive positioning",
+        "strengths": ["Team Communication", "Quick Decision Making", "Hero Flexibility"],
+        "weaknesses": ["Sometimes Over-aggressive", "Impatient in Defense"],
+        "recommendations": ["Practice defensive positioning", "Work on patience in team fights"]
+      },
+      "performanceHistory": [
+        { "date": "2024-01-21", "winRate": 68.2, "kda": 2.4, "skillRating": 3245 },
+        { "date": "2024-01-20", "winRate": 67.8, "kda": 2.3, "skillRating": 3220 },
+        { "date": "2024-01-19", "winRate": 66.5, "kda": 2.2, "skillRating": 3195 },
+        { "date": "2024-01-18", "winRate": 65.9, "kda": 2.1, "skillRating": 3170 },
+        { "date": "2024-01-17", "winRate": 64.2, "kda": 2.0, "skillRating": 3145 },
+        { "date": "2024-01-16", "winRate": 63.8, "kda": 1.9, "skillRating": 3120 },
+        { "date": "2024-01-15", "winRate": 62.1, "kda": 1.8, "skillRating": 3095 }
+      ],
+      "achievements": [
+        {
+          "name": "Team Player",
+          "description": "Maintained 85%+ teamwork rating for 30 days",
+          "earnedDate": "2024-01-15",
+          "rarity": "Epic"
+        },
+        {
+          "name": "Versatile Fighter",
+          "description": "Played 5+ different heroes with 60%+ win rate",
+          "earnedDate": "2024-01-10",
+          "rarity": "Rare"
+        },
+        {
+          "name": "Communication Master",
+          "description": "Received 50+ positive communication ratings",
+          "earnedDate": "2024-01-05",
+          "rarity": "Legendary"
+        }
+      ],
+      "recentMatches": [
+        {
+          "matchId": "match_001",
+          "date": "2024-01-21T18:30:00Z",
+          "hero": "Tracer",
+          "result": "Win",
+          "duration": "12m 34s",
+          "kda": "18/6/12",
+          "damage": 9200,
+          "map": "King's Row",
+          "gameMode": "Competitive"
+        },
+        {
+          "matchId": "match_002",
+          "date": "2024-01-21T17:45:00Z",
+          "hero": "Mercy",
+          "result": "Win",
+          "duration": "15m 22s",
+          "kda": "2/3/28",
+          "healing": 14500,
+          "map": "Hanamura",
+          "gameMode": "Competitive"
+        },
+        {
+          "matchId": "match_003",
+          "date": "2024-01-21T16:58:00Z",
+          "hero": "Reinhardt",
+          "result": "Loss",
+          "duration": "18m 45s",
+          "kda": "8/12/15",
+          "damage": 7800,
+          "map": "Numbani",
+          "gameMode": "Competitive"
+        }
+      ]
+    }
+  },
+  "personalityQuestions": [
+    {
+      "id": "aggression",
+      "question": "게임에서 얼마나 공격적으로 플레이하시나요?",
+      "description": "적극적인 교전 참여 및 위험 감수 성향"
+    },
+    {
+      "id": "teamwork",
+      "question": "팀워크를 얼마나 중요하게 생각하시나요?",
+      "description": "팀원과의 협력 및 조화 중시 정도"
+    },
+    {
+      "id": "leadership",
+      "question": "게임에서 리더십을 발휘하는 편인가요?",
+      "description": "팀을 이끌고 전략을 제시하는 성향"
+    },
+    {
+      "id": "adaptability",
+      "question": "상황 변화에 얼마나 잘 적응하시나요?",
+      "description": "게임 상황에 따른 유연한 대응 능력"
+    },
+    {
+      "id": "communication",
+      "question": "팀원들과의 소통을 얼마나 활발히 하시나요?",
+      "description": "음성/텍스트 채팅을 통한 의사소통 빈도"
+    },
+    {
+      "id": "strategy",
+      "question": "전략적 사고를 얼마나 중요하게 여기시나요?",
+      "description": "게임 전략 수립 및 분석 능력"
+    },
+    {
+      "id": "mechanics",
+      "question": "개인 실력(조작, 에임 등)에 얼마나 자신있나요?",
+      "description": "게임 조작 기술 및 개인 기량"
+    },
+    {
+      "id": "patience",
+      "question": "게임에서 얼마나 인내심을 가지고 플레이하시나요?",
+      "description": "급하지 않게 기회를 기다리는 성향"
+    }
+  ]
+}

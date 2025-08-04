@@ -1,0 +1,218 @@
+{
+  "playerSearch": {
+    "enabled": true,
+    "searchHistory": [
+      {
+        "id": "search_001",
+        "playerName": "Profit_KR",
+        "searchDate": "2024-01-21T10:30:00Z",
+        "results": {
+          "rank": "Grandmaster",
+          "sr": 4234,
+          "mainHero": "Tracer",
+          "winRate": 68.5,
+          "totalGames": 156
+        }
+      },
+      {
+        "id": "search_002",
+        "playerName": "TankMain_99",
+        "searchDate": "2024-01-21T09:15:00Z",
+        "results": {
+          "rank": "Master",
+          "sr": 3567,
+          "mainHero": "Reinhardt",
+          "winRate": 72.3,
+          "totalGames": 89
+        }
+      }
+    ],
+    "popularSearches": [
+      { "playerName": "Profit", "searchCount": 1234 },
+      { "playerName": "Proper", "searchCount": 987 },
+      { "playerName": "Smurf", "searchCount": 756 }
+    ]
+  },
+  "heroRecommendations": {
+    "currentMeta": {
+      "lastUpdated": "2024-01-21T08:00:00Z",
+      "season": "Season 8",
+      "tank": [
+        {
+          "hero": "Reinhardt",
+          "winRate": 54.8,
+          "pickRate": 23.4,
+          "tier": "S",
+          "reason": "Strong barrier and team fight presence"
+        },
+        {
+          "hero": "Winston",
+          "winRate": 52.1,
+          "pickRate": 18.7,
+          "tier": "A",
+          "reason": "Excellent dive potential and mobility"
+        },
+        {
+          "hero": "D.Va",
+          "winRate": 51.3,
+          "pickRate": 16.2,
+          "tier": "A",
+          "reason": "Versatile off-tank with good peel"
+        }
+      ],
+      "dps": [
+        {
+          "hero": "Tracer",
+          "winRate": 53.2,
+          "pickRate": 19.8,
+          "tier": "S",
+          "reason": "High mobility and consistent damage"
+        },
+        {
+          "hero": "Soldier: 76",
+          "winRate": 52.7,
+          "pickRate": 15.4,
+          "tier": "A",
+          "reason": "Reliable hitscan with self-sustain"
+        },
+        {
+          "hero": "Genji",
+          "winRate": 49.8,
+          "pickRate": 12.3,
+          "tier": "B",
+          "reason": "High skill ceiling with good carry potential"
+        }
+      ],
+      "support": [
+        {
+          "hero": "Ana",
+          "winRate": 55.1,
+          "pickRate": 28.9,
+          "tier": "S",
+          "reason": "Powerful utility and healing output"
+        },
+        {
+          "hero": "Mercy",
+          "winRate": 54.3,
+          "pickRate": 24.6,
+          "tier": "S",
+          "reason": "Consistent healing and damage boost"
+        },
+        {
+          "hero": "Lucio",
+          "winRate": 53.8,
+          "pickRate": 21.2,
+          "tier": "A",
+          "reason": "Speed boost and area healing"
+        }
+      ]
+    }
+  },
+  "streamerRecommendations": {
+    "algorithm": {
+      "factors": ["viewerRank", "preferredRole", "language", "playStyle"],
+      "lastUpdated": "2024-01-21T06:00:00Z"
+    },
+    "featuredStreamers": [
+      {
+        "id": "streamer_001",
+        "name": "Profit",
+        "platform": "Twitch",
+        "url": "https://twitch.tv/profit",
+        "role": "DPS",
+        "rank": "Grandmaster",
+        "language": "Korean",
+        "viewers": 15420,
+        "isLive": true,
+        "playingHero": "Tracer",
+        "tags": ["Educational", "Pro Player", "High Skill"]
+      },
+      {
+        "id": "streamer_002",
+        "name": "ML7",
+        "platform": "Twitch",
+        "url": "https://twitch.tv/ml7_ow",
+        "role": "Support",
+        "rank": "Grandmaster",
+        "language": "English",
+        "viewers": 8934,
+        "isLive": true,
+        "playingHero": "Ana",
+        "tags": ["Educational", "Support Main", "Coaching"]
+      },
+      {
+        "id": "streamer_003",
+        "name": "Flats",
+        "platform": "Twitch",
+        "url": "https://twitch.tv/flats_ow",
+        "role": "Tank",
+        "rank": "Grandmaster",
+        "language": "English",
+        "viewers": 12567,
+        "isLive": false,
+        "playingHero": "Reinhardt",
+        "tags": ["Educational", "Tank Main", "Variety"]
+      }
+    ]
+  },
+  "shopRotation": {
+    "currentRotation": {
+      "id": "rotation_2024_01_21",
+      "startDate": "2024-01-21T00:00:00Z",
+      "endDate": "2024-01-22T00:00:00Z",
+      "items": [
+        {
+          "id": "skin_001",
+          "name": "Tracer - Graffiti",
+          "type": "Legendary Skin",
+          "hero": "Tracer",
+          "price": 1900,
+          "currency": "Credits",
+          "discount": 0,
+          "image": "/placeholder.svg?height=200&width=150"
+        },
+        {
+          "id": "emote_001",
+          "name": "Reinhardt - Hammer Down",
+          "type": "Epic Emote",
+          "hero": "Reinhardt",
+          "price": 750,
+          "currency": "Credits",
+          "discount": 25,
+          "image": "/placeholder.svg?height=200&width=150"
+        },
+        {
+          "id": "spray_001",
+          "name": "Overwatch Logo",
+          "type": "Spray",
+          "hero": "All",
+          "price": 25,
+          "currency": "Credits",
+          "discount": 0,
+          "image": "/placeholder.svg?height=200&width=150"
+        }
+      ]
+    },
+    "rotationHistory": [
+      {
+        "date": "2024-01-20",
+        "totalSales": 45670,
+        "topItem": "Mercy - Pink Skin",
+        "revenue": 892340
+      },
+      {
+        "date": "2024-01-19",
+        "totalSales": 38920,
+        "topItem": "Genji - Cyber Ninja",
+        "revenue": 756890
+      }
+    ]
+  },
+  "statistics": {
+    "totalSearches": 156789,
+    "dailySearches": 2341,
+    "activeStreamers": 45,
+    "shopRevenue": 1234567,
+    "userEngagement": 78.5
+  }
+}

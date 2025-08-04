@@ -1,0 +1,64 @@
+{
+  "endpoints": {
+    "members": {
+      "getAll": "GET /api/members",
+      "getById": "GET /api/members/{id}",
+      "create": "POST /api/members",
+      "update": "PUT /api/members/{id}",
+      "delete": "DELETE /api/members/{id}",
+      "search": "GET /api/members/search?q={query}&status={status}&page={page}&limit={limit}"
+    },
+    "reports": {
+      "getAll": "GET /api/reports",
+      "getById": "GET /api/reports/{id}",
+      "create": "POST /api/reports",
+      "update": "PUT /api/reports/{id}",
+      "resolve": "POST /api/reports/{id}/resolve",
+      "dismiss": "POST /api/reports/{id}/dismiss"
+    },
+    "sanctions": {
+      "getAll": "GET /api/sanctions",
+      "getById": "GET /api/sanctions/{id}",
+      "create": "POST /api/sanctions",
+      "lift": "POST /api/sanctions/{id}/lift"
+    },
+    "blockedUsers": {
+      "getAll": "GET /api/blocked-users",
+      "block": "POST /api/blocked-users",
+      "unblock": "POST /api/blocked-users/{id}/unblock"
+    },
+    "inquiries": {
+      "getAll": "GET /api/inquiries",
+      "getById": "GET /api/inquiries/{id}",
+      "reply": "POST /api/inquiries/{id}/reply",
+      "updateStatus": "PUT /api/inquiries/{id}/status"
+    },
+    "chatRooms": {
+      "getAll": "GET /api/chat-rooms",
+      "getById": "GET /api/chat-rooms/{id}",
+      "close": "POST /api/chat-rooms/{id}/close",
+      "reopen": "POST /api/chat-rooms/{id}/reopen"
+    },
+    "announcements": {
+      "getAll": "GET /api/announcements",
+      "getById": "GET /api/announcements/{id}",
+      "create": "POST /api/announcements",
+      "update": "PUT /api/announcements/{id}",
+      "delete": "DELETE /api/announcements/{id}",
+      "publish": "POST /api/announcements/{id}/publish"
+    },
+    "statistics": {
+      "platform": "GET /api/statistics/platform",
+      "revenue": "GET /api/statistics/revenue",
+      "members": "GET /api/statistics/members",
+      "duoSquad": "GET /api/statistics/duo-squad",
+      "coaching": "GET /api/statistics/coaching",
+      "aiPredictions": "GET /api/statistics/ai-predictions"
+    },
+    "dashboard": {
+      "overview": "GET /api/dashboard/overview",
+      "quickStats": "GET /api/dashboard/quick-stats",
+      "recentActivity": "GET /api/dashboard/recent-activity"
+    }
+  }
+}

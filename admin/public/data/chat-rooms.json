@@ -1,0 +1,40 @@
+{
+  "chatRooms": [
+    {
+      "id": "1",
+      "name": "Overwatch Competitive",
+      "description": "Discuss competitive Overwatch strategies",
+      "members": 156,
+      "status": "Active",
+      "created": "2024-01-15",
+      "lastActivity": "2024-01-21T15:30:00Z",
+      "reports": 0,
+      "category": "Gaming",
+      "isPrivate": false
+    },
+    {
+      "id": "2",
+      "name": "Coaching Discussion",
+      "description": "Find and discuss coaching opportunities",
+      "members": 89,
+      "status": "Active",
+      "created": "2024-01-10",
+      "lastActivity": "2024-01-21T14:45:00Z",
+      "reports": 2,
+      "category": "Coaching",
+      "isPrivate": false
+    },
+    {
+      "id": "3",
+      "name": "Toxic Chat Room",
+      "description": "Reported for inappropriate content",
+      "members": 23,
+      "status": "Under Review",
+      "created": "2024-01-18",
+      "lastActivity": "2024-01-20T10:15:00Z",
+      "reports": 8,
+      "category": "General",
+      "isPrivate": false
+    }
+  ]
+}

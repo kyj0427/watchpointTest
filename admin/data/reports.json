@@ -1,0 +1,72 @@
+{
+  "reports": [
+    {
+      "id": "1",
+      "type": "Inappropriate Content",
+      "reportedUser": "BadUser123",
+      "reporter": "GoodUser456",
+      "content": "Offensive language in chat room",
+      "date": "2024-01-20",
+      "status": "Pending",
+      "severity": "High"
+    },
+    {
+      "id": "2",
+      "type": "Spam",
+      "reportedUser": "SpamBot999",
+      "reporter": "CleanUser789",
+      "content": "Repeated promotional messages",
+      "date": "2024-01-19",
+      "status": "Resolved",
+      "severity": "Medium"
+    },
+    {
+      "id": "3",
+      "type": "Harassment",
+      "reportedUser": "ToxicPlayer",
+      "reporter": "VictimUser",
+      "content": "Personal attacks and threats",
+      "date": "2024-01-18",
+      "status": "Under Review",
+      "severity": "Critical"
+    }
+  ],
+  "blockedUsers": [
+    {
+      "id": "1",
+      "name": "BlockedUser1",
+      "email": "blocked1@example.com",
+      "battleTag": "Blocked#1111",
+      "blockReason": "Multiple harassment reports",
+      "blockDate": "2024-01-15",
+      "blockedBy": "Admin",
+      "reportCount": 8,
+      "status": "Permanently Blocked",
+      "unblockDate": null
+    },
+    {
+      "id": "2",
+      "name": "TempBlocked2",
+      "email": "temp@example.com",
+      "battleTag": "TempBlock#2222",
+      "blockReason": "Spam activities",
+      "blockDate": "2024-01-18",
+      "blockedBy": "System",
+      "reportCount": 5,
+      "status": "Temporary Block",
+      "unblockDate": "2024-01-25"
+    },
+    {
+      "id": "3",
+      "name": "ReviewUser3",
+      "email": "review@example.com",
+      "battleTag": "Review#3333",
+      "blockReason": "Under investigation",
+      "blockDate": "2024-01-20",
+      "blockedBy": "Admin",
+      "reportCount": 3,
+      "status": "Under Review",
+      "unblockDate": null
+    }
+  ]
+}
