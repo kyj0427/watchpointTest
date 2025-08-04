@@ -1,12 +1,12 @@
-import heroBanner1 from "@public/images/photos/heroBanner1.webp";
-import heroBanner2 from "@public/images/photos/heroBanner2.webp";
-import heroBanner3 from "@public/images/photos/heroBanner3.webp";
-import heroBanner4 from "@public/images/photos/heroBanner4.webp";
-import heroBanner5 from "@public/images/photos/heroBanner5.webp";
-import heroBanner6 from "@public/images/photos/heroBanner6.webp";
-import heroBanner7 from "@public/images/photos/heroBanner7.webp";
-import heroBanner8 from "@public/images/photos/heroBanner8.webp";
-import heroBanner9 from "@public/images/photos/heroBanner9.webp";
+import heroBanner1 from "@public/images/photos/overwatch_01.jpg";
+import heroBanner2 from "@public/images/photos/overwatch_04.avif";
+import heroBanner3 from "@public/images/photos/overwatch_05.jpg";
+import heroBanner4 from "@public/images/photos/overwatch_06.jpg";
+import heroBanner5 from "@public/images/photos/overwatch_07.jpg";
+import heroBanner6 from "@public/images/photos/overwatch_08.jpg";
+import heroBanner7 from "@public/images/photos/overwatch_09.jpg";
+import heroBanner8 from "@public/images/photos/overwatch_10.jpg";
+import heroBanner9 from "@public/images/photos/overwatch_11.png";
 
 import user1 from "@public/images/users/user1.png";
 import user2 from "@public/images/users/user2.png";
@@ -25,8 +25,8 @@ export const homeOneBannerData = [
     {
         id: 1,
         image: heroBanner1,
-        title: "UNITE. PLAY. CONQUER.",
-        game: "Leagues of Legends",
+        title: "A FUTURE WORTH FIGHTING FOR",
+        game: "Overwatch2",
         language: "US English",
         link: "/game-details-one",
     },

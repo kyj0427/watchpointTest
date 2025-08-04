@@ -113,13 +113,13 @@ const HomeBannerOne = () => {
               {homeOneBannerData?.map((item, idx) => (
                 <SwiperSlide key={idx} className="pb-10">
                   <div className="overflow-hidden cursor-pointer rounded-20">
-                    <Image
+                    {/* <Image
                       className="xxl:w-[180px] xl:w-[140px] lg:w-[120px] md:w-25 w-20 xxl:h-[110px] xl:h-24 lg:h-20 md:h-18 h-16 hover:scale-110 hover:-rotate-6 object-cover transition-1"
                       src={item?.image}
                       width={180}
                       height={110}
                       alt="product"
-                    />
+                    /> */}
                   </div>
                 </SwiperSlide>
               ))}
