@@ -1,0 +1,32 @@
+{
+  "profile": {
+    "id": "admin-001",
+    "name": "Admin User",
+    "email": "admin@watchpoint.co.kr",
+    "role": "Super Admin",
+    "avatar": "/placeholder.svg?height=64&width=64",
+    "joinDate": "2023-06-15",
+    "lastLogin": "2024-01-21T09:00:00Z",
+    "permissions": ["user_management", "content_moderation", "system_settings", "analytics_view", "billing_management"],
+    "preferences": {
+      "theme": "light",
+      "language": "en",
+      "timezone": "America/New_York",
+      "emailNotifications": true,
+      "pushNotifications": false,
+      "weeklyReports": true
+    },
+    "security": {
+      "twoFactorEnabled": true,
+      "lastPasswordChange": "2024-01-01T00:00:00Z",
+      "loginAttempts": 0,
+      "accountLocked": false
+    }
+  },
+  "activitySummary": {
+    "totalLogins": 245,
+    "actionsThisMonth": 89,
+    "reportsResolved": 156,
+    "usersModerated": 23
+  }
+}

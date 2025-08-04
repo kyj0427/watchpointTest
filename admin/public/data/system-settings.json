@@ -1,0 +1,47 @@
+{
+  "general": {
+    "platformName": "Gaming Platform Admin",
+    "platformUrl": "https://admin.watchpoint.co.kr",
+    "supportEmail": "support@watchpoint.co.kr",
+    "timezone": "America/New_York",
+    "language": "en",
+    "maintenanceMode": false,
+    "registrationEnabled": true,
+    "maxUsersPerChatRoom": 100
+  },
+  "security": {
+    "passwordMinLength": 8,
+    "passwordRequireSpecialChars": true,
+    "sessionTimeout": 3600,
+    "maxLoginAttempts": 5,
+    "twoFactorRequired": false,
+    "ipWhitelist": ["192.168.1.0/24"],
+    "rateLimitEnabled": true,
+    "rateLimitRequests": 100,
+    "rateLimitWindow": 3600
+  },
+  "notifications": {
+    "emailEnabled": true,
+    "smtpHost": "smtp.platform.com",
+    "smtpPort": 587,
+    "smtpUsername": "noreply@platform.com",
+    "pushNotificationsEnabled": true,
+    "slackWebhook": "https://hooks.slack.com/...",
+    "discordWebhook": "https://discord.com/api/webhooks/..."
+  },
+  "moderation": {
+    "autoModerationEnabled": true,
+    "profanityFilterEnabled": true,
+    "spamDetectionEnabled": true,
+    "reportThreshold": 5,
+    "autoSuspendEnabled": false,
+    "appealProcessEnabled": true
+  },
+  "backup": {
+    "enabled": true,
+    "frequency": "daily",
+    "retentionDays": 30,
+    "s3Bucket": "platform-backups",
+    "lastBackup": "2024-01-21T12:00:00Z"
+  }
+}

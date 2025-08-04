@@ -1,0 +1,14 @@
+/* watchpoint admin custom */
+header + .p-4.pt-0 {
+  padding-top: 1rem;
+}
+
+.bell {
+  display: flex;
+  justify-content: center;
+}
+
+.lucide-bell + .bg-primary {
+  display: flex;
+  justify-content: center;
+}/*# sourceMappingURL=watchpoint.css.map */

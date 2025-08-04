@@ -1,0 +1,73 @@
+{
+  "inquiries": [
+    {
+      "id": "1",
+      "subject": "Account verification issue",
+      "member": "John Doe",
+      "memberId": "1",
+      "email": "john@example.com",
+      "category": "Account",
+      "priority": "High",
+      "status": "Open",
+      "submittedDate": "2024-01-21",
+      "lastReply": "2024-01-21",
+      "messages": 3,
+      "content": "I'm having trouble verifying my account. The verification email never arrived.",
+      "replies": [
+        {
+          "id": "1",
+          "author": "Support Team",
+          "content": "We've resent the verification email. Please check your spam folder.",
+          "timestamp": "2024-01-21T10:30:00Z",
+          "isAdmin": true
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "subject": "Payment processing problem",
+      "member": "Jane Smith",
+      "memberId": "2",
+      "email": "jane@example.com",
+      "category": "Billing",
+      "priority": "Critical",
+      "status": "In Progress",
+      "submittedDate": "2024-01-20",
+      "lastReply": "2024-01-21",
+      "messages": 5,
+      "content": "My payment was charged but my subscription wasn't activated.",
+      "replies": [
+        {
+          "id": "1",
+          "author": "Billing Team",
+          "content": "We're investigating this issue. Your subscription will be activated within 24 hours.",
+          "timestamp": "2024-01-21T14:15:00Z",
+          "isAdmin": true
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "subject": "Feature request for coaching system",
+      "member": "Mike Johnson",
+      "memberId": "3",
+      "email": "mike@example.com",
+      "category": "Feature Request",
+      "priority": "Low",
+      "status": "Resolved",
+      "submittedDate": "2024-01-18",
+      "lastReply": "2024-01-19",
+      "messages": 2,
+      "content": "It would be great to have a rating system for coaches.",
+      "replies": [
+        {
+          "id": "1",
+          "author": "Product Team",
+          "content": "Thank you for the suggestion! We've added this to our roadmap.",
+          "timestamp": "2024-01-19T09:00:00Z",
+          "isAdmin": true
+        }
+      ]
+    }
+  ]
+}

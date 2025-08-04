@@ -1,0 +1,76 @@
+{
+  "activities": [
+    {
+      "id": "1",
+      "user": "Admin User",
+      "action": "User Suspended",
+      "target": "BadUser123",
+      "details": "Suspended user for 7 days due to multiple reports",
+      "timestamp": "2024-01-21T16:45:00Z",
+      "category": "moderation",
+      "severity": "high",
+      "ipAddress": "192.168.1.100"
+    },
+    {
+      "id": "2",
+      "user": "Admin User",
+      "action": "Announcement Published",
+      "target": "Platform Maintenance",
+      "details": "Published maintenance announcement for weekend",
+      "timestamp": "2024-01-21T15:30:00Z",
+      "category": "content",
+      "severity": "medium",
+      "ipAddress": "192.168.1.100"
+    },
+    {
+      "id": "3",
+      "user": "System",
+      "action": "Backup Created",
+      "target": "Database",
+      "details": "Automated daily backup completed successfully",
+      "timestamp": "2024-01-21T12:00:00Z",
+      "category": "system",
+      "severity": "low",
+      "ipAddress": "127.0.0.1"
+    },
+    {
+      "id": "4",
+      "user": "Admin User",
+      "action": "Report Resolved",
+      "target": "Report #1234",
+      "details": "Resolved harassment report and took appropriate action",
+      "timestamp": "2024-01-21T11:15:00Z",
+      "category": "moderation",
+      "severity": "medium",
+      "ipAddress": "192.168.1.100"
+    },
+    {
+      "id": "5",
+      "user": "Admin User",
+      "action": "Chat Room Closed",
+      "target": "Toxic Chat Room",
+      "details": "Closed chat room due to multiple violations",
+      "timestamp": "2024-01-21T10:30:00Z",
+      "category": "moderation",
+      "severity": "high",
+      "ipAddress": "192.168.1.100"
+    },
+    {
+      "id": "6",
+      "user": "Admin User",
+      "action": "Login",
+      "target": "Admin Panel",
+      "details": "Successful login to admin dashboard",
+      "timestamp": "2024-01-21T09:00:00Z",
+      "category": "auth",
+      "severity": "low",
+      "ipAddress": "192.168.1.100"
+    }
+  ],
+  "totalCount": 156,
+  "filters": {
+    "categories": ["auth", "moderation", "content", "system", "billing"],
+    "severities": ["low", "medium", "high", "critical"],
+    "users": ["Admin User", "System", "Moderator"]
+  }
+}

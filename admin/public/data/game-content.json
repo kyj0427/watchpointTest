@@ -1,0 +1,941 @@
+{
+  "maps": [
+    {
+      "id": "kings_row",
+      "name": "King's Row",
+      "type": "Hybrid",
+      "description": "런던을 배경으로 한 하이브리드 맵",
+      "image": "/placeholder.svg?height=200&width=300",
+      "videoUrl": "/placeholder.mp4?query=Kings Row gameplay",
+      "status": "active",
+      "lastUpdated": "2024-01-15T10:00:00Z",
+      "strategies": [
+        {
+          "phase": "Attack",
+          "description": "High ground 확보 후 진입",
+          "tips": ["Widow/Hanzo로 픽 확보", "Rein/Zarya 조합 추천"]
+        },
+        {
+          "phase": "Defense",
+          "description": "첫 번째 코너에서 홀딩",
+          "tips": ["Torb/Sym으로 초반 홀딩", "궁극기 연계 중요"]
+        }
+      ]
+    },
+    {
+      "id": "hanamura",
+      "name": "Hanamura",
+      "type": "Assault",
+      "description": "일본 전통 마을을 배경으로 한 점령 맵",
+      "image": "/placeholder.svg?height=200&width=300",
+      "videoUrl": "/placeholder.mp4?query=Hanamura point capture",
+      "status": "active",
+      "lastUpdated": "2024-01-10T14:30:00Z",
+      "strategies": [
+        {
+          "phase": "Attack",
+          "description": "측면 루트 활용",
+          "tips": ["Genji/Tracer 플랭킹", "Pharah 하늘 루트"]
+        }
+      ]
+    },
+    {
+      "id": "numbani",
+      "name": "Numbani",
+      "type": "Hybrid",
+      "description": "아프리카 미래 도시 테마의 하이브리드 맵",
+      "image": "/placeholder.svg?height=200&width=300",
+      "videoUrl": "/placeholder.mp4?query=Numbani escort mission",
+      "status": "active",
+      "lastUpdated": "2024-01-12T09:15:00Z"
+    },
+    {
+      "id": "dorado",
+      "name": "Dorado",
+      "type": "Escort",
+      "description": "멕시코 축제 마을 테마의 호위 맵",
+      "image": "/placeholder.svg?height=200&width=300",
+      "videoUrl": "/placeholder.mp4?query=Dorado payload escort",
+      "status": "active",
+      "lastUpdated": "2024-01-08T16:45:00Z"
+    },
+    {
+      "id": "gibraltar",
+      "name": "Watchpoint: Gibraltar",
+      "type": "Escort",
+      "description": "지브롤터 감시기지 테마의 호위 맵",
+      "image": "/placeholder.svg?height=200&width=300",
+      "videoUrl": "/placeholder.mp4?query=Gibraltar payload route",
+      "status": "active",
+      "lastUpdated": "2024-01-05T11:20:00Z"
+    },
+    {
+      "id": "hollywood",
+      "name": "Hollywood",
+      "type": "Hybrid",
+      "description": "할리우드 영화 스튜디오 테마의 하이브리드 맵",
+      "image": "/placeholder.svg?height=200&width=300",
+      "videoUrl": "/placeholder.mp4?query=Hollywood hybrid gameplay",
+      "status": "active",
+      "lastUpdated": "2024-01-07T13:30:00Z"
+    },
+    {
+      "id": "temple_of_anubis",
+      "name": "Temple of Anubis",
+      "type": "Assault",
+      "description": "이집트 신전 테마의 점령 맵",
+      "image": "/placeholder.svg?height=200&width=300",
+      "videoUrl": "/placeholder.mp4?query=Temple of Anubis point A",
+      "status": "active",
+      "lastUpdated": "2024-01-03T10:00:00Z"
+    },
+    {
+      "id": "volskaya",
+      "name": "Volskaya Industries",
+      "type": "Assault",
+      "description": "러시아 산업 단지 테마의 점령 맵",
+      "image": "/placeholder.svg?height=200&width=300",
+      "videoUrl": "/placeholder.mp4?query=Volskaya Industries assault",
+      "status": "active",
+      "lastUpdated": "2024-01-04T14:15:00Z"
+    },
+    {
+      "id": "lijiang",
+      "name": "Lijiang Tower",
+      "type": "Control",
+      "description": "중국 고층 빌딩 테마의 점령지 쟁탈 맵",
+      "image": "/placeholder.svg?height=200&width=300",
+      "videoUrl": "/placeholder.mp4?query=Lijiang Tower control point",
+      "status": "active",
+      "lastUpdated": "2024-01-06T12:00:00Z"
+    },
+    {
+      "id": "ilios",
+      "name": "Ilios",
+      "type": "Control",
+      "description": "그리스 섬 테마의 점령지 쟁탈 맵",
+      "image": "/placeholder.svg?height=200&width=300",
+      "videoUrl": "/placeholder.mp4?query=Ilios well environmental kill",
+      "status": "active",
+      "lastUpdated": "2024-01-09T15:45:00Z"
+    },
+    {
+      "id": "nepal",
+      "name": "Nepal",
+      "type": "Control",
+      "description": "네팔 산악 지대 테마의 점령지 쟁탈 맵",
+      "image": "/placeholder.svg?height=200&width=300",
+      "videoUrl": "/placeholder.mp4?query=Nepal shrine control point",
+      "status": "active",
+      "lastUpdated": "2024-01-11T08:30:00Z"
+    },
+    {
+      "id": "colosseo",
+      "name": "Colosseo",
+      "type": "Push",
+      "description": "이탈리아 로마 콜로세움 테마의 로봇 밀기 맵",
+      "image": "/placeholder.svg?height=200&width=300",
+      "videoUrl": "/placeholder.mp4?query=Colosseo robot push",
+      "status": "active",
+      "lastUpdated": "2024-01-13T17:20:00Z"
+    },
+    {
+      "id": "new_queen_street",
+      "name": "New Queen Street",
+      "type": "Push",
+      "description": "캐나다 토론토 테마의 로봇 밀기 맵",
+      "image": "/placeholder.svg?height=200&width=300",
+      "videoUrl": "/placeholder.mp4?query=New Queen Street push mode",
+      "status": "active",
+      "lastUpdated": "2024-01-14T19:10:00Z"
+    }
+  ],
+  "heroes": [
+    {
+      "id": "tracer",
+      "name": "Tracer",
+      "role": "DPS",
+      "difficulty": "Hard",
+      "health": 150,
+      "image": "/placeholder.svg?height=300&width=200",
+      "abilities": [
+        {
+          "name": "Pulse Pistols",
+          "type": "Primary",
+          "description": "빠른 연사 권총",
+          "damage": "1.5-6 per bullet",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Blink",
+          "type": "Ability",
+          "cooldown": "3s",
+          "description": "순간이동",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Recall",
+          "type": "Ability",
+          "cooldown": "12s",
+          "description": "3초 전 위치로 복귀",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Pulse Bomb",
+          "type": "Ultimate",
+          "description": "부착형 폭탄",
+          "damage": "350",
+          "icon": "/placeholder.svg?height=50&width=50"
+        }
+      ],
+      "counters": ["McCree", "Brigitte", "Torbjorn"],
+      "synergies": ["Winston", "D.Va", "Lucio"],
+      "tierRating": "S",
+      "winRate": 52.3,
+      "pickRate": 8.7,
+      "lastUpdated": "2024-01-20T09:00:00Z",
+      "status": "active"
+    },
+    {
+      "id": "reinhardt",
+      "name": "Reinhardt",
+      "role": "Tank",
+      "difficulty": "Medium",
+      "health": 525,
+      "image": "/placeholder.svg?height=300&width=200",
+      "abilities": [
+        {
+          "name": "Rocket Hammer",
+          "type": "Primary",
+          "description": "근접 망치 공격",
+          "damage": "85",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Barrier Field",
+          "type": "Ability",
+          "description": "방패 전개",
+          "health": "1600",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Charge",
+          "type": "Ability",
+          "cooldown": "10s",
+          "description": "돌진 공격",
+          "damage": "300",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Fire Strike",
+          "type": "Ability",
+          "cooldown": "6s",
+          "description": "화염 투사체",
+          "damage": "100",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Earthshatter",
+          "type": "Ultimate",
+          "description": "지면 강타",
+          "damage": "50",
+          "icon": "/placeholder.svg?height=50&width=50"
+        }
+      ],
+      "counters": ["Reaper", "Bastion", "Junkrat"],
+      "synergies": ["Ana", "Lucio", "Zarya"],
+      "tierRating": "A",
+      "winRate": 54.1,
+      "pickRate": 12.4,
+      "lastUpdated": "2024-01-18T16:20:00Z",
+      "status": "active"
+    },
+    {
+      "id": "mercy",
+      "name": "Mercy",
+      "role": "Support",
+      "difficulty": "Easy",
+      "health": 200,
+      "image": "/placeholder.svg?height=300&width=200",
+      "abilities": [
+        {
+          "name": "Caduceus Staff",
+          "type": "Primary",
+          "description": "치료 및 공격력 증폭",
+          "healing": "55 per second",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Caduceus Blaster",
+          "type": "Secondary",
+          "description": "응급 권총",
+          "damage": "20 per shot",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Guardian Angel",
+          "type": "Ability",
+          "cooldown": "1.5s",
+          "description": "아군에게 빠르게 이동",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Angelic Descent",
+          "type": "Passive",
+          "description": "천천히 낙하",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Valkyrie",
+          "type": "Ultimate",
+          "description": "비행 및 체인 힐링",
+          "duration": "15s",
+          "icon": "/placeholder.svg?height=50&width=50"
+        }
+      ],
+      "counters": ["Winston", "Genji", "Tracer"],
+      "synergies": ["Pharah", "Ashe", "Echo"],
+      "tierRating": "S",
+      "winRate": 55.8,
+      "pickRate": 14.2,
+      "lastUpdated": "2024-01-19T11:30:00Z",
+      "status": "active"
+    },
+    {
+      "id": "genji",
+      "name": "Genji",
+      "role": "DPS",
+      "difficulty": "Hard",
+      "health": 200,
+      "image": "/placeholder.svg?height=300&width=200",
+      "abilities": [
+        {
+          "name": "Shuriken",
+          "type": "Primary",
+          "description": "수리검 투척",
+          "damage": "29 per shuriken",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Deflect",
+          "type": "Ability",
+          "cooldown": "8s",
+          "description": "투사체 반사",
+          "duration": "2s",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Swift Strike",
+          "type": "Ability",
+          "cooldown": "8s",
+          "description": "돌진 공격",
+          "damage": "50",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Cyber-Agility",
+          "type": "Passive",
+          "description": "벽타기 및 이단 점프",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Dragonblade",
+          "type": "Ultimate",
+          "description": "용검 발동",
+          "damage": "120 per slash",
+          "icon": "/placeholder.svg?height=50&width=50"
+        }
+      ],
+      "counters": ["Winston", "Zarya", "Moira"],
+      "synergies": ["Ana", "Zenyatta", "Lucio"],
+      "tierRating": "A",
+      "winRate": 49.2,
+      "pickRate": 6.8,
+      "lastUpdated": "2024-01-17T14:45:00Z",
+      "status": "active"
+    },
+    {
+      "id": "dva",
+      "name": "D.Va",
+      "role": "Tank",
+      "difficulty": "Medium",
+      "health": 650,
+      "image": "/placeholder.svg?height=300&width=200",
+      "abilities": [
+        {
+          "name": "Fusion Cannons",
+          "type": "Primary",
+          "description": "근거리 융합포",
+          "damage": "2.2 per pellet",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Light Gun",
+          "type": "Secondary",
+          "description": "조종사 모드 권총",
+          "damage": "14 per shot",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Boosters",
+          "type": "Ability",
+          "cooldown": "5s",
+          "description": "추진기 비행",
+          "damage": "10 per second",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Defense Matrix",
+          "type": "Ability",
+          "cooldown": "1s",
+          "description": "투사체 차단",
+          "duration": "3s",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Self-Destruct",
+          "type": "Ultimate",
+          "description": "메카 자폭",
+          "damage": "1000 max",
+          "icon": "/placeholder.svg?height=50&width=50"
+        }
+      ],
+      "counters": ["Zarya", "Symmetra", "Mei"],
+      "synergies": ["Winston", "Ball", "Lucio"],
+      "tierRating": "B",
+      "winRate": 51.7,
+      "pickRate": 9.3,
+      "lastUpdated": "2024-01-16T10:15:00Z",
+      "status": "active"
+    },
+    {
+      "id": "ana",
+      "name": "Ana",
+      "role": "Support",
+      "difficulty": "Hard",
+      "health": 200,
+      "image": "/placeholder.svg?height=300&width=200",
+      "abilities": [
+        {
+          "name": "Biotic Rifle",
+          "type": "Primary",
+          "description": "치료/공격 저격총",
+          "healing": "70",
+          "damage": "70",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Sleep Dart",
+          "type": "Ability",
+          "cooldown": "12s",
+          "description": "수면 다트",
+          "duration": "5.5s",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Biotic Grenade",
+          "type": "Ability",
+          "cooldown": "10s",
+          "description": "생체 수류탄",
+          "healing": "100",
+          "damage": "60",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Nano Boost",
+          "type": "Ultimate",
+          "description": "나노 강화제",
+          "damage_reduction": "50%",
+          "damage_increase": "50%",
+          "icon": "/placeholder.svg?height=50&width=50"
+        }
+      ],
+      "counters": ["Winston", "Genji", "Tracer"],
+      "synergies": ["Reinhardt", "Genji", "Soldier"],
+      "tierRating": "S",
+      "winRate": 53.4,
+      "pickRate": 11.6,
+      "lastUpdated": "2024-01-18T13:20:00Z",
+      "status": "active"
+    },
+    {
+      "id": "widowmaker",
+      "name": "Widowmaker",
+      "role": "DPS",
+      "difficulty": "Hard",
+      "health": 175,
+      "image": "/placeholder.svg?height=300&width=200",
+      "abilities": [
+        {
+          "name": "Widow's Kiss",
+          "type": "Primary",
+          "description": "저격총/기관총",
+          "damage": "120 (scoped headshot: 300)",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Grappling Hook",
+          "type": "Ability",
+          "cooldown": "12s",
+          "description": "갈고리 이동",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Venom Mine",
+          "type": "Ability",
+          "cooldown": "15s",
+          "description": "독 지뢰",
+          "damage": "75",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Infra-Sight",
+          "type": "Ultimate",
+          "description": "적 투시",
+          "duration": "15.5s",
+          "icon": "/placeholder.svg?height=50&width=50"
+        }
+      ],
+      "counters": ["Winston", "D.Va", "Genji"],
+      "synergies": ["Mercy", "Baptiste", "Orisa"],
+      "tierRating": "A",
+      "winRate": 48.9,
+      "pickRate": 7.1,
+      "lastUpdated": "2024-01-15T16:40:00Z",
+      "status": "active"
+    },
+    {
+      "id": "winston",
+      "name": "Winston",
+      "role": "Tank",
+      "difficulty": "Medium",
+      "health": 500,
+      "image": "/placeholder.svg?height=300&width=200",
+      "abilities": [
+        {
+          "name": "Tesla Cannon",
+          "type": "Primary",
+          "description": "전기 방사기",
+          "damage": "60 per second",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Jump Pack",
+          "type": "Ability",
+          "cooldown": "6s",
+          "description": "점프 팩 도약",
+          "damage": "1-50",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Barrier Projector",
+          "type": "Ability",
+          "cooldown": "13s",
+          "description": "방어막 생성",
+          "health": "700",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Primal Rage",
+          "type": "Ultimate",
+          "description": "원시 분노",
+          "health": "1000",
+          "duration": "10s",
+          "icon": "/placeholder.svg?height=50&width=50"
+        }
+      ],
+      "counters": ["Reaper", "Roadhog", "Bastion"],
+      "synergies": ["D.Va", "Tracer", "Genji"],
+      "tierRating": "A",
+      "winRate": 52.8,
+      "pickRate": 8.9,
+      "lastUpdated": "2024-01-17T12:10:00Z",
+      "status": "active"
+    },
+    {
+      "id": "lucio",
+      "name": "Lucio",
+      "role": "Support",
+      "difficulty": "Medium",
+      "health": 200,
+      "image": "/placeholder.svg?height=300&width=200",
+      "abilities": [
+        {
+          "name": "Sonic Amplifier",
+          "type": "Primary",
+          "description": "음파 증폭기",
+          "damage": "20 per projectile",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Crossfade",
+          "type": "Ability",
+          "description": "힐링/스피드 오라",
+          "healing": "16.25 per second",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Amp It Up",
+          "type": "Ability",
+          "cooldown": "12s",
+          "description": "오라 증폭",
+          "duration": "3s",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Wall Ride",
+          "type": "Passive",
+          "description": "벽타기",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Sound Barrier",
+          "type": "Ultimate",
+          "description": "음파 방벽",
+          "shield": "750",
+          "icon": "/placeholder.svg?height=50&width=50"
+        }
+      ],
+      "counters": ["McCree", "Pharah", "Soldier"],
+      "synergies": ["Reinhardt", "Winston", "Genji"],
+      "tierRating": "S",
+      "winRate": 54.6,
+      "pickRate": 13.8,
+      "lastUpdated": "2024-01-19T09:25:00Z",
+      "status": "active"
+    },
+    {
+      "id": "soldier76",
+      "name": "Soldier: 76",
+      "role": "DPS",
+      "difficulty": "Easy",
+      "health": 200,
+      "image": "/placeholder.svg?height=300&width=200",
+      "abilities": [
+        {
+          "name": "Heavy Pulse Rifle",
+          "type": "Primary",
+          "description": "돌격소총",
+          "damage": "20 per shot",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Helix Rockets",
+          "type": "Ability",
+          "cooldown": "6s",
+          "description": "나선 로켓",
+          "damage": "120",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Sprint",
+          "type": "Ability",
+          "description": "전력 질주",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Biotic Field",
+          "type": "Ability",
+          "cooldown": "15s",
+          "description": "생체 치료장",
+          "healing": "35 per second",
+          "icon": "/placeholder.svg?height=50&width=50"
+        },
+        {
+          "name": "Tactical Visor",
+          "type": "Ultimate",
+          "description": "전술 조준경",
+          "duration": "6s",
+          "icon": "/placeholder.svg?height=50&width=50"
+        }
+      ],
+      "counters": ["Genji", "Tracer", "Pharah"],
+      "synergies": ["Ana", "Mercy", "Reinhardt"],
+      "tierRating": "B",
+      "winRate": 50.4,
+      "pickRate": 5.2,
+      "lastUpdated": "2024-01-16T14:50:00Z",
+      "status": "active"
+    }
+  ],
+  "patchNotes": [
+    {
+      "id": "patch_2024_01_20",
+      "version": "2024.01.20",
+      "title": "Season 8: Balance Update - Tank Adjustments",
+      "releaseDate": "2024-01-20T18:00:00Z",
+      "status": "published",
+      "changes": [
+        {
+          "hero": "Reinhardt",
+          "type": "buff",
+          "description": "Barrier Field health increased from 1600 to 1800"
+        },
+        {
+          "hero": "D.Va",
+          "type": "nerf",
+          "description": "Defense Matrix duration reduced from 3s to 2.5s"
+        },
+        {
+          "hero": "Tracer",
+          "type": "adjustment",
+          "description": "Pulse Bomb damage falloff adjusted for better balance"
+        },
+        {
+          "hero": "Mercy",
+          "type": "buff",
+          "description": "Guardian Angel cooldown reduced from 1.5s to 1.25s"
+        }
+      ],
+      "summary": "This patch focuses on tank balance adjustments and quality of life improvements for support heroes.",
+      "author": "Blizzard Entertainment",
+      "image": "/placeholder.svg?height=200&width=400"
+    },
+    {
+      "id": "patch_2024_01_15",
+      "version": "2024.01.15",
+      "title": "New Hero: Venture - The Underground Explorer",
+      "releaseDate": "2024-01-15T20:00:00Z",
+      "status": "published",
+      "changes": [
+        {
+          "hero": "Venture",
+          "type": "new",
+          "description": "New DPS hero added to the roster with underground traversal abilities"
+        },
+        {
+          "hero": "Widowmaker",
+          "type": "nerf",
+          "description": "Scoped damage reduced from 120 to 115"
+        },
+        {
+          "hero": "Ana",
+          "type": "buff",
+          "description": "Sleep Dart cooldown reduced from 12s to 11s"
+        }
+      ],
+      "summary": "Introducing Venture, a new damage hero with unique underground abilities and mobility options.",
+      "author": "Blizzard Entertainment",
+      "image": "/placeholder.svg?height=200&width=400"
+    },
+    {
+      "id": "patch_2024_01_10",
+      "version": "2024.01.10",
+      "title": "Push Map Updates and Balance Changes",
+      "releaseDate": "2024-01-10T16:00:00Z",
+      "status": "published",
+      "changes": [
+        {
+          "hero": "Winston",
+          "type": "buff",
+          "description": "Jump Pack damage increased from 45 to 50"
+        },
+        {
+          "hero": "Genji",
+          "type": "adjustment",
+          "description": "Swift Strike hitbox slightly increased for consistency"
+        },
+        {
+          "hero": "Lucio",
+          "type": "nerf",
+          "description": "Wall Ride speed boost reduced by 10%"
+        }
+      ],
+      "summary": "Map updates for Push game mode and hero balance adjustments based on community feedback.",
+      "author": "Blizzard Entertainment",
+      "image": "/placeholder.svg?height=200&width=400"
+    }
+  ],
+  "proPlayers": [
+    {
+      "id": "player_001",
+      "name": "Profit",
+      "realName": "Park Joon-yeong",
+      "team": "Seoul Dynasty",
+      "role": "DPS",
+      "nationality": "South Korea",
+      "image": "/placeholder.svg?height=200&width=200",
+      "mainHeroes": ["Tracer", "Genji", "Widowmaker", "Echo"],
+      "achievements": ["OWL Champion 2018", "OWL Champion 2020", "World Cup Champion 2019"],
+      "streamUrl": "https://twitch.tv/profit",
+      "socialMedia": {
+        "twitter": "@Profit_ow",
+        "instagram": "@profit_ow"
+      },
+      "equipment": {
+        "mouse": "Logitech G Pro X Superlight",
+        "keyboard": "Logitech G Pro X",
+        "headset": "Logitech G Pro X",
+        "mousepad": "Logitech G640"
+      },
+      "settings": {
+        "sensitivity": 4.5,
+        "dpi": 800,
+        "fov": 103
+      },
+      "status": "active",
+      "lastUpdated": "2024-01-18T12:00:00Z"
+    },
+    {
+      "id": "player_002",
+      "name": "Proper",
+      "realName": "Kim Dong-hyun",
+      "team": "San Francisco Shock",
+      "role": "DPS",
+      "nationality": "South Korea",
+      "image": "/placeholder.svg?height=200&width=200",
+      "mainHeroes": ["Tracer", "Soldier: 76", "Widowmaker", "Ashe"],
+      "achievements": ["OWL Champion 2022", "OWL Finals MVP 2022"],
+      "streamUrl": "https://twitch.tv/proper_ow",
+      "socialMedia": {
+        "twitter": "@Proper_ow",
+        "instagram": "@proper_overwatch"
+      },
+      "equipment": {
+        "mouse": "Finalmouse Starlight-12",
+        "keyboard": "Wooting 60HE",
+        "headset": "SteelSeries Arctis Pro",
+        "mousepad": "Artisan Hien"
+      },
+      "settings": {
+        "sensitivity": 5.0,
+        "dpi": 800,
+        "fov": 103
+      },
+      "status": "active",
+      "lastUpdated": "2024-01-19T15:30:00Z"
+    },
+    {
+      "id": "player_003",
+      "name": "Smurf",
+      "realName": "Myeong-hwan Yoo",
+      "team": "Seoul Dynasty",
+      "role": "Tank",
+      "nationality": "South Korea",
+      "image": "/placeholder.svg?height=200&width=200",
+      "mainHeroes": ["Reinhardt", "Winston", "Orisa", "Sigma"],
+      "achievements": ["OWL Champion 2020", "Stage Champion 2021"],
+      "streamUrl": "https://twitch.tv/smurf",
+      "socialMedia": {
+        "twitter": "@Smurf_ow",
+        "instagram": "@smurf_overwatch"
+      },
+      "equipment": {
+        "mouse": "Logitech G Pro Wireless",
+        "keyboard": "Logitech G915 TKL",
+        "headset": "HyperX Cloud II",
+        "mousepad": "Steelseries QcK+"
+      },
+      "settings": {
+        "sensitivity": 6.0,
+        "dpi": 800,
+        "fov": 103
+      },
+      "status": "active",
+      "lastUpdated": "2024-01-17T10:45:00Z"
+    },
+    {
+      "id": "player_004",
+      "name": "Viol2t",
+      "realName": "Park Min-ki",
+      "team": "San Francisco Shock",
+      "role": "Support",
+      "nationality": "South Korea",
+      "image": "/placeholder.svg?height=200&width=200",
+      "mainHeroes": ["Ana", "Zenyatta", "Baptiste", "Mercy"],
+      "achievements": ["OWL Champion 2019", "OWL Champion 2020", "Role Star 2020"],
+      "streamUrl": "https://twitch.tv/viol2t",
+      "socialMedia": {
+        "twitter": "@Viol2t_ow",
+        "instagram": "@viol2t_ow"
+      },
+      "equipment": {
+        "mouse": "Razer Viper Ultimate",
+        "keyboard": "Razer Huntsman Elite",
+        "headset": "Razer BlackShark V2",
+        "mousepad": "Razer Goliathus Extended"
+      },
+      "settings": {
+        "sensitivity": 7.5,
+        "dpi": 800,
+        "fov": 103
+      },
+      "status": "active",
+      "lastUpdated": "2024-01-18T14:20:00Z"
+    }
+  ],
+  "tournaments": [
+    {
+      "id": "owl_2024_stage1",
+      "name": "Overwatch League 2024 - Stage 1",
+      "startDate": "2024-02-01T00:00:00Z",
+      "endDate": "2024-03-15T23:59:59Z",
+      "status": "upcoming",
+      "prizePool": "$1,500,000",
+      "image": "/placeholder.svg?height=300&width=500",
+      "teams": [
+        {
+          "name": "Seoul Dynasty",
+          "region": "APAC",
+          "logo": "/placeholder.svg?height=100&width=100",
+          "players": ["Profit", "Fits", "Smurf", "Vindaim", "Creative"]
+        },
+        {
+          "name": "San Francisco Shock",
+          "region": "West",
+          "logo": "/placeholder.svg?height=100&width=100",
+          "players": ["Proper", "Kilo", "Coluge", "Mikeyy", "Viol2t"]
+        },
+        {
+          "name": "Florida Mayhem",
+          "region": "West",
+          "logo": "/placeholder.svg?height=100&width=100",
+          "players": ["Checkmate", "Hydron", "Someone", "Rupal", "Skewed"]
+        },
+        {
+          "name": "London Spitfire",
+          "region": "EMEA",
+          "logo": "/placeholder.svg?height=100&width=100",
+          "players": ["SparkR", "Kai", "Hadi", "Landon", "Lukemino"]
+        }
+      ],
+      "format": "Regular Season + Playoffs",
+      "venue": "Dallas, Texas",
+      "organizer": "Blizzard Entertainment",
+      "streamUrl": "https://youtube.com/overwatchleague"
+    },
+    {
+      "id": "owwc_2024",
+      "name": "Overwatch World Cup 2024",
+      "startDate": "2024-08-15T00:00:00Z",
+      "endDate": "2024-08-25T23:59:59Z",
+      "status": "upcoming",
+      "prizePool": "$500,000",
+      "image": "/placeholder.svg?height=300&width=500",
+      "teams": [
+        {
+          "name": "South Korea",
+          "region": "APAC",
+          "logo": "/placeholder.svg?height=100&width=100",
+          "players": ["Profit", "Proper", "Smurf", "Viol2t", "Creative"]
+        },
+        {
+          "name": "United States",
+          "region": "Americas",
+          "logo": "/placeholder.svg?height=100&width=100",
+          "players": ["Hydron", "Kevster", "Space", "Ojee", "FunnyAstro"]
+        },
+        {
+          "name": "China",
+          "region": "APAC",
+          "logo": "/placeholder.svg?height=100&width=100",
+          "players": ["Leave", "Architect", "Guxue", "Farway", "LeeJaeGon"]
+        }
+      ],
+      "format": "Group Stage + Single Elimination",
+      "venue": "BlizzCon - Anaheim, California",
+      "organizer": "Blizzard Entertainment",
+      "streamUrl": "https://youtube.com/playoverwatch"
+    }
+  ]
+}

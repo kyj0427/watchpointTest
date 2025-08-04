@@ -1,0 +1,34 @@
+{
+  "announcements": [
+    {
+      "id": "1",
+      "title": "Platform Maintenance Scheduled",
+      "content": "We will be performing scheduled maintenance on our servers this weekend. The platform will be temporarily unavailable from 2:00 AM to 6:00 AM EST on Saturday, January 27th. We apologize for any inconvenience this may cause.",
+      "status": "Published",
+      "publishDate": "2024-01-20",
+      "priority": "High",
+      "author": "Admin Team",
+      "views": 1250
+    },
+    {
+      "id": "2",
+      "title": "New Feature Release",
+      "content": "Exciting new features are now available in your dashboard! We've added enhanced coaching tools, improved match prediction algorithms, and a redesigned user interface. Check out the new features section to learn more.",
+      "status": "Draft",
+      "publishDate": "2024-01-22",
+      "priority": "Medium",
+      "author": "Product Team",
+      "views": 0
+    },
+    {
+      "id": "3",
+      "title": "Community Guidelines Update",
+      "content": "We have updated our community guidelines to ensure a better experience for all users. Please review the new guidelines in your account settings. Violations may result in account suspension or termination.",
+      "status": "Published",
+      "publishDate": "2024-01-18",
+      "priority": "Low",
+      "author": "Community Team",
+      "views": 890
+    }
+  ]
+}

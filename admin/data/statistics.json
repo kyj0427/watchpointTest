@@ -1,0 +1,171 @@
+{
+  "platformStats": {
+    "totalVisitors": {
+      "value": 45231,
+      "change": "+20.1%",
+      "changeType": "positive",
+      "description": "from last month"
+    },
+    "newSubscribers": {
+      "value": 2350,
+      "change": "+180.1%",
+      "changeType": "positive",
+      "description": "from last month"
+    },
+    "activeChatRooms": {
+      "value": 1234,
+      "change": "+19%",
+      "changeType": "positive",
+      "description": "from last month"
+    },
+    "totalReports": {
+      "value": 573,
+      "change": "-2%",
+      "changeType": "negative",
+      "description": "from last month"
+    }
+  },
+  "revenueStats": {
+    "monthlyRevenue": {
+      "value": 45231.89,
+      "change": "+20.1%",
+      "changeType": "positive",
+      "description": "from last month"
+    },
+    "yearlyRevenue": {
+      "value": 542780.12,
+      "change": "+15.3%",
+      "changeType": "positive",
+      "description": "from last year"
+    },
+    "activeSubscriptions": {
+      "value": 2350,
+      "change": "+180.1%",
+      "changeType": "positive",
+      "description": "from last month"
+    },
+    "avgRevenuePerUser": {
+      "value": 19.23,
+      "change": "-2.1%",
+      "changeType": "negative",
+      "description": "from last month"
+    },
+    "monthlyData": [
+      {
+        "month": "Jan",
+        "revenue": 35000,
+        "subscriptions": 1200
+      },
+      {
+        "month": "Feb",
+        "revenue": 38000,
+        "subscriptions": 1350
+      },
+      {
+        "month": "Mar",
+        "revenue": 42000,
+        "subscriptions": 1500
+      },
+      {
+        "month": "Apr",
+        "revenue": 39000,
+        "subscriptions": 1450
+      },
+      {
+        "month": "May",
+        "revenue": 45000,
+        "subscriptions": 1600
+      },
+      {
+        "month": "Jun",
+        "revenue": 48000,
+        "subscriptions": 1750
+      }
+    ],
+    "subscriptionBreakdown": [
+      {
+        "type": "Premium",
+        "price": 19.99,
+        "revenue": 28450,
+        "color": "blue"
+      },
+      {
+        "type": "Pro",
+        "price": 9.99,
+        "revenue": 12340,
+        "color": "green"
+      },
+      {
+        "type": "Basic",
+        "price": 4.99,
+        "revenue": 4441,
+        "color": "yellow"
+      }
+    ]
+  },
+  "memberStats": {
+    "totalMembers": 12345,
+    "activeMembers": 8901,
+    "premiumMembers": 2345,
+    "newMembersThisMonth": 456,
+    "memberGrowthRate": "+12.5%"
+  },
+  "duoSquadStats": {
+    "totalMatches": 15678,
+    "successfulMatches": 12543,
+    "averageMatchTime": "25.4 minutes",
+    "popularGameModes": [
+      {
+        "mode": "Competitive",
+        "matches": 8901
+      },
+      {
+        "mode": "Quick Play",
+        "matches": 4567
+      },
+      {
+        "mode": "Arcade",
+        "matches": 2210
+      }
+    ]
+  },
+  "coachingStats": {
+    "totalSessions": 3456,
+    "averageRating": 4.7,
+    "satisfactionRate": 94.2,
+    "topCoaches": [
+      {
+        "name": "ProCoach1",
+        "rating": 4.9,
+        "sessions": 234
+      },
+      {
+        "name": "ExpertTrainer",
+        "rating": 4.8,
+        "sessions": 189
+      }
+    ]
+  },
+  "aiPredictionStats": {
+    "totalPredictions": 25678,
+    "accurateRate": 78.5,
+    "improvementRate": "+5.2%",
+    "predictionsByGame": [
+      {
+        "game": "Overwatch",
+        "predictions": 15678,
+        "accuracy": 82.1
+      },
+      {
+        "game": "League of Legends",
+        "predictions": 7890,
+        "accuracy": 75.3
+      },
+      {
+        "game": "Valorant",
+        "predictions": 2110,
+        "accuracy": 71.8
+      }
+    ]
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "coachingAnalytics": {
+    "totalAnalyses": 15847,
+    "todayAnalyses": 234,
+    "averageProcessingTime": "2.4 minutes",
+    "successRate": 94.2,
+    "userSatisfaction": 4.6,
+    "aiModelVersion": "v2.3.1"
+  },
+  "videoAnalyses": [
+    {
+      "id": "analysis_001",
+      "userId": "user_123",
+      "userName": "ProGamer99",
+      "battleTag": "ProGamer#1234",
+      "videoTitle": "Competitive Match - King's Row",
+      "uploadDate": "2024-01-21T14:30:00Z",
+      "status": "completed",
+      "processingTime": "2m 15s",
+      "videoSize": "245MB",
+      "videoDuration": "12m 34s",
+      "hero": "Tracer",
+      "gameMode": "Competitive",
+      "map": "King's Row",
+      "rank": "Diamond",
+      "aiScore": 87,
+      "userRating": 5,
+      "feedback": "정말 도움이 되었습니다! 포지셔닝 개선점을 명확히 알 수 있었어요.",
+      "coachingPoints": [
+        {
+          "category": "Positioning",
+          "score": 75,
+          "feedback": "High ground 활용도를 높이세요",
+          "timestamp": "3:45"
+        },
+        {
+          "category": "Ability Usage",
+          "score": 92,
+          "feedback": "Recall 타이밍이 우수합니다",
+          "timestamp": "7:22"
+        },
+        {
+          "category": "Target Priority",
+          "score": 68,
+          "feedback": "Support 우선 타겟팅 필요",
+          "timestamp": "9:15"
+        }
+      ]
+    },
+    {
+      "id": "analysis_002",
+      "userId": "user_456",
+      "userName": "TankMain",
+      "battleTag": "TankMain#5678",
+      "videoTitle": "Reinhardt Gameplay - Numbani",
+      "uploadDate": "2024-01-21T13:15:00Z",
+      "status": "processing",
+      "processingTime": "1m 45s",
+      "videoSize": "312MB",
+      "videoDuration": "15m 22s",
+      "hero": "Reinhardt",
+      "gameMode": "Competitive",
+      "map": "Numbani",
+      "rank": "Platinum",
+      "progress": 78
+    },
+    {
+      "id": "analysis_003",
+      "userId": "user_789",
+      "userName": "SupportPlayer",
+      "battleTag": "Support#9012",
+      "videoTitle": "Ana Gameplay - Hanamura",
+      "uploadDate": "2024-01-21T12:00:00Z",
+      "status": "failed",
+      "errorMessage": "Video format not supported",
+      "videoSize": "189MB",
+      "videoDuration": "10m 45s",
+      "hero": "Ana",
+      "gameMode": "Quick Play",
+      "map": "Hanamura",
+      "rank": "Gold"
+    }
+  ],
+  "aiModelMetrics": {
+    "currentVersion": "v2.3.1",
+    "accuracy": {
+      "positioning": 89.2,
+      "abilityUsage": 92.5,
+      "targetPriority": 85.7,
+      "teamwork": 87.3,
+      "overall": 88.7
+    },
+    "processingStats": {
+      "averageTime": 144,
+      "successRate": 94.2,
+      "errorRate": 5.8,
+      "dailyCapacity": 5000,
+      "currentLoad": 67
+    },
+    "userFeedback": {
+      "totalRatings": 8934,
+      "averageRating": 4.6,
+      "ratingDistribution": {
+        "5": 5234,
+        "4": 2456,
+        "3": 892,
+        "2": 234,
+        "1": 118
+      }
+    }
+  },
+  "coachingCategories": [
+    {
+      "id": "positioning",
+      "name": "Positioning",
+      "description": "맵 상에서의 위치 선택과 이동",
+      "weight": 25,
+      "enabled": true
+    },
+    {
+      "id": "ability_usage",
+      "name": "Ability Usage",
+      "description": "스킬 사용 타이밍과 효율성",
+      "weight": 20,
+      "enabled": true
+    },
+    {
+      "id": "target_priority",
+      "name": "Target Priority",
+      "description": "우선 공격 대상 선택",
+      "weight": 20,
+      "enabled": true
+    },
+    {
+      "id": "teamwork",
+      "name": "Teamwork",
+      "description": "팀원과의 협력과 조화",
+      "weight": 15,
+      "enabled": true
+    },
+    {
+      "id": "game_sense",
+      "name": "Game Sense",
+      "description": "게임 상황 판단력",
+      "weight": 10,
+      "enabled": true
+    },
+    {
+      "id": "mechanics",
+      "name": "Mechanics",
+      "description": "조작 기술과 정확도",
+      "weight": 10,
+      "enabled": true
+    }
+  ],
+  "errorLogs": [
+    {
+      "id": "error_001",
+      "timestamp": "2024-01-21T15:30:00Z",
+      "analysisId": "analysis_003",
+      "errorType": "Video Format Error",
+      "errorMessage": "Unsupported video codec: H.265",
+      "userId": "user_789",
+      "resolved": false
+    },
+    {
+      "id": "error_002",
+      "timestamp": "2024-01-21T14:45:00Z",
+      "analysisId": "analysis_004",
+      "errorType": "Processing Timeout",
+      "errorMessage": "Analysis exceeded maximum processing time (10 minutes)",
+      "userId": "user_101",
+      "resolved": true
+    }
+  ]
+}

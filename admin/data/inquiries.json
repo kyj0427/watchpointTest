@@ -1,0 +1,56 @@
+{
+  "inquiries": [
+    {
+      "id": "1",
+      "subject": "Account verification issue",
+      "member": "John Doe",
+      "memberId": "1",
+      "email": "john@example.com",
+      "category": "Account",
+      "priority": "High",
+      "status": "Open",
+      "submittedDate": "2024-01-21",
+      "lastReply": "2024-01-21",
+      "messages": 3
+    },
+    {
+      "id": "2",
+      "subject": "Payment processing problem",
+      "member": "Jane Smith",
+      "memberId": "2",
+      "email": "jane@example.com",
+      "category": "Billing",
+      "priority": "Critical",
+      "status": "In Progress",
+      "submittedDate": "2024-01-20",
+      "lastReply": "2024-01-21",
+      "messages": 5
+    },
+    {
+      "id": "3",
+      "subject": "Feature request for coaching system",
+      "member": "Mike Johnson",
+      "memberId": "3",
+      "email": "mike@example.com",
+      "category": "Feature Request",
+      "priority": "Low",
+      "status": "Resolved",
+      "submittedDate": "2024-01-18",
+      "lastReply": "2024-01-19",
+      "messages": 2
+    },
+    {
+      "id": "4",
+      "subject": "Bug report in chat system",
+      "member": "Sarah Wilson",
+      "memberId": "4",
+      "email": "sarah@example.com",
+      "category": "Technical",
+      "priority": "Medium",
+      "status": "Open",
+      "submittedDate": "2024-01-19",
+      "lastReply": "2024-01-19",
+      "messages": 1
+    }
+  ]
+}

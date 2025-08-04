@@ -1,0 +1,55 @@
+{
+  "notifications": [
+    {
+      "id": "1",
+      "type": "warning",
+      "title": "High Report Volume",
+      "message": "Unusual spike in user reports detected in the last hour",
+      "timestamp": "2024-01-21T16:30:00Z",
+      "read": false,
+      "priority": "high",
+      "category": "security"
+    },
+    {
+      "id": "2",
+      "type": "info",
+      "title": "Scheduled Maintenance",
+      "message": "Server maintenance scheduled for tonight at 2:00 AM EST",
+      "timestamp": "2024-01-21T14:15:00Z",
+      "read": false,
+      "priority": "medium",
+      "category": "system"
+    },
+    {
+      "id": "3",
+      "type": "success",
+      "title": "Backup Completed",
+      "message": "Daily database backup completed successfully",
+      "timestamp": "2024-01-21T12:00:00Z",
+      "read": true,
+      "priority": "low",
+      "category": "system"
+    },
+    {
+      "id": "4",
+      "type": "error",
+      "title": "Payment Gateway Issue",
+      "message": "Payment processing temporarily unavailable",
+      "timestamp": "2024-01-21T10:45:00Z",
+      "read": false,
+      "priority": "critical",
+      "category": "billing"
+    },
+    {
+      "id": "5",
+      "type": "info",
+      "title": "New User Registration",
+      "message": "50+ new users registered in the last hour",
+      "timestamp": "2024-01-21T09:30:00Z",
+      "read": true,
+      "priority": "low",
+      "category": "users"
+    }
+  ],
+  "unreadCount": 3
+}
