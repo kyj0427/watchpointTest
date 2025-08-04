@@ -15,23 +15,29 @@ interface FormData {
 }
 
 const RegisterForm = () => {
+  // 소셜 로그인 
   const [showMore, setShowMore] = useState<boolean>(false);
+  // 마케팅 이메일 수신 여부
   const [remember, setRemember] = useState<boolean>(true);
 
+  //react-hook-form 설정
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<FormData>();
 
+  //제출시 동작
   const onSubmit = (data: FormData) => {
     // form submit event
   };
 
   return (
     <section className="section-py">
+      {/* 전체 컨테이너 */}
       <div className="container">
         <div className="flex-c">
+          
           <div className="max-w-[530px] w-full p-40p bg-b-neutral-3 rounded-12">
             <h2 className="heading-2 text-w-neutral-1 mb-16p text-center">
               Sign Up
