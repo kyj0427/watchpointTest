@@ -3,35 +3,42 @@ export const navMenu = [
         id: 1,
         name: "홈",
         isSubMenu: true,
-        // link : "/"
-        subMenu: [
-            {
-                id: 1.1,
-                name: "Home One",
-                link: "/"
-            },
-            {
-                id: 1.2,
-                name: "Home Two",
-                link: "/home-v2"
-            },
-            {
-                id: 1.3,
-                name: "Home Three",
-                link: "/home-v3"
-            },
-            {
-                id: 1.4,
-                name: "Home Four",
-                link: "/home-v4"
-            }
-        ]
+        link : "/"
+        // subMenu: [
+        //     {
+        //         id: 1.1,
+        //         name: "Home One",
+        //         link: "/"
+        //     },
+        //     {
+        //         id: 1.2,
+        //         name: "Home Two",
+        //         link: "/home-v2"
+        //     },
+        //     {
+        //         id: 1.3,
+        //         name: "Home Three",
+        //         link: "/home-v3"
+        //     },
+        //     {
+        //         id: 1.4,
+        //         name: "Home Four",
+        //         link: "/home-v4"
+        //     }
+        // ]
     },
     {
         id: 2,
-        name: "Trending",
-        isSubMenu: false,
-        link: "/trending"
+        name: "게임정보",
+        isSubMenu: true,
+        subMenu : [
+            {
+                id : 2.1,
+                name : "영웅정보",
+                link : ""
+            }
+        ]
+        
     },
     {
         id: 3,
@@ -353,7 +360,7 @@ export const navMenu = [
             {
                 id: 16.3,
                 name: "Faqs",
-                link: "/faqs"
+                link: "/faq"
             },
             {
                 id: 16.4,
