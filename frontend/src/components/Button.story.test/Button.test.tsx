@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import Button from './Button';
 
 test('버튼이 텍스트를 잘 표시하는지 확인', () => {

@@ -1,23 +1,12 @@
-import TrendingGames from "@/components/sections/trending/TrendingGames";
-import Breadcrumb from "@/components/shared/Breadcumb";
+// 라우팅되는 파일 
+
+import GameinfoHomeBanner from "@/components/sections/homeOne/GameinfoHomeBanner";
 import { headerBannerType, NavLinkProps } from "@/config/types";
 
 const Page = () => {
-  const navLinks = [
-    { id: 1, url: "/", label: "Home" },
-    { id: 2, url: "", label: "Trending" },
-  ];
-
-  const headerData: headerBannerType = {
-    title: "Trending",
-    bgImgClasses: "",
-    navLinks,
-  };
-
   return (
     <main>
-      <Breadcrumb breadcrumb={headerData} />
-      <TrendingGames />
+      <GameinfoHomeBanner />
     </main>
   );
 };
