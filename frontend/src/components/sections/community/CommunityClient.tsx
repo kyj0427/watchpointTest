@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 
 const DynamicCommunity = dynamic(
-  () => import("./Community"), // Path to your original Community component
+  () => import("./Community_hw"), // Path to your original Community component
   { ssr: false }
 );
 

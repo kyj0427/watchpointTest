@@ -1,0 +1,11 @@
+server.host: "0.0.0.0"
+
+elasticsearch.hosts: ["http://elasticsearch:9200"]
+#elasticsearch.serviceAccountToken: "AAEAAWVsYXN0aWMva2liYW5hL2tpYmFuYS10b2tlbjpFaTlCc1dYdlNJR01aZzBJd3IycUFR"
+server.publicBaseUrl: "http://192.168.0.31:5601"
+
+xpack.encryptedSavedObjects.encryptionKey: "changemechangemechangemechangeme"
+xpack.security.encryptionKey: "changemechangemechangemechangeme"
+xpack.reporting.encryptionKey: "changemechangemechangemechangeme"
+
+csp.strict: false
