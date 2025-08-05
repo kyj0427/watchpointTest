@@ -37,26 +37,32 @@ const RegisterForm = () => {
       {/* 전체 컨테이너 */}
       <div className="container">
         <div className="flex-c">
-          
+          {/*  카드 형태의 SignUp 박스 */}
           <div className="max-w-[530px] w-full p-40p bg-b-neutral-3 rounded-12">
+            {/*  제목 */}
             <h2 className="heading-2 text-w-neutral-1 mb-16p text-center">
               Sign Up
             </h2>
+            {/* 로그인 페이지로 이동 링크 */}
             <p className="text-m-medium text-w-neutral-3 text-center">
               Already have an account?{" "}
               <Link href="/login" className="inline text-primary">
                 Sign Up
               </Link>
             </p>
+            {/* 소셜 로그인 버튼 영역  */}
             <div className="grid grid-cols-1 gap-3 py-32p text-center">
+              {/* Discord 로그인 */}
               <button className="btn btn-md bg-[#434DE4] hover:bg-[#434DE4]/80 w-full">
                 <i className="ti ti-brand-discord icon-24"></i>
                 Log In With Discord
               </button>
+              {/* Twitch 로그인 */}
               <button className="btn btn-md bg-[#6E31DF] hover:bg-[#6E31DF]/80 w-full">
                 <i className="ti ti-brand-twitch icon-24"></i>
                 Log In with Twitch
               </button>
+              {/* google Login */}
               <button className="btn btn-md bg-[#1876F2] hover:bg-[#1876F2]/80 w-full">
                 <IconBrandFacebook size={24} />
                 Log In With Facebook
@@ -73,6 +79,7 @@ const RegisterForm = () => {
                     size={20}
                   />
                 </button>
+
                 <AnimateHeight duration={300} height={showMore ? "auto" : 0}>
                   <div className="grid grid-cols-1 gap-3 mt-16p">
                     <button className="btn btn-md bg-[#6E31DF] hover:bg-[#6E31DF]/80 w-full">
@@ -93,8 +100,12 @@ const RegisterForm = () => {
                 <div className="w-full h-1px bg-shap"></div>
               </div>
             </div>
+
+
+            {/* 기본 입력 폼 */}
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="grid grid-cols-1 gap-30p mb-40p">
+                {/* 사용자 이름 입력 폼 */}
                 <div>
                   <label
                     htmlFor="username"
@@ -115,6 +126,8 @@ const RegisterForm = () => {
                     </p>
                   )}
                 </div>
+
+                {/* 이메일 입력 */}
                 <div>
                   <label
                     htmlFor="userEmail"
@@ -135,6 +148,8 @@ const RegisterForm = () => {
                     </p>
                   )}
                 </div>
+
+                {/* 비밀번호 입력 */}
                 <div>
                   <label
                     htmlFor="password"
@@ -157,6 +172,8 @@ const RegisterForm = () => {
                     </p>
                   )}
                 </div>
+
+                {/* 생년월일 입력 */}
                 <div>
                   <label
                     htmlFor="dateOfBarth"
@@ -179,6 +196,8 @@ const RegisterForm = () => {
                     </p>
                   )}
                 </div>
+
+                {/* 마켓팅 수신 동의 */}
                 <div>
                   <label className="label label-md text-w-neutral-1 inline-flex items-center cursor-pointer gap-3">
                     <input
@@ -194,12 +213,16 @@ const RegisterForm = () => {
                   </label>
                 </div>
               </div>
+
+              {/* 회원가입 버튼 */}
               <button
                 type="submit"
                 className="btn btn-md btn-primary rounded-12 w-full mb-16p"
               >
                 Sing Up For Free
               </button>
+
+              {/* 개인정보처리 방침 링크 */}
               <Link
                 href="/terms-conditions"
                 className="text-m-medium text-primary text-center"

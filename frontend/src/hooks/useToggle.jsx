@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 /**
  * Custom hook to manage a toggle state and handle click outside events.
@@ -15,43 +15,60 @@ const useToggle = () => {
   const ref = useRef(null);
 
   /**
-   * Event handler for click outside events.
-   * @param event - The mouse event.
+   * Function to toggle the toggle state.
    */
-  const handleClickOutside = (event) => {
-    // If the click target is outside the ref element, close the toggle
-    if (
-      window.scrollY > 100 ||
-      (ref.current && !ref.current.contains(event.target))
-    ) {
-      setOpen(false);
-    }
-  };
-
-  const handleScroll = () => {
-    if (window.scrollY > 180) {
-      setOpen(false);
-    }
-  };
+  const handleToggle = useCallback(() => {
+    setOpen((prev)=>!prev);
+  },[]);
 
   // Add and remove the click outside event listener on mount and unmount
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      window.addEventListener("scroll", handleScroll);
-    };
-  }, []);
 
-  /**
-   * Function to toggle the toggle state.
+    if (!open){
+      return;
+    }
+
+
+    // document.addEventListener("mousedown", handleClickOutside);
+    // window.addEventListener("scroll", handleScroll);
+    // return () => {
+    //   document.removeEventListener("mousedown", handleClickOutside);
+    //   window.addEventListener("scroll", handleScroll);
+    // };
+
+    /**
+   * Event handler for click outside events.
+   * @param event - The mouse event.
    */
-  const handleToggle = () => {
-    setOpen(!open);
-  };
+    const handleClickOutside = (event) => {
+      // If the click target is outside the ref element, close the toggle
+      if (
+        // window.scrollY > 100 ||
+        ref.current && !ref.current.contains(event.target)
+      ) {
+        setOpen(false);
+      }
+    };
+  
+    const handleScroll = () => {
+      if (window.scrollY > 180) {
+        setOpen(false);
+      }
+    };
+  
+    document.addEventListener("mousedown", handleClickOutside);
+    window.addEventListener("scroll", handleScroll);      
 
+    // 클린업 함수
+    return()=>{
+      document.removeEventListener("mousedown", handleClickOutside);
+      window.removeEventListener("scroll", handleScroll);
+    }
+
+  }, [open]);
+  
   // Return the state, toggle function, and ref
   return { open, handleToggle, ref };
+  
 };
 export default useToggle;
