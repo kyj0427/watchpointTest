@@ -5,6 +5,7 @@ import { NavBar, ScrollToTop } from "@/components/ui";
 import { Footer } from "@/components/shared";
 import AOSInit from "@/lib/aos/AOSInit";
 import { Suspense } from "react";
+import { AuthProvider } from "../contexts/AuthProvider";
 
 export const metadata: Metadata = {
   title: "WatchPoint",
@@ -25,15 +26,17 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${borda.variable} ${poppins.variable}`}>
-        <Suspense fallback={<div>Loading...</div>}>
-          <NavBar />
-          <div className="app-layout">
-            {children}
-            <Footer />
-          </div>
-          <ScrollToTop />
-          <AOSInit />
-        </Suspense>
+        <AuthProvider>          
+          <Suspense fallback={<div>Loading...</div>}>
+            <NavBar />
+            <div className="app-layout">
+              {children}
+              <Footer />
+            </div>
+            <ScrollToTop />
+            <AOSInit />
+          </Suspense>
+        </AuthProvider>
       </body>
     </html>
   );
