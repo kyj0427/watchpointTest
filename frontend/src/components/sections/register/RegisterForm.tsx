@@ -1,144 +1,152 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { IconBrandFacebook, IconChevronDown } from "@tabler/icons-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AnimateHeight from "react-animate-height";
 
 interface FormData {
   name: string;
   email: string;
-  dateOfBrth: string;
   password: string;
   remember?: boolean;
 }
 
+
+const RESERVED = ["admin", "root", "gm", "overwatch", "test"]; //임시 테스트용
+
 const RegisterForm = () => {
-  // 소셜 로그인 
   const [showMore, setShowMore] = useState<boolean>(false);
-  // 마케팅 이메일 수신 여부
   const [remember, setRemember] = useState<boolean>(true);
 
-  //react-hook-form 설정
+  // 사용 가능여부
+  const [nameAvailable, setNameAvailable] = useState<null | boolean >(null);
+  // 중복체크
+  const [checking, setChecking] = useState(false);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>();
+    watch,
+  } = useForm<FormData>({
+    defaultValues: {
+      name: "",
+      email: "",
+      password: "",
+      remember: true  
+    },
+  });
 
-  //제출시 동작
+  const nameValue = watch("name");
+
   const onSubmit = (data: FormData) => {
     // form submit event
   };
 
+    useEffect(() => {
+    setNameAvailable(null);
+  }, [nameValue]);
+
+  // 닉네임 중복 확인 (버튼 클릭 시)
+  // const checkDuplicateName = async () => {
+  //   const name = nameValue?.trim();
+  //   if (!name) return;
+
+  //   setChecking(true);
+  //   try {
+  //     const res = await fetch(`/api/check-nickname?name=${encodeURIComponent(name)}`);
+  //     if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  //     const data = await res.json();
+  //     setNameAvailable(!data.exists);
+  //   } catch (e) {
+  //     console.error("중복 확인 오류:", e);
+  //     setNameAvailable(null);
+  //   } finally {
+  //     setChecking(false);
+  //   }
+  // };
+
+  // 임시테스트용 데이터
+  const checkDuplicateName = () => {
+  const name = nameValue?.trim().toLowerCase();
+  if (!name) {
+    setNameAvailable(null);
+    return;
+  }
+
+  const exists = RESERVED.includes(name) || name.length < 2;
+  setNameAvailable(!exists);
+};
+
+  const [showPassword, setShowPassword] = useState(false);
+
   return (
     <section className="section-py">
-      {/* 전체 컨테이너 */}
       <div className="container">
         <div className="flex-c">
-          {/*  카드 형태의 SignUp 박스 */}
           <div className="max-w-[530px] w-full p-40p bg-b-neutral-3 rounded-12">
-            {/*  제목 */}
             <h2 className="heading-2 text-w-neutral-1 mb-16p text-center">
-              Sign Up
+              회원가입
             </h2>
-            {/* 로그인 페이지로 이동 링크 */}
             <p className="text-m-medium text-w-neutral-3 text-center">
-              Already have an account?{" "}
+              이미 계정이 있으신가요?{" "}
               <Link href="/login" className="inline text-primary">
-                Sign Up
+              로그인
               </Link>
             </p>
-            {/* 소셜 로그인 버튼 영역  */}
-            <div className="grid grid-cols-1 gap-3 py-32p text-center">
-              {/* Discord 로그인 */}
-              <button className="btn btn-md bg-[#434DE4] hover:bg-[#434DE4]/80 w-full">
-                <i className="ti ti-brand-discord icon-24"></i>
-                Log In With Discord
-              </button>
-              {/* Twitch 로그인 */}
-              <button className="btn btn-md bg-[#6E31DF] hover:bg-[#6E31DF]/80 w-full">
-                <i className="ti ti-brand-twitch icon-24"></i>
-                Log In with Twitch
-              </button>
-              {/* google Login */}
-              <button className="btn btn-md bg-[#1876F2] hover:bg-[#1876F2]/80 w-full">
-                <IconBrandFacebook size={24} />
-                Log In With Facebook
-              </button>
-              <div className="pb-20p">
-                <button
-                  onClick={() => setShowMore(!showMore)}
-                  type="button"
-                  className="inline-flex items-center justify-center gap-2 text-s-medium text-w-neutral-1"
-                >
-                  Show more
-                  <IconChevronDown
-                    className={showMore ? "rotate-180" : ""}
-                    size={20}
-                  />
-                </button>
-
-                <AnimateHeight duration={300} height={showMore ? "auto" : 0}>
-                  <div className="grid grid-cols-1 gap-3 mt-16p">
-                    <button className="btn btn-md bg-[#6E31DF] hover:bg-[#6E31DF]/80 w-full">
-                      <i className="ti ti-brand-instagram icon-24"></i>
-                      Log In with Instagram
-                    </button>
-                    <button className="btn btn-md bg-[#1876F2] hover:bg-[#1876F2]/80 w-full">
-                      <i className="ti ti-brand-google icon-24"></i>
-                      Log In With Google
-                    </button>
-                  </div>
-                </AnimateHeight>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <div className="w-full h-1px bg-shap"></div>
-                <span className="text-m-medium text-w-neutral-1">Or</span>
-                <div className="w-full h-1px bg-shap"></div>
-              </div>
-            </div>
-
-
-            {/* 기본 입력 폼 */}
+            <div className="grid grid-cols-1 gap-3 py-32p text-center"/>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="grid grid-cols-1 gap-30p mb-40p">
-                {/* 사용자 이름 입력 폼 */}
                 <div>
                   <label
                     htmlFor="username"
                     className="label label-xl text-w-neutral-1 font-borda mb-3"
                   >
-                    User Name
+                    닉네임
                   </label>
+                <div className="flex gap-2 items-center">
                   <input
                     className="border-input-1"
                     type="text"
-                    {...register("name", { required: "Name is required" })}
-                    id="Name"
-                    placeholder="Name"
+                    {...register("name", { required: "닉네임을 입력해주세요" })}
+                    id="username"
+                    placeholder="nickname"
                   />
-                  {errors.email?.message && (
+                  <button
+                    type="button"
+                    onClick={checkDuplicateName}
+                    disabled={checking || !nameValue?.trim()}
+                    className="btn btn-sm btn-outline whitespace-nowrap"
+                  >
+                    {checking ? "확인 중…" : "중복 확인"}
+                  </button>
+                </div>
+                  {/* 중복 확인 메시지 */}
+                  {nameAvailable === true && (
+                    <p className="text-green-500 text-sm mt-1"> 사용 가능한 닉네임입니다.</p>
+                  )}
+                  {nameAvailable === false && (
+                    <p className="text-red-500 text-sm mt-1"> 이미 사용 중인 닉네임입니다.</p>
+                  )}
+                  {/* 유효성 검사 메세지 */}
+                  {errors.name?.message && (
                     <p className="text-red-500 text-sm">
-                      {String(errors.email.message)}
+                      {String(errors.name.message)}
                     </p>
                   )}
                 </div>
-
-                {/* 이메일 입력 */}
                 <div>
                   <label
                     htmlFor="userEmail"
                     className="label label-xl text-w-neutral-1 font-borda mb-3"
                   >
-                    Email
+                    이메일 주소
                   </label>
                   <input
                     className="border-input-1"
                     type="email"
-                    {...register("email", { required: "Email is required" })}
+                    {...register("email", { required: "유효한 이메일 주소를 입력해주세요." })}
                     id="userEmail"
                     placeholder="Email"
                   />
@@ -148,56 +156,55 @@ const RegisterForm = () => {
                     </p>
                   )}
                 </div>
-
-                {/* 비밀번호 입력 */}
                 <div>
                   <label
                     htmlFor="password"
                     className="label label-xl text-w-neutral-1 font-borda mb-3"
                   >
-                    Password
+                    비밀번호
                   </label>
+                  {/* 비밀번호 양식 관련 코드 
+                    비밀번호 숨김처리는 전체 양식을 div로 묶어야 함*/}
+                <div className="relative">               
                   <input
-                    className="border-input-1"
-                    type="password"
+                  // 아이콘 안 겹치게 padding
+                    className="border-input-1 w-full pr-10" 
+                    type={showPassword ? "text" : "password"}
                     {...register("password", {
-                      required: "Password is required",
+                      required: "비밀번호를 입력해주세요.",
+                      minLength: {
+                        value: 8,
+                        message: "비밀번호는 최소 8자 이상이어야 합니다.",
+                    },
+                    pattern: {
+                      value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*]{8,}$/,
+                      message: "영문과 숫자를 포함한 8자 이상의 비밀번호를 입력해주세요.",
+                    },
                     })}
                     id="password"
                     placeholder="Password"
                   />
+                    {/* 비밀번호 표시 아이콘 */}
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword((prev) => !prev)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2"
+                    >
+                      <i className={showPassword ? "ri-eye-off-line" : "ri-eye-line"}></i>
+                    </button>
+                    {/* 눈아이콘 링크 (다시 봐야함) */}
+                    <link
+                        rel="stylesheet"
+                        href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+                        />
+
                   {errors.password?.message && (
                     <p className="text-red-500 text-sm">
                       {String(errors.password.message)}
                     </p>
                   )}
+                </div> 
                 </div>
-
-                {/* 생년월일 입력 */}
-                <div>
-                  <label
-                    htmlFor="dateOfBarth"
-                    className="label label-xl text-w-neutral-1 font-borda mb-3"
-                  >
-                    Date of birth
-                  </label>
-                  <input
-                    className="border-input-1 flatpickr"
-                    type="date"
-                    {...register("dateOfBrth", {
-                      required: "Password is required",
-                    })}
-                    id="dateofbarth"
-                    placeholder="Month - Date - Year"
-                  />
-                  {errors.password?.message && (
-                    <p className="text-red-500 text-sm">
-                      {String(errors.password.message)}
-                    </p>
-                  )}
-                </div>
-
-                {/* 마켓팅 수신 동의 */}
                 <div>
                   <label className="label label-md text-w-neutral-1 inline-flex items-center cursor-pointer gap-3">
                     <input
@@ -208,21 +215,16 @@ const RegisterForm = () => {
                       className="sr-only peer togglePricing"
                     />
                     <span className="relative w-11 h-6 bg-w-neutral-1 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:bg-w-neutral-1 after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-b-neutral-3 after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary shrink-0"></span>
-                    Yes, email me offers and information about competitions and
-                    events on GameCO
+                    개인정보 수집 및 이용에 동의합니다.
                   </label>
                 </div>
               </div>
-
-              {/* 회원가입 버튼 */}
               <button
                 type="submit"
                 className="btn btn-md btn-primary rounded-12 w-full mb-16p"
               >
-                Sing Up For Free
+                계정 생성
               </button>
-
-              {/* 개인정보처리 방침 링크 */}
               <Link
                 href="/terms-conditions"
                 className="text-m-medium text-primary text-center"
