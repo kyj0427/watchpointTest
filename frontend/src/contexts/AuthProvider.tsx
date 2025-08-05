@@ -66,8 +66,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
               // 상태 업데이트
               // setUser(userData)
 
-              // setUser(userWithImage)
-              setUser(userWithoutImage)
+              setUser(userWithImage)
+              // setUser(userWithoutImage)
 
               
 
