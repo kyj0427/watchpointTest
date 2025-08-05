@@ -40,9 +40,25 @@ export const navMenu = [
     },
     {
         id: 4,
-        name: "Saved",
-        isSubMenu: false,
-        link: "/saved"
+        name: "강의",
+        isSubMenu: true,
+        subMenu: [
+            {
+                id: 4.1,
+                name: "코칭AI",
+                link: "/athena"
+            },
+            {
+                id: 4.2,
+                name: "멘토/멘티 매칭",
+                link: "/teams"
+            },
+            {
+                id: 4.3,
+                name: "강사정보/후기",
+                link: "/game-details-two" //또는 library-details
+            }
+        ]
     },
     {
         id: 5,

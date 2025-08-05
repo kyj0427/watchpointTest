@@ -224,7 +224,7 @@ const NavBar = () => {
                               {loggedUser.name}
                             </span>
                             <span className="text-sm text-w-neutral-4 block">
-                              {loggedUser.followers} Followars
+                              {loggedUser.followers} Followers
                             </span>
                           </span>
                         </span>
