@@ -7,14 +7,16 @@ import {User} from "@/types/user";
 
 
 // 컨텍스트 타입
-interface AuthContextType {
+export interface AuthContextType {
     user: User | null;
     loading: boolean;
+    logout : ()=>void; 
 }
 
 // 컨텍스트 생성 (기본값 설정)
 export const AuthContext = createContext<AuthContextType>({
     user: null,
     loading: true,
+    logout : ()=>{}
 });
 

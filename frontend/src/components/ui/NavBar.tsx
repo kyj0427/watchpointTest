@@ -8,7 +8,7 @@ import Link from "next/link";
 import { useToggle } from "@/hooks";
 import { MouseEvent, useEffect, useState, useContext } from "react";
 import { AuthContext } from "@/contexts/AuthContext";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { navMenu } from "@public/data/navMenu";
 import AnimateHeight from "react-animate-height";
 import {
@@ -41,7 +41,8 @@ import {
 
 
 const NavBar = () => {
-  const {user, loading} = useContext(AuthContext); //유저정보
+  const router = useRouter();
+  const {user, loading, logout} = useContext(AuthContext); //유저정보
   const path = usePathname();
   const [toggle, setToggle] = useState<number | null>(null);
   const [height, setHeight] = useState<string | number>(0);
@@ -409,8 +410,12 @@ const NavBar = () => {
                           <Link href="/settings" className="dropdown-item">
                             Settings
                           </Link>
-                          <button type="button" className="dropdown-item">
-                            Logout
+                          <button type="button" className="dropdown-item" onClick={()=>{
+                            userToggle(); //토글창닫기
+                            logout(); //로그아웃
+                            router.push('/login'); //로그인페이지로이동
+                          }}>                          
+                            Logout                          
                           </button>
                           <Link href="/contact-us" className="dropdown-item">
                             Help
