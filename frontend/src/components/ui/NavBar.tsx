@@ -292,8 +292,8 @@ const NavBar = () => {
                     />
                   </form>
                 </div>
-                {/* 뉴스 */}
                 <div className="3xl:col-span-6 xl:col-span-7 flex items-center xl:justify-between justify-end w-full">
+                 {/* 뉴스 */}
                   <Link
                     href="/blogs"
                     className="hidden xl:inline-flex items-center gap-3 pl-1 py-1 pr-6  rounded-full bg-[rgba(242,150,32,0.10)] text-w-neutral-1 text-base"
@@ -305,53 +305,58 @@ const NavBar = () => {
                   </Link>
                   {/* 알림 */}
                   <div className="flex items-center lg:gap-x-40p gap-x-2">
-                    <div className="hidden lg:flex items-center gap-1 shrink-0">
+                    <div className="hidden lg:flex items-center gap-1 shrink-0 mr-4">
                       {/* <Link
                         href="/shopping-cart"
                         className="btn-c btn-c-xxl btn-c-dark-outline"
                       >
                         <IconShoppingCart stroke={1.5} size={32} />
                       </Link> */}
-                      {/* 알림 드롭다운 위치 */}
+                      {/* 유저 로그인한 경우에만 알림창*/}
                       {user && (                      
-                      <div ref={notificationRef} className="hidden lg:flex items-center gap-1 shrink-0 relative">
-                        <button className="btn-c btn-c-xxl btn-c-dark-outline"
-                          onClick={handleBellClick}>
-                          <IconBell stroke={1.5} size={32} />  
+                        <div ref={notificationRef} className="hidden lg:flex items-center gap-1 shrink-0 relative">
+                          <button className="btn-c btn-c-xxl btn-c-dark-outline w-12 h-12 flex items-center justify-center"
+                            onClick={handleBellClick}
+                            style={{minWidth: 60, minHeight: 60}}
+                          >
+                              <span className="block">
+                                <IconBell stroke={1.5} size={32} />  
+                              </span>
                             {/* 읽지않은 알림 표시  */}
-                          {notifications && notifications.some(n => !n.isRead) && (
-                          <span className="absolute top-2 right-2 block h-3 w-3 rounded-full bg-red-500"></span>
-                          )}              
-                        </button>
+                            {notifications && notifications.some(n => !n.isRead) && (
+                            <span className="absolute top-1 right-2 block h-3 w-3 rounded-full bg-red-500"></span>
+                            )}              
+                          </button>
                                                 
-                        {notificationOpen && (
-                          <div className="dropdown-content w-80 max-w-md">
-                            <div className="p-4 border-b border-b-neutral-4">
-                              <h5 className="text-lg font-semibold text-white">알림</h5>
-                            </div>
-                            {notificationLoading ? (
-                              <div className="p-4 text-center text-gray-400">로딩 중...</div>
-                            ) : notifications && notifications.length > 0 ? (
-                              <ul className="p-2 max-h-80 overflow-y-auto">
-                              {notifications.map(notif => (
-                                <li key={notif.id}>                                  
-                                  <Link 
-                                    href={notif.link} 
-                                    className={`dropdown-item ${!notif.isRead ? 'text-white' : 'text-gray-400'}`}
-                                    onClick={notificationDropdown} // 알림 클릭 시 드롭다운 닫기
-                                  >
-                                    {notif.text}
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
-                          ) : (
+                          {notificationOpen && (
+                            <div className="dropdown-content w-80 max-w-md">
+                              {/* 드롭다운 */}
+                              <div className="p-4 border-b border-b-neutral-4">
+                                <h5 className="text-lg font-semibold text-white">알림</h5>
+                              </div>
+                              {notificationLoading ? (
+                                <div className="p-4 text-center text-gray-400">로딩 중...</div>
+                              ) : notifications && notifications.length > 0 ? (
+                                <ul className="p-2 max-h-80 overflow-y-auto">
+                                {notifications.map(notif => (
+                                  <li key={notif.id}>                                  
+                                    <Link 
+                                      href={notif.link} 
+                                      className={`dropdown-item ${!notif.isRead ? 'text-white' : 'text-gray-400'}`}
+                                      onClick={notificationDropdown} // 알림 클릭 시 드롭다운 닫기
+                                    >
+                                      {notif.text}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                              ) : (
                             <div className="p-4 text-center text-gray-400">새로운 알림이 없습니다.</div>
-                          )}
-                          <div className="p-2 border-t border-t-neutral-4 text-center">
-                            <Link href="/notifications" className="text-sm text-primary" onClick={notificationDropdown}>모든 알림 보기</Link>
-                          </div>                                                                                
-                        </div>  
+                            )}
+                            <div className="p-2 border-t border-t-neutral-4 text-center">
+                              <Link href="/notifications" className="text-sm text-primary" onClick={notificationDropdown}>모든 알림 보기</Link>
+                            </div>                                                                                
+                          </div>  
                         )}
                       </div>                    
                     )}
@@ -370,7 +375,7 @@ const NavBar = () => {
                         onClick={userToggle}
                         className="dropdown-toggle gap-24p"
                       >
-                        <span className="flex items-center gap-3">
+                        <span className="flex items-center gap-3 ml-4">
                           <Image
                             className="size-60p rounded-full shrink-0"
                             src={user.image? user.image : defaultAvater}
