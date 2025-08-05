@@ -48,7 +48,7 @@ const GameinfoHomeBanner = () => {
                         <span className="text-m-medium text-w-neutral-1">{item.language}</span>
                       </div>
                       <Link href={item.link} className="btn btn-lg btn-primary rounded-12">
-                        전체 영웅 보가기
+                        전체 영웅 보러가기
                       </Link>
                     </div>
                   </div>
