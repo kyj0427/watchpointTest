@@ -16,7 +16,7 @@ const GameinfoHomeBanner = () => {
     <section className="section-pt">
       <div className="container relative pt-[30px] ">
         <div>
-          <SwiperCD
+          <Swiper
             spaceBetween={10}
             slidesPerView={1}
             loop={gameinfoHomeBannerData.length > 1}
@@ -48,7 +48,7 @@ const GameinfoHomeBanner = () => {
                         <span className="text-m-medium text-w-neutral-1">{item.language}</span>
                       </div>
                       <Link href={item.link} className="btn btn-lg btn-primary rounded-12">
-                        전체 영웅 보기
+                        전체 영웅 보가기
                       </Link>
                     </div>
                   </div>
@@ -56,7 +56,7 @@ const GameinfoHomeBanner = () => {
                 </div>
               </SwiperSlide>
             ))}
-          </SwiperCD>
+          </Swiper>
 
           <div className="md:absolute lg:right-15 md:right-12 lg:bottom-15 md:bottom-12 z-[2] overflow-hidden pt-5 flex justify-end">
             <Swiper

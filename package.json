@@ -1,7 +1,12 @@
 {
+<<<<<<< HEAD
   "devDependencies": {
     "@types/react": "^19.1.9",
     "@types/react-dom": "^19.1.7",
     "typescript": "^5.9.2"
+=======
+  "dependencies": {
+    "axios": "^1.11.0"
+>>>>>>> 7d24b51f1b601a0c3471755d1870a091274d638a
   }
 }

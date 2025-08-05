@@ -2,7 +2,7 @@ export const navMenu = [
     {
         id: 1,
         name: "홈",
-        isSubMenu: true,
+        isSubMenu: false,
         link : "/"
     },
     {
@@ -11,32 +11,32 @@ export const navMenu = [
         isSubMenu: true,
         subMenu : [
             {
-                id : 2.1,
+                id : 21,
                 name : "영웅정보",
                 link : "/groups-two"
             },
             {
-                id : 2.2,
+                id : 22,
                 name : "영웅별 유저통계",
-                link : "/"
+                link : "/not-found"
             },
             {
-                id : 2.3,
+                id : 23,
                 name : "맵정보",
                 link : "/library"
             },
             {
-                id : 2.4,
+                id : 24,
                 name : "유저랭킹",
                 link : "/leaderboard"
             },
             {
-                id : 2.5,
+                id : 25,
                 name : "패치노트",
                 link : "/game-details-one"
             },
             {
-                id : 2.6,
+                id : 26,
                 name : "상점",
                 link : "/marketplace-two"
             }
@@ -49,27 +49,27 @@ export const navMenu = [
         isSubMenu: true,
         subMenu : [
             {
-                id : 3.1,
+                id : 31,
                 name : "대회일정",
                 link : "/tournaments/t1/matches"
             },
             {
-                id : 3.2,
+                id : 32,
                 name : "승부예측",
                 link : "/tournaments/t1/brackets"
             },
             {
-                id : 3.3,
+                id : 33,
                 name : "예측포인트 랭킹",
                 link : "/tournaments/t1/prizes"
             },
             {
-                id : 3.4,
+                id : 34,
                 name : "프로랭킹",
                 link : "/team-ranks"
             },
             {
-                id : 3.5,
+                id : 35,
                 name : "프로선수정보",
                 link : "/team-home"
             }
@@ -81,17 +81,17 @@ export const navMenu = [
         isSubMenu: true,
         subMenu: [
             {
-                id: 4.1,
+                id: 41,
                 name: "코칭AI",
-                link: "/chat"
+                link: "/athena"
             },
             {
-                id: 4.2,
+                id: 42,
                 name: "멘토/멘티 매칭",
-                link: "/teams"
+                link: "/mentor-menti"
             },
             {
-                id: 4.3,
+                id: 43,
                 name: "강사정보/후기",
                 link: "/game-details-two" //또는 library-details
             }
@@ -103,27 +103,27 @@ export const navMenu = [
         isSubMenu: true,
         subMenu: [
             {
-                id: 5.1,
+                id: 51,
                 name: "인기글",
                 link: "/community"
             },
             {
-                id: 5.2,
+                id: 52,
                 name: "핫클립",
                 link: "/trending"
             },
             {
-                id: 5.3,
+                id: 53,
                 name: "공략",
                 link: "/blogs"
             },
             {
-                id: 5.4,
+                id: 54,
                 name: "팁과 노하우",
                 link: "/blogs"
             },
             {
-                id: 5.5,
+                id: 55,
                 name: "듀오/스쿼드 조회",
                 link: "/groups"
             }
@@ -135,22 +135,22 @@ export const navMenu = [
         isSubMenu: true,
         subMenu: [
             {
-                id: 6.1,
+                id: 61,
                 name: "내 프로필",
                 link: "/profile"
             },
             {
-                id: 6.2,
+                id: 62,
                 name: "북마크",
                 link: "/saved"
             },
             {
-                id: 6.3,
+                id: 63,
                 name: "구독/결제",
                 link: "/pricing-plan"
             },
             {
-                id: 6.4,
+                id: 64,
                 name: "내 활동정보",
                 link: "/profile/forums"
             }
