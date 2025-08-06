@@ -3,9 +3,10 @@
 "use client";
 
 import { ReactNode, useState, useEffect } from "react";
-import { AuthContext} from "./AuthContext";
+import { AuthContext, AuthContextType } from "./AuthContext";
 import {User, UserFromAPI} from "@/types/user";
 import axios from "axios"; //npm install axios
+
 
 
 
@@ -14,11 +15,22 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(true);
 
+
+    // 로그아웃
+    const handleLogout = () =>{
+        console.log("로그아웃 완료");
+
+        //백엔드 로그아웃 연결
+
+
+        setUser(null);
+    }
+
     useEffect(() => {
     
         const checkUserStatus = async ()=>{
-          setLoading(true);
-          try{
+            setLoading(true);
+            try{
               // 로그인 사용자 정보 요청
               // const response = await axios.get<UserFromAPI[]>('http://localhost:8000/');
 
@@ -40,53 +52,59 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
               // }
 
               // 네트워크 지연시간 시뮬레이션
-              await new Promise(resolve => setTimeout(resolve, 1000));
-              
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
               // 1. 로그인 유저 테스트
               // 1-1. 프로필 사진 업로드한 유저
-              const userWithImage: User = {
+            const userWithImage: User = {
                 id: 1,
                 name: "Faker",
                 email: "faker@t1.gg",
                 image: "/images/users/avatar2.png",
                 blizardId : "Faker",
                 battleTag: "1234"
-              };           
+            };           
 
               // 1-2 프로필 사진 없는 유저
-              const userWithoutImage: User = {
+            const userWithoutImage: User = {
                 id : 2,
                 name: "Newbie",
                 email: "newbie@ovarwatch.com",
                 image: null,
                 blizardId : "Newbie",
                 battleTag: "1111"
-              };    
+            };    
 
               // 상태 업데이트
               // setUser(userData)
 
-              setUser(userWithImage)
+            setUser(userWithImage)
               // setUser(userWithoutImage)
 
-              
+            
 
               // 2. 로그아웃 상태 테스트
               // setUser(null)
 
-          } catch (err){
+            } catch (err){
               //에러시 사용자 null
-              console.error("인증실패", err)
-              setUser(null)
-          } finally {
-              setLoading(false)
-          }
+            console.error("인증실패", err)
+            setUser(null)
+            } finally {
+            setLoading(false)
+            }
     }
     checkUserStatus();
     }, []);
 
+    const authContextValue: AuthContextType = {
+        user,
+        loading,
+        logout : handleLogout
+    }
+
     return (
-    <AuthContext.Provider value={{ user, loading }}>
+    <AuthContext.Provider value={ authContextValue}>
         {children}
     </AuthContext.Provider>
     );

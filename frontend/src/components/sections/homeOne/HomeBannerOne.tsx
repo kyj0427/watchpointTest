@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Thumbs, FreeMode } from "swiper/modules";
+import { Navigation, Pagination, Thumbs, FreeMode, Autoplay } from "swiper/modules";
 import Link from "next/link";
 import { homeOneBannerData } from "@public/data/homeBannerData";
 
@@ -30,6 +30,7 @@ const HomeBannerOne = () => {
     <section className="section-pt">
       <div className="container relative pt-[30px] ">
         <div>
+          {/* 메인 슬라이드 */}
           <Swiper
             spaceBetween={10}
             slidesPerView={1}
@@ -43,11 +44,16 @@ const HomeBannerOne = () => {
               el: ".thumbs-gallery-pagination",
               clickable: true,
             }}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
             thumbs={{
               swiper:
                 thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
             }}
-            modules={[Navigation, Pagination, Thumbs]}
+            modules={[Navigation, Pagination, Thumbs, Autoplay]}
             className="swiper thumbs-gallery-main"
           >
             {homeOneBannerData?.map((item, idx) => (
