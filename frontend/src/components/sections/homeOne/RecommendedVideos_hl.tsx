@@ -9,7 +9,7 @@ import { useState } from "react";
 import FeaturedVideosSlider from "../FeaturedVideosSlider";
 import game60 from "@public/images/games/game60.png";
 import game61 from "@public/images/games/game61.png";
-import YoutubeVideos from "./YoutubeVideos";
+import YoutubeVideos from "./YoutubeVideos_hl";
 
 const featuredVideosData = [
   {
