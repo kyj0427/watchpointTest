@@ -28,7 +28,7 @@ export const navMenu = [
             {
                 id : 24,
                 name : "유저랭킹",
-                link : "/leaderboard"
+                link : "/userrank"
             },
             {
                 id : 25,
