@@ -23,12 +23,12 @@ export const navMenu = [
             {
                 id : 23,
                 name : "맵정보",
-                link : "/library"
+                link : "/maps"
             },
             {
                 id : 24,
                 name : "유저랭킹",
-                link : "/leaderboard"
+                link : "/userrank"
             },
             {
                 id : 25,
