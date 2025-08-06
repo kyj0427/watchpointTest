@@ -28,7 +28,14 @@ const AOSInit = () => {
           disable: false,
         });
 
-        AOS.refresh();
+        if (document.readyState === "loading"){
+          document.addEventListener("DOMContentLoaded", ()=>{
+            AOS.refresh();
+          });
+        } else {
+          AOS.refresh();
+        }
+        
       }, 100);
 
       return () => clearTimeout(timer);
