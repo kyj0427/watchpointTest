@@ -26,40 +26,12 @@ const PopularMentors = ({ className }: { className?: string }) => {
         <div className="container">
             <div className="flex items-center justify-between flex-wrap gap-24p">
             <h2 className="heading-2 text-w-neutral-1 text-split-left">
-                Top Trending
+                인기 멘토
             </h2>
-            <form className="shrink-0">
-                <Listbox
-                ref={filterRef}
-                value={selectedFilter}
-                onChange={setSelectedFilter}
-                as="div"
-                className="dropdown group"
-                >
-                <Listbox.Button
-                    onClick={filterToggle}
-                    className="dropdown-toggle toggle-1"
-                >
-                    {selectedFilter}
-                    <IconChevronDown
-                    className={`${filterOpen && "rotate-180"} icon-24`}
-                    />
-                </Listbox.Button>
-                <Listbox.Options className="dropdown-content">
-                    {filterTypes.map((item, idx) => (
-                    <Listbox.Option
-                        className={`dropdown-item ${
-                        selectedFilter === item && "active"
-                        }`}
-                        key={idx}
-                        value={item}
-                    >
-                        {item}
-                    </Listbox.Option>
-                    ))}
-                </Listbox.Options>
-                </Listbox>
-            </form>
+                <Link
+                    href="/mentoring-lists/mentor"
+                    className="btn-primary flex-wrap items-center"
+                >더보기</Link>
             </div>
             <div className="mt-40p" data-aos="fade-up">
             <Swiper
