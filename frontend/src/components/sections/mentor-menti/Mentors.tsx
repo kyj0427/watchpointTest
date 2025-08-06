@@ -24,9 +24,9 @@ type Mentor = {
     };
 };
 
-const filterTypes = ["Popular", "Recommended"];
+const filterTypes = ["Popular", "Recent"];
 
-const Mentors = ({ data }: { data: Mentor[] }) => {
+const Mentors = ({ data, type }: { data: Mentor[]; type: string }) => {
     const [category, setCategory] = useState<string>("all");
     const [selectedFilter, setSelectedFilter] = useState(filterTypes[0]);
 
@@ -89,7 +89,7 @@ const Mentors = ({ data }: { data: Mentor[] }) => {
                 />
                 </div>
                 <div className="p-28p">
-                <Link href={`/marketplace/${item.id}`} className="heading-3 link-1 mb-2 line-clamp-1">
+                <Link href={`/mentoring-lists/${type}/${item.id}`} className="heading-3 link-1 mb-2 line-clamp-1">
                     {item.title}
                 </Link>
                 <p className="text-l-regular text-w-neutral-2">

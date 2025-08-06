@@ -172,9 +172,9 @@ data = [
       <Breadcrumb breadcrumb={headerData} />
         <div className="mb-20">
         {type === "mentoring" ? (
-          <Mentoring data={data} />
+          <Mentoring data={data} type={type}/>
         ) : type === "mentor" ? (
-          <Mentors data={data} />
+          <Mentors data={data} type={type}/>
         ) : (
           <p>해당 타입의 데이터를 찾을 수 없습니다.</p>
         )}

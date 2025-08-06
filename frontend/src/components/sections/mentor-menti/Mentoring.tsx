@@ -28,7 +28,7 @@ const positionCategory = ["dealer", "tank", "support"]
 
 const filterTypes = ["Popular", "Recommended"];
 
-const MentoringList = ({ data }: { data: Mentoring[] }) => {
+const MentoringList = ({ data, type }: { data: Mentoring[]; type: string }) => {
     const [category, setCategory] = useState<string>("all");
     const [selectedFilter, setSelectedFilter] = useState(filterTypes[0]);
 
@@ -108,7 +108,7 @@ const MentoringList = ({ data }: { data: Mentoring[] }) => {
                 />
                 </div>
                 <div className="p-28p">
-                <Link href={`/marketplace/${item.id}`} className="heading-3 link-1 mb-2 line-clamp-1">
+                <Link href={`/marketplace/${type}/${item.id}`} className="heading-3 link-1 mb-2 line-clamp-1">
                     {item.title}
                 </Link>
                 <p className="text-l-regular text-w-neutral-2">
