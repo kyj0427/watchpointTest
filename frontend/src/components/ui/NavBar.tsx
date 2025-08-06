@@ -592,8 +592,7 @@ const NavBar = () => {
                           <div className="mt-40p">
                             <Image className="mb-16p" src={logo} alt="logo" />
                             <p className="text-base text-w-neutral-3 mb-32p">
-                              Become visionary behind a sprawling metropolis in
-                              Metropolis Tycoon Plan empire progress.
+                              오버워치 게임의 모든 것을 Watchpoint에서.
                             </p>
                             <div className="flex items-center flex-wrap gap-3">
                               <Link href="#" className="btn-socal-primary">
