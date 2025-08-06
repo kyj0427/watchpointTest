@@ -107,7 +107,7 @@ def crawl_overwatch_store():
 
 def extract_price_info(card):
     """상품 카드에서 가격 정보를 추출하는 함수"""
-    price_info = {'original_price': 'N/A', 'discount_rate': 'N/A', 'currency': 'USD'}
+    price_info = {'original_price': None, 'discount_rate': None, 'currency': None}
     
     try:
         # footer 영역에서 가격 정보 찾기
@@ -190,9 +190,9 @@ def save_to_typescript_file(products, filename="overwatchStoreData_hl.ts"):
             name: string;
             category: string;
             type: string;
-            price: string;
-            discount_rate: string;
-            currency : string;
+            price: string | null;
+            discount_rate: string | null;
+            currency : string | null;
             image: string;
             link: string;
             lastUpdated: string;
@@ -216,3 +216,5 @@ if __name__ == "__main__":
 
     # data 폴더에 TypeScript 파일로 저장
     save_to_typescript_file(products)
+
+# 파일 실행 : python overwatchStoreCrawler\OverwatchStoreCrawler.py
