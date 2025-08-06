@@ -1,4 +1,4 @@
-import Chats from "@/components/sections/profile/Chats";
+import Chats from "@/components/sections/profile/Chats_hw";
 
 const Page = () => {
   return (
