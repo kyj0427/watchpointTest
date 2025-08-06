@@ -2,6 +2,7 @@
 
 import React, { FC, useState } from "react";
 import AthenaVideoUpload from "./AthenaVideoUpload";
+import VideoUploader from "../fileUpload/VideoUpload";
 
 const AthenaMain: FC = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -51,7 +52,8 @@ const AthenaMain: FC = () => {
                             </button>
 
                         {/* 비디오 업로드 컴포넌트 */}
-                        <AthenaVideoUpload />
+                        {/* <AthenaVideoUpload /> */}
+                        <VideoUploader/>
                         </div>
                     </div>
                 )}
