@@ -3,7 +3,7 @@ import CounterElement from "./CounterElement";
 import Modal from "./Modal";
 import Accordion from './Accordion';
 import ProgressBar from './ProgressBar';
-import NavBar from './NavBar';
+import NavBar from './NavBar_hw';
 import SearchBar from './SearchBar';
 
 export {

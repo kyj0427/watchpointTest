@@ -23,7 +23,7 @@ export const navMenu = [
             {
                 id : 23,
                 name : "맵정보",
-                link : "/library"
+                link : "/maps"
             },
             {
                 id : 24,
