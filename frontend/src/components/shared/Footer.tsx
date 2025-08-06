@@ -13,7 +13,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="relative section-pt overflow-hidden bg-b-neutral-3">
+    <footer className="relative section-pt overflow-hidden bg-b-neutral-3 mt-20">
       <div className="container">
         <div className="relative z-10 lg:px-10">
           <div className="flex items-center justify-between gap-24p pb-60p">
