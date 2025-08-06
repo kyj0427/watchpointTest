@@ -4,7 +4,7 @@ import { NextRequest } from "next/server";
 export async function GET(req: NextRequest, { params }: { params: { name: string } }) {
   const name = decodeURIComponent(params.name);
   // Elasticsearch 등에서 해당 이름으로 검색
-  const result = await fetch('http://localhost:9200/test_overwatch_maps/_search', {
+  const result = await fetch('http://192.168.0.31:9200/test_overwatch_maps/_search', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

@@ -24,7 +24,7 @@ const MapList = () => {
   useEffect(() => {
     const fetchMaps = async () => {
       try {
-        const res = await fetch("http://localhost:4000/api/maps");
+        const res = await fetch("http://192.168.0.31:4000/api/maps");
         const data = await res.json();
         setMaps(data.hits.hits.map((hit: any) => hit._source));
       } catch (err) {
