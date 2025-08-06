@@ -86,7 +86,7 @@ const Footer = () => {
                 <h4 className="heading-4 text-w-neutral-1 whitespace-nowrap ">
                   게임정보
                 </h4>
-                <span className="w-full max-w-[50px] h-0.5 bg-w-neutral-1"></span>
+                <span className="w-full max-w-[100px] h-0.5 bg-w-neutral-1"></span>
               </div>
               <ul className="grid grid-cols-1 sm:gap-y-16p gap-y-2 *:flex *:items-center mb-32p">
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
@@ -140,7 +140,7 @@ const Footer = () => {
                 <h4 className="heading-4 text-w-neutral-1 whitespace-nowrap ">
                   E-스포츠
                 </h4>
-                <span className="w-full max-w-[50px] h-0.5 bg-w-neutral-1"></span>
+                <span className="w-full max-w-[100px] h-0.5 bg-w-neutral-1"></span>
               </div>
               <ul className="grid grid-cols-1 sm:gap-y-16p gap-y-2 *:flex *:items-center">
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
@@ -183,9 +183,9 @@ const Footer = () => {
             <div className="4xl:col-start-7 4xl:col-end-9">
               <div className="flex items-center gap-24p mb-24p">
                 <h4 className="heading-4 text-w-neutral-1 whitespace-nowrap ">
-                  게임강의
+                  강의
                 </h4>
-                <span className="w-full max-w-[50px] h-0.5 bg-w-neutral-1"></span>
+                <span className="w-full max-w-[100px] h-0.5 bg-w-neutral-1"></span>
               </div>
               <ul className="grid grid-cols-1 sm:gap-y-16p gap-y-2 *:flex *:items-center mb-32p">
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
@@ -227,7 +227,7 @@ const Footer = () => {
                 <h4 className="heading-4 text-w-neutral-1 whitespace-nowrap ">
                   커뮤니티
                 </h4>
-                <span className="w-full max-w-[50px] h-0.5 bg-w-neutral-1"></span>
+                <span className="w-full max-w-[100px] h-0.5 bg-w-neutral-1"></span>
               </div>
               <ul className="grid grid-cols-1 sm:gap-y-16p gap-y-2 *:flex *:items-center">
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
@@ -275,7 +275,7 @@ const Footer = () => {
                 <h4 className="heading-4 text-w-neutral-1 whitespace-nowrap ">
                   마이페이지
                 </h4>
-                <span className="w-full max-w-[50px] h-0.5 bg-w-neutral-1"></span>
+                <span className="w-full max-w-[100px] h-0.5 bg-w-neutral-1"></span>
               </div>
               <ul className="grid grid-cols-1 sm:gap-y-16p gap-y-2 *:flex *:items-center mb-32p">
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
