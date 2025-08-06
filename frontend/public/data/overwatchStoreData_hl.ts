@@ -1,14 +1,14 @@
 // Auto-generated Overwatch Store Data
-        // Generated on: 2025-08-06 13:00:44
+        // Generated on: 2025-08-06 16:34:30
 
         export interface OverwatchProduct {
             id : string;
             name: string;
             category: string;
             type: string;
-            price: string;
-            discount_rate: string;
-            currency : string;
+            price: string | null;
+            discount_rate: string | null;
+            currency : string | null;
             image: string;
             link: string;
             lastUpdated: string;
@@ -16,67 +16,67 @@
 
         export const overwatchStoreData: OverwatchProduct[] = [
   {
-    "id": "5993bf9a-2859-40fe-bf8a-aedc0e130343",
+    "id": "6bf085e5-db1d-4efb-a720-4e139698d9fe",
     "name": "Overwatch 2 – Ultimate Battle Pass Bundle: Season 17",
     "category": "Seasonal Packs",
     "type": "",
     "price": "49,600",
-    "discount_rate": "N/A",
+    "discount_rate": null,
     "currency": "KRW",
     "image": "https://blz-contentstack-images.akamaized.net/v3/assets/bltf408a0557f4e4998/bltd48050bd8a416496/6852fe2bae36f65ba240fc11/OW2_S17_UltimateBattlePass_BNET_Homepage_BrowsingCard_1920x1080.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/product/overwatch-ultimate-bundle?p=1943746",
-    "lastUpdated": "2025-08-06T13:00:40.796203"
+    "lastUpdated": "2025-08-06T16:34:27.441550"
   },
   {
-    "id": "31994796-1c76-4a7a-9124-1e3b5e7aca12",
+    "id": "2d715d97-ec5d-42fd-88b2-b6d7bc2ba6f7",
     "name": "Overwatch 2 Premium Battle Pass: Season 17",
     "category": "Seasonal Packs",
     "type": "",
     "price": "1,000",
-    "discount_rate": "N/A",
+    "discount_rate": null,
     "currency": "Coins",
     "image": "https://blz-contentstack-images.akamaized.net/v3/assets/bltf408a0557f4e4998/blt67748b789bb355f7/685300bfdb9ffb647e77d19f/OW2_S17_PremiumBattlePass_BNET_Shop_ProductBrowsingCard_1920x1080.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/product/overwatch-battle-pass",
-    "lastUpdated": "2025-08-06T13:00:40.834103"
+    "lastUpdated": "2025-08-06T16:34:27.504936"
   },
   {
-    "id": "bf27d900-5af8-4b2a-8651-5d7ffe5b774b",
+    "id": "512f667f-25fe-4021-a0c0-861bc0795628",
     "name": "Overwatch 2 Starter Pack: Season 17",
     "category": "Seasonal Packs",
     "type": "",
     "price": "12,400",
-    "discount_rate": "N/A",
+    "discount_rate": null,
     "currency": "KRW",
     "image": "https://blz-contentstack-images.akamaized.net/v3/assets/bltf408a0557f4e4998/blt78201281ab8aebc1/6852fda2eb01e7cf35444be7/Shop_ProductBrowsingCard_1920x1080.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/product/overwatch-starter-pack?p=1943748",
-    "lastUpdated": "2025-08-06T13:00:40.871057"
+    "lastUpdated": "2025-08-06T16:34:27.542259"
   },
   {
-    "id": "778ca19f-d65d-47d8-8714-428368ca0aeb",
+    "id": "f4ececcc-3461-40ba-afb6-6c8ea0addf19",
     "name": "Overwatch 2: Reaper Complete Mythic Weapon Skin Bundle",
     "category": "Seasonal Packs",
     "type": "",
     "price": "49,600",
-    "discount_rate": "N/A",
+    "discount_rate": null,
     "currency": "KRW",
     "image": "https://blz-contentstack-images.akamaized.net/v3/assets/bltf408a0557f4e4998/bltabbcf70695885a14/6852fad6db9ffb600e77d18b/OW2_2024_S17-MythicWeapon-BNET_SA01_BNET_shopbrowsing_1920x1080.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/product/overwatch-reaper-mythic-weapon-skin-bundle?p=1943749",
-    "lastUpdated": "2025-08-06T13:00:40.920732"
+    "lastUpdated": "2025-08-06T16:34:27.592619"
   },
   {
-    "id": "6d3c6820-a546-444c-86c7-bd34206c0e44",
+    "id": "b7b0d2db-fd6d-4cd1-ab2d-418b6be9d648",
     "name": "Overwatch Battle Pass Tier Skip",
     "category": "Seasonal Packs",
     "type": "",
     "price": "200",
-    "discount_rate": "N/A",
+    "discount_rate": null,
     "currency": "Coins",
     "image": "https://blz-contentstack-images.akamaized.net/v3/assets/bltf408a0557f4e4998/blt37fe02642ce9e864/6573577153df9f764697ac6f/Grey_Background_Tier_Skip_1920x1080.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/product/overwatch-tier-skip",
-    "lastUpdated": "2025-08-06T13:00:40.956727"
+    "lastUpdated": "2025-08-06T16:34:27.632802"
   },
   {
-    "id": "be6b0a04-cede-4546-a525-e2db90d4fea1",
+    "id": "f54d3595-c7d9-4193-a245-af13b1ab33d6",
     "name": "OWCS Partner Team Mega Bundle 1",
     "category": "Epic",
     "type": "Skin",
@@ -85,10 +85,10 @@
     "currency": "Coins",
     "image": "https://catalog.blzstatic.com//36/95c4f50130575fd51d8a1b2549c77392-S17_OWCS_TeamMegaBundle_1_web.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/family/overwatch/items/1961703/owcs-partner-team-mega-bundle-1",
-    "lastUpdated": "2025-08-06T13:00:40.990735"
+    "lastUpdated": "2025-08-06T16:34:27.671648"
   },
   {
-    "id": "db15324f-cfab-41f1-9b38-95cfbb514ad7",
+    "id": "560014e8-9304-40b4-8cb4-b8d1c12171b9",
     "name": "OWCS Partner Team Mega Bundle 2",
     "category": "Epic",
     "type": "Skin",
@@ -97,10 +97,10 @@
     "currency": "Coins",
     "image": "https://catalog.blzstatic.com//ffe/79a69086e1a3bd69a02275a7e137fa69-S17_OWCS_TeamMegaBundle_2_web.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/family/overwatch/items/1961724/owcs-partner-team-mega-bundle-2",
-    "lastUpdated": "2025-08-06T13:00:41.027617"
+    "lastUpdated": "2025-08-06T16:34:27.709191"
   },
   {
-    "id": "e02e529a-ddf4-4be4-9fdf-839951038410",
+    "id": "09e3680e-3f8b-4148-b638-57f8aab2355c",
     "name": "OWCS Partner Team Mega Bundle 3",
     "category": "Epic",
     "type": "Skin",
@@ -109,10 +109,10 @@
     "currency": "Coins",
     "image": "https://catalog.blzstatic.com//ffb/ad3f5f1bf815f534889f9341909559e0-S17_OWCS_TeamMegaBundle_3_web.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/family/overwatch/items/1961725/owcs-partner-team-mega-bundle-3",
-    "lastUpdated": "2025-08-06T13:00:41.067197"
+    "lastUpdated": "2025-08-06T16:34:27.746914"
   },
   {
-    "id": "2630804a-5f9f-4f67-ab91-7b2112948336",
+    "id": "973a7b7c-bbc1-4da0-a395-0fae62dec9a2",
     "name": "Crazy Raccoon Bundle",
     "category": "Legendary",
     "type": "Skin",
@@ -121,10 +121,10 @@
     "currency": "Coins",
     "image": "https://catalog.blzstatic.com//fc3/d4e14916e8dd0d92f8dc64f8829d6949-S17_OWCS_Crazy_Raccoon_web.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/family/overwatch/items/1961708/crazy-raccoon-bundle",
-    "lastUpdated": "2025-08-06T13:00:41.103848"
+    "lastUpdated": "2025-08-06T16:34:27.786466"
   },
   {
-    "id": "0cd68c51-23f4-49f7-9ef1-4a7226ddfb2a",
+    "id": "ff99a038-ec37-4859-8c6a-d811c008ec7c",
     "name": "Spacestation Gaming Bundle",
     "category": "Legendary",
     "type": "Skin",
@@ -133,10 +133,10 @@
     "currency": "Coins",
     "image": "https://catalog.blzstatic.com//23/b918b3977d8fc36755dea99cfb8821f0-S17_OWCS_Spacestation_web.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/family/overwatch/items/1961709/spacestation-gaming-bundle",
-    "lastUpdated": "2025-08-06T13:00:41.141534"
+    "lastUpdated": "2025-08-06T16:34:27.829872"
   },
   {
-    "id": "be45348f-4af4-4ba1-9712-3c08333cc9de",
+    "id": "ffeca5b7-0d3d-4bc2-b888-22e685381fc6",
     "name": "Gen.G Bundle",
     "category": "Legendary",
     "type": "Skin",
@@ -145,10 +145,10 @@
     "currency": "Coins",
     "image": "https://catalog.blzstatic.com//fbf/76d66d317391772404af193f2da1d8df-S17_OWCS_GenG_web.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/family/overwatch/items/1961698/geng-bundle",
-    "lastUpdated": "2025-08-06T13:00:41.179676"
+    "lastUpdated": "2025-08-06T16:34:27.869710"
   },
   {
-    "id": "b4d6b1d2-4ebd-4b25-a499-2b8087d87e2e",
+    "id": "f1977b46-5190-46f0-86cf-061ea81de4f1",
     "name": "Team Liquid Bundle",
     "category": "Legendary",
     "type": "Skin",
@@ -157,10 +157,10 @@
     "currency": "Coins",
     "image": "https://catalog.blzstatic.com//fb8/1d6563f2e1b0fbacc6b9ee5de758839f-S17_OWCS_TeamLiquid_web.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/family/overwatch/items/1961701/team-liquid-bundle",
-    "lastUpdated": "2025-08-06T13:00:41.214011"
+    "lastUpdated": "2025-08-06T16:34:27.913764"
   },
   {
-    "id": "e41bdab0-5b55-45c0-9171-df555460a537",
+    "id": "86ca8167-e079-4173-a471-fe7307c36293",
     "name": "T1 Bundle",
     "category": "Legendary",
     "type": "Skin",
@@ -169,10 +169,10 @@
     "currency": "Coins",
     "image": "https://catalog.blzstatic.com//fc3/31dc44d03598e47da098e0cbf295646d-S17_OWCS_T1_web.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/family/overwatch/items/1961699/t1-bundle",
-    "lastUpdated": "2025-08-06T13:00:41.251353"
+    "lastUpdated": "2025-08-06T16:34:27.951529"
   },
   {
-    "id": "9474804d-eb5b-4d37-8328-b103e7daade2",
+    "id": "1e7ed938-69eb-4430-9e4c-618c93e2c7f8",
     "name": "Twisted Minds Bundle",
     "category": "Legendary",
     "type": "Skin",
@@ -181,10 +181,10 @@
     "currency": "Coins",
     "image": "https://catalog.blzstatic.com//77/a2cf46f120ea2511b5d86845760dfd5e-S17_OWCS_TwistedMinds_web.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/family/overwatch/items/1961702/twisted-minds-bundle",
-    "lastUpdated": "2025-08-06T13:00:41.292145"
+    "lastUpdated": "2025-08-06T16:34:27.990055"
   },
   {
-    "id": "034bf388-0c25-4dd1-b4ba-6a9642e52e57",
+    "id": "16b44997-0ec8-43a8-b351-51817614d858",
     "name": "Team Falcons Bundle",
     "category": "Legendary",
     "type": "Skin",
@@ -193,10 +193,10 @@
     "currency": "Coins",
     "image": "https://catalog.blzstatic.com//c/7d13241dafd8a143e967076859c9697c-S17_OWCS_TeamFalcons_web.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/family/overwatch/items/1961700/team-falcons-bundle",
-    "lastUpdated": "2025-08-06T13:00:41.327703"
+    "lastUpdated": "2025-08-06T16:34:28.028910"
   },
   {
-    "id": "ed4461d6-5cc5-409d-8f3c-1a5fb8c677c0",
+    "id": "3d63df82-b8ee-4583-8db2-579b4a2092b2",
     "name": "Virtus.pro Bundle",
     "category": "Legendary",
     "type": "Skin",
@@ -205,10 +205,10 @@
     "currency": "Coins",
     "image": "https://catalog.blzstatic.com//fe4/a084250eeefd4569e973431ef73d356a-S17_OWCS_VirtusPro_web.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/family/overwatch/items/1961710/virtuspro-bundle",
-    "lastUpdated": "2025-08-06T13:00:41.363936"
+    "lastUpdated": "2025-08-06T16:34:28.068770"
   },
   {
-    "id": "c67329de-15ed-41a1-a45b-e7083a91da06",
+    "id": "a235b28f-784f-429c-89df-cfefeda5d2bf",
     "name": "ZETA DIVISION Bundle",
     "category": "Legendary",
     "type": "Skin",
@@ -217,10 +217,10 @@
     "currency": "Coins",
     "image": "https://catalog.blzstatic.com//fb6/8e2d91f94053035ca24368b2cf73ca66-S17_OWCS_ZetaDivision_web.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/family/overwatch/items/1961711/zeta-division-bundle",
-    "lastUpdated": "2025-08-06T13:00:41.399586"
+    "lastUpdated": "2025-08-06T16:34:28.108380"
   },
   {
-    "id": "18ba83e4-9b8f-43d8-9a55-0a3f45f4b0ae",
+    "id": "c1ae4228-580e-4e9f-b077-8240fed44151",
     "name": "Radiant Angel Mercy OWCS Crowdfunding Bundle",
     "category": "Legendary",
     "type": "Skin",
@@ -229,10 +229,10 @@
     "currency": "Coins",
     "image": "https://catalog.blzstatic.com//ff1/f6b9f5b188f7e661bf7a82511d3bb533-S17_OWCS_RadiantAngelMercy_web.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/family/overwatch/items/1961674/radiant-angel-mercy-owcs-crowdfunding-bundle",
-    "lastUpdated": "2025-08-06T13:00:41.440781"
+    "lastUpdated": "2025-08-06T16:34:28.147863"
   },
   {
-    "id": "117a7c01-8a83-4eb7-9cef-87204520c4c8",
+    "id": "80ef2ac0-8d5b-438b-bd4b-ed19bbaacda4",
     "name": "Once Again Bundle",
     "category": "Legendary",
     "type": "Skin",
@@ -241,10 +241,10 @@
     "currency": "Coins",
     "image": "https://catalog.blzstatic.com//77/77e478c99a33e3f60fce423d874398d1-S17_OWCS_OnceAgain_web.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/family/overwatch/items/1962384/once-again-bundle",
-    "lastUpdated": "2025-08-06T13:00:41.478095"
+    "lastUpdated": "2025-08-06T16:34:28.186981"
   },
   {
-    "id": "becdc32b-2118-4d5b-9cad-b6e43a4bf65b",
+    "id": "cca02a39-e01d-40a7-a875-48c88c812094",
     "name": "ROC Esports Bundle",
     "category": "Legendary",
     "type": "Skin",
@@ -253,10 +253,10 @@
     "currency": "Coins",
     "image": "https://catalog.blzstatic.com//ff8/73403e5ba79177c666887d83153a9023-S17_OWCS_Roc_web.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/family/overwatch/items/1962385/roc-esports-bundle",
-    "lastUpdated": "2025-08-06T13:00:41.518333"
+    "lastUpdated": "2025-08-06T16:34:28.224110"
   },
   {
-    "id": "d58d09b2-d951-48f8-bda8-cce0f59a3257",
+    "id": "35523566-6433-4b1e-bb28-aa083eb06c8d",
     "name": "Team CC Bundle",
     "category": "Legendary",
     "type": "Skin",
@@ -265,10 +265,10 @@
     "currency": "Coins",
     "image": "https://catalog.blzstatic.com//64/eb0f2149d5d5b28bf5166515c07c2858-S17_OWCS_CC_web.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/family/overwatch/items/1962386/team-cc-bundle",
-    "lastUpdated": "2025-08-06T13:00:41.582758"
+    "lastUpdated": "2025-08-06T16:34:28.247658"
   },
   {
-    "id": "0d8a5b54-25aa-4686-997b-0233fa4d705e",
+    "id": "6f73ddd3-565e-4fc3-a3eb-b6bd253f63c4",
     "name": "NERF Mega Bundle",
     "category": "Legendary",
     "type": "Bundle (9 items)",
@@ -277,10 +277,10 @@
     "currency": "Coins",
     "image": "https://catalog.blzstatic.com//7/a0d71c38a66d4ccf98ddb4a9b7b0387b-S17_Blaster_MegaBundle_web.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/family/overwatch/items/1962283/nerf-mega-bundle",
-    "lastUpdated": "2025-08-06T13:00:41.646625"
+    "lastUpdated": "2025-08-06T16:34:28.299091"
   },
   {
-    "id": "f53d8a8f-6454-49e4-8d41-1e698b2bc78f",
+    "id": "0470cd4c-30e1-465d-9c80-b193df52bf08",
     "name": "NERF Or Nothin' - Cassidy Bundle",
     "category": "Legendary",
     "type": "Bundle (4 items)",
@@ -289,46 +289,46 @@
     "currency": "Coins",
     "image": "https://catalog.blzstatic.com//37/3a040dde84597911ba4cbb9b568673a2-Cassidy_Midlife_Crisis.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/family/overwatch/items/1962280/nerf-or-nothin-cassidy-bundle",
-    "lastUpdated": "2025-08-06T13:00:41.697110"
+    "lastUpdated": "2025-08-06T16:34:28.336761"
   },
   {
-    "id": "f513df24-b2d1-461f-b706-d54944f4e35f",
+    "id": "8e012743-c76e-4775-a4d2-332869982301",
     "name": "NERF Slingerang",
     "category": "Legendary",
     "type": "Weapon Skin",
     "price": "1,200",
-    "discount_rate": "N/A",
+    "discount_rate": null,
     "currency": "Coins",
     "image": "https://catalog.blzstatic.com//fb9/b265fb0eb76f0c3e51fcc158e064d26f-S17_Blaster_Genji_web.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/family/overwatch/items/1959747/nerf-slingerang",
-    "lastUpdated": "2025-08-06T13:00:41.733191"
+    "lastUpdated": "2025-08-06T16:34:28.373815"
   },
   {
-    "id": "69cc4ac4-b6f0-4773-90d5-162a2afee34a",
+    "id": "e19b3772-684c-4c6d-a95b-dcbe6d9771b5",
     "name": "NERF N Series Pinpoint",
     "category": "Legendary",
     "type": "Weapon Skin",
     "price": "1,200",
-    "discount_rate": "N/A",
+    "discount_rate": null,
     "currency": "Coins",
     "image": "https://catalog.blzstatic.com//18/31417452d67bc3dc4f91734f28692dbf-S17_Blaster_Soldier76_web.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/family/overwatch/items/1959713/nerf-n-series-pinpoint",
-    "lastUpdated": "2025-08-06T13:00:41.771110"
+    "lastUpdated": "2025-08-06T16:34:28.408900"
   },
   {
-    "id": "e141a1df-920e-48c5-a857-f89493aea1ea",
+    "id": "e14b4ee1-1304-42e1-bc32-9bcc8cb7799c",
     "name": "NERF Big Bad Bow",
     "category": "Legendary",
     "type": "Weapon Skin",
     "price": "1,200",
-    "discount_rate": "N/A",
+    "discount_rate": null,
     "currency": "Coins",
     "image": "https://catalog.blzstatic.com//f96/5528395e7f36f4f74567174e8fa14d28-S17_Blaster_Hanzo_web.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/family/overwatch/items/1959745/nerf-big-bad-bow",
-    "lastUpdated": "2025-08-06T13:00:41.810093"
+    "lastUpdated": "2025-08-06T16:34:28.442418"
   },
   {
-    "id": "dd34548d-fe22-4669-98fa-d70cf95d3c77",
+    "id": "6e068f73-66da-433b-a69e-389b482a1528",
     "name": "Radiant Angel Mercy OWCS Crowdfunding Bundle",
     "category": "Legendary",
     "type": "Skin",
@@ -337,79 +337,79 @@
     "currency": "Coins",
     "image": "https://catalog.blzstatic.com//ff1/f6b9f5b188f7e661bf7a82511d3bb533-S17_OWCS_RadiantAngelMercy_web.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/family/overwatch/items/1961674/radiant-angel-mercy-owcs-crowdfunding-bundle",
-    "lastUpdated": "2025-08-06T13:00:41.847395"
+    "lastUpdated": "2025-08-06T16:34:28.489234"
   },
   {
-    "id": "da22b6ca-2139-48dd-8698-5b0cf339cd78",
+    "id": "bdd47e77-adda-4e6d-982d-6f193f068da5",
     "name": "NERF Super Soaker XP 100",
     "category": "Legendary",
     "type": "Weapon Skin",
     "price": "1,200",
-    "discount_rate": "N/A",
+    "discount_rate": null,
     "currency": "Coins",
     "image": "https://catalog.blzstatic.com//5c/c794afdc522aea23135539e2d5839d8f-S17_Blaster_Mei_web.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/family/overwatch/items/1959748/nerf-super-soaker-xp-100",
-    "lastUpdated": "2025-08-06T13:00:41.885737"
+    "lastUpdated": "2025-08-06T16:34:28.524235"
   },
   {
-    "id": "9c164cd8-de16-4735-a55b-503d34deac54",
+    "id": "12a7d0ac-e0f4-48d4-9292-b94d081b8404",
     "name": "NERF Loadout Commander",
     "category": "Weapon Skin",
     "type": "Baptiste",
     "price": "1,200",
-    "discount_rate": "N/A",
+    "discount_rate": null,
     "currency": "Coins",
     "image": "https://catalog.blzstatic.com//ff4/84bf20621c76277667882f4120e843e6-S17_Blaster_Baptiste_web.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/family/overwatch/items/1959714/nerf-loadout-commander",
-    "lastUpdated": "2025-08-06T13:00:41.925271"
+    "lastUpdated": "2025-08-06T16:34:28.557234"
   },
   {
-    "id": "afd492c5-bf7c-4a8c-96a8-5c8c43552dd6",
+    "id": "ec49ba05-c0fb-40a5-9af2-c0a4a074c58a",
     "name": "Overwatch 2 Mythic Prisms",
     "category": "Prisms and Coins",
     "type": "",
     "price": "12,400",
-    "discount_rate": "N/A",
+    "discount_rate": null,
     "currency": "KRW",
     "image": "https://blz-contentstack-images.akamaized.net/v3/assets/bltf408a0557f4e4998/blt8e0007cd340202d3/6616d46e8886c1014daffb1b/OW2_2024_S10-MythicCurrency_BNET_TIER3_BNET_Shop-Products-Asset-Gallery_1920x1080.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/product/overwatch-mythic-prisms",
-    "lastUpdated": "2025-08-06T13:00:41.998788"
+    "lastUpdated": "2025-08-06T16:34:28.593254"
   },
   {
-    "id": "cf4dadb7-0fdc-4648-82ca-b0c59f55a157",
+    "id": "d7e5db8c-7756-4512-b95c-052d4bd0a463",
     "name": "Overwatch® 2 – Overwatch Coins",
     "category": "Prisms and Coins",
     "type": "",
     "price": "6,200",
-    "discount_rate": "N/A",
+    "discount_rate": null,
     "currency": "KRW",
     "image": "https://blz-contentstack-images.akamaized.net/v3/assets/bltf408a0557f4e4998/blt5387d7cefaf9923d/6334e1997e84e17596f9c816/Coins_960x540.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/product/overwatch-coins",
-    "lastUpdated": "2025-08-06T13:00:42.037465"
+    "lastUpdated": "2025-08-06T16:34:28.629451"
   },
   {
-    "id": "85206557-548c-4fbc-b5f5-b56fa0356790",
+    "id": "75cda472-cbb7-442c-b43a-55c9b32ebd5c",
     "name": "Overwatch 2 – Invasion Bundle",
     "category": "Team-Based Action Game",
     "type": "",
     "price": "18,600",
-    "discount_rate": "N/A",
+    "discount_rate": null,
     "currency": "KRW",
     "image": "https://blz-contentstack-images.akamaized.net/v3/assets/bltf408a0557f4e4998/blt93307e3b811e14a4/64d16d32da73492fca1874cf/OW2_2023_Invasion-Bundle_BNET_1P_SA01-card_feature.png?imwidth=1920&imdensity=1",
     "link": "https://kr.shop.battle.net/en-us/product/overwatch-invasion-bundle?p=1337309",
-    "lastUpdated": "2025-08-06T13:00:42.075260"
+    "lastUpdated": "2025-08-06T16:34:28.666684"
   },
   {
-    "id": "152dbf75-25e4-4471-830a-64180cd75a9f",
+    "id": "8ff2618d-6e6c-4d78-9ef5-f5f12b18fc91",
     "name": "Overwatch Gear",
     "category": "Gear",
     "type": "",
-    "price": "N/A",
-    "discount_rate": "N/A",
-    "currency": "USD",
+    "price": null,
+    "discount_rate": null,
+    "currency": null,
     "image": "https://blz-contentstack-images.akamaized.net/v3/assets/bltf408a0557f4e4998/blt4b7e7936d131202a/63f58538998e686b2e53b7de/50317-BGS-battlenet-evergreen-Overwatch.jpg?imwidth=1920&imdensity=1",
     "link": "https://gear.blizzard.com/collections/overwatch",
-    "lastUpdated": "2025-08-06T13:00:42.112174"
+    "lastUpdated": "2025-08-06T16:34:28.704107"
   }
 ];
 
