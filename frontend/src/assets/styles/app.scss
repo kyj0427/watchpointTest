@@ -25,3 +25,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+// AOS 하이드레이션 오류 방지를 위한 CSS
+[data-aos] {
+  opacity: 0;
+  transition-property: opacity, transform;
+}
+
+[data-aos].aos-animate {
+  opacity: 1;
+}
+
+// 서버사이드 렌더링 시 AOS 클래스가 추가되지 않도록
+.aos-init {
+  opacity: 1 !important;
+}
