@@ -12,53 +12,15 @@ import { Autoplay, Navigation, Scrollbar } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 const TrendingMentorings = () => {
-    const filterTypes = ["Popular", "Action", "Adventure", "Sports"];
-
-    const [selectedFilter, setSelectedFilter] = useState(filterTypes[0]);
-
-    const {
-        open: filterOpen,
-        handleToggle: filterToggle,
-        ref: filterRef,
-    } = useToggle();
-
     return (
         <section className="section-pt">
         <div className="container">
             <div className="flex items-center justify-between flex-wrap gap-24p">
-            <h2 className="heading-2">가장 인기 있는 강의</h2>
-            <form className="shrink-0">
-                <Listbox
-                ref={filterRef}
-                value={selectedFilter}
-                onChange={setSelectedFilter}
-                as="div"
-                className="dropdown group"
-                >
-                <Listbox.Button
-                    onClick={filterToggle}
-                    className="dropdown-toggle toggle-1"
-                >
-                    {selectedFilter}
-                    <IconChevronDown
-                    className={`${filterOpen && "rotate-180"} icon-24`}
-                    />
-                </Listbox.Button>
-                <Listbox.Options className="dropdown-content">
-                    {filterTypes.map((item, idx) => (
-                    <Listbox.Option
-                        className={`dropdown-item ${
-                        selectedFilter === item && "active"
-                        }`}
-                        key={idx}
-                        value={item}
-                    >
-                        {item}
-                    </Listbox.Option>
-                    ))}
-                </Listbox.Options>
-                </Listbox>
-            </form>
+                <h2 className="heading-2">가장 인기 있는 강의</h2>
+                <Link
+                    href="/mentoring-lists/mentoring"
+                    className="btn-primary flex-wrap items-center"
+                >더보기</Link>
             </div>
             <div className="mt-40p">
             <Swiper
