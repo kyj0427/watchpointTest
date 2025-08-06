@@ -18,6 +18,7 @@ const MapList = () => {
 
   const [selectedGamemode, setSelectedGamemode] = useState<string>("전체");
   const [sortBy, setSortBy] = useState<string>("이름 오름차순");
+  const [searchKeyword, setSearchKeyword] = useState<string>("");
 
   // Fetch map data
   useEffect(() => {
@@ -34,13 +35,20 @@ const MapList = () => {
     fetchMaps();
   }, []);
 
-  // Filter + Sort
+  // Filter + Sort + Search
   useEffect(() => {
     let result = [...maps];
 
     if (selectedGamemode !== "전체") {
       result = result.filter((map) =>
         map.gamemodes.includes(selectedGamemode)
+      );
+    }
+
+    if (searchKeyword.trim() !== "") {
+      const keyword = searchKeyword.trim().toLowerCase();
+      result = result.filter((map) =>
+        map.name.toLowerCase().includes(keyword)
       );
     }
 
@@ -51,24 +59,35 @@ const MapList = () => {
     }
 
     setFilteredMaps(result);
-  }, [maps, selectedGamemode, sortBy]);
+  }, [maps, selectedGamemode, sortBy, searchKeyword]);
 
   const gamemodes = [
-  "전체",
-  ...Array.from(new Set(maps.flatMap((map) => map.gamemodes))),
-];
+    "전체",
+    ...Array.from(new Set(maps.flatMap((map) => map.gamemodes))),
+  ];
 
   return (
     <section className="section-pb pt-60p">
       <div className="container">
-        {/* 필터 & 정렬 */}
-        <div className="flex justify-between items-center mb-6 gap-4 flex-wrap">
-          <div>
-            <label className="text-sm text-white mr-2">필터:</label>
+        {/* 검색 + 필터 + 정렬 */}
+        <div className="flex flex-wrap gap-4 justify-between items-center mb-6">
+          {/* 검색창 */}
+          <div className="flex-grow">
+            <input
+              type="text"
+              placeholder="맵 이름으로 검색..."
+              value={searchKeyword}
+              onChange={(e) => setSearchKeyword(e.target.value)}
+              className="w-full bg-b-neutral-2 text-white text-base font-medium px-5 py-3 rounded-lg"
+            />
+          </div>
+
+          {/* 필터 */}
+          <div className="min-w-[180px]">
             <select
               value={selectedGamemode}
               onChange={(e) => setSelectedGamemode(e.target.value)}
-              className="bg-b-neutral-2 text-white px-4 py-2 rounded-md"
+              className="w-full bg-b-neutral-2 text-white text-base px-5 py-3 rounded-lg"
             >
               {gamemodes.map((mode) => (
                 <option key={mode} value={mode}>
@@ -78,12 +97,12 @@ const MapList = () => {
             </select>
           </div>
 
-          <div>
-            <label className="text-sm text-white mr-2">정렬:</label>
+          {/* 정렬 */}
+          <div className="min-w-[180px]">
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="bg-b-neutral-2 text-white px-4 py-2 rounded-md"
+              className="w-full bg-b-neutral-2 text-white text-base px-5 py-3 rounded-lg"
             >
               <option>오름차순</option>
               <option>내림차순</option>
@@ -91,7 +110,7 @@ const MapList = () => {
           </div>
         </div>
 
-        {/* 맵 목록 */}
+        {/* 맵 카드 리스트 */}
         <div className="grid 3xl:grid-cols-4 xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-30p">
           {filteredMaps.map((map, idx) => (
             <div
@@ -108,9 +127,7 @@ const MapList = () => {
                 />
               </div>
               <div className="mt-3">
-                <h3 className="text-lg text-white font-semibold">
-                  {map.name}
-                </h3>
+                <h3 className="text-lg text-white font-semibold">{map.name}</h3>
                 <p className="text-sm text-w-neutral-2">{map.location}</p>
                 <p className="text-sm text-w-neutral-4 mt-1">
                   🎮 {map.gamemodes.join(", ")}
