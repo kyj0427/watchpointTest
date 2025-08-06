@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
     turbo: {},
   },
   distDir: 'dist',
-  output: "export",
+  
   reactStrictMode: true,
 };
 
