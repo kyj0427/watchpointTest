@@ -59,7 +59,7 @@ const ESportsBreadcrumb = ({ breadcrumb }: { breadcrumb: BreadcrumbType }) => {
           <div className="overlay-11"></div>
         </div>
       </div>
-      <div className="mb-10">
+      <div className="mb-5">
         <ESportTab/>
       </div>
     </section>

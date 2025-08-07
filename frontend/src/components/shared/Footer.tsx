@@ -26,8 +26,9 @@ const Footer = () => {
               </h2>
             </div>
           </div>
-          <div className="grid 4xl:grid-cols-12 3xl:grid-cols-4 sm:grid-cols-2 grid-cols-1 4xl:gap-x-4 max-4xl:gap-20p border-y-2 border-dashed border-shap py-80p">
-            <div className="4xl:col-start-1 4xl:col-end-3">
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8 lg:gap-12 xl:gap-16 border-y-2 border-dashed border-shap py-80p">
+            {/* 로고 및 연락처 */}
+            <div className="lg:col-span-1">
               <Image className="mb-16p" src={logo} alt="logo" />
               <p className="text-base text-w-neutral-3 mb-32p">
                 오버워치 게임의 모든 것을 Watchpoint에서.
@@ -52,26 +53,25 @@ const Footer = () => {
 
               <div className="pt-16">
                 <div className="flex items-center gap-24p mb-24p">
-                  <h4 className="heading-4 text-w-neutral-1 whitespace-nowrap ">
+                  <h4 className="heading-4 text-w-neutral-1 whitespace-nowrap">
                     Contact Us
                   </h4>
-                  
                 </div>
-                <ul className="grid grid-cols-1 sm:gap-y-16p gap-y-2 *:flex *:items-center">
-                  <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
-                    <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
+                <ul className="grid grid-cols-1 gap-y-2">
+                  <li className="group hover:translate-x-2 -translate-x-2 flex items-start gap-1 hover:text-primary transition-1">
+                    <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1 mt-1 flex-shrink-0"></i>
                     <Link
                       href="mailto:support@watchpoint.com"
-                      className="text-m-regular text-w-neutral-3"
+                      className="text-sm sm:text-base text-w-neutral-3 break-all hover:text-primary transition-1"
                     >
                       support@watchpoint.com
                     </Link>
                   </li>
-                  <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
-                    <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
+                  <li className="group hover:translate-x-2 -translate-x-2 flex items-start gap-1 hover:text-primary transition-1">
+                    <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1 mt-1 flex-shrink-0"></i>
                     <Link
                       href="tel:207555-0119"
-                      className="text-m-regular text-w-neutral-3"
+                      className="text-sm sm:text-base text-w-neutral-3 break-all hover:text-primary transition-1"
                     >
                       (207) 555-0119
                     </Link>
@@ -81,20 +81,16 @@ const Footer = () => {
             </div>
             
             {/* 게임정보 & E-스포츠 */}
-            <div className="4xl:col-start-4 4xl:col-end-6">
+            <div className="lg:col-span-1">
               <div className="flex items-center gap-24p mb-24p">
-                <h4 className="heading-4 text-w-neutral-1 whitespace-nowrap ">
-                  <Link
-                    href="/gameinfo"                    
-                    >
-                      게임정보
-                    </Link>
+                <h4 className="heading-4 text-w-neutral-1 whitespace-nowrap">
+                  <Link href="/gameinfo">게임정보</Link>
                 </h4>
-                <span className="w-full max-w-[100px] h-0.5 bg-w-neutral-1"></span>
+                <span className="flex-1 h-0.5 bg-w-neutral-1 max-w-[80px] lg:max-w-[100px]"></span>
               </div>
-              <ul className="grid grid-cols-1 sm:gap-y-16p gap-y-2 *:flex *:items-center mb-32p">
+              <ul className="grid grid-cols-1 gap-y-2 *:flex *:items-center mb-32p">
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
-                  <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
+                  <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
                     href="/groups-two"
                     className="text-m-regular text-w-neutral-3"
@@ -103,7 +99,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
-                  <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
+                  <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
                     href="/maps"
                     className="text-m-regular text-w-neutral-3"
@@ -112,7 +108,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
-                  <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
+                  <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
                     href="/userrank"
                     className="text-m-regular text-w-neutral-3"
@@ -121,7 +117,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
-                  <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
+                  <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
                     href="/patchnotes"
                     className="text-m-regular text-w-neutral-3"
@@ -130,7 +126,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
-                  <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
+                  <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
                     href="/marketplace-two"
                     className="text-m-regular text-w-neutral-3"
@@ -141,18 +137,14 @@ const Footer = () => {
               </ul>
 
               <div className="flex items-center gap-24p mb-24p">
-                <h4 className="heading-4 text-w-neutral-1 whitespace-nowrap ">
-                  <Link
-                    href="/e-sports"                    
-                    >
-                      E-스포츠
-                    </Link>
+                <h4 className="heading-4 text-w-neutral-1 whitespace-nowrap">
+                  <Link href="/e-sports">E-스포츠</Link>
                 </h4>
-                <span className="w-full max-w-[100px] h-0.5 bg-w-neutral-1"></span>
+                <span className="flex-1 h-0.5 bg-w-neutral-1 max-w-[80px] lg:max-w-[100px]"></span>
               </div>
-              <ul className="grid grid-cols-1 sm:gap-y-16p gap-y-2 *:flex *:items-center">
+              <ul className="grid grid-cols-1 gap-y-2 *:flex *:items-center">
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
-                  <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
+                  <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
                     href="/e-sports/tournaments"
                     className="text-m-regular text-w-neutral-3"
@@ -161,7 +153,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
-                  <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
+                  <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
                     href="/e-sports/predictions"
                     className="text-m-regular text-w-neutral-3"
@@ -170,7 +162,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
-                  <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
+                  <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
                     href="/e-sports/pro-ranks"
                     className="text-m-regular text-w-neutral-3"
@@ -179,7 +171,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
-                  <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
+                  <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link href="/e-sports/pro-players" className="text-m-regular text-w-neutral-3">
                     프로선수정보
                   </Link>
@@ -188,20 +180,16 @@ const Footer = () => {
             </div>
 
             {/* 게임강의 & 커뮤니티 */}
-            <div className="4xl:col-start-7 4xl:col-end-9">
+            <div className="lg:col-span-1">
               <div className="flex items-center gap-24p mb-24p">
-                <h4 className="heading-4 text-w-neutral-1 whitespace-nowrap ">
-                  <Link
-                    href="#"                    
-                    >
-                      강의
-                    </Link>
+                <h4 className="heading-4 text-w-neutral-1 whitespace-nowrap">
+                  <Link href="#">강의</Link>
                 </h4>
-                <span className="w-full max-w-[100px] h-0.5 bg-w-neutral-1"></span>
+                <span className="flex-1 h-0.5 bg-w-neutral-1 max-w-[80px] lg:max-w-[100px]"></span>
               </div>
-              <ul className="grid grid-cols-1 sm:gap-y-16p gap-y-2 *:flex *:items-center mb-32p">
+              <ul className="grid grid-cols-1 gap-y-2 *:flex *:items-center mb-32p">
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
-                  <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
+                  <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
                     href="/athena"
                     className="text-m-regular text-w-neutral-3"
@@ -210,7 +198,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
-                  <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
+                  <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
                     href="/mentor-menti"
                     className="text-m-regular text-w-neutral-3"
@@ -219,7 +207,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
-                  <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
+                  <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
                     href="/game-details-two"
                     className="text-m-regular text-w-neutral-3"
@@ -236,18 +224,14 @@ const Footer = () => {
               </ul>
 
               <div className="flex items-center gap-24p mb-24p">
-                <h4 className="heading-4 text-w-neutral-1 whitespace-nowrap ">
-                  <Link
-                    href="#"                    
-                    >
-                      커뮤니티
-                    </Link>
+                <h4 className="heading-4 text-w-neutral-1 whitespace-nowrap">
+                  <Link href="#">커뮤니티</Link>
                 </h4>
-                <span className="w-full max-w-[100px] h-0.5 bg-w-neutral-1"></span>
+                <span className="flex-1 h-0.5 bg-w-neutral-1 max-w-[80px] lg:max-w-[100px]"></span>
               </div>
-              <ul className="grid grid-cols-1 sm:gap-y-16p gap-y-2 *:flex *:items-center">
+              <ul className="grid grid-cols-1 gap-y-2 *:flex *:items-center">
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
-                  <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
+                  <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
                     href="/community"
                     className="text-m-regular text-w-neutral-3"
@@ -256,7 +240,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
-                  <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
+                  <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
                     href="/trending"
                     className="text-m-regular text-w-neutral-3"
@@ -265,7 +249,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
-                  <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
+                  <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
                     href="/blogs"
                     className="text-m-regular text-w-neutral-3"
@@ -274,7 +258,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
-                  <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
+                  <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
                     href="/groups"
                     className="text-m-regular text-w-neutral-3"
@@ -286,20 +270,16 @@ const Footer = () => {
             </div>
 
             {/* 마이페이지 & 연락처 */}
-            <div className="4xl:col-start-10 4xl:col-end-12">
+            <div className="lg:col-span-1">
               <div className="flex items-center gap-24p mb-24p">
-                <h4 className="heading-4 text-w-neutral-1 whitespace-nowrap ">
-                  <Link
-                    href="/profile"                    
-                    >
-                      마이페이지
-                    </Link>
+                <h4 className="heading-4 text-w-neutral-1 whitespace-nowrap">
+                  <Link href="/profile">마이페이지</Link>
                 </h4>
-                <span className="w-full max-w-[100px] h-0.5 bg-w-neutral-1"></span>
+                <span className="flex-1 h-0.5 bg-w-neutral-1 max-w-[80px] lg:max-w-[100px]"></span>
               </div>
-              <ul className="grid grid-cols-1 sm:gap-y-16p gap-y-2 *:flex *:items-center mb-32p">
+              <ul className="grid grid-cols-1 gap-y-2 *:flex *:items-center mb-32p">
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
-                  <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
+                  <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
                     href="/profile"
                     className="text-m-regular text-w-neutral-3"
@@ -308,7 +288,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
-                  <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
+                  <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
                     href="/saved"
                     className="text-m-regular text-w-neutral-3"
@@ -317,7 +297,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
-                  <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
+                  <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
                     href="/pricing-plan"
                     className="text-m-regular text-w-neutral-3"
@@ -326,7 +306,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
-                  <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
+                  <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
                     href="/chat"
                     className="text-m-regular text-w-neutral-3"
@@ -335,7 +315,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
-                  <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
+                  <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
                     href="/faq"
                     className="text-m-regular text-w-neutral-3"
