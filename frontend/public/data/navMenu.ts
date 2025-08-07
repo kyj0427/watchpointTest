@@ -54,18 +54,18 @@ export const navMenu = [
                 name : "승부예측",
                 link : "/e-sports/predictions"
             },
+            // {
+            //     id : 33,
+            //     name : "예측포인트 랭킹",
+            //     link : "/e-sports/predictions-ranks"
+            // },
             {
                 id : 33,
-                name : "예측포인트 랭킹",
-                link : "/e-sports/predictions-ranks"
-            },
-            {
-                id : 34,
                 name : "프로랭킹",
                 link : "/e-sports/pro-ranks"
             },
             {
-                id : 35,
+                id : 34,
                 name : "프로선수정보",
                 link : "/e-sports/pro-players"
             }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import FileUpload from "../fileUpload/FileUpload";
+import FileUpload from "../../ui/fileUpload/FileUpload";
 
 const AthenaVideoUpload = () => {
 
