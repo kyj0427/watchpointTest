@@ -1,82 +1,146 @@
 "use client";
 
-import { useForm } from "react-hook-form";
 import Image from "next/image";
-import user1 from "@public/images/users/user1.png";
-import { IconUsers } from "@tabler/icons-react";
+import { useForm } from "react-hook-form";
+import { useEffect, useState } from "react";
+import profileCover2 from "@public/images/photos/profileCover2.png";
+import user33 from "@public/images/users/user33.png";
 
-interface FormData {
-  post: string;
-  media?: FileList;
+interface ProfileFormData {
+  coverPhoto: FileList;
+  profilePhoto: FileList;
+  first_name: string;
+  last_name: string;
+  email: string;
+  about: string;
+  location: string;
+  working: string;
+  relationship: string;
 }
 
-const PostCreateCard = () => {
-  const { register, handleSubmit, reset } = useForm<FormData>();
+const  PostCreateCard = () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<ProfileFormData>();
 
-  const onSubmit = (data: FormData) => {
-    // form submit event
+  // Watch file input fields for changes
+  const coverPhotoFile = watch("coverPhoto");
+  const profilePhotoFile = watch("profilePhoto");
 
-    reset();
+  const [coverPreview, setCoverPreview] = useState<string | null>(null);
+  const [profilePreview, setProfilePreview] = useState<string | null>(null);
+
+  // Update cover photo preview when a new file is selected
+  useEffect(() => {
+    if (coverPhotoFile && coverPhotoFile.length > 0) {
+      const file = coverPhotoFile[0];
+      const objectUrl = URL.createObjectURL(file);
+      setCoverPreview(objectUrl);
+      return () => URL.revokeObjectURL(objectUrl);
+    } else {
+      setCoverPreview(null);
+    }
+  }, [coverPhotoFile]);
+
+  // Update profile photo preview when a new file is selected
+  useEffect(() => {
+    if (profilePhotoFile && profilePhotoFile.length > 0) {
+      const file = profilePhotoFile[0];
+      const objectUrl = URL.createObjectURL(file);
+      setProfilePreview(objectUrl);
+      return () => URL.revokeObjectURL(objectUrl);
+    } else {
+      setProfilePreview(null);
+    }
+  }, [profilePhotoFile]);
+
+  const onSubmit = (data: ProfileFormData) => {
+    console.log("Form Data:", data);
+    // For file inputs, you can access the files via:
+    // data.coverPhoto[0] and data.profilePhoto[0]
   };
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="bg-b-neutral-3 rounded-12 px-32p py-20p"
-    >
-      <div className="flex-y gap-3.5 mb-24p">
-        <Image
-          width={60}
-          height={60}
-          className="shrink-0 avatar size-60p"
-          src={user1}
-          alt="user"
-        />
-        <div className="w-full flex items-center gap-2 bg-b-neutral-2 text-sm text-w-neutral-1 rounded-32">
-          <input
-            className="w-full bg-transparent text-sm text-w-neutral-1 placeholder:text-w-neutral-4 py-16p px-24p"
-            type="text"
-            placeholder="What’s Your Mind?"
-            {...register("post", { required: true })}
-          />
-          <button
-            type="submit"
-            className="btn btn-xsm btn-primary rounded-full mr-2"
-          >
-            Post
-          </button>
+    <section className="section-py-20">
+      <div className="container pt-30p">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          
+
+          <div className="relative flex flex-col items-center mt-16">
+  {/* 프로필 이미지 영역 */}
+  <div className="relative w-[300px] h-[300px] mb-10">
+    <Image
+      src={profilePreview || user33}
+      alt="Profile"
+      width={300}
+      height={300}
+      className="w-full h-full rounded-full object-cover border-4 border-green-400"
+    />
+  </div>
+</div>
+
+
+
+          {/* General Information Section */}
+         <div className="grid grid-cols-1 gap-30p">
+  <div className="bg-b-neutral-3 rounded-12 px-40p py-34p">
+    <div className="bg-b-neutral-3 rounded-12 px-40p py-34p">
+      <h4 className="text-2xl font-bold text-w-neutral-1 mb-12">
+        내정보
+      </h4>
+      <div className="grid grid-cols-8 gap-6 text-lg leading-relaxed">
+        <div className="sm:col-span-4 col-span-8">
+          <label className="text-base font-semibold text-gray-400 mb-2 block">
+            배틀태그
+          </label>
+          <p>홍길동#1234</p>
+        </div>
+        <div className="sm:col-span-4 col-span-8">
+          <label className="text-base font-semibold text-gray-400 mb-2 block">
+            닉네임
+          </label>
+          <p>페이커</p>
+        </div>
+        <div className="col-span-8">
+          <label className="text-base font-semibold text-gray-400 mb-2 block">
+            Email
+          </label>
+          <p>abcd@Email.com</p>
+        </div>
+        <div className="col-span-8">
+          <label className="text-base font-semibold text-gray-400 mb-2 block">
+            About me
+          </label>
+          <p>
+            저는 오버워치를 즐겨하는 유저이고 포지션은 딜러를 선호하며 한조를 즐겨합니다
+          </p>
+        </div>
+        <div className="col-span-8">
+          <label className="text-base font-semibold text-gray-400 mb-2 block">
+            선호포지션
+          </label>
+          <p>탱커</p>
         </div>
       </div>
-      <div className="flex flex-wrap items-center justify-around gap-3">
-        <label htmlFor="media" className="flex-y gap-3 cursor-pointer">
-          <span className="shrink-0 flex-c size-48p rounded-full bg-secondary/20 text-secondary icon-24">
-            <i className="ti ti-photo"></i>
-          </span>
-          <span className="text-s-medium text-w-neutral-1">Photo/Video</span>
-          <input
-            type="file"
-            id="media"
-            className="hidden"
-            {...register("media")}
-          />
-        </label>
-        <button type="button" className="flex-y gap-3 cursor-pointer">
-          <span className="shrink-0 flex-c size-48p rounded-full bg-primary/20 text-primary icon-24">
-            <IconUsers />
-          </span>
-          <span className="text-s-medium text-w-neutral-1">Tag Friend</span>
-        </button>
-        <button type="button" className="flex-y gap-3 cursor-pointer">
-          <span className="shrink-0 flex-c size-48p rounded-full bg-accent-4/20 text-accent-4 icon-24">
-            <i className="ti ti-mood-smile-beam"></i>
-          </span>
-          <span className="text-s-medium text-w-neutral-1">
-            Feeling /Activity
-          </span>
+
+      <div className="flex items-center justify-end mt-12">
+        <button
+          type="submit"
+          className="px-6 py-3 text-black bg-orange-500 hover:bg-orange-400 rounded-xl font-semibold"
+        >
+          개인정보 변경
         </button>
       </div>
-    </form>
+    </div>
+  </div>
+</div>
+        </form>
+      </div>
+    </section>
   );
 };
 
-export default PostCreateCard;
+export default  PostCreateCard

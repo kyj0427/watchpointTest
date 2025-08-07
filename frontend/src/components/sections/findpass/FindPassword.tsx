@@ -44,7 +44,7 @@ const Findpassword = () => {
     const fullCode = codeInput.join("");
     //  인증 성공 → 비밀번호 재설정 페이지로 이동
     // (여기에 인증코드 검증 로직 삽입)
-      router.push("/reset-password");
+      router.push("/resetpassword");
     }
      
 
@@ -99,7 +99,7 @@ const Findpassword = () => {
                 
                     {/* 인증 코드 입력 단계 */}
                   
-                     {step === "code" && (
+                    {step === "code" && (
                   <div className="mb-24p">
                     <label
                       htmlFor="code"
@@ -135,8 +135,8 @@ const Findpassword = () => {
           }}
           id={`code-${idx}`}
           className="w-10 h-12 text-center border border-gray-400 rounded-md 
-           text-2xl font-mono text-black bg-white 
-           focus:outline-none focus:ring-2 focus:ring-orange-500"
+          text-2xl font-mono text-black bg-white 
+          focus:outline-none focus:ring-2 focus:ring-orange-500"
         />
       ))}
     </div>
@@ -163,7 +163,7 @@ const Findpassword = () => {
                       checked={remember}
                       className="sr-only peer togglePricing"
                     />
-                   
+                  
                   </label>
                 </div>
               </div>
@@ -179,7 +179,7 @@ const Findpassword = () => {
               </button>
 
               <Link href="/login" className="text-m-medium text-primary text-center">
-               로그인 페이지로 돌아가기
+              로그인 페이지로 돌아가기
               </Link>
 
               <div className="grid grid-cols-1 gap-3 py-20p text-center"/>
