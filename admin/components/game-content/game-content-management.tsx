@@ -13,6 +13,7 @@ import { DataStatus } from "@/components/ui/data-status"
 import { useData } from "@/hooks/use-data"
 import { api } from "@/lib/api"
 import { useState } from "react"
+import Link from 'next/link';
 
 export function GameContentManagement() {
   const { data, loading, error, isUsingFallback, refetch } = useData(() => api.getGameContent())
@@ -156,6 +157,7 @@ export function GameContentManagement() {
                 <TableHeader>
                   <TableRow>
                     <TableHead>Hero</TableHead>
+                    <TableHead>Portrait</TableHead>
                     <TableHead>Role</TableHead>
                     <TableHead>Difficulty</TableHead>
                     <TableHead>Tier</TableHead>
@@ -169,6 +171,11 @@ export function GameContentManagement() {
                   {heroes.map((hero: any) => (
                     <TableRow key={hero.id}>
                       <TableCell className="font-medium">{hero.name}</TableCell>
+                      <TableCell className="font-medium">
+                         <Link href={`/hero-details/${hero.key}`} className="portrait-60">
+                            <img src={hero.portrait} alt={hero.name} />
+                         </Link>                       
+                      </TableCell>
                       <TableCell>
                         <div className="flex items-center gap-2">
                           {getRoleIcon(hero.role)}
