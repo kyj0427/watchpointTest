@@ -1,12 +1,26 @@
-
+"use client"
 
 import Image from "next/image";
-import Link from "next/link";
 import { proteamData } from "@public/data/proteamData";
-
+import Pagination from "@/components/shared/Pagination";
+import { useState } from "react";
 
 const ProTeamRank = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(5); // 페이지당 보여줄 아이템 수
+  
+  // 전체 페이지 수 계산
+  const totalPages = Math.ceil(proteamData.length / itemsPerPage);
+  
+  // 현재 페이지에 해당하는 데이터만 추출
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = proteamData.slice(indexOfFirstItem, indexOfLastItem);
 
+  // 페이지 변경 핸들러
+  const handlePageChange = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
 
   return (
     <section className="section-pb pt-60p">
@@ -33,7 +47,7 @@ const ProTeamRank = () => {
               </tr>
             </thead>
             <tbody className="divide-y divide-solid divide-shap border-b border-shap bg-b-neutral-3">
-              {proteamData.map((item, idx) => (
+              {currentItems.map((item, idx) => (
                 <tr key={idx}>
                   <td className="px-24p py-3">
                     <div className="flex items-center gap-3">
@@ -75,38 +89,13 @@ const ProTeamRank = () => {
           </table>
         </div>
 
-        {/* 페이징기능 */}
-        {/* <div className="pagination pagination-primary lg:pagination-center pagination-center pagination-circle pagination-xl w-full mt-48p">
-          <button className="pagination-item pagination-prev disabled:opacity-50"
-            onClick={handlePrevPage}
-            disabled={currentPage === 1}>
-            <i className="ti ti-chevron-left" />
-          </button>
-          <div className="pagination-list">
-            {Array.from({length: totalPages}, (_, i) => i + 1).map((page) => (
-              <button
-                key={page}        
-                onClick={()=>{handlePageChange(page)}}        
-                className={`pagination-item pagination-circle ${
-                  page === currentPage ? "active" : ""
-                }`}
-              >
-                <span className="pagination-link">{page}</span>
-              </button>
-            ))}
-            <span className="pagination-item pagination-circle">
-              <span className="pagination-link pagination-more">...</span>
-            </span>
-            <Link href="#" className="pagination-item pagination-circle">
-              <span className="pagination-link">10</span>
-            </Link>
-          </div>
-          <button className="pagination-item pagination-next disabled:opacity-50"
-            onClick={handleNextPage} disabled={currentPage === totalPages}
-          >
-            <i className="ti ti-chevron-right" />
-          </button>
-        </div> */}
+        {/* 페이징 컴포넌트 */}
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+          className="mt-48p"
+        />
       </div>
     </section>
   );
