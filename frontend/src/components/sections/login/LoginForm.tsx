@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useState } from "react";
 import AnimateHeight from "react-animate-height";
 
+
 interface FormData {
   email: string;
   password: string;
@@ -122,7 +123,7 @@ const LoginForm = () => {
               >
                 로그인
               </button>
-              <Link href="#" className="text-m-medium text-primary text-center">
+              <Link href="/findpass" className="text-m-medium text-primary text-center">
                 비밀번호 찾기
               </Link>
               <div className="grid grid-cols-1 gap-3 py-20p text-center"/>

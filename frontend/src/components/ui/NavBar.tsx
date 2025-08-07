@@ -218,7 +218,7 @@ const NavBar = () => {
           icon: <IconDeviceGamepad stroke={1.5} size={32} />, 
           name: "게임정보" },
         {
-          href: "/tournaments/t1/matches",
+          href: "/e-sports",
           icon: <IconTrophy stroke={1.5} size={32} />,
           name: "E-스포츠"
         },

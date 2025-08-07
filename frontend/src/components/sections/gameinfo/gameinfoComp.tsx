@@ -34,7 +34,7 @@ const GameInfoComp = () => {
                   )}
                 </div>
                 <Link
-                  href="/gameinfoDetail"
+                  href="/gameinfo/gameinfoDetail"
                   className="heading-3 text-w-neutral-1 4xl:line-clamp-2 line-clamp-1 link-1 my-16p text-split-left"
                 >
                   {item?.title}
@@ -86,7 +86,7 @@ const GameInfoComp = () => {
         </div>
         <div className="flex-c mt-48p">
           <Link
-            href="#"
+            href="/gameinfo/gameinfoDetail"
             className="btn btn-xl py-3 btn-neutral-3 bg-b-neutral-3 text-w-neutral-1 rounded-12 outline-none"
           >
             더보기

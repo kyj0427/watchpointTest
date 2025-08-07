@@ -43,7 +43,7 @@
     "src/app/groups/[id]/related-groups/page.tss",
     "src/lib/plyr/Player.jsx",
     "dist/types/**/*.ts"
-, "src/hooks/useToggle.jsx"  ],
+, "src/hooks/useToggle.jsx", "src/App.ts"  ],
   "exclude": [
     "node_modules"
   ]

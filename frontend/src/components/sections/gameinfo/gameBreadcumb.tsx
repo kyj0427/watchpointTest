@@ -3,6 +3,7 @@
 import { StaticImageData } from "next/image";
 import Link from "next/link";
 import { twMerge } from "tailwind-merge";
+import GameInfoTab from "./gameinfoTab";
 
 export type BreadcrumbType = {
   title: string;
@@ -19,7 +20,7 @@ export type ItemsProps = {
   url?: string;
 };
 
-const Breadcrumb = ({ breadcrumb }: { breadcrumb: BreadcrumbType }) => {
+const GameBreadcrumb = ({ breadcrumb }: { breadcrumb: BreadcrumbType }) => {
   return (
     <section className={twMerge("pt-30p", breadcrumb?.className)}>
       <div className="section-pt">
@@ -60,8 +61,11 @@ const Breadcrumb = ({ breadcrumb }: { breadcrumb: BreadcrumbType }) => {
           <div className="overlay-11"></div>
         </div>
       </div>
+      <div>
+        <GameInfoTab />
+      </div>
     </section>
   );
 };
 
-export default Breadcrumb;
+export default GameBreadcrumb;
