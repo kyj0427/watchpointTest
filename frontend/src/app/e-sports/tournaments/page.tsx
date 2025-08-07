@@ -1,5 +1,6 @@
+import ESportsBreadcrumb from "@/components/sections/eSports/ESportsBreadcumb";
 import Maches from "@/components/sections/tournamentsDetails/Maches";
-import { PageProps } from "@/config/types";
+import { headerBannerType, NavLinkProps, PageProps } from "@/config/types";
 import { tournaments } from "@public/data/tournaments";
 
 // Generate static paths
@@ -16,8 +17,19 @@ export default async function TournamentsMatchsPage({ params }: PageProps) {
 
   const singleMatch = tournaments.find((item) => item.id.toString() === id);
 
+  const navLinks: NavLinkProps[] = [
+          { id: 1, url: "/e-sports", label: "E-스포츠" },
+          { id: 2, url: "", label: "대회일정" },
+      ];
+  
+  const headerData: headerBannerType = {
+      title: "대회일정",
+      navLinks,
+      };
+
   return (
     <main>
+      <ESportsBreadcrumb breadcrumb={headerData}/>
       <Maches />
     </main>
   );
