@@ -1,7 +1,6 @@
 
 import ESportsBreadcrumb from "@/components/sections/eSports/ESportsBreadcumb";
-import AllTeams from "@/components/sections/teams/AllTeams";
-import Breadcrumb from "@/components/shared/Breadcumb";
+import ProTeamList from "@/components/sections/eSports/proInfo/ProTeamList";
 import { headerBannerType, NavLinkProps } from "@/config/types";
 
 
@@ -21,7 +20,7 @@ const Page = () => {
     return (
         <main>
             <ESportsBreadcrumb breadcrumb={headerData} />
-            
+            <ProTeamList/>
         </main>
     );
 };
