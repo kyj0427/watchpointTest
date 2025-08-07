@@ -6,7 +6,7 @@ import ProTeamsFilter from "./ProTeamsFilter";
 
 const ProTeamList = () => {
   return (
-    <section className="section-pb pt-10">
+    <section className="section-title">
       <div className="container">
         <h2 className="heading-2 text-w-neutral-1 mb-3">프로팀</h2>
         <div className="flex items-center justify-between flex-wrap gap-24p mb-30p">
