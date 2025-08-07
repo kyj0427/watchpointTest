@@ -53,43 +53,43 @@ const GameInfoDetailComp = () => {
       time: "2m",
       avatar: user1,
       content: [
-        { text: "Hey team,", icon: "ti ti-mood-nerd" },
+        { text: "Hello!", icon: "ti ti-mood-nerd" },
         { text: "Avoid combat, watch the jungle", icon: "ti ti-dots-vertical" },
       ],
     },
     {
       id: 2,
-      name: "Rolex Millar",
+      name: "김미연",
       time: "4m",
       avatar: user2,
       content: [
         {
-          text: "As we wrap up our journey through the world of online gaming",
+          text: "옵치2 벌써 17시즌",
           icon: "ti ti-mood-nerd",
         },
       ],
     },
     {
       id: 3,
-      name: "Sammi Esmit",
+      name: "황희연",
       time: "4m",
       avatar: user3,
-      content: [{ text: "Great!" }],
+      content: [{ text: "예이!" }],
     },
     {
       id: 4,
-      name: "Adder son",
+      name: "서나연 son",
       time: "4m",
       avatar: user4,
-      content: [{ text: "Our massage therapy has something for everyone." }],
+      content: [{ text: "티어 올리고 싶어" }],
     },
     {
       id: 5,
-      name: "David Smith",
+      name: "이다연",
       time: "9m",
       avatar: user7,
       content: [
-        { text: "Your comfort and well-being are of utmost importance to us." },
+        { text: "트레이서 어떻게 하는건지 모르겠음" },
       ],
     },
   ];
@@ -232,7 +232,7 @@ const GameInfoDetailComp = () => {
                   onClick={() => setToggle(!toggle)}
                   className="inline-flex items-center text-base font-poppins font-semibold gap-2 mt-40p "
                 >
-                  {toggle ? "Show less" : "Show more"}
+                  {toggle ? "페이지 줄이기" : "더보기"}
                   {toggle ? (
                     <i className="ti ti-chevron-down icon-24 transition-1"></i>
                   ) : (
@@ -246,7 +246,7 @@ const GameInfoDetailComp = () => {
             <div className="xl:sticky xl:top-30">
               <div className="border border-shap p-40p rounded-12">
                 <div className="flex-y flex-wrap justify-between gap-24p pb-40p border-b border-shap">
-                  <h4 className="heading-4 text-w-neutral-1">Live chat room</h4>
+                  <h4 className="heading-4 text-w-neutral-1">채팅룸</h4>
                   <Link href="/chat" className="icon-32 text-w-neutral-4">
                     <i className="ti ti-arrow-up-right"></i>
                   </Link>
