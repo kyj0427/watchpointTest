@@ -7,8 +7,8 @@ import defaultAvater from "@public/images/users/avatar1.png";
 import Link from "next/link";
 import { useToggle } from "@/hooks";
 import { MouseEvent, useEffect, useState, useContext } from "react";
-import { AuthContext } from "@/contexts/AuthContext";
-import { usePathname } from "next/navigation";
+import { useAuth } from "@/contexts/AuthContext";
+import { usePathname, useRouter } from "next/navigation";
 import { navMenu } from "@public/data/navMenu";
 import AnimateHeight from "react-animate-height";
 import {
@@ -41,7 +41,10 @@ import {
 
 
 const NavBar = () => {
-  const {user, loading} = useContext(AuthContext); //유저정보
+  const router = useRouter();
+  const {user, loading, logout} = useAuth(); //유저정보
+  // console.log("NavBar에서 user 상태:", user); // 디버깅용
+  // console.log("NavBar에서 loading 상태:", loading); // 디버깅용
   const path = usePathname();
   const [toggle, setToggle] = useState<number | null>(null);
   const [height, setHeight] = useState<string | number>(0);
@@ -215,7 +218,7 @@ const NavBar = () => {
           icon: <IconDeviceGamepad stroke={1.5} size={32} />, 
           name: "게임정보" },
         {
-          href: "/tournaments/t1/matches",
+          href: "/e-sports",
           icon: <IconTrophy stroke={1.5} size={32} />,
           name: "E-스포츠"
         },
@@ -409,9 +412,14 @@ const NavBar = () => {
                           <Link href="/settings" className="dropdown-item">
                             Settings
                           </Link>
-                          <button type="button" className="dropdown-item">
-                            Logout
-                          </button>
+                            <button type="button" className="dropdown-item" onClick={()=>{
+                              // console.log("로그아웃 버튼 클릭됨"); // 디버깅용
+                              userToggle(); //토글창닫기
+                              logout(); //로그아웃
+                              router.push('/login'); //로그인페이지로이동
+                            }}>                          
+                              Logout                          
+                            </button>
                           <Link href="/contact-us" className="dropdown-item">
                             Help
                           </Link>
@@ -584,8 +592,7 @@ const NavBar = () => {
                           <div className="mt-40p">
                             <Image className="mb-16p" src={logo} alt="logo" />
                             <p className="text-base text-w-neutral-3 mb-32p">
-                              Become visionary behind a sprawling metropolis in
-                              Metropolis Tycoon Plan empire progress.
+                              오버워치 게임의 모든 것을 Watchpoint에서.
                             </p>
                             <div className="flex items-center flex-wrap gap-3">
                               <Link href="#" className="btn-socal-primary">

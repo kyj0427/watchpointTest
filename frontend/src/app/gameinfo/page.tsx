@@ -1,15 +1,28 @@
-// 메인페이지 gameinfo 테스트 페이지
-// 이 안에서 원하는 UI 테스트를 자유롭게 구성
+//게임정보 메인페이지에 띄우는 페이지
 
-import GameinfoHomeBanner from "@/components/sections/homeOne/GameinfoHomeBanner";
+import GameInfoComp from "@/components/sections/gameinfo/gameinfoComp";
+import GameInfoTab from "@/components/sections/gameinfo/gameinfoTab";
 import { headerBannerType, NavLinkProps } from "@/config/types";
+import GameBreadcrumb from "@/components/sections/gameinfo/gameBreadcumb";
 
-const TestTrendingPage = () => {
+const Page = () => {
+  const navLinks = [
+    { id: 1, url: "/", label: "홈" },
+    { id: 2, url: "", label: "게임정보" },
+  ];
+
+  const headerData: headerBannerType = {
+    title: "게임정보",
+    bgImgClasses: "gameinfo",
+    navLinks,
+  };
+
   return (
     <main>
-      <GameinfoHomeBanner />
+      <GameBreadcrumb breadcrumb={headerData} />
+      <GameInfoComp />
     </main>
   );
 };
 
-export default TestTrendingPage;
+export default Page;

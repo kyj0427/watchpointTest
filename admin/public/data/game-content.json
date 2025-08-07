@@ -150,9 +150,9 @@
       "lastUpdated": "2024-01-14T19:10:00Z"
     }
   ],
-  "heroes": [
+  "heroes":  [
     {
-      "id": "tracer",
+      "key": "tracer",
       "name": "Tracer",
       "role": "DPS",
       "difficulty": "Hard",
@@ -197,7 +197,7 @@
       "status": "active"
     },
     {
-      "id": "reinhardt",
+      "key": "reinhardt",
       "name": "Reinhardt",
       "role": "Tank",
       "difficulty": "Medium",
@@ -251,7 +251,7 @@
       "status": "active"
     },
     {
-      "id": "mercy",
+      "key": "mercy",
       "name": "Mercy",
       "role": "Support",
       "difficulty": "Easy",
@@ -302,12 +302,13 @@
       "status": "active"
     },
     {
-      "id": "genji",
+      "key": "genji",
       "name": "Genji",
       "role": "DPS",
       "difficulty": "Hard",
       "health": 200,
       "image": "/placeholder.svg?height=300&width=200",
+      "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/4edf5ea6d58c449a2aeb619a3fda9fff36a069dfbe4da8bc5d8ec1c758ddb8dc.png",
       "abilities": [
         {
           "name": "Shuriken",
@@ -355,12 +356,13 @@
       "status": "active"
     },
     {
-      "id": "dva",
+      "key": "dva",
       "name": "D.Va",
       "role": "Tank",
       "difficulty": "Medium",
       "health": 650,
       "image": "/placeholder.svg?height=300&width=200",
+      "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/ca114f72193e4d58a85c087e9409242f1a31e808cf4058678b8cbf767c2a9a0a.png",
       "abilities": [
         {
           "name": "Fusion Cannons",
@@ -409,12 +411,13 @@
       "status": "active"
     },
     {
-      "id": "ana",
+      "key": "ana",
       "name": "Ana",
       "role": "Support",
       "difficulty": "Hard",
       "health": 200,
       "image": "/placeholder.svg?height=300&width=200",
+      "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/3429c394716364bbef802180e9763d04812757c205e1b4568bc321772096ed86.png",
       "abilities": [
         {
           "name": "Biotic Rifle",
@@ -459,7 +462,7 @@
       "status": "active"
     },
     {
-      "id": "widowmaker",
+      "key": "widowmaker",
       "name": "Widowmaker",
       "role": "DPS",
       "difficulty": "Hard",
@@ -505,7 +508,7 @@
       "status": "active"
     },
     {
-      "id": "winston",
+      "key": "winston",
       "name": "Winston",
       "role": "Tank",
       "difficulty": "Medium",
@@ -553,7 +556,7 @@
       "status": "active"
     },
     {
-      "id": "lucio",
+      "key": "lucio",
       "name": "Lucio",
       "role": "Support",
       "difficulty": "Medium",
@@ -605,7 +608,7 @@
       "status": "active"
     },
     {
-      "id": "soldier76",
+      "key": "soldier76",
       "name": "Soldier: 76",
       "role": "DPS",
       "difficulty": "Easy",

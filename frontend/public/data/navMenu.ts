@@ -23,23 +23,19 @@ export const navMenu = [
             {
                 id : 23,
                 name : "맵정보",
-                link : "/library"
+                link : "/maps"
             },
             {
                 id : 24,
                 name : "유저랭킹",
-                link : "/leaderboard"
+                link : "/userrank"
             },
             {
                 id : 25,
                 name : "패치노트",
-                link : "/game-details-one"
+                link : "/patchnotes"
             },
-            {
-                id : 26,
-                name : "상점",
-                link : "/marketplace-two"
-            }
+            
         ]
         
     },
@@ -51,27 +47,27 @@ export const navMenu = [
             {
                 id : 31,
                 name : "대회일정",
-                link : "/tournaments/t1/matches"
+                link : "/e-sports/tournaments"
             },
             {
                 id : 32,
                 name : "승부예측",
-                link : "/tournaments/t1/brackets"
+                link : "/e-sports/predictions"
             },
             {
                 id : 33,
                 name : "예측포인트 랭킹",
-                link : "/tournaments/t1/prizes"
+                link : "/e-sports/predictions-ranks"
             },
             {
                 id : 34,
                 name : "프로랭킹",
-                link : "/team-ranks"
+                link : "/e-sports/pro-ranks"
             },
             {
                 id : 35,
                 name : "프로선수정보",
-                link : "/team-home"
+                link : "/e-sports/pro-players"
             }
         ]
     },
