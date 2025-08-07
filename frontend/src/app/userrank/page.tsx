@@ -1,7 +1,7 @@
 // 화면에 띄워지는 userrank 페이지
 
 import UserRankComp from "@/components/sections/userrank/userrankComp";
-import Breadcrumb from "@/components/shared/Breadcumb";
+import UserrankBreadcrumb from "@/components/sections/userrank/userrankBreadcumb";
 import { headerBannerType, NavLinkProps } from "@/config/types";
 
 const Page = () => {
@@ -17,7 +17,7 @@ const Page = () => {
 
   return (
     <main>
-      <Breadcrumb breadcrumb={headerData} />
+      <UserrankBreadcrumb breadcrumb={headerData} />
       <UserRankComp />
     </main>
   );
