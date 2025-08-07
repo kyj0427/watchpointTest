@@ -1,11 +1,17 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { proplayerData } from "@public/data/proplayerData";
+import { useState } from "react";
 
 const ProPlayerRank = () => {
   return (
-    <section className="section-pb pt-60p">
+    <section className="section-pb pt-10p">
       <div className="container">
+        <h2 className="heading-2 text-w-neutral-1 text-split-left mb-3">
+            선수 랭킹
+        </h2>
         <div className="overflow-x-auto scrollbar-sm">
           <table className="text-l-medium font-poppins text-w-neutral-1 w-full whitespace-nowrap">
             <thead className="text-left">

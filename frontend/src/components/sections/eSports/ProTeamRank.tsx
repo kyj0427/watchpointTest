@@ -1,11 +1,19 @@
+
+
 import Image from "next/image";
 import Link from "next/link";
 import { proteamData } from "@public/data/proteamData";
 
+
 const ProTeamRank = () => {
+
+
   return (
     <section className="section-pb pt-60p">
-      <div className="container">
+      <div className="container" >
+        <h2 className="heading-2 text-w-neutral-1 text-split-left mb-3">
+            팀 랭킹
+        </h2>
         <div className="overflow-x-auto scrollbar-sm">
           <table className="text-l-medium font-poppins text-w-neutral-1 w-full whitespace-nowrap">
             <thead className="text-left">
@@ -25,7 +33,7 @@ const ProTeamRank = () => {
               </tr>
             </thead>
             <tbody className="divide-y divide-solid divide-shap border-b border-shap bg-b-neutral-3">
-              {proteamData?.map((item, idx) => (
+              {proteamData.map((item, idx) => (
                 <tr key={idx}>
                   <td className="px-24p py-3">
                     <div className="flex items-center gap-3">
@@ -67,21 +75,24 @@ const ProTeamRank = () => {
           </table>
         </div>
 
-        <div className="pagination pagination-primary lg:pagination-center pagination-center pagination-circle pagination-xl w-full mt-48p">
-          <Link href="#" className="pagination-item pagination-prev">
+        {/* 페이징기능 */}
+        {/* <div className="pagination pagination-primary lg:pagination-center pagination-center pagination-circle pagination-xl w-full mt-48p">
+          <button className="pagination-item pagination-prev disabled:opacity-50"
+            onClick={handlePrevPage}
+            disabled={currentPage === 1}>
             <i className="ti ti-chevron-left" />
-          </Link>
+          </button>
           <div className="pagination-list">
-            {[1, 2, 3, 4, 5].map((page) => (
-              <Link
-                key={page}
-                href="#"
+            {Array.from({length: totalPages}, (_, i) => i + 1).map((page) => (
+              <button
+                key={page}        
+                onClick={()=>{handlePageChange(page)}}        
                 className={`pagination-item pagination-circle ${
-                  page === 1 ? "active" : ""
+                  page === currentPage ? "active" : ""
                 }`}
               >
                 <span className="pagination-link">{page}</span>
-              </Link>
+              </button>
             ))}
             <span className="pagination-item pagination-circle">
               <span className="pagination-link pagination-more">...</span>
@@ -90,10 +101,12 @@ const ProTeamRank = () => {
               <span className="pagination-link">10</span>
             </Link>
           </div>
-          <Link href="#" className="pagination-item pagination-next">
+          <button className="pagination-item pagination-next disabled:opacity-50"
+            onClick={handleNextPage} disabled={currentPage === totalPages}
+          >
             <i className="ti ti-chevron-right" />
-          </Link>
-        </div>
+          </button>
+        </div> */}
       </div>
     </section>
   );
