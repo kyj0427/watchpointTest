@@ -3,31 +3,42 @@
 "use client";
 
 import { ReactNode, useState, useEffect } from "react";
-import { AuthContext, AuthContextType } from "./AuthContext";
-import {User, UserFromAPI} from "@/types/user";
+import { AuthContext, AuthContextType } from "@/contexts/AuthContext";
+import {User, UserFromAPI} from "@/config/user";
 import axios from "axios"; //npm install axios
+import { useRouter } from "next/navigation";
 
 
 
 
 // AuthProvider 컴포넌트 정의
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
+    // console.log("AuthProvider 컴포넌트 렌더링됨"); // 디버깅용
+    const router = useRouter();
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(true);
 
 
+    // 로그인
+    const handleLogin = (userData: User) => {
+        // console.log("로그인 완료");
+        setUser(userData);
+    }
+
     // 로그아웃
-    const handleLogout = () =>{
-        console.log("로그아웃 완료");
+    const handleLogout = () => {
+        // console.log("로그아웃 완료");
 
-        //백엔드 로그아웃 연결
-
+        //백엔드 로그아웃 연결 
 
         setUser(null);
+        localStorage.removeItem('user'); // 로컬스토리지에서도 제거
+        // login 페이지로 리다이렉트
+        router.push('/login');
     }
 
     useEffect(() => {
-    
+        console.log("AuthProvider useEffect 실행됨"); // 디버깅용
         const checkUserStatus = async ()=>{
             setLoading(true);
             try{
@@ -78,6 +89,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
               // 상태 업데이트
               // setUser(userData)
 
+            console.log("Faker 로그인 설정됨:", userWithImage); // 디버깅용
             setUser(userWithImage)
               // setUser(userWithoutImage)
 
@@ -100,7 +112,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const authContextValue: AuthContextType = {
         user,
         loading,
-        logout : handleLogout
+        login: handleLogin,
+        logout: handleLogout
     }
 
     return (
