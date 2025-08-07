@@ -30,6 +30,7 @@
     "react-countdown": "^2.3.6",
     "react-countup": "^6.5.3",
     "react-dom": "^19.0.0",
+    "react-dropzone": "^14.3.8",
     "react-hook-form": "^7.54.2",
     "react-parallax-tilt": "^1.7.278",
     "react-photo-view": "^1.2.7",
