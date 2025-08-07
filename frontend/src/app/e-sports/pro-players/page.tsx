@@ -1,15 +1,15 @@
 
-import AllTeams from "@/components/sections/teams/AllTeams";
-import Breadcrumb from "@/components/shared/Breadcumb";
+import ESportsBreadcrumb from "@/components/sections/eSports/ESportsBreadcumb";
+import ProTeamList from "@/components/sections/eSports/proInfo/ProTeamList";
 import { headerBannerType, NavLinkProps } from "@/config/types";
 
 
 
 const Page = () => {
     const navLinks: NavLinkProps[] = [
-            { id: 1, url: "/", label: "Home" },
-            { id: 2, url: "/e-sports", label: "E-sports" },
-            { id: 3, url: "", label: "Pro players" },
+            { id: 1, url: "/e-sports", label: "E-스포츠" },
+            { id: 2, url: "", label: "프로 선수 정보" },
+            
         ];
     
     const headerData: headerBannerType = {
@@ -19,8 +19,8 @@ const Page = () => {
 
     return (
         <main>
-            <Breadcrumb breadcrumb={headerData} />
-            <AllTeams />
+            <ESportsBreadcrumb breadcrumb={headerData} />
+            <ProTeamList/>
         </main>
     );
 };
