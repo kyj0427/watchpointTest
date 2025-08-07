@@ -1,5 +1,5 @@
-import dva from "@public/images/overwatch_hero_images/D_Va_heroImage_1.jpg";
-import genji from "@public/images/overwatch_hero_images/Genji_heroImage_1.jpg"
+import dva from "@public/images/game_hero/hero_portrait_bg/D_Va_heroImage_2.jpg";
+import genji from "@public/images/game_hero/hero_portrait_bg/Genji_heroImage_2.jpg"
 
 const AthenaDescription = () => {
     return(

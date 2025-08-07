@@ -92,7 +92,7 @@ const Footer = () => {
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
                   <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
-                    href="/groups-two"
+                    href="/gameinfo/gameinfoDetail"
                     className="text-m-regular text-w-neutral-3"
                   >
                     영웅정보
@@ -101,7 +101,16 @@ const Footer = () => {
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
                   <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
-                    href="/maps"
+                    href="/gameinfo/#"
+                    className="text-m-regular text-w-neutral-3"
+                  >
+                    영웅별 유저통계
+                  </Link>
+                </li>
+                <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
+                  <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
+                  <Link
+                    href="/gameinfo/maps"
                     className="text-m-regular text-w-neutral-3"
                   >
                     맵정보
@@ -110,7 +119,7 @@ const Footer = () => {
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
                   <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
-                    href="/userrank"
+                    href="/gameinfo/userrank"
                     className="text-m-regular text-w-neutral-3"
                   >
                     유저랭킹
@@ -124,16 +133,7 @@ const Footer = () => {
                   >
                     패치노트
                   </Link>
-                </li>
-                <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
-                  <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
-                  <Link
-                    href="/marketplace-two"
-                    className="text-m-regular text-w-neutral-3"
-                  >
-                    상점
-                  </Link>
-                </li>                
+                </li>               
               </ul>
 
               <div className="flex items-center gap-24p mb-24p">
