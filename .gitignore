@@ -1,24 +1,26 @@
 # IDE - VSCode
 .vscode/
 
-# Node.js - frontend
-frontend/node_modules/
-frontend/dist/
-frontend/.env*
+# Node.js - 모든 node_modules 폴더 무시
+**/node_modules
+node_modules
+**/dist
+.env*
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
 # Java/Spring - backend
-backend/build/
-backend/.gradle/
+/backend/build/
+/backend/.gradle/
+/backend/target/
 *.class
 *.log
 
 # Python - python
-python/.venv/
-python/__pycache__/
-python/uploads/
+/python/.venv/
+/python/__pycache__/
+/python/uploads/
 *.pyc
 
 # OS generated files
