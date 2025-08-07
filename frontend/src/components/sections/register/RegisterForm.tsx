@@ -14,7 +14,7 @@ interface FormData {
 }
 
 const RegisterForm = () => {
-  //더미데이터 (나중에 삭제)
+  //더미데이터 (나중에 삭제 해야합니다)
   const [dummyCode, setDummyCode] = useState("");
 
   // 소셜 로그인 
