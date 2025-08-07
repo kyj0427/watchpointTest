@@ -1,22 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import { proplayerData } from "@public/data/proplayerData";
 
-interface proplayerData {
-  순위: number;
-  역할군: string;
-  주영웅: string[];
-  플레이어: string;
-  승리: number;
-  패배: number;
-  게임횟수: number;
-  승률: number;
-}
-
-interface ProPlayerRankProps {
-  userranks: proplayerData[]; // userranks라는 이름의 배열을 props로 받음
-}
-
-const ProPlayerRank = ({ userranks }: ProPlayerRankProps) => {
+const ProPlayerRank = () => {
   return (
     <section className="section-pb pt-60p">
       <div className="container">
@@ -39,7 +25,7 @@ const ProPlayerRank = ({ userranks }: ProPlayerRankProps) => {
               </tr>
             </thead>
             <tbody className="divide-y divide-solid divide-shap border-b border-shap bg-b-neutral-3">
-              {userranks?.map((item, idx) => (
+              {proplayerData?.map((item, idx) => (
                 <tr key={idx}>
                   <td className="px-24p py-3">
                     <div className="flex items-center gap-3">
