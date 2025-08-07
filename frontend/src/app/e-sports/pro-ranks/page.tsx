@@ -1,5 +1,4 @@
 import ESportsBreadcrumb from "@/components/sections/eSports/ESportsBreadcumb";
-import ProPlayerLeaderboards from "@/components/sections/eSports/ProPlayerLeaderboards";
 import ProTeamRank from "@/components/sections/eSports/ProTeamRank";
 import { headerBannerType, NavLinkProps } from "@/config/types";
 
