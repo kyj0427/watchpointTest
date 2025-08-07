@@ -1,7 +1,7 @@
 "use client";
 
 import React, { FC, useState } from "react";
-import VideoUploader from "../fileUpload/VideoUpload";
+import VideoUploader from "../../ui/fileUpload/VideoUpload";
 import { Modal } from "@/components/ui";
 
 const AthenaMain: FC = () => {
