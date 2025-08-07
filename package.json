@@ -10,9 +10,10 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "selenium": "^2.20.0",
     "axios": "^1.11.0",
     "cors": "^2.8.5",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "marked": "^16.1.2",
+    "selenium": "^2.20.0"
   }
 }
