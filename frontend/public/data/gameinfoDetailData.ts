@@ -1,26 +1,26 @@
-import game1 from "@public/images/games/game1.png";
-import game2 from "@public/images/games/game2.png";
-import game3 from "@public/images/games/game3.png";
-import game4 from "@public/images/games/game4.png";
-import game5 from "@public/images/games/game5.png";
-import game6 from "@public/images/games/game6.png";
-import gameDetails1 from "@public/images/games/gameDetails1.1.png";
-import gameDetails2 from "@public/images/library/libraryDetails1.png";
-import gameDetails3 from "@public/images/library/libraryDetails2.png";
+import game1 from "@public/images/game_news/game0.png";
+import game2 from "@public/images/game_news/game2.png";
+import game3 from "@public/images/game_news/game3.png";
+import game4 from "@public/images/game_news/game4.png";
+import game5 from "@public/images/game_news/game5.png";
+import game6 from "@public/images/game_news/game6.png";
+import gameDetails1 from "@public/images/game_news/game0.png";
+import gameDetails2 from "@public/images/game_news/game2.png";
+import gameDetails3 from "@public/images/game_news/game3.png";
 
-import trendingPlayerThumb1 from "@public/images/photos/trendingPlayerThumb.png";
-import trendingPlayerThumb2 from "@public/images/library/libraryDetails1.png";
-import trendingPlayerThumb3 from "@public/images/library/libraryDetails2.png";
-import trendingPlayerThumb4 from "@public/images/library/libraryDetails3.png";
-import trendingPlayerThumb5 from "@public/images/library/libraryDetails4.png";
-import trendingPlayerThumb6 from "@public/images/library/libraryDetails2.png";
+import trendingPlayerThumb1 from "@public/images/game_news/game0.png";
+import trendingPlayerThumb2 from "@public/images/game_news/game2.png";
+import trendingPlayerThumb3 from "@public/images/game_news/game3.png";
+import trendingPlayerThumb4 from "@public/images/game_news/game4.png";
+import trendingPlayerThumb5 from "@public/images/game_news/game5.png";
+import trendingPlayerThumb6 from "@public/images/game_news/game6.png";
 
-import user1 from "@public/images/users/user1.png";
-import user2 from "@public/images/users/user2.png";
-import user3 from "@public/images/users/user3.png";
-import user4 from "@public/images/users/user4.png";
-import user5 from "@public/images/users/user5.png";
-import user6 from "@public/images/users/user6.png";
+import user1 from "@public/images/users/avatar1.png";
+import user2 from "@public/images/users/avatar2.png";
+import user3 from "@public/images/users/avatar3.png";
+import user4 from "@public/images/users/avatar4.png";
+import user5 from "@public/images/users/avatar5.png";
+import user6 from "@public/images/users/avatar6.png";
 
 export const GameInfoDetailData = [
 {
@@ -61,7 +61,7 @@ export const GameInfoDetailData = [
     images: [gameDetails1, gameDetails2, gameDetails3],
     video: {
         id: "1",
-        videoUrl: "https://www.youtube.com/embed/mUxzKVrSAjs",
+        videoUrl: "https://youtu.be/F9uyTD-Mf4U?si=5rEpecj6UmE6tjGj",
         thumbnail: trendingPlayerThumb2,
         isLive: true
     },
@@ -85,7 +85,7 @@ export const GameInfoDetailData = [
     images: [gameDetails1, gameDetails2, gameDetails3],
     video: {
         id: "1",
-        videoUrl: "https://www.youtube.com/embed/mUxzKVrSAjs",
+        videoUrl: "https://youtu.be/bX21wvAkXr0?si=VYFLbYsG3RWw6BIG",
         thumbnail: trendingPlayerThumb3,
         isLive: true
     },
@@ -109,7 +109,7 @@ export const GameInfoDetailData = [
     images: [gameDetails1, gameDetails2, gameDetails3],
     video: {
         id: "1",
-        videoUrl: "https://www.youtube.com/embed/mUxzKVrSAjs",
+        videoUrl: "https://youtu.be/EtcSz9VNWR0?si=BXd1RqZZTQql3wqy",
         thumbnail: trendingPlayerThumb4,
         isLive: true
     },
@@ -133,7 +133,7 @@ export const GameInfoDetailData = [
     images: [gameDetails1, gameDetails2, gameDetails3],
     video: {
         id: "1",
-        videoUrl: "https://www.youtube.com/embed/mUxzKVrSAjs",
+        videoUrl: "https://youtu.be/e-ZSUyfd15M?si=jl26NZGBvq8LZj9x",
         thumbnail: trendingPlayerThumb5,
         isLive: true
     },

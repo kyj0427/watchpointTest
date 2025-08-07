@@ -6,11 +6,11 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 import { FreeMode, Navigation, Pagination, Thumbs } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import user1 from "@public/images/users/user1.png";
-import user2 from "@public/images/users/user2.png";
-import user3 from "@public/images/users/user3.png";
-import user4 from "@public/images/users/user4.png";
-import user7 from "@public/images/users/user7.png";
+import user1 from "@public/images/users/avatar6.png";
+import user2 from "@public/images/users/avatar1.png";
+import user3 from "@public/images/users/avatar3.png";
+import user4 from "@public/images/users/avatar4.png";
+import user7 from "@public/images/users/avatar5.png";
 import { useForm } from "react-hook-form";
 import AnimateHeight from "react-animate-height";
 import VideoPlayer from "@/lib/plyr/VideoPlayer";
@@ -49,47 +49,47 @@ const GameInfoDetailComp = () => {
   const messages = [
     {
       id: 1,
-      name: "Blizzard Entertainment",
+      name: "Watchpoint",
       time: "2m",
       avatar: user1,
       content: [
-        { text: "Hello!", icon: "ti ti-mood-nerd" },
-        { text: "Avoid combat, watch the jungle", icon: "ti ti-dots-vertical" },
+        { text: "안녕하세요!", icon: "ti ti-mood-nerd" },
+        { text: "궁금한점 무엇이든 물어보세요", icon: "ti ti-dots-vertical" },
       ],
     },
     {
       id: 2,
-      name: "김미연",
+      name: "소리없는폭풍#4876",
       time: "4m",
       avatar: user2,
       content: [
         {
-          text: "옵치2 벌써 17시즌",
+          text: "옵치2 벌써 17시즌 뭐가 바뀌었나요.",
           icon: "ti ti-mood-nerd",
         },
       ],
     },
     {
       id: 3,
-      name: "황희연",
+      name: "인생한방#1365",
       time: "4m",
       avatar: user3,
-      content: [{ text: "예이!" }],
+      content: [{ text: "티어 올리고 싶어요!" }],
     },
     {
       id: 4,
-      name: "서나연 son",
+      name: "한조각#87987",
       time: "4m",
       avatar: user4,
-      content: [{ text: "티어 올리고 싶어" }],
+      content: [{ text: "목처 올리는법 알려주실분" }],
     },
     {
       id: 5,
-      name: "이다연",
+      name: "힐무새#9879",
       time: "9m",
       avatar: user7,
       content: [
-        { text: "트레이서 어떻게 하는건지 모르겠음" },
+        { text: "요즘 트레이서 좋아진듯" },
       ],
     },
   ];
@@ -186,43 +186,34 @@ const GameInfoDetailComp = () => {
                 </h4>
                 <div className="grid grid-cols-1 gap-16p">
                   <p className="text-m-regular text-w-neutral-3">
-                    Our vision is to create a welcoming, inclusive, and
-                    supportive environment where gamers of all backgrounds and
-                    skill levels can come together. We believe in the power of
-                    gaming to foster camaraderie, creativity, and personal
-                    growth. Whether you&lsquo;re a solo player, a competitive
-                    gamerstreamer, or a game developer, you have a place here.
+                    저희의 비전은 모든 배경과 기술 수준의 게이머들이 함께할 수 있는 따뜻하고 포용적이며
+                    지원적인 환경을 조성하는 것입니다. 저희는 게임이 동료애, 창의성, 개인적 성장을 촉진하는
+                    힘을 가지고 있다고 믿습니다. 솔로 플레이어, 경쟁력 있는 게이머 스트리머, 게임 개발자 등
+                    누구에게나 이곳에 설 자리가 있습니다.
                   </p>
                   <p className="text-m-regular text-w-neutral-3">
-                    We&lsquo;re a diverse group of gamers, ranging from casual
-                    players to hardcore enthusiasts, spanning various platforms
-                    and genres. What unites us is our belief that gaming is not
-                    just a pastime but an art form, a form of storytelling, and
-                    a means of forging connections with people from all walks of
-                    life
+                    저희는 캐주얼 플레이어부터 하드코어 애호가에 이르기까지 다양한 플랫폼과 장르를 아우르는
+                    다양한 게이머 그룹입니다. 게임은 단순한 취미가 아니라 예술 형식, 스토리텔링의 한 형태,
+                    각계각층의 사람들과 소통을 형성하는 수단이라는 믿음이 우리를 하나로 묶어줍니다.
                   </p>
                   <p className="text-m-regular text-w-neutral-3">
-                    As a result the villagers began invading one another, which
-                    in turn led to an ultimate war. Wild Ninnekos are born with
-                    to help the Ninnekos conquer the entire forest, build new
-                    villages, and establish a strong empire.
+                    그 결과 마을 사람들은 서로를 침략하기 시작했고, 결국 궁극적인 전쟁으로 이어졌습니다.
+                    야생 니네코스는 니네코스가 숲 전체를 정복하고 새로운 마을을 건설하며 강력한 제국을 세우는 데
+                    도움을 주기 위해 태어났습니다.
                   </p>
                   <AnimateHeight height={toggle ? "auto" : 0} duration={500}>
                     <div className="grid grid-cols-1 gap-16p">
                       <p className="text-m-regular text-w-neutral-3">
-                        We&lsquo;re a diverse group of gamers, ranging from
-                        casual players to hardcore enthusiasts, spanning various
-                        platforms and genres. What unites us is our belief that
-                        gaming is not just a pastime but an art form, a form of
-                        storytelling, and a means of forging connections with
-                        people from all walks of life
+                        저희는 캐주얼 플레이어부터 하드코어 애호가에 이르기까지 다양한
+                        플랫폼과 장르를 아우르는 다양한 게이머 그룹입니다.
+                        게임은 단순한 취미가 아니라 예술 형식, 스토리텔링의 한 형태,
+                        각계각층의 사람들과 소통을 형성하는 수단이라는 믿음이 우리를
+                        하나로 묶어줍니다.
                       </p>
                       <p className="text-m-regular text-w-neutral-3">
-                        As a result the villagers began invading one another,
-                        which in turn led to an ultimate war. Wild Ninnekos are
-                        born with to help the Ninnekos conquer the entire
-                        forest, build new villages, and establish a strong
-                        empire.
+                        그 결과 마을 사람들은 서로를 침략하기 시작했고, 결국 궁극적인 전쟁으로 이어졌습니다.
+                        야생 니네코스는 니네코스가 숲 전체를 정복하고 새로운 마을을 건설하며 강력한 제국을
+                        세우는 데 도움을 주기 위해 태어났습니다.
                       </p>
                     </div>
                   </AnimateHeight>
@@ -308,7 +299,7 @@ const GameInfoDetailComp = () => {
                     <input
                       type="text"
                       className="bg-transparent text-sm text-w-neutral-1 placeholder:text-w-neutral-1 w-full"
-                      placeholder="Send a message"
+                      placeholder="채팅 보내기"
                       {...register("message", {
                         required: "Message is required",
                       })}
