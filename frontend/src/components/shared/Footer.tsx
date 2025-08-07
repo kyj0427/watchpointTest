@@ -84,7 +84,11 @@ const Footer = () => {
             <div className="4xl:col-start-4 4xl:col-end-6">
               <div className="flex items-center gap-24p mb-24p">
                 <h4 className="heading-4 text-w-neutral-1 whitespace-nowrap ">
-                  게임정보
+                  <Link
+                    href="/gameinfo"                    
+                    >
+                      게임정보
+                    </Link>
                 </h4>
                 <span className="w-full max-w-[100px] h-0.5 bg-w-neutral-1"></span>
               </div>
@@ -138,7 +142,11 @@ const Footer = () => {
 
               <div className="flex items-center gap-24p mb-24p">
                 <h4 className="heading-4 text-w-neutral-1 whitespace-nowrap ">
-                  E-스포츠
+                  <Link
+                    href="/e-sports"                    
+                    >
+                      E-스포츠
+                    </Link>
                 </h4>
                 <span className="w-full max-w-[100px] h-0.5 bg-w-neutral-1"></span>
               </div>
@@ -146,7 +154,7 @@ const Footer = () => {
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
                   <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
-                    href="/tournaments/t1/matches"
+                    href="/e-sports/tournaments"
                     className="text-m-regular text-w-neutral-3"
                   >
                     대회일정
@@ -155,7 +163,7 @@ const Footer = () => {
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
                   <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
-                    href="/tournaments/t1/brackets"
+                    href="/e-sports/predictions"
                     className="text-m-regular text-w-neutral-3"
                   >
                     승부예측
@@ -164,7 +172,7 @@ const Footer = () => {
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
                   <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
-                    href="/team-ranks"
+                    href="/e-sports/pro-ranks"
                     className="text-m-regular text-w-neutral-3"
                   >
                     프로랭킹
@@ -172,7 +180,7 @@ const Footer = () => {
                 </li>
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
                   <i className="ti ti-chevron-right  group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
-                  <Link href="/team-home" className="text-m-regular text-w-neutral-3">
+                  <Link href="/e-sports/pro-players" className="text-m-regular text-w-neutral-3">
                     프로선수정보
                   </Link>
                 </li>                
@@ -183,7 +191,11 @@ const Footer = () => {
             <div className="4xl:col-start-7 4xl:col-end-9">
               <div className="flex items-center gap-24p mb-24p">
                 <h4 className="heading-4 text-w-neutral-1 whitespace-nowrap ">
-                  강의
+                  <Link
+                    href="#"                    
+                    >
+                      강의
+                    </Link>
                 </h4>
                 <span className="w-full max-w-[100px] h-0.5 bg-w-neutral-1"></span>
               </div>
@@ -225,7 +237,11 @@ const Footer = () => {
 
               <div className="flex items-center gap-24p mb-24p">
                 <h4 className="heading-4 text-w-neutral-1 whitespace-nowrap ">
-                  커뮤니티
+                  <Link
+                    href="#"                    
+                    >
+                      커뮤니티
+                    </Link>
                 </h4>
                 <span className="w-full max-w-[100px] h-0.5 bg-w-neutral-1"></span>
               </div>
@@ -273,7 +289,11 @@ const Footer = () => {
             <div className="4xl:col-start-10 4xl:col-end-12">
               <div className="flex items-center gap-24p mb-24p">
                 <h4 className="heading-4 text-w-neutral-1 whitespace-nowrap ">
-                  마이페이지
+                  <Link
+                    href="/profile"                    
+                    >
+                      마이페이지
+                    </Link>
                 </h4>
                 <span className="w-full max-w-[100px] h-0.5 bg-w-neutral-1"></span>
               </div>
