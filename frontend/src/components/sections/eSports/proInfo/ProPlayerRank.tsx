@@ -28,7 +28,7 @@ const ProPlayerRank = () => {
         <h2 className="heading-2 text-w-neutral-1 text-split-left mb-3">
             선수 랭킹
         </h2>
-        <div className="overflow-x-auto scrollbar-sm">
+        <div className="overflow-x-auto scrollbar-sm" data-aos="zoom-in">
           <table className="text-l-medium font-poppins text-w-neutral-1 w-full whitespace-nowrap">
             <thead className="text-left">
               <tr className="bg-shap rounded-t-12">
