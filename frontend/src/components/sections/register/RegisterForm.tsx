@@ -81,7 +81,7 @@ const RegisterForm = () => {
     // 임시데이터 작성
       try {
     setEmailSent(true);
-    setCodeTimer(2); // 3분 재설정
+    setCodeTimer(180); // 3분 재설정
     setIsExpired(false);
   } catch (err) {
     alert("코드 전송 중 오류 발생");
