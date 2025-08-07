@@ -15,12 +15,12 @@ const OverwatchStore = () => {
           <h2 className="heading-2 text-w-neutral-1 text-split-left">
             Overwatch2 상점
           </h2>
-          <Link
+          {/* <Link
             href="/marketplace-two"
             className="btn btn-lg py-3 btn-neutral-2 shrink-0"
           >
             View All
-          </Link>
+          </Link> */}
         </div>
         <div className="mt-40p" data-aos="fade-up">
           <Swiper
