@@ -1,23 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import { proteamData } from "@public/data/proteamData";
 
-interface proteamData {
-  로고: string;
-  순위: number;
-  지역: string;
-  선수: string[];
-  팀이름: string;
-  승리: number;
-  패배: number;
-  게임횟수: number;
-  승률: number;
-}
-
-interface ProTeamRankProps {
-  userranks: proteamData[]; // userranks라는 이름의 배열을 props로 받음
-}
-
-const ProTeamRank = ({ userranks }: ProTeamRankProps) => {
+const ProTeamRank = () => {
   return (
     <section className="section-pb pt-60p">
       <div className="container">
@@ -40,7 +25,7 @@ const ProTeamRank = ({ userranks }: ProTeamRankProps) => {
               </tr>
             </thead>
             <tbody className="divide-y divide-solid divide-shap border-b border-shap bg-b-neutral-3">
-              {userranks?.map((item, idx) => (
+              {proteamData?.map((item, idx) => (
                 <tr key={idx}>
                   <td className="px-24p py-3">
                     <div className="flex items-center gap-3">
@@ -61,8 +46,15 @@ const ProTeamRank = ({ userranks }: ProTeamRankProps) => {
                     </div>
                   </td>
                   <td className="px-24p py-3">
-                    {item?.로고}
-                    {item?.팀이름}
+                    <div className="flex items-center gap-4">
+                      <Image
+                        src={item.로고}
+                        alt={item.팀이름}
+                        width={40}
+                        height={40}
+                      />
+                      <span>{item.팀이름}</span>
+                    </div>
                   </td>
 
                   <td className="px-24p py-3">{item?.승리}</td>
