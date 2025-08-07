@@ -1,6 +1,6 @@
 import ESportsBreadcrumb from "@/components/sections/eSports/ESportsBreadcumb";
-import ProPlayerRank from "@/components/sections/eSports/ProPlayerRank";
-import ProTeamRank from "@/components/sections/eSports/ProTeamRank";
+import ProPlayerRank from "@/components/sections/eSports/proInfo/ProPlayerRank";
+import ProTeamRank from "@/components/sections/eSports/proInfo/ProTeamRank";
 import { headerBannerType, NavLinkProps } from "@/config/types";
 
 const Page = () => {
