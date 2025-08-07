@@ -17,10 +17,12 @@ const MapList = () => {
   const [filteredMaps, setFilteredMaps] = useState<MapInfo[]>([]);
 
   const [selectedGamemode, setSelectedGamemode] = useState<string>("전체");
-  const [sortBy, setSortBy] = useState<string>("이름 오름차순");
+  const [sortBy, setSortBy] = useState<string>("오름차순");
   const [searchKeyword, setSearchKeyword] = useState<string>("");
 
-  // Fetch map data
+  const [currentPage, setCurrentPage] = useState(1);
+  const mapsPerPage = 12;
+
   useEffect(() => {
     const fetchMaps = async () => {
       try {
@@ -35,7 +37,6 @@ const MapList = () => {
     fetchMaps();
   }, []);
 
-  // Filter + Sort + Search
   useEffect(() => {
     let result = [...maps];
 
@@ -59,6 +60,7 @@ const MapList = () => {
     }
 
     setFilteredMaps(result);
+    setCurrentPage(1); // 필터 변경 시 첫 페이지로 초기화
   }, [maps, selectedGamemode, sortBy, searchKeyword]);
 
   const gamemodes = [
@@ -66,12 +68,17 @@ const MapList = () => {
     ...Array.from(new Set(maps.flatMap((map) => map.gamemodes))),
   ];
 
+  const totalPages = Math.ceil(filteredMaps.length / mapsPerPage);
+  const paginatedMaps = filteredMaps.slice(
+    (currentPage - 1) * mapsPerPage,
+    currentPage * mapsPerPage
+  );
+
   return (
     <section className="section-pb pt-60p">
       <div className="container">
         {/* 검색 + 필터 + 정렬 */}
         <div className="flex flex-wrap gap-4 justify-between items-center mb-6">
-          {/* 검색창 */}
           <div className="flex-grow">
             <input
               type="text"
@@ -82,7 +89,6 @@ const MapList = () => {
             />
           </div>
 
-          {/* 필터 */}
           <div className="min-w-[180px]">
             <select
               value={selectedGamemode}
@@ -97,7 +103,6 @@ const MapList = () => {
             </select>
           </div>
 
-          {/* 정렬 */}
           <div className="min-w-[180px]">
             <select
               value={sortBy}
@@ -112,7 +117,7 @@ const MapList = () => {
 
         {/* 맵 카드 리스트 */}
         <div className="grid 3xl:grid-cols-4 xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-30p">
-          {filteredMaps.map((map, idx) => (
+          {paginatedMaps.map((map, idx) => (
             <div
               key={idx}
               className="bg-b-neutral-3 py-24p px-30p rounded-12 group"
@@ -142,6 +147,25 @@ const MapList = () => {
             </div>
           ))}
         </div>
+
+        {/* 페이지네이션 */}
+        {totalPages > 1 && (
+          <div className="flex justify-center mt-10 gap-2">
+            {Array.from({ length: totalPages }, (_, i) => (
+              <button
+                key={i + 1}
+                onClick={() => setCurrentPage(i + 1)}
+                className={`px-4 py-2 rounded-md font-medium border text-white transition-all ${
+                  currentPage === i + 1
+                    ? "bg-yellow-500 border-yellow-500"
+                    : "bg-b-neutral-2 border-b-neutral-3 hover:bg-b-neutral-1"
+                }`}
+              >
+                {i + 1}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

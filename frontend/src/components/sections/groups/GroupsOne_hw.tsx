@@ -5,12 +5,17 @@ import { IconWorld } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 const GroupsPage = () => {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
   const [sort, setSort] = useState("recent");
   const [mounted, setMounted] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const router = useRouter();
+
+  const ITEMS_PER_PAGE = 12;
 
   useEffect(() => {
     setMounted(true);
@@ -21,6 +26,17 @@ const GroupsPage = () => {
     const matchesSearch = group.name.toLowerCase().includes(search.toLowerCase());
     return matchesCategory && matchesSearch;
   });
+
+  const totalPages = Math.ceil(filteredGroups.length / ITEMS_PER_PAGE);
+  const paginatedGroups = filteredGroups.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
+
+  const handlePageClick = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   if (!mounted) return null;
 
@@ -35,14 +51,13 @@ const GroupsPage = () => {
               value={category}
               onChange={(e) => setCategory(e.target.value)}
             >
-              <option value="all">All Groups</option>
-              <option value="FPS">FPS</option>
-              <option value="RPG">RPG</option>
-              <option value="MOBA">MOBA</option>
+              <option value="all">All Rooms</option>
+              <option value="FPS">Squad</option>
+              <option value="RPG">Chat</option>
             </select>
             <input
               type="text"
-              placeholder="Search groups..."
+              placeholder="Search rooms..."
               className="form-input bg-b-neutral-3 text-white rounded px-6 py-5 w-full text-lg"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
@@ -51,7 +66,8 @@ const GroupsPage = () => {
           </div>
 
           <div className="flex gap-4 items-center flex-shrink-0">
-            <button className="btn btn-neutral-3 px-8 py-5 text-lg">New Squad</button>
+            <button className="btn btn-neutral-3 px-8 py-5 text-lg"
+            onClick={() => router.push("/chat/create")}>Create</button>
             <select
               className="form-select bg-b-neutral-3 text-white rounded px-6 py-5 text-lg"
               value={sort}
@@ -65,7 +81,7 @@ const GroupsPage = () => {
 
         {/* GROUP CARDS */}
         <div className="grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6">
-          {filteredGroups.map((item, idx) => (
+          {paginatedGroups.map((item, idx) => (
             <div key={idx} className="bg-b-neutral-3 rounded-xl p-4">
               <Image
                 src={item.image}
@@ -74,9 +90,7 @@ const GroupsPage = () => {
                 height={200}
                 className="rounded-lg mb-4 object-cover w-full h-[200px]"
               />
-              <h3 className="text-white text-lg font-semibold mb-2">
-                {item.name}
-              </h3>
+              <h3 className="text-white text-lg font-semibold mb-2">{item.name}</h3>
               <p className="text-sm text-w-neutral-3 mb-1 flex items-center gap-1">
                 <IconWorld size={16} /> {item.category} Group
               </p>
@@ -90,11 +104,19 @@ const GroupsPage = () => {
           ))}
         </div>
 
-        {/* LOAD MORE */}
-        <div className="flex justify-center mt-10">
-          <button className="btn btn-neutral-3 bg-b-neutral-3 text-white rounded-lg px-6 py-2">
-            Load More...
-          </button>
+        {/* PAGINATION */}
+        <div className="flex justify-center mt-10 gap-2 flex-wrap">
+          {Array.from({ length: totalPages }, (_, i) => (
+            <button
+              key={i + 1}
+              onClick={() => handlePageClick(i + 1)}
+              className={`px-4 py-2 rounded ${
+                currentPage === i + 1 ? "bg-primary text-white" : "bg-b-neutral-3 text-white"
+              }`}
+            >
+              {i + 1}
+            </button>
+          ))}
         </div>
       </div>
     </section>

@@ -9,7 +9,7 @@ import { chatList } from "@public/data/chatList";
 import { IconPhone } from "@tabler/icons-react";
 import { useRouter } from 'next/navigation';
 
-// ✅ Chat 타입 정의 (chatList 구조에 맞춰 수정 가능)
+// 
 interface Chat {
   id: number;
   name: string;
@@ -76,6 +76,21 @@ const Chats = () => {
           >
             <span aria-hidden="true" className="text-2xl">➕</span>
             <span>채팅방 생성</span>
+          </button>
+
+          <button
+            onClick={() => {
+              
+              router.push('/squad');
+            }}
+            className={`px-48p py-24p rounded-full border-2 text-xl font-bold transition-all duration-200 flex items-center gap-12p ${
+              activeMenu === 'create'
+                ? 'bg-w-neutral-1 text-b-neutral-1 border-w-neutral-1'
+                : 'text-w-neutral-3 border-glass-6 hover:border-w-neutral-1 hover:text-w-neutral-1'
+            }`}
+          >
+            <span aria-hidden="true" className="text-2xl"></span>
+            <span>채팅방 목록</span>
           </button>
         </div>
 
