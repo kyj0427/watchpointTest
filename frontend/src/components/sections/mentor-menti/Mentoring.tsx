@@ -3,32 +3,18 @@
 import RatingStars from "@/components/ui/RatingStars";
 import { useToggle } from "@/hooks";
 import { Listbox } from "@headlessui/react";
+import { mentorings } from "@public/data/mentorings";
 import { IconChevronDown, IconCircleCheckFilled } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-type Mentoring = {
-    id: number;
-    title: string;
-    description: string;
-    category: string;
-    image: string;
-    price: number;
-    rating: number;
-    reviews: number;
-    author: {
-        name: string;
-        image: string;
-        role: string;
-    };
-};
 
 const positionCategory = ["dealer", "tank", "support"]
 
 const filterTypes = ["Popular", "Recommended"];
 
-const MentoringList = ({ data, type }: { data: Mentoring[]; type: string }) => {
+const MentoringList = ({ type }: { type: string }) => {
     const [category, setCategory] = useState<string>("all");
     const [selectedFilter, setSelectedFilter] = useState(filterTypes[0]);
 
@@ -39,13 +25,13 @@ const MentoringList = ({ data, type }: { data: Mentoring[]; type: string }) => {
     } = useToggle();
 
     // 필터링 조건 적용
-    const filteredData = data.filter((item) =>
-        category === "all" ? true : item.category === category
+    const filteredData = mentorings.filter((item) =>
+        category === "all" || item?.category === category
     );
 
     return (
         <div>
-        <h2>멘토링 목록</h2>
+        <h2 className="heading-2 text-w-neutral-1 mb-40p">멘토링 목록</h2>
         {/* 필터 바 */}
         <div className="flex items-center justify-between flex-wrap gap-24p pb-30p border-b border-shap">
             <Listbox
