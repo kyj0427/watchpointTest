@@ -1,7 +1,11 @@
 import { useState } from "react";
 import FileUpload from "./FileUpload";
 
-const ImageUploader = () => {
+interface Props {
+    onFileChange: (file: File | null) => void;
+} // 상위 컴포넌트로 onFileChange전달
+
+const ImageUploader = ({ onFileChange }: Props) => {
     const [imagePreview, setImagePreview] = useState<string | null>(null);
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
@@ -23,6 +27,7 @@ const ImageUploader = () => {
         reader.onload = () => {
         setImagePreview(reader.result as string);
         setSelectedFile(file);
+        onFileChange(file); // 상위에 파일 전달
         };
         reader.readAsDataURL(file);
     };
@@ -30,11 +35,12 @@ const ImageUploader = () => {
     const handleRemove = () => {
         setImagePreview(null);
         setSelectedFile(null);
+        onFileChange(null);
     };
 
     return (
         <div className="space-y-2 mb-10">
-        <label className="block text-sm font-medium">강좌 썸네일</label>
+        <label className="block text-sm font-medium text-gray-700">이미지 업로드</label>
 
         {!imagePreview ? (
             <div

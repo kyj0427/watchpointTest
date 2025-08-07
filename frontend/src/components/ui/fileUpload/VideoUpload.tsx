@@ -1,7 +1,11 @@
 import { useState } from "react";
 import FileUpload from "./FileUpload";
 
-const VideoUploader = () => {
+interface Props {
+    onFileChange: (file: File | null) => void;
+} // 상위 컴포넌트로 onFileChange전달
+
+const VideoUploader = ({ onFileChange }: Props) => {
     const [videoPreview, setVideoPreview] = useState<string | null>(null);
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
@@ -23,27 +27,32 @@ const VideoUploader = () => {
         const videoURL = URL.createObjectURL(file);
         setVideoPreview(videoURL);
         setSelectedFile(file);
+        onFileChange(file); // 상위에 파일 전달
     };
 
+    // 파일 제거
     const handleRemove = () => {
         if (videoPreview) {
             URL.revokeObjectURL(videoPreview); // 메모리 해제
         }
         setVideoPreview(null);
         setSelectedFile(null);
+        onFileChange(null);
     };
 
     return (
-        <div className="space-y-2 mb-10">
-            <label className="block text-sm font-medium">강의 영상 업로드</label>
+        <div className="space-y-4 mb-10">
+            <label className="block text-sm font-medium text-gray-700">영상 업로드</label>
 
             {!videoPreview ? (
-                <div className="upload-area h-[200px] rounded flex flex-col items-center justify-center cursor-pointer border border-dashed border-gray-400 relative overflow-hidden">
-                    <FileUpload
-                        onFileSelect={handleFileSelect}
-                        accept="video/mp4, video/webm, video/ogg"
-                    />
-                    <p className="text-sm text-gray-500 mt-2">MP4, WebM, OGG (최대 100MB)</p>
+                <div className="h-[250px] rounded border border-dashed border-gray-400 relative overflow-hidden">
+                    <div className="w-full h-full flex flex-col items-center justify-center cursor-pointer">
+                        <FileUpload
+                            onFileSelect={handleFileSelect}
+                            accept="video/mp4, video/webm, video/ogg"
+                        />
+                        <p className="text-sm text-gray-500 mt-3">MP4, WebM, OGG (최대 100MB)</p>
+                    </div>
                 </div>
             ) : (
                 <div className="w-full relative border rounded overflow-hidden">
@@ -55,7 +64,7 @@ const VideoUploader = () => {
                     <button
                         type="button"
                         onClick={handleRemove}
-                        className="absolute top-2 right-2 bg-white rounded-full p-1 shadow-md"
+                        className="absolute top-2 right-2 bg-white rounded-full p-1 shadow-md hover:bg-gray-100"
                     >
                         <i className="ri-close-line text-gray-600 text-lg"></i>
                     </button>

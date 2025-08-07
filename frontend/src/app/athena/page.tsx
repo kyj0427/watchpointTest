@@ -9,16 +9,9 @@ const Page = () => {
         { id: 2, url: "", label: "athena" },
     ];
 
-    const headerData: headerBannerType = {
-        title: "athena",
-        navLinks,
-    };
-
     return (
         <main>
-            <Breadcrumb breadcrumb={headerData} />
             <AthenaMain/>
-            {/* place the sample video here */}
             <AthenaDescription/>
         </main>
     );
