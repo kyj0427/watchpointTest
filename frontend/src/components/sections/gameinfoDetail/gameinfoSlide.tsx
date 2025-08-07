@@ -26,7 +26,7 @@ const GameInfoSlide = ({ className }: { className?: string }) => {
       <div className="container">
         <div className="flex items-center justify-between flex-wrap gap-24p">
           <h2 className="heading-2 text-w-neutral-1 text-split-left">
-            Top Trending
+            새로운 정보
           </h2>
           <form className="shrink-0">
             <Listbox
