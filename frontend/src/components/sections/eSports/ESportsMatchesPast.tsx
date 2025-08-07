@@ -15,14 +15,14 @@ const Maches = () => {
 
   return (
     <>
-      <section className="section-pb overflow-visible relative">
+      <section className="section-pb overflow-visible relative pt-18">
         <div className="container">
           <div className="grid 4xl:grid-cols-12 grid-cols-1 gap-30p">
             <div className="4xl:col-start-2 4xl:col-end-12">
               <div className="flex-y justify-between flex-wrap gap-24p mb-30p">
-                <h3 className="heading-3 text-w-neutral-1">
+                <h2 className="heading-2 text-w-neutral-1">
                   지난 경기 ({esportsmatchespast.length})
-                </h3>
+                </h2>
                 <form className="px-20p py-16p max-w-[390px] flex items-center sm:gap-3 gap-2 min-w-[300px] bg-b-neutral-3 rounded-12">
                   <span className="flex-c icon-20 text-white">
                     <i className="ti ti-search"></i>
