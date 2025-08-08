@@ -2,20 +2,21 @@
 
 import RatingStars from "@/components/ui/RatingStars";
 import { marketplace } from "@public/data/marketplace";
+import { mentorings } from "@public/data/mentorings";
 import { IconCircleCheckFilled } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Autoplay, Navigation, Scrollbar } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-const TrendingMentorings = () => {
+const TrendingMentorings = ({ type }:{ type:string }) => {
     return (
         <section className="section-pt">
         <div className="container">
             <div className="flex items-center justify-between flex-wrap gap-24p">
                 <h2 className="heading-2">가장 인기 있는 강의</h2>
                 <Link
-                    href="/mentoring-lists/mentoring"
+                    href="/coaching/mentor-menti/mentoring-lists/mentoring"
                     className="btn-primary flex-wrap items-center"
                 >더보기</Link>
             </div>
@@ -72,7 +73,7 @@ const TrendingMentorings = () => {
                 }}
                 modules={[Autoplay, Navigation, Scrollbar]}
             >
-                {marketplace?.map((item, idx) => (
+                {mentorings?.map((item, idx) => (
                 <SwiperSlide key={idx} className="swiper-slide">
                     <div
                     className="relative bg-b-neutral-3 rounded-24 group overflow-hidden w-full h-full "
@@ -95,7 +96,7 @@ const TrendingMentorings = () => {
                     </div>
                     <div className="p-28p">
                         <Link
-                        href={`/marketplace/${item?.id}`}
+                        href={`/coaching/mentor-menti/mentoring-lists/${type}/${item?.id}`}
                         className="heading-3 link-1 mb-2 line-clamp-1"
                         >
                         {item?.title}

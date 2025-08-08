@@ -19,9 +19,9 @@ const Page = () => {
     return (
         <main>
         <CoachingBreadcrumb breadcrumb={headerData} />
-        <TrendingMentorings />
-        <RecommendedMentorings />
-        <PopularMentors />
+        <TrendingMentorings type="mentoring"/>
+        <RecommendedMentorings type="mentoring"/>
+        <PopularMentors type="mentor" />
         </main>
     );
 };

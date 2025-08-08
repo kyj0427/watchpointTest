@@ -7,22 +7,6 @@ import Link from "next/link";
 import { Autoplay, FreeMode, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-type Mentor = {
-    id: number;
-    title: string;
-    description: string;
-    category: string;
-    image: string;
-    price: number;
-    rating: number;
-    reviews: number;
-    author: {
-        name: string;
-        image: string;
-        role: string;
-    };
-};
-
 const PopularMentors = ({ className, type }: { className?: string; type: string }) => {
 
     return (
@@ -33,7 +17,7 @@ const PopularMentors = ({ className, type }: { className?: string; type: string 
                 인기 멘토
             </h2>
                 <Link
-                    href="/mentoring-lists/mentor"
+                    href="/coaching/mentoring-lists/mentor"
                     className="btn-primary flex-wrap items-center"
                 >더보기</Link>
             </div>
