@@ -5,6 +5,7 @@ import Breadcrumb from "@/components/shared/Breadcumb";
 import { NavLinkProps } from "@/config/types";
 import { mentorings } from "@public/data/mentorings";
 import { mentors } from "@public/data/mentors";
+import CoachingBreadcrumb from "@/components/sections/mentor-menti/CoachingBreadcumb";
 
 type PageProps = {
   params: { type: string };
@@ -29,10 +30,9 @@ export default async function PostPage(props: PageProps) {
   const title = labelMap[type] 
 
   const navLinks: NavLinkProps[] = [
-    { id: 1, url: "/", label: "Home" },
-    { id: 2, url: "/coaching", label: "코칭" },
-    { id: 3, url: "/coaching/mentor-menti/mentoring-lists", label: "멘토/멘티 매칭" },
-    { id: 4, url: `/coaching/mentor-menti/mentoring-lists/${type}`, label: title },
+    { id: 1, url: "/coaching", label: "강의" },
+    { id: 2, url: "/coaching/mentor-menti/mentoring-lists", label: "멘토/멘티 매칭" },
+    { id: 3, url: `/coaching/mentor-menti/mentoring-lists/${type}`, label: title },
   ]
 
   let data: any[] = [];
@@ -51,7 +51,7 @@ export default async function PostPage(props: PageProps) {
 
   return (
     <main>
-      <Breadcrumb breadcrumb={headerData} />
+      <CoachingBreadcrumb breadcrumb={headerData} />
         <div className="mb-20">
         {type === "mentoring" ? (
           <Mentoring data={data} type={type}/>

@@ -1,3 +1,4 @@
+import CoachingBreadcrumb from "@/components/sections/mentor-menti/CoachingBreadcumb";
 import MentorDetails from "@/components/sections/mentor-menti/MentorDetails";
 import MentoringDetails from "@/components/sections/mentor-menti/MentoringDetails";
 import Breadcrumb from "@/components/shared/Breadcumb";
@@ -41,7 +42,7 @@ const Details = async ({ params }: PageProps) => {
     const title = labelMap[type] || "";
 
     const navLinks: NavLinkProps[] = [
-        { id: 1, url: "/", label: "Home" },
+        { id: 1, url: "/coaching", label: "강의" },
         { id: 2, url: "", label: "멘토/멘티 찾기" },
         { id: 3, url: `/coaching/mentor-menti/mentoring-lists/${type}`, label: title },
         { id: 4, url: `/coaching/mentor-menti/mentoring-lists/${type}/${id}`, label: title },
@@ -58,7 +59,7 @@ const Details = async ({ params }: PageProps) => {
 
     return (
         <main>
-        <Breadcrumb breadcrumb={headerData} />
+        <CoachingBreadcrumb breadcrumb={headerData} />
         {singleItem ? (
             type === "mentoring" ? (
             <MentoringDetails data={singleItem} />

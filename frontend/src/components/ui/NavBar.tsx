@@ -222,7 +222,7 @@ const NavBar = () => {
           icon: <IconTrophy stroke={1.5} size={32} />,
           name: "E-스포츠"
         },
-        { href: "/athena", 
+        { href: "/coaching/athena", 
           icon: <IconSword stroke={1.5} size={32} /> , 
           name: "게임강의"},
         {
@@ -438,6 +438,7 @@ const NavBar = () => {
                       </div>
                     )}                 
                     
+                    {/* 모바일창 네비게이션바 */}
                     <button
                       onClick={() => setHamburgerToggle((prev) => !prev)}
                       className="lg:hidden btn-c btn-c-xxl btn-c-dark-outline nav-toggole shrink-0"
