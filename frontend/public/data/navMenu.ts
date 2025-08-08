@@ -100,28 +100,28 @@ export const navMenu = [
         subMenu: [
             {
                 id: 51,
-                name: "인기글",
+                name: "메인페이지",
                 link: "/community"
             },
             {
                 id: 52,
-                name: "핫클립",
-                link: "/trending"
+                name: "인기글",
+                link: "/postlist?mode=hot"
             },
             {
                 id: 53,
-                name: "공략",
-                link: "/blogs"
+                name: "최신글",
+                link: "/postlist?mode=recent"
             },
             {
                 id: 54,
-                name: "팁과 노하우",
-                link: "/blogs"
+                name: "스쿼드/채팅방",
+                link: "/SquadOrChat"
             },
             {
                 id: 55,
-                name: "듀오/스쿼드 조회",
-                link: "/groups"
+                name: "공지사항",
+                link: "/noticification"
             }
         ]
     },
@@ -156,7 +156,7 @@ export const navMenu = [
         id: 7,
         name: "채팅",
         isSubMenu: false,
-        link : "/chat"
+        link : "/community/chat"
     },
     {
         id: 8,

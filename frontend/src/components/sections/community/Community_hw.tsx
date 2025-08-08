@@ -3,7 +3,7 @@
 import { blogPosts } from "@public/data/blogPosts";
 import Image from "next/image";
 import Link from "next/link";
-import PostCreateCard from "../profile/PostCreateCard";
+import PostCreate from "../community/PostCreate";
 import ProfilePosts from "../profile/ProfilePosts_hw";
 import { useState } from "react";
 
@@ -28,7 +28,7 @@ const Community = () => {
               <div className="bg-b-neutral-3 p-32p rounded-12">
                 <div className="flex justify-between items-center mb-24p">
                   <h4 className="heading-4 text-w-neutral-1">Notification</h4>
-                  <Link href="/noticification" className="text-s-medium link-1 text-w-neutral-1">View All →</Link>
+                  <Link href="/community/noticification" className="text-s-medium link-1 text-w-neutral-1">View All →</Link>
                 </div>
                 <div className="flex flex-col gap-20p">
                   {blogPosts.slice(0, 3).map((item, idx) => (
@@ -47,7 +47,7 @@ const Community = () => {
               <div className="bg-b-neutral-3 p-32p rounded-12">
                 <div className="flex justify-between items-center mb-24p">
                   <h4 className="heading-4 text-w-neutral-1">Squad</h4>
-                  <Link href="/squad" className="text-s-medium link-1 text-w-neutral-1">View All →</Link>
+                  <Link href="/community/SquadOrChat" className="text-s-medium link-1 text-w-neutral-1">View All →</Link>
                 </div>
                 <div className="flex flex-col gap-20p">
                   {Squad.map((user, idx) => (
@@ -65,7 +65,7 @@ const Community = () => {
           {/* 🔹 Center Content */}
           <div className="col-span-12 xl:col-span-6">
             <div className="flex flex-col gap-30p">
-              <PostCreateCard />
+              <PostCreate />
               <ProfilePosts />
               <div className="text-center mt-30p">
                 <button className="btn btn-lg btn-neutral-3 rounded-12">Load more...</button>
@@ -81,7 +81,7 @@ const Community = () => {
               <div className="bg-b-neutral-3 p-32p rounded-12">
                 <div className="flex justify-between items-center mb-24p">
                   <h4 className="heading-4 text-w-neutral-1">Hot Topics</h4>
-                  <Link href="/postlist?mode=hot" className="text-s-medium link-1 text-w-neutral-1">View All →</Link>
+                  <Link href="/community/postlist?mode=hot" className="text-s-medium link-1 text-w-neutral-1">View All →</Link>
                 </div>
                 <div className="flex flex-col gap-20p">
                   {blogPosts.slice(0, 5).map((item, idx) => (
@@ -100,7 +100,7 @@ const Community = () => {
               <div className="bg-b-neutral-3 p-32p rounded-12">
                 <div className="flex justify-between items-center mb-24p">
                   <h4 className="heading-4 text-w-neutral-1">Recent Topics</h4>
-                  <Link href="/postlist?mode=recent" className="text-s-medium link-1 text-w-neutral-1">View All →</Link>
+                  <Link href="/community/postlist?mode=recent" className="text-s-medium link-1 text-w-neutral-1">View All →</Link>
                 </div>
                 <div className="flex flex-col gap-20p">
                   {blogPosts.slice(0, 5).map((item, idx) => (

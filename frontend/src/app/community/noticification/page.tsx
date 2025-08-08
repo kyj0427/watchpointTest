@@ -1,5 +1,5 @@
 import FaqHeader from "@/components/sections/faq/FaqHeader";
-import { AllFaqs } from "@/components/shared";
+import Noticification from "@/components/sections/community/noticification";
 import Breadcrumb from "@/components/shared/Breadcumb";
 import { headerBannerType, NavLinkProps } from "@/config/types";
 import Link from "next/link";
@@ -19,7 +19,7 @@ const Page = () => {
    <main>
   <Breadcrumb breadcrumb={headerData} />
 
-  <AllFaqs />
+  <Noticification />
 
 </main>
   );

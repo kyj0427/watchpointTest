@@ -1,4 +1,4 @@
-import GroupsOne from "@/components/sections/groups/GroupsOne_hw";
+import SquadOrChat from "@/components/sections/community/SquadOrChat";
 import Breadcrumb from "@/components/shared/Breadcumb";
 import { headerBannerType, NavLinkProps } from "@/config/types";
 
@@ -16,7 +16,7 @@ const Page = () => {
   return (
     <main>
       <Breadcrumb breadcrumb={headerData} />
-      <GroupsOne />
+      <SquadOrChat />
     </main>
   );
 };
