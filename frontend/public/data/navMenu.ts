@@ -13,7 +13,7 @@ export const navMenu = [
             {
                 id : 21,
                 name : "영웅정보",
-                link : "/groups-two"
+                link : "/gameinfo/heroes"
             },
             {
                 id : 22,
