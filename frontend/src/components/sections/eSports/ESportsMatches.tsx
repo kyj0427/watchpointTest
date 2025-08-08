@@ -4,15 +4,30 @@ import Image from "next/image";
 import Link from "next/link";
 import clone from "@public/images/icons/clone.svg";
 import { esportsmatches } from "@public/data/esportsmatches";
-import { esportsmatchespast } from "@public/data/esportsmatchespast";
 import { Modal } from "@/components/ui";
 import { useState } from "react";
 import { users } from "@public/data/users";
 import { Tab } from "@headlessui/react";
 import clsx from "clsx";
+import Pagination from "@/components/shared/Pagination";
 
 const Maches = () => {
   const [openModal, setOpenModal] = useState<number | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(5); // 페이지당 보여줄 아이템 수
+
+  // 전체 페이지 수 계산
+  const totalPages = Math.ceil(esportsmatches.length / itemsPerPage);
+
+  // 현재 페이지에 해당하는 데이터만 추출
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = esportsmatches.slice(indexOfFirstItem, indexOfLastItem);
+
+  // 페이지 변경 핸들러
+  const handlePageChange = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
 
   return (
     <>
@@ -21,9 +36,7 @@ const Maches = () => {
           <div className="grid 4xl:grid-cols-12 grid-cols-1 gap-30p">
             <div className="4xl:col-start-2 4xl:col-end-12">
               <div className="flex-y justify-between flex-wrap gap-24p mb-30p">
-                <h2 className="heading-2 text-w-neutral-1">
-                  예정된 경기 ({esportsmatches.length})
-                </h2>
+                <h2 className="heading-2 text-w-neutral-1">예정된 경기</h2>
                 <form className="px-20p py-16p max-w-[390px] flex items-center sm:gap-3 gap-2 min-w-[300px] bg-b-neutral-3 rounded-12">
                   <span className="flex-c icon-20 text-white">
                     <i className="ti ti-search"></i>
@@ -40,7 +53,7 @@ const Maches = () => {
               </div>
 
               <div className="grid xl:grid-cols-1 md:grid-cols-2 grid-cols-1 justify-center max-xl:gap-x-30p divide-y divide-shap/70 4xl:px-[140px] px-80p px-120p py-80p bg-b-neutral-3">
-                {esportsmatches.map((item, idx) => (
+                {currentItems.map((item, idx) => (
                   <div
                     key={idx}
                     className="relative flex items-center justify-between gap-4 w-full sm:py-6 py-5"
@@ -100,6 +113,12 @@ const Maches = () => {
               </div>
             </div>
           </div>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+            className="mt-48p"
+          />
         </div>
       </section>
 
@@ -118,7 +137,7 @@ const Maches = () => {
                 <h3 className="heading-3 text-white mb-3 text-center">
                   Match {esportsmatches[openModal]?.id}
                 </h3>
-                <h6 className="heading-6 text-center">Best of 1 game</h6>
+                <h6 className="heading-6 text-center">Best of 5 game</h6>
                 <div className="mt-60p">
                   <div className="relative flex max-sm:flex-col items-center justify-center gap-y-30p gap-x-40p sm:pb-6 pb-5 mb-60p">
                     <div className="flex items-center gap-3 min- w-[180px]">
@@ -137,7 +156,7 @@ const Maches = () => {
                         </Link>
                       </div>
                       <Image
-                        className="avatar size-48p shrink-0"
+                        className="avatar size-48p shrink-0 object-contain"
                         src={esportsmatches[openModal]?.leftPlayer?.image}
                         width={48}
                         height={48}
@@ -174,7 +193,7 @@ const Maches = () => {
                         </Link>
                       </div>
                       <Image
-                        className="avatar size-48p shrink-0"
+                        className="avatar size-48p shrink-0 object-contain"
                         width={48}
                         height={48}
                         src={esportsmatches[openModal]?.rightPlayer?.image}
@@ -195,7 +214,7 @@ const Maches = () => {
                             )
                           }
                         >
-                          Games
+                          승부예측
                         </Tab>
                         <Tab
                           className={({ selected }) =>
@@ -207,23 +226,24 @@ const Maches = () => {
                             )
                           }
                         >
-                          Lineups
+                          투표
                         </Tab>
                       </Tab.List>
 
                       {/* Tab Panels */}
                       <Tab.Panels className="pt-60p">
-                        {/* Games Tab Content */}
+                        {/* 승부 예측 */}
                         <Tab.Panel>
                           <div className="flex-col-c">
                             <span className="icon-40 text-w-neutral-4">
                               <i className="ti ti-list"></i>
                             </span>
                             <h6 className="heading-6 text-base text-w-neutral-1 my-2.5">
-                              No Games
+                              승부 예측
                             </h6>
                             <p className="text-s-medium text-w-neutral-1">
-                              This Match Does Not Have Any Games Yet.
+                              아테나의 예측 승리 팀 :{" "}
+                              {esportsmatches[openModal]?.rightPlayer?.name}
                             </p>
                           </div>
                         </Tab.Panel>
