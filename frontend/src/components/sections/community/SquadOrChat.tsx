@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-const GroupsPage = () => {
+const SquadOrChat = () => {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
   const [sort, setSort] = useState("recent");
@@ -67,7 +67,7 @@ const GroupsPage = () => {
 
           <div className="flex gap-4 items-center flex-shrink-0">
             <button className="btn btn-neutral-3 px-8 py-5 text-lg"
-            onClick={() => router.push("/chat/create")}>Create</button>
+            onClick={() => router.push("/community/chat/create")}>Create</button>
             <select
               className="form-select bg-b-neutral-3 text-white rounded px-6 py-5 text-lg"
               value={sort}
@@ -123,4 +123,4 @@ const GroupsPage = () => {
   );
 };
 
-export default GroupsPage;
+export default SquadOrChat;
