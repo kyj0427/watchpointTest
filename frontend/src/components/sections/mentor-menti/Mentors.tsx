@@ -89,7 +89,7 @@ const Mentors = ({ data, type }: { data: Mentor[]; type: string }) => {
                 />
                 </div>
                 <div className="p-28p">
-                <Link href={`/mentoring-lists/${type}/${item.id}`} className="heading-3 link-1 mb-2 line-clamp-1">
+                <Link href={`/coaching/mentor-menti/mentoring-lists/${type}/${item.id}`} className="heading-3 link-1 mb-2 line-clamp-1">
                     {item.title}
                 </Link>
                 <p className="text-l-regular text-w-neutral-2">
@@ -104,7 +104,7 @@ const Mentors = ({ data, type }: { data: Mentor[]; type: string }) => {
                 <div className="flex-y flex-wrap gap-3">
                     <Image className="size-60p rounded-full shrink-0" src={item.author.image} width={20} height={20} alt={item.author.name} />
                     <div>
-                    <Link href="/profile" className="flex-y gap-2 text-l-medium link-1 text-w-neutral-1 mb-1">
+                    <Link href="/profile" >
                         <span>{item.author.name}</span>
                         <IconCircleCheckFilled size={24} className="text-secondary" />
                     </Link>
