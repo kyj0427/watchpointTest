@@ -4,8 +4,15 @@ import Link from "next/link";
 import { IconCheck, IconUserPlus } from "@tabler/icons-react";
 import ProTeamsFilter from "./ProTeamsFilter";
 import { proteamData } from "@public/data/proteamData";
+import { proplayerData } from "@public/data/proplayerData";
 
 const ProTeamList = () => {
+
+  // 팀별 선수 필터링 
+  const getTeamPlayers = (teamId: number) =>{
+    return proplayerData.filter(player => player.team_id === teamId);
+  }
+
   return (
     <section className="section-title">
       <div className="container">
@@ -19,7 +26,7 @@ const ProTeamList = () => {
         <div className="grid 4xl:grid-cols-4 xxl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-30p">
           {proteamData?.map((item, idx) => (
             <div
-              key={idx}
+              key={item.team_id}
               className="bg-b-neutral-3 rounded-12 p-32p border border-transparent hover:border-accent-7 group transition-1"
               data-aos="zoom-in"
             >
@@ -37,30 +44,26 @@ const ProTeamList = () => {
                     >
                       {item?.team_name}
                     </Link>
-                    <span className="text-m-medium text-w-neutral-3">
+                    {/* <span className="text-m-medium text-w-neutral-3">
                       {item?.team_name}
-                    </span>
+                    </span> */}
                   </div>
                 </div>
-                <button className="btn-c btn-c-lg btn-c-light-outline shrink-0">
+                {/* <button className="btn-c btn-c-lg btn-c-light-outline shrink-0">
                   {item?.players ? <IconUserPlus /> : <IconCheck />}
-                </button>
+                </button> */}
               </div>
-              <div className="flex-y flex-wrap gap-20p whitespace-nowrap mb-32p">
+              <div className="grid grid-cols-2 gap-16p mb-30p">
                 <div>
-                  <span className="text-m-medium text-w-neutral-4 mb-1">
-                    승률
-                  </span>
-                  <div className="flex-y gap-2 text-l-medium text-w-neutral-1">
-                    <i className="ti ti-diamond icon-24"></i>
-                    <span>{item?.win_rate}</span>
+                  <span className="text-m-medium text-w-neutral-4 mb-1 block">승률</span>
+                  <div className="flex items-center gap-2 text-l-medium text-w-neutral-1">
+                    <i className="ti ti-trophy icon-24 flex-shrink-0"></i>
+                    <span className="truncate">{item?.win_rate}</span>
                   </div>
                 </div>
                 <div>
-                  <span className="text-m-medium text-w-neutral-4 mb-1">
-                    지역
-                  </span>
-                  <div className="text-l-medium text-w-neutral-1">
+                  <span className="text-m-medium text-w-neutral-4 mb-1 block">지역</span>
+                  <div className="text-l-medium text-w-neutral-1 truncate">
                     {item?.region}
                   </div>
                 </div>
@@ -73,19 +76,20 @@ const ProTeamList = () => {
                   </span>
                 </div> */}
               </div>
+              
               <div className="flex-y flex-wrap justify-between gap-24p pt-32p border-t border-t-shap">
                 <div className="flex items-center *:size-40p *:shrink-0 *:size-40p *:border *:border-white *:-ml-3 ml-3">
-                  {/* {item?.players?.slice(0, 4)?.map((item, idx) => (
+                  {getTeamPlayers(item.team_id)?.slice(0, 5)?.map((player, idx) => (
                     <Image
-                      key={idx}
+                      key={player.player_id}
                       className="avatar"
-                      src={item?.logo}
-                      alt="user"
+                      src={player.player_img_url}
+                      alt={player.player_name}
                     />
-                  ))} */}
-                  <span className="flex-c rounded-full bg-[#333333] text-s-medium text-w-neutral-1">
+                  ))}
+                  {/* <span className="flex-c rounded-full bg-[#333333] text-s-medium text-w-neutral-1">
                     +{item?.players?.length - 4}
-                  </span>
+                  </span> */}
                 </div>
                 <Link
                   href="/team-home"
