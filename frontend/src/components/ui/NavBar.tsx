@@ -438,9 +438,19 @@ const NavBar = () => {
                         </div>                                            
                     )}         
 
-                    {/* 모바일창 로그인/회원가입 버튼 : 로그인 상태일경우에만 표시 */}
+                    {/* 모바일창 로그인/회원가입/로그아웃 버튼*/}
                     <div className="flex lg:hidden items-center gap-2">
-                      {!mounted || loading ? null : !user && (
+                      {!mounted || loading ? null : user ? (
+                        <div className="flex lg:hidden items-center gap-1 mr-2">
+                          <button onClick={()=>{
+                            logout();
+                            router.push('/login');
+                          }}
+                          className="btn btn-xs btn-c-dark-outline text-xs rounded-6 px-2 py-1">
+                            로그아웃
+                          </button>
+                        </div>
+                      ):(
                         <div className="flex lg:hidden items-center gap-1 mr-2">
                           <Link href="/login" className="btn btn-xs btn-c-dark-outline text-xs rounded-6 px-2 py-1">
                             로그인
@@ -449,7 +459,7 @@ const NavBar = () => {
                             회원가입
                           </Link>
                         </div>
-                      )}        
+                      )}
                       
                       {/* 모바일창 네비게이션바 */}
                       <button
