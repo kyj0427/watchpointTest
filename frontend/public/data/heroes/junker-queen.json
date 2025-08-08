@@ -1,0 +1,113 @@
+{
+  "name": "정커퀸",
+  "description": "도끼 '도륙'과 전자기 건틀릿으로 무장한 쓰레기 집단의 무자비한 지도자는 전 세계를 지배하려 합니다.",
+  "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/b4fa5f937fe07ef56c78bca80be9602c062b8d4451692aecff50e2f68c5c6476.png",
+  "role": "tank",
+  "location": "호주, 쓰레기촌",
+  "age": 31,
+  "birthday": "6월 14일",
+  "hitpoints": {
+    "health": 525,
+    "armor": 0,
+    "shields": 0,
+    "total": 525
+  },
+  "abilities": [
+    {
+      "name": "산탄총",
+      "description": "펌프 액션식 산탄총입니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/f2e438e49ffae25e094d79f876a8538149ff2aefd7cdf962da4556bd3551184e.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltece9bfecdb438291/6333ca913922a2677fc88c48/JUNKER_QUEEN_SCATTERGUN.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltef053a9e981dfe1a/6333ca87f87c00687e8ef17e/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_JunkerQueenScattergun_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltbd2f599666a537b0/6679a1c18ec4a443a4373488/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_JunkerQueenScattergun_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    },
+    {
+      "name": "톱니칼",
+      "description": "사용 능력: 칼을 던집니다. 다시 사용하면 칼이 돌아오고, 칼이 적에게 박혀 있었다면 적도 끌어옵니다. 지속 능력: 빠른 근접 공격이나 던진 칼에 적중당한 적에게 부상을 입혀 지속 피해를 줍니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/7aff09649e4e2daeec13cfcca4d5e369b4ddc0160587637bb607761ecf89f16c.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltaf2f05070f77d58f/6333ca91b8dbde69f5279850/JUNKER_QUEEN_JAGGED_BLADE.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt995e91cfad84b740/6333ca87425ea374105b60af/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_JunkerQueenJaggedBlade_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt4a8a014167a59d58/6679aa73845030ca3c778956/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_JunkerQueenJaggedBlade_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    },
+    {
+      "name": "지휘의 외침",
+      "description": "일시적으로 자신과 주위 아군에게 추가 생명력을 부여하고 이동 속도를 증가시킵니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/1809c57884dafcfd1aab89eb80d2ad8fe0c64ce0036646a3e19c05f48c322c9d.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltbf86e7b2c16375d1/6333ca917e84e17596f9c7e0/JUNKER_QUEEN_COMMANDING_SHOUT.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt1f73211d1195a166/6333ca867e84e17596f9c7dc/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_JunkerQueenCommandingShout_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltadbe73567e78e2ed/6679aa842134bd812dc554ee/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_JunkerQueenCommandingShout_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    },
+    {
+      "name": "도륙",
+      "description": "전방의 모든 적에게 부상을 입혀 지속적으로 피해를 줍니다. 적중한 적에 비례해서 재사용 대기시간이 감소합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/74c40565f02f550ed362d8a5aaed21de94a3ff1915185cb4b93d6ce6207f03ab.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltff4a19fb4b385829/6333ca911a0b5e7d3d1ec4dd/JUNKER_QUEEN_CARNAGE.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltc85135c2707bbff1/6333ca8664fe5a7d44819f8c/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_JunkerQueenCarnage_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt6e1b79a8d6954942/6679aa9c4f84ebf5cd24bbc9/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_JunkerQueenCarnage_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    },
+    {
+      "name": "살육",
+      "description": "전방으로 돌진합니다. 경로에 있는 적에게 부상을 입혀 지속 피해를 주고, 치유를 차단합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/68b7d33215b777410b834ba2e9e7202d5ecff15fe012712facd974ec32895c36.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt795d48e30622248c/6333ca9164fe5a7d44819f90/JUNKER_QUEEN_RAMPAGE.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltc5fbe16ef7821f05/6333ca873917977bfd986107/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_JunkerQueenRampage_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt34c8d2797f0bfb74/6679a1cc9d84e743d2e03bb5/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_JunkerQueenRampage_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    },
+    {
+      "name": "아드레날린 촉진",
+      "description": "적에게 부상을 입혀 준 지속 피해에 비례하여 생명력을 회복합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/e1706243e4996af6844e7f8233bbd3f98f04583a223cd3ad926d40ef6c4c8557.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt4dbb863428d58db4/6333ca91ec7e18758be50fae/JUNKER_QUEEN_ADRENALINE_RUSH.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blta8b8e22823cca4e9/6333ca86e3c2a2741688cae5/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_JunkerQueenAdrenalineRush_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt15b00722c10115dc/6679aaaa2cfadc363e0cf3a5/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_JunkerQueenAdrenalineRush_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    }
+  ],
+  "story": {
+    "summary": "황무지 출신인 오데사 \"데즈\" 스톤은 끊임없이 분쟁을 벌이는 쓰레기촌 파벌들을 10년 넘게 지배했다. 정커퀸이 발을 딛는 곳은 어디든지 그녀가 택한 전쟁터이고, 앉는 자리는 어디든지 왕좌이며, 세상 사람들은 스스로 알든 모르든 모두 그녀의 신민이다. 정커퀸의 정복 역사는 이제 시작일 뿐이다...",
+    "media": {
+      "type": "video",
+      "link": "https://youtu.be/8-nXN9ZMl8o"
+    },
+    "chapters": [
+      {
+        "title": "황무지인",
+        "content": "젊고, 당당하고, 자신감 넘치는 오데사 \"데즈\" 스톤은 호주 내륙 지역의 작은 거주지에서 태어났다. 6남매 중 하나로 태어난 그녀는 자신의 몫을 차지하기 위해 끊임없이 싸웠다. 호주 해방전선의 이전 조직 지도자인 그녀의 어머니는 마을 경비대를 운영했고, 마찬가지로 호주 해방전선의 일원이었던 아버지는 다른 거주지와의 교역 협상을 했다. 부부는 함께 데즈에게 황무지의 규칙과 그룹으로 활동하는 방법, 방사능에 오염된 내륙 지역에서 살아남는 법을 가르쳐 주었다.  파괴된 호주 옴니움의 그림자 속에서 살아가는 이들에게 옴닉 사태는 끝난 적이 없었다. 그저 형태만 바뀌었을 뿐. 호주 해방전선의 생존자 및 후손들과 내륙 지역을 배회하는 옴닉들은 영토와 자원을 두고 끝없는 전투를 벌이며 서로 충돌했다. 데즈와 그녀의 친구들은 어린 시절부터 싸우는 법을 배웠고, 패거리를 이뤄 황무지의 옴닉들을 사냥했다. 그녀는 쓰러진 적들의 부품과 장비를 모아 직접 착용할 섬뜩한 방어구와 무기를 제작했고, 그중에는 전자기를 조작하는 건틀릿도 포함되어 있었다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt4cb1904358b0203d/637da174443fa70e71d4bee3/junkerqueen-01.jpg"
+      },
+      {
+        "title": "심판",
+        "content": "계절이 몇 번 지날 때마다 쓰레기촌에서는 일주일 동안 각종 연회와 전투, 힘자랑이 왁자지껄하게 벌어지는 심판 투기장이 열렸다. 다른 도전자들만 먼저 쓰러뜨릴 수 있다면, 누구나 집권 중인 쓰레기 집단의 군주에게 공개적으로 도전할 수 있는 자리였다. 그것이 바로 심판에서 가장 중요한 이벤트였다. 도전자들은 일 년 내내 훈련하고, 어마어마한 메카와 무기를 제작하고, 흥미로운 경쟁 구도를 수립했다. 심판의 데뷔 무대에서, 데즈는 비교적 작은 체구와 황무지에서의 경험을 바탕으로 도전자들의 벽을 돌파하고 경험 많은 상대들을 쓰러뜨렸다. 메카도 그녀를 막을 수는 없었다. 그녀는 무기와 흔들리지 않는 투지로 적을 모두 쓰러뜨렸다. 그녀는 집권 정커킹인 메이슨 하울에게 이르는 길을 싸워서 돌파했다. 둘은 전설적인 전투를 벌였고, 결국엔 데즈가 승리했다. 이 전투는 영상으로 촬영되어 내륙 지역 전체에 방송되었고, 그녀는 하룻밤 사이에 엄청난 유명 인사가 되었다. 그리고 그녀가 원하던 대로, 모든 파벌에 영향력을 행사할 수 있었다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt2141bce79c7be4c0/637da1748b3bbe1129cea42e/junkerqueen-02.jpg"
+      },
+      {
+        "title": "정커퀸",
+        "content": "정커킹 하울을 꺾은 후, 데즈는 쓰레기촌을 차지하고 모든 파벌을 통합하는 일에 매진하며, 파벌들을 한 번에 하나씩 외교적으로 격파해 나갔다. 시간이 지나고, 심판에는 그녀 자신의 용사까지 등장했다. 바로 레킹볼이었다. 이제 정커퀸이 된 데즈는 황무지인으로서 쌓은 지식을 이용하여 쓰레기 집단을 통제하고, 필요한 경우 질서를 유지하면서, 옴닉의 위협에 맞서 싸울 수 있도록 백성들을 훈련시키고 있다. 그러기 위해서는 다른 파벌의 지도자에게 보상을 제공하거나, 쓰러뜨려야 할 때도 있다. 어느 쪽이든 그녀에겐 그저 일상이다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt0e50f459f2475212/637da174bbfd340e8ad2e304/junkerqueen-03.jpg"
+      }
+    ]
+  }
+}

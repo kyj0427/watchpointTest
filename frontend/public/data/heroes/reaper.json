@@ -1,0 +1,96 @@
+{
+  "name": "리퍼",
+  "description": "사람들은 종종 리퍼라고만 알려진, 검은 망토를 입은 테러리스트에 대해 이야기합니다. 그의 신원과 활동 동기는 모두 베일에 감싸여 있지만, 분명한 것 하나는, 리퍼가 나타나는 곳에는 언제나 죽음의 그림자가 드리운다는 사실입니다.",
+  "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/2edb9af69d987bb503cd31f7013ae693640e692b321a73d175957b9e64394f40.png",
+  "role": "damage",
+  "location": "이탈리아, 로마",
+  "age": 60,
+  "birthday": "12월 14일",
+  "hitpoints": {
+    "health": 300,
+    "armor": 0,
+    "shields": 0,
+    "total": 300
+  },
+  "abilities": [
+    {
+      "name": "헬파이어 샷건",
+      "description": "근거리에 방사 피해를 줍니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/76b6866587871744aca310645f66d2d07755c5a55093eb8734ed0898b17efc51.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt45364385b8df30e9/63390785ec7e18758be5107a/REAPER_HELLFIRE_SHOTGUNS.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt7d3eac76aa4db8ba/6339077f64fe5a7d4481a094/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ReaperHellfireShotguns_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltf3d318949dc5a3ef/6679e0c591d53b20cfdc063d/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ReaperHellfireShotguns_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "그림자 밟기",
+      "description": "선택한 위치로 순간이동합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/bad9345de1f04a46f219364952464c38d2b2a9afa335df6894cde81565816fa4.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltd368298c18bd8cea/633907857e84e17596f9c8cc/REAPER_SHADOWSTEEP.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blte19c829418ec44a6/6339077f1ccd046877c0e511/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ReaperShadowStep_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltebcd6cfc73b6b17d/6679e0d1395c0a7e5092c6a7/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ReaperShadowStep_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "망령화",
+      "description": "피해를 받지 않고 신속히 이동할 수 있지만, 무기를 발사할 수 없습니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/dbcceb2a764dcf8bb808078f7a32a039fd259c72e557dcde3fb70b2041247c9a.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltcff50ae16ddc1149/633907853917977bfd9861d7/REAPER_WRAITHFORM.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt1bf44e779512b204/633907808537f87bfbcdc434/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ReaperWraithForm_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt8d1b14657bdcad28/6679e0df4ac9fe2301f0510c/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ReaperWraithForm_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "죽음의 꽃",
+      "description": "주위 모든 적에게 피해를 줍니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/e35595575880a304e14d427a0f9f5f04dc0886ba0f4cadd731ac935174f031e2.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt355991693716ef1f/63390785e3c2a2741688cbd1/REAPER_DEATH_BLOSSOM.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt513d53ac5ecb9b67/6339077ff87c00687e8ef250/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ReaperDeathBlossom_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt61efa33311d2413c/6679dfba9d84e75390e03bbf/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ReaperDeathBlossom_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "영혼 수확",
+      "description": "피해를 주면 생명력을 회복합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/21fb34e5a009987c73f686336cd61d4e4b771a8a2d9b6753e62f65b41e6b6c51.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt8f62fcdc91d241dd/633907858537f87bfbcdc438/REAPER_THE_REAPING.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltfad36772876f40a6/63390780da1d806602f83f1a/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ReaperTheReaping_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt814b7f593e78f221/6679e0d82309b51de3e269f9/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ReaperTheReaping_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    }
+  ],
+  "story": {
+    "summary": "가브리엘 레예스는 한때 존경받는 오버워치의 일원으로서, 오버워치의 강습 사령관과 오버워치 산하 비밀 작전 부서인 블랙워치의 수장을 역임했다. 그는 오버워치 본부에서 일어난 폭발 때문에 사망한 것으로 알려졌다. 그러나 소문에 따르면 레예스는 죽을 운명을 피하여, 현재 탈론에서 가장 치명적인 전투원이자 변덕스러운 살인자인 리퍼로 활동하고 있다고 한다.",
+    "media": {
+      "type": "short-story",
+      "link": "https://overwatch.blizzard.com/media/stories/code-of-violence/"
+    },
+    "chapters": [
+      {
+        "title": "목격",
+        "content": "리퍼는 극도로 위험한 용병이자 잔혹하고 무자비한 암살자로서, 세계 곳곳에서 테러를 자행했다. 뉴멕시코에서는 과학자 시브런 드 카위퍼가 블랙 사이트 시설로부터 납치됐다. 러시아에서는 볼스카야 인더스트리의 카티야 볼스카야에 대한 암살 시도가 있었다. 베니스에서는 대학살의 와중에 탈론 지도자 아우구스토 비알리의 사체가 발견됐다. 뉴욕의 오버워치 박물관처럼 더 공개적인 장소에서도, 리퍼는 둠피스트의 건틀릿을 훔치려다가 아슬아슬하게 저지당했다. 가장 끔찍한 전쟁터에서도 털끝 하나 다치지 않고 유령처럼 누비는 검은 그림자, 그의 손에서 살아남은 생존자들은 리퍼를 그렇게 묘사한다. 그의 손에 죽은 후 회수된 몇 구 안 되는 시신들은 하나같이 창백하고, 생기가 모두 빠져나간 빈 껍데기다. 세포에는 극심한 부패의 흔적까지 엿보인다. 리퍼는 실패한 유전자 조작 실험의 부산물로, 그의 몸에서는 세포의 사멸과 재생이 동시에 초자연적인 속도로 이루어지고 있는 것일 가능성이 있다. 리퍼의 동향을 추적하던 사람들은 패턴을 하나 발견했다. 그들은 리퍼가 이전 오버워치 요원들을 노리고 체계적으로 제거하는 중이라고 생각했다. 그가 이전 오버워치 요원들의 이름과 현재 위치가 기록된 목록을 찾아 감시 기지: 지브롤터에 침입했던 것을 고려하면 그런 가설은 신빙성이 충분했다. 감시 기지에 대한 공격은 절반의 성공이었으며, 그와 그의 팀은 윈스턴에게 쫓겨 큰 성과 없이 물러나야 했다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltc8039f1e9d655c9a/637da1c55148880e83ab6fc7/reaper-00.jpg"
+      },
+      {
+        "title": "탈론",
+        "content": "리퍼가 오래전 오버워치의 스위스 본부가 파괴되면서 사망한 것으로 알려진 전 블랙워치 사령관 가브리엘 레예스라는 의외의 진실을 알고 있는 사람은 거의 없다. 오버워치가 둠피스트를 체포한 후, 관료주의와 불필요한 요식 행위 때문에 오버워치 내에서 진정한 정의를 실현하지 못하는 것에 실망한 레예스는 탈론으로 소속을 옮겼다. 이집트에서 레예스는 잠들지 못한 과거의 유령 둘과 마주해야 했다. 바로 오버워치 강습 사령관 잭 모리슨과 부사령관 아나 아마리였다. 옛 동료 세 명은 서로 많은 이야기를 나누진 않고 헤어졌지만, 언젠가 다시 만나게 될 것이다.  어차피 그들의 이름 또한 리퍼의 명단에 포함되어 있으니까.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt591fbd11f846c7a4/63880f833cbefd11108111d5/reaper-01.jpg"
+      }
+    ]
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "name": "오리사",
+  "description": "눔바니에서 짧은 기간 사용됐던 OR15 방어 로봇 중 하나의 부품으로 제작된 오리사는 이 도시의 새로운 수호자가 되었지만, 아직 배워야 할 게 많습니다.",
+  "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/71e96294617e81051d120b5d04b491bb1ea40e2933da44d6631aae149aac411d.png",
+  "role": "tank",
+  "location": "아프리카, 눔바니",
+  "age": 1,
+  "birthday": "5월 9일",
+  "hitpoints": {
+    "health": 325,
+    "armor": 300,
+    "shields": 0,
+    "total": 625
+  },
+  "abilities": [
+    {
+      "name": "개량형 융합 기관포",
+      "description": "열기 기반 자동 기관포입니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/8bf67f548fb8dd8fde4dd07ae567e635f8d6229c330a3656134697b9ecbd9140.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt7c7bf5a6c2239eae/6333cb2c425ea374105b60bb/ORISA_AUGMENTED_FUSION_DRIVER.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt87743cdfe117aaa0/6333cb241a0b5e7d3d1ec4e1/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_OrisaAugmentedFusionDriver_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltb10ddce6bd4f4cac/6679b1a0e333ef3c1aeb71a6/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_OrisaAugmentedFusionDriver_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    },
+    {
+      "name": "투창",
+      "description": "창을 던져 적을 기절시키고 뒤로 밀쳐냅니다. 적이 벽에 충돌하면 효과가 더욱 커집니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/0cf93f55a30fe7ec769c5f2eebd284c92851d6b1dbaca0e2c39eae908a9b35c6.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltfd46219d0d56af3f/6333cb2ce3c2a2741688caf5/ORISA_ENERGY_JAVELIN.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltdf0ad8a141da5a41/6333cb233922a2677fc88c54/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_OrisaEnergyJavelin_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt69ac4c4405adaf80/6679b075e7bbdb3173c0cfa6/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_OrisaEnergyJavelin_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    },
+    {
+      "name": "방어 강화",
+      "description": "일시적으로 추가 생명력을 얻고, 받는 피해가 감소하며, 저지 불가 상태가 됩니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/f8d2cd9dce1fdaf6e2d95fed415c9c7d4ead86945bfc89bdf0a726fd62fed1a0.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt38f7b6774a1cbc88/6333cb2c2dc7636608cc7086/ORISA_FORTIFY.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt49de759a7771b080/6333cb24399a07678557c0c3/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_OrisaFortify_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blta6893dfa8ab7e8f0/6679b1bf91d53b653adc0623/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_OrisaFortify_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    },
+    {
+      "name": "수호의 창",
+      "description": "창을 돌려 투사체를 파괴하고, 적을 밀쳐내며, 전방 이동 속도가 증가합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/804f9775ecfbc3ac2b84514e429cd8bc4e88027b00cb09126880d7f2c7759b59.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt676315ba40697832/6333cb2c7e84e17596f9c7ec/ORISA_JAVELIN_SPIN.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt966c19d1f5dd11b7/6333cb24ec7e18758be50fb8/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_OrisaJavelinStep_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt4e8d36586338030a/6679b1cdcb949b43f0fbc77e/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_OrisaJavelinStep_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    },
+    {
+      "name": "대지의 창",
+      "description": "적을 끌어오면서 방어 강화 효과를 얻은 후, 에너지를 모으다가 방출하여 피해를 줍니다. Q 키를 눌러 에너지를 일찍 방출할 수 있습니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/8d8892b56df62b068343e5029a2ae1e2fa54f7568febac7141ffa945d02e214c.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt45a006fb5c132024/6333cb2cda1d806602f83e44/ORISA_TERRA_SPIN.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt601d18bd37bde4c3/6333cb247e84e17596f9c7e8/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_OrisaTerraSurge_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt07961131ed11e391/6679b1e64f84eb3a8e24bbd1/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_OrisaTerraSurge_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    }
+  ],
+  "story": {
+    "summary": "11살 천재 에피 올라델레의 작품인 오리사는 온갖 위협으로부터 눔바니를 지키기 위해 제작되었다. 에피와 오리사는 탈론의 일원인 둠피스트의 공격을 성공적으로 격퇴하면서 국가적인 영웅 대우를 받게 되었다. 오리사는 이제 자신의 힘을 선을 위해 사용하며 궁지에 몰린 사람들을 지킬 각오가 되어 있다.",
+    "media": {
+      "type": "video",
+      "link": "https://youtu.be/Lvm0of3iDUU"
+    },
+    "chapters": [
+      {
+        "title": "에피 올라델레",
+        "content": "옴닉 사태 이전에 사용되기 시작한 OR14 \"이디나\" 경비 로봇 제품군은 나이지리아의 거대 옴니움 생산 시설에서 생산되었고, 전쟁이 끝난 뒤에는 옴닉 사태에 투입됐던 다른 모델들과 함께 생산이 중지되었다. 20년 후, 눔바니는 외부 위협으로부터 도시를 보호하기 위해 OR14 프로그램을 부활시켰다. 이렇게 탄생한 OR15 모델은 둠피스트의 공격을 받아 파괴되기 전까지 짧은 시간 동안 도시를 지켰다. 이 공격 이후 해당 프로그램은 백지화되었으며, 도시 당국에서는 남은 OR15 재고를 전량 처분했다. 부품을 구입한 이들 중에는 11살짜리 천재 소녀, 에피 올라델레도 있었다. 에피는 로봇 공학과 인공 지능 분야에서 놀라운 성과를 이뤄 내며, 아다위 재단의 \"영재 지원상\"을 수상하기도 했다. 이해심 많고 열린 사고를 가진 부모님의 지원 아래, 에피는 지원금의 대부분을 퇴역한 OR15 로봇 한 기를 사들이는 데 사용했다. 에피는 눔바니에 수호자가 필요하다 생각했고, OR15를 업그레이드하면 바로 그런 수호자가 될 수 있다고 믿었다. 에피는 로봇을 수리하고 개조한 후 직접 설계한 인격 코어를 설치했다. 그리고 눔바니의 새로운 영웅에게 오리사라는 이름을 붙여 주었다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt9e0f7cc3a931b4b3/63880f12a4a28e10bf84d830/orisa-00.jpg"
+      },
+      {
+        "title": "눔바니의 영웅",
+        "content": "오리사가 처음 가동된 건 경이로운 일이었지만, 에피는 오랫동안 최적의 프로토콜을 찾아야 했다. 로봇은 워낙 경험이 부족하여 문제를 일으키는 일이 많았고, 특히 자기 힘을 제대로 파악하는 일이 선행되어야 했다. 하지만 탈론이 화합의 도시에 대한 조직적인 공격을 시작했을 때, 에피는 오리사의 프로그래밍을 실전 테스트할 때가 왔음을 알았다. 다행히 에피는 오리사의 방어 기능을 구현하는 데 필요한 마지막 부품인 토블슈타인 반응로를 루시우에게 선물 받을 수 있었다. 에피는 루시우의 음악을 좋아하는 팬이었는데, 루시우 또한 에피의 창의력을 좋아하는 팬이었다. 그는 둠피스트의 공격으로 희생된 사람들을 기리는 자선 콘서트를 눔바니에서 열기로 했다. 유니티 플라자에서 루시우의 콘서트가 열렸을 때, 탈론이 공격해 왔다. 오리사는 루시우와 팀을 이뤘고, 사람들에게 공포의 씨앗을 뿌리려던 둠피스트로부터 콘서트 관중을 지켰다. 오리사와 에피, 루시우가 눔바니를 지키는 데 성공하긴 했지만, 그들은 지금의 평화가 신중히 보호해야 하는 선물이라는 사실을 잘 알고 있었다.  눔바니에서 탈론을 몰아낸 후, 에피와 오리사는 전 오버워치 사령관 소전을 만나 영웅이 되는 것이 어떤 의미인지 들었다. 에피는 소전의 말을 마음에 새기고, 이때의 경험을 기반으로 오리사의 새로운 업그레이드를 개발했다. 오리사가 명민한 제작자 곁에서 계속해서 성장하는 사이, 한 가지는 분명해 보인다. 눔바니의 미래는 믿음직스러운 영웅이 지키고 있다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt92fe22c967d136bc/63880f12e5d09810cdaff697/orisa-01.jpg"
+      }
+    ]
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "name": "D.Va",
+  "description": "프로게이머 출신인 D.Va는 이제 뛰어난 실력으로 최첨단 메카를 조종하며 조국을 수호합니다.",
+  "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/ca114f72193e4d58a85c087e9409242f1a31e808cf4058678b8cbf767c2a9a0a.png",
+  "role": "tank",
+  "location": "대한민국, 부산, MEKA 기지(이전 기록), 감시 기지: 지브롤터",
+  "birthday": "6월 22일",
+  "age": 21,
+  "hitpoints": {
+    "armor": 375,
+    "health": 350,
+    "shields": 0,
+    "total": 725
+  },
+  "abilities": [
+    {
+      "name": "융합포",
+      "description": "근거리에 방사 피해를 주는 연발포입니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/29bd15ebb32c23483a59df18a79f71301b2128c05b2f8d0c052ab86e0715e07d.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltdfafff3f6e7da8bb/6339051eec7e18758be5104a/DVA_FUSIONCANNON.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltbab346e856582d6b/633905181ccd046877c0e4e3/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_DVaFusionCannons_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt0cf1edda6843f5e5/669ea472826d2a05c8d5849d/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_DVaFusionCannons_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "광선총",
+      "description": "자동 권총입니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/24074dececa8bf7b57628509e70731916db62b5ab5b30660ac1727b20bbc5b4d.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt686e78b1c55884b8/6339051e1ccd046877c0e4e7/DVA_LIGHTGUN.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt819a073285113161/63390518425ea374105b614d/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_DVaLightGun_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt52541924e0fba2d1/669ea49bc52895e8e66106eb/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_DVaLightGun_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "부스터",
+      "description": "보고 있는 방향으로 날아갑니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/89d6beb25b21eacd5a181b96438436692d9ad403fcef19873e506f6d46ed37a3.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt5c747fcc07e61085/6339051e8537f87bfbcdc404/DVA_BOOSTERS.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltdee1abe14411fab7/63390517399a07678557c147/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_DVaBoosters_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt7d432cfbd853fe5b/6668b774a5e60f3d82b6ad74/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_DVaBoosters_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "방어 매트릭스",
+      "description": "전방에서 날아오는 투사체를 모두 막습니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/2713a8ef6742f4009da072d66d382eb8ff3dd8e00828deadb5af1a93b0d8ce4b.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt13e1a6ddb18371b9/6339051eb8dbde69f52798fa/DVA_DEFENSEMATRIX.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt215a0dbae5a559f0/6339051764fe5a7d4481a06c/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_DVaDefenseMatrix_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt6bf953a22b0e5868/6668b745c2ba7f799499c442/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_DVaDefenseMatrix_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "마이크로 미사일",
+      "description": "폭발성 로켓을 연속으로 발사합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/1787326d46d04aa10872fc30fe512ab3575781735110dfb178ff38da352facb7.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt1b6543cefd5b666e/6339051ee3c2a2741688cbab/DVA_MICROMISSILES.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt6d005b67c7df369c/63390518b8dbde69f52798f6/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_DVaMicroMissiles_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt8bd5a7ad1b8c7cf5/6668b72590273dcd21e48785/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_DVaMicroMissiles_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "자폭",
+      "description": "비상 탈출하며 메카를 과부하시켜 잠시 후에 폭발하게 합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/f76e4b710ceb71f2e260029fc8d0ad15b227e3f006ab1b6c0c4e44da98c2d614.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt1b6543cefd5b666e/6339051ee3c2a2741688cbab/DVA_MICROMISSILES.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt5b59f3a07aa5c7f3/63390518f87c00687e8ef22e/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_DVaSelfDestruct_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blta934a2a156df8bf3/6668b6db77dc6320a0f2bf19/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_DVaSelfDestruct_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "메카 호출",
+      "description": "새로운 메카를 호출합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/848d8cd24eb0327a023a564447d79dd8b367c21a378d328cd92896a21b775219.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt42f7fff2d52f0dd3/6339051e3917977bfd9861b3/DVA_CALLMECH.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt6c5da1d1cf0edcb9/633905171a0b5e7d3d1ec5a1/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_DVaCallMech_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt0c62ae7ae46c427e/6668b7cad53f991b61633774/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_DVaCallMech_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "비상탈출!",
+      "description": "메카가 파괴되면 메카에서 탈출합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/692a603c9945e600b195d1fd56364979363926f42d950b95c4811e7047e94c97.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltf33ca7c7d08cdbc9/6339051e399a07678557c14b/DVA_EJECT.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltfb6c61e5f29fde24/633905181a0b5e7d3d1ec5a5/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_DVaEject_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltb5b7251aa6743026/6668b75dd53f9918e1633770/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_DVaEject_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    }
+  ],
+  "story": {
+    "summary": "\"D.Va\"라는 ID로 더 유명한 송하나는 최고의 실력자이다. 프로게이머 출신인 D.Va는 이제 그 실력을 발휘하여 메카를 조종하며 대한민국을 수호한다. MEKA라 불리는 부대에 속한 D.Va와 조종사들은 심해에서 나타난 위협적인 로봇, 귀신으로부터 국가를 수호한다.",
+    "media": {
+      "type": "video",
+      "link": "https://youtu.be/q7j2d6YCQbg"
+    },
+    "chapters": [
+      {
+        "title": "귀신",
+        "content": "20여 년 전, 동중국해 깊은 곳에서 튀어 나온 거대한 옴닉 괴물이 대한민국을 공격했다. 대한민국은 그 거인 같은 기계를 가까스로 파도 속으로 돌려 보냈지만, 그 과정에서 해안 도시들이 엄청난 피해를 입었다. 이에 대한민국 정부는 옴닉의 위협에서 도시를 보호하고자 'MEKA'라 불리는 중장갑 무인 조종 로봇 부대를 창설했다. 정부의 우려는 기우가 아니었다. 심상치 않은 패턴의 공격이 계속 이어졌다. 몇 년마다 바다 속에서 괴물이 등장하여 한반도와 그 주변국을 공격했다. 옴닉들은 전투를 통해 성장했고, 종종 다른 형태를 취하거나 새로운 무기 또는 능력을 보유하고 나타났다. 매번 전투는 교착 상태에 빠졌고, 대한민국은 괴물을 물리치되 파괴하지는 못했다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt61b8f52c5724688d/638809023cbefd11108111d1/dva-00.jpg"
+      },
+      {
+        "title": "Meka 부대",
+        "content": "옴닉은 계속 진화하여 MEKA의 무인 조종 네트워크를 교란하기 시작했고, 대한민국 국군은 로봇에 조종사를 탑승시킬 수밖에 없게 되었다. 황급히 조종사를 찾던 정부는 자국의 프로게이머들에게 눈을 돌렸다. 뛰어난 반사 신경과 직감을 지닌 프로게이머들이 로봇에 탑재된 최첨단 무기 시스템을 다루기에 적합한 인물이라 판단한 것이다. 곧 최고의 선수들이 의무 병역 제도를 통해 자발적으로 입대했고, 그 중에는 세계 챔피언 D.Va도 있었다. 탁월한 실력을 자랑하는 D.Va는 엄청난 집념으로 승리를 쟁취하며, 상대에게 자비를 보이지 않기로 유명한 선수였다. D.Va는 빠르게 실력을 키워 MEKA 최고의 조종사가 되었고, 전투 작전을 열성적인 팬들에게 스트리밍하기도 했다. 하지만 대한민국에 대한 귀신 옴닉의 공세가 점점 더 강해지면서, MEKA 부대에도 적지 않은 희생이 따랐다. 기존에는 MEKA 조종사도 몇 달 동안 훈련을 거치고 옴닉의 공격 사이사이에 어느 정도 휴식 기간을 확보할 수 있었지만, 예측되는 주기를 벗어난 갑작스러운 기습으로 인해 하나는 혼자서 귀신을 상대해야 했다. 언론에서는 혈혈단신으로 대한민국을 수호하는 D.Va를 칭송했지만, 사실 이 슈퍼스타는 진짜 게임 오버를 맞기 일보 직전이었다. 널 섹터의 위협이 대한민국에 도래하면서, D.Va는 사령관에게 특별 허가를 받아 새로운 수호자로 오버워치에 합류했고, 콜 캐서디 및 그가 새롭게 영입한 인원과 함께 널 섹터의 위협을 파악하고 있다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt72d062619b59e3d8/63880902bbfd340e8ad2e41b/dva-01.jpg"
+      }
+    ]
+  }
+}

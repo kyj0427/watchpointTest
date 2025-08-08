@@ -1,0 +1,96 @@
+{
+  "name": "토르비욘",
+  "description": "전성기 시절의 오버워치는 지구상에서 가장 진보된 최첨단 무기를 보유했으며, 그 무기의 출처는 바로 토르비욘 린드홀름이라는 전무후무한 기술자의 작업장이었습니다.",
+  "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/1309ab1add1cc19189a2c8bc7b1471f88efa1073e9705d2397fdb37d45707d01.png",
+  "role": "damage",
+  "location": "스웨덴, 예테보리",
+  "age": 59,
+  "birthday": "9월 21일",
+  "hitpoints": {
+    "health": 225,
+    "armor": 50,
+    "shields": 0,
+    "total": 275
+  },
+  "abilities": [
+    {
+      "name": "대못 발사기",
+      "description": "대못을 원거리에 발사합니다. 발사가 느립니다.  대못을 근거리에 발사합니다. 강력하지만 정확도가 떨어집니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/6fd3a8b1e1c43cd3c6f1a03d6ff9e76d9394d537235bc7b57380e78937e991ff.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt100f42515de441fa/633908c81a0b5e7d3d1ec5eb/TORBJORN_RIVETGUN.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltfd9c03952d0e843f/633908cd1a0b5e7d3d1ec5ef/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_TorbjornRivetGun_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blta26896c2b8fcfd8a/6679f49f5e8b86180785d177/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_TorbjornRivetGun_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "대장간 망치",
+      "description": "망치를 휘둘러 포탑을 수리하거나 적에게 피해를 줍니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/8bd2b7524b29cbe97cbc99b8df6faff559aae4cb9053ca6f7ae5bf86fa5ec711.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltafdbed2aa0455487/633908c8425ea374105b6197/TORJBORN_FORGEHAMMER.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt54cd3b5a923b2b21/633908cdb8dbde69f527993c/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_TorbjornForgeHammer_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt6d7ac46d03928983/6679f49d4ac9fea6cdf0510e/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_TorbjornForgeHammer_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "포탑 설치",
+      "description": "자동으로 설치되는 포탑을 던집니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/a25d559460eed995f177b84eda6000aca6a52c8600dcf2249cc50ca31aa9c786.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltd1a8fc82661c7ce2/633908c83922a2677fc88d38/TORBJORN_DEPLOYTURRET.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltb17ec1ff6835cd8a/633908cde3c2a2741688cbe3/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_TorbjornDeployTurret_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltf086a862a8064bf6/6679f49b2134bd8633c55513/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_TorbjornDeployTurret_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "과부하",
+      "description": "일시적으로 추가 생명력을 얻고 공격 속도, 이동 속도, 재장전 속도가 증가합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/b59687c0dd86bbc41b754388e7b21deba5397c61808c0d9b375c062c9eaf85ac.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt036a58ba836875d0/633908c8e3c2a2741688cbdf/TORBJORN_OVERLOAD.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltc0f8bd509b8ccc96/633908cd8537f87bfbcdc444/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_TorbjornOverlord_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltf891342fb118320f/6679f49e8ec4a4e8c93734b4/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_TorbjornOverlord_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "초고열 용광로",
+      "description": "적들에게 피해를 주는 용암 웅덩이를 생성합니다. 방어력에 추가 피해를 줍니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/640e2363d97cfe133716bb2811d5dedb18faddb50ebbf77c415163ea50e87b41.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltb9638f825efe6747/633908c8ed7dcc6a002803e8/TORBJORN_MOLTENCORE.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt2cf65acfe04222e8/633908cd399a07678557c181/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_TorbjornMoltenCore_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt96d2e75b4a135a37/6679f49d8ec4a4cd633734b2/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_TorbjornMoltenCore_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    }
+  ],
+  "story": {
+    "summary": "세계 최고의 기술자로 꼽히는 토르비욘 린드홀름의 발명품은 옴닉 사태 종결에 지대한 역할을 했다. 오버워치의 무기 기술이 몇십 년 동안 최첨단을 달릴 수 있었던 것도 그 덕분이었다. 최근 토르비욘은 호기심이 많은 한 바스티온을 \"입양\"했고, 그로 인해 로봇과 옴닉에 대해 품고 있던 반감에 의문이 들기 시작했다. 그러는 한편 토르비욘은 자신의 창조물이 부정한 자의 손에 넘어가는 것을 막기 위해 힘쓴다.",
+    "media": {
+      "type": "comic",
+      "link": "https://overwatch.blizzard.com/media/stories/destroyer"
+    },
+    "chapters": [
+      {
+        "title": "오버워치",
+        "content": "옴닉 사태 이전, 토르비욘은 전 세계에서 사용되는 무기 시스템을 직접 설계하여 악명을 떨쳤다. 그러나 기술이 인류에게 더 나은 비전을 제시하는 데 쓰여야 한다고 믿었던 토르비욘은, 네트워크로 연결된 인공지능 컴퓨터로 무기를 제어하고자 했던 고용주들과 갈등을 겪게 되었다. 토르비욘은 로봇의 인공지능에 깊은 불신을 품고 있었다. 동료들은 대개 이를 피해 망상으로 치부했다. 하지만 토르비욘의 우려는, 전 세계의 로봇이 창조주인 인간에게 반기를 든 옴닉 사태 때에 마침내 현실화되었다. 이에 천재 기술자인 토르비욘은 원년 오버워치에 타격팀에 들어갔고, 그가 만든 수많은 발명품은 옴닉 사태를 종결 짓는 데 크게 공헌하였다. 그 후 몇 년에 걸쳐 오버워치는 세계 평화 수호 부대로 거듭났고, 토르비욘은 기술 부문과 주요 무기 시스템 부문에서 대체 불가능한 인재로 남았다. 그의 도장이 찍힌 작품으로는 라인하르트 빌헬름의 진화형 크루세이더 갑주, 아나 아마리의 생체 소총, 널 섹터의 왕의 길 강습을 저지하는 데 일조했던 시스템 등이 있다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt276c871dfd498a99/637da1f532db130e11be7e35/torbjorn-00.jpg"
+      },
+      {
+        "title": "오버워치 이후",
+        "content": "오버워치가 몰락한 후, 토르비욘이 오버워치 시절과 그 전에 만든 무기는 대부분 도난당하거나 세계 각지에 숨겨졌다. 그는 자신의 무기가 옳지 않게 사용되는 일이 있으면 끝까지 추적했고, 옛 동료가 개조 타이탄을 조종하여 보크로보를 공격했을 때 그 타이탄을 무력화한 적도 있었다.  하지만 그의 무기가 모두 나쁘게만 쓰인 것은 아니었다. 유럽에서는 그의 딸 브리기테가, 계속 정의의 편에서 싸우고 있는 라인하르트 빌헬름의 종자이자 방어구 기술자로 아버지의 발자취를 걷기를 택했다.  그리고 조국인 스웨덴에서 토르비욘은 희한하게 평화로운 바스티온 유닛을 만나, 삐딱했던 관점이 흔들리게 되었다. 치명적인 살상 기계였던 바스티온이 불가사의하게도 주위의 자연에 동화되어, 본래 탑재했던 전시 프로토콜에서 멀어지고 있었던 것이다. 토르비욘은 이 호기심 많은 바스티온 유닛을 \"입양\"했고, 그런 우정을 통해 로봇과 AI, 옴닉에 대한 자신의 반감에 의문을 품게 되었다.  제작자로서 무거운 책임감을 느끼는 토르비욘은 부정한 자들의 손에 무기가 넘어가 무고한 사람들이 피해를 입는 걸 막으려 한다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltd3303d4390ab5db2/637da1f5f9f61910b4235791/torbjorn-01.jpg"
+      }
+    ]
+  }
+}
