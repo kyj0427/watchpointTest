@@ -3,6 +3,7 @@
 import React, { FC, useState } from "react";
 import VideoUploader from "../../ui/fileUpload/VideoUpload";
 import { Modal } from "@/components/ui";
+import Link from "next/link";
 
 const AthenaMain: FC = () => {
     const [openModal, setOpenModal] = useState<null | boolean>(null);
@@ -90,12 +91,12 @@ const AthenaMain: FC = () => {
                 </Modal>
             )}
 
-            <a
-                href="#athena-details"
+            <Link
+                href="/coaching"
                 className="text-sm font-semibold text-gray-200 hover:text-white transition"
             >
                 더 알아보기 <span aria-hidden="true">→</span>
-            </a>
+            </Link>
             </div>
         </div>
         </div>

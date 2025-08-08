@@ -222,7 +222,7 @@ const NavBar = () => {
           icon: <IconTrophy stroke={1.5} size={32} />,
           name: "E-스포츠"
         },
-        { href: "/athena", 
+        { href: "/coaching/athena", 
           icon: <IconSword stroke={1.5} size={32} /> , 
           name: "게임강의"},
         {
@@ -308,7 +308,7 @@ const NavBar = () => {
                   </Link>
                   {/* 알림 */}
                   <div className="flex items-center lg:gap-x-40p gap-x-2">
-                    <div className="hidden lg:flex items-center gap-1 shrink-0 mr-4">
+                    <div className="lg:flex items-center gap-1 shrink-0 mr-4">
                       {/* <Link
                         href="/shopping-cart"
                         className="btn-c btn-c-xxl btn-c-dark-outline"
@@ -427,23 +427,47 @@ const NavBar = () => {
                       )}
                     </div>
                     ) : (
-                      // 로그아웃 상태
-                      <div className="hidden lg:flex items-center gap-3">
-                        <Link href="/login" className="btn btn-sm btn-c-dark-outline text-base rounded-12">
-                          로그인
-                        </Link>
-                        <Link href="/sign-up" className="btn btn-sm btn-primary text-base rounded-12">
-                          회원가입
-                        </Link>
-                      </div>
-                    )}                 
-                    
-                    <button
-                      onClick={() => setHamburgerToggle((prev) => !prev)}
-                      className="lg:hidden btn-c btn-c-xxl btn-c-dark-outline nav-toggole shrink-0"
-                    >
-                      <IconMenu2 stroke={1.5} size={32} />
-                    </button>
+                      // 로그아웃 상태                      
+                        <div className="hidden lg:flex items-center gap-3">
+                          <Link href="/login" className="btn btn-sm btn-c-dark-outline text-base rounded-12">
+                            로그인
+                          </Link>
+                          <Link href="/sign-up" className="btn btn-sm btn-primary text-base rounded-12">
+                            회원가입
+                          </Link>
+                        </div>                                            
+                    )}         
+
+                    {/* 모바일창 로그인/회원가입/로그아웃 버튼*/}
+                    <div className="flex lg:hidden items-center gap-2">
+                      {!mounted || loading ? null : user ? (
+                        <div className="flex lg:hidden items-center gap-1 mr-2">
+                          <button onClick={()=>{
+                            logout();
+                            router.push('/login');
+                          }}
+                          className="btn btn-xs btn-c-dark-outline text-xs rounded-6 px-2 py-1">
+                            로그아웃
+                          </button>
+                        </div>
+                      ):(
+                        <div className="flex lg:hidden items-center gap-1 mr-2">
+                          <Link href="/login" className="btn btn-xs btn-c-dark-outline text-xs rounded-6 px-2 py-1">
+                            로그인
+                          </Link>
+                          <Link href="/sign-up" className="btn btn-xs btn-primary text-xs rounded-6 px-2 py-1">
+                            회원가입
+                          </Link>
+                        </div>
+                      )}
+                      
+                      {/* 모바일창 네비게이션바 */}
+                      <button
+                        onClick={() => setHamburgerToggle((prev) => !prev)}
+                        className="lg:hidden btn-c btn-c-xxl btn-c-dark-outline nav-toggole shrink-0">
+                        <IconMenu2 stroke={1.5} size={32} />
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -467,7 +491,7 @@ const NavBar = () => {
                           width={142}
                           className="w-[142px] h-auto"
                           src={logo}
-                          alt="GameCo"
+                          alt="WatchPoint"
                         />
                       </Link>
                       <button
@@ -612,7 +636,7 @@ const NavBar = () => {
                               </Link>
                             </div>
                           </div>
-                        </div>
+                        </div>                        
                       </div>
                     </div>
                   </div>

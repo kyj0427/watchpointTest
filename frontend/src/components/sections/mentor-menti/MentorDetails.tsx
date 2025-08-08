@@ -68,18 +68,18 @@ const MentorDetails = ({ data }: MentorDetailsProps) => {
                     <div className="flex items-center flex-wrap gap-y-24p gap-x-60p mt-24p">
                     <div>
                         <span className="text-m-medium text-primary mb-1">
-                        Game
+                        티어
                         </span>
                         <p className="text-sm text-w-neutral-4">
-                        League of Legends
+                        티어
                         </p>
                     </div>
                     <div>
                         <span className="text-m-medium text-primary mb-1">
-                        Languages
+                        포지션
                         </span>
                         <p className="text-sm text-w-neutral-4">
-                        English, Romanian and French
+                        포지션
                         </p>
                     </div>
                     <div>
@@ -88,7 +88,7 @@ const MentorDetails = ({ data }: MentorDetailsProps) => {
                     </div>
                     </div>
                     <div className="py-40p">
-                    <h4 className="heading-4 text-w-neutral-1">Seller</h4>
+                    <h4 className="heading-4 text-w-neutral-1">강사정보</h4>
                     <div className="flex items-center gap-3 py-3">
                         <Image
                         className="avatar size-60p"
@@ -142,79 +142,8 @@ const MentorDetails = ({ data }: MentorDetailsProps) => {
                     </div>
                     <span className="text-base text-w-neutral-1">4.7 (99)</span>
                     </div>
-                    <h4 className="heading-4 text-w-neutral-1 mb-24p">
-                    Price: €45.00
-                    </h4>
                     <div className="grid xxl:grid-cols-1 xl:grid-cols-2 grid-cols-1 gap-16p *:flex-y *:max-sm:flex-wrap *:gap-24p *:border *:border-shap *:py-32p *:px-20p *:rounded-12 mb-30p">
-                    <div>
-                        <div className="checkbox-container shrink-0">
-                        <input
-                            type="checkbox"
-                            id="one-game-review"
-                            className="border-corners-checkbox"
-                        />
-                        <label
-                            htmlFor="one-game-review"
-                            className="border-corners-checkbox-label"
-                        >
-                            <i className="ti icon-32 text-primary"></i>
-                        </label>
-                        </div>
-                        <div>
-                        <h5 className="heading-5 text-w-neutral-1 mb-2.5">
-                            One game review
-                        </h5>
-                        <p className="text-base text-w-neutral-4">
-                            I will analyze in details one game of your choice, tell
-                            you what you should work on and what you could do
-                            better.
-                        </p>
-                        </div>
-                        <h4 className="heading-4 text-w-neutral-1">€6.00</h4>
-                    </div>
-                    <div>
-                        <div className="checkbox-container shrink-0">
-                        <input
-                        type="checkbox"
-                        id="live-coaching"
-                        className="border-corners-checkbox"
-                        checked={isChecked}
-                        onChange={(e) => setIsChecked(e.target.checked)}
-                        />
-                        <label
-                            htmlFor="live-coaching"
-                            className="border-corners-checkbox-label"
-                        >
-                            <i className="ti icon-32 text-secondary"></i>
-                        </label>
-                        </div>
-                        <div>
-                        <h5 className="heading-5 text-w-neutral-1 mb-2.5">
-                            Live coaching
-                        </h5>
-                        <p className="text-base text-w-neutral-4">
-                            We will do live coaching, I will explain in details what
-                            could you do better, what are your mistakes and how to
-                            work on it. We will work on your micro gameplay, macro
-                            gameplay
-                        </p>
-                        </div>
-                        <h4 className="heading-4 text-w-neutral-1">€6.00</h4>
-                    </div>
-                    </div>
-                    <Link
-                    href="/checkout"
-                    className="btn btn-md btn-primary w-full mb-32p"
-                    >
-                    Buy
-                    </Link>
-                    <div className="pt-24p border-t border-shap flex-y justify-between gap-24p">
-                    <p className="text-sm text-w-neutral-4">
-                        For your own protection and for Challengermode to assist in
-                        any potential disputes, it&lsquo;s important that you never
-                        make any payments outside of the platform.
-                    </p>
-                    <i className="ti ti-shield-check text-primary icon-32"></i>
+                    {/* 멘토 커리어 */}
                     </div>
                 </div>
                 </div>
