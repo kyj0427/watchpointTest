@@ -2,25 +2,41 @@
 
 import Image from "next/image";
 import { proplayerData } from "@public/data/proplayerData";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Pagination from "@/components/shared/Pagination";
+import { proteamData } from "@public/data/proteamData";
 
 const ProPlayerRank = () => {
   const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage] = useState(10); // 페이지당 보여줄 아이템 수
-    
-    // 전체 페이지 수 계산
-    const totalPages = Math.ceil(proplayerData.length / itemsPerPage);
-    
-    // 현재 페이지에 해당하는 데이터만 추출
-    const indexOfLastItem = currentPage * itemsPerPage;
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentItems = proplayerData.slice(indexOfFirstItem, indexOfLastItem);
+  const [itemsPerPage] = useState(10); // 페이지당 보여줄 아이템 수
   
-    // 페이지 변경 핸들러
-    const handlePageChange = (pageNumber: number) => {
-      setCurrentPage(pageNumber);
-    };
+  //프로선수 정보 / 팀정보 조인
+  const joinedData = useMemo(()=>{
+    
+    return proplayerData.map(player => {
+      const teamInfo = proteamData.find(team => team.team_id === player.team_id);
+      return {
+        ...player,
+        team_name: teamInfo?.team_name || "UnKnown",
+        team_logo: teamInfo?.logo
+      }
+    })
+  },[])
+
+  // 전체 페이지 수 계산
+  const totalPages = Math.ceil(joinedData.length / itemsPerPage);
+    
+  // 현재 페이지에 해당하는 데이터만 추출
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = joinedData.slice(indexOfFirstItem, indexOfLastItem);
+
+  // 페이지 변경 핸들러
+  const handlePageChange = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
+
+    
 
   return (
     <section className="section-pb pt-10p">

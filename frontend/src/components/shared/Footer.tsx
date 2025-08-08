@@ -146,21 +146,12 @@ const Footer = () => {
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
                   <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
-                    href="/e-sports/tournaments"
+                    href="/e-sports"
                     className="text-m-regular text-w-neutral-3"
                   >
                     대회일정
                   </Link>
-                </li>
-                <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
-                  <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
-                  <Link
-                    href="/e-sports/predictions"
-                    className="text-m-regular text-w-neutral-3"
-                  >
-                    승부예측
-                  </Link>
-                </li>
+                </li>                
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
                   <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
