@@ -66,7 +66,7 @@ const Chats = () => {
           <button
             onClick={() => {
               setActiveMenu('create');
-              router.push('/chat/create');
+              router.push('/community/chat/create');
             }}
             className={`px-48p py-24p rounded-full border-2 text-xl font-bold transition-all duration-200 flex items-center gap-12p ${
               activeMenu === 'create'
@@ -81,7 +81,7 @@ const Chats = () => {
           <button
             onClick={() => {
               
-              router.push('/squad');
+              router.push('/community/SquadOrChat');
             }}
             className={`px-48p py-24p rounded-full border-2 text-xl font-bold transition-all duration-200 flex items-center gap-12p ${
               activeMenu === 'create'

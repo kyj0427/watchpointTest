@@ -6,7 +6,7 @@ import { IconCheck, IconUserPlus } from "@tabler/icons-react";
 import { proteamData } from "@public/data/proteamData";
 import { proplayerData } from "@public/data/proplayerData";
 import ProPlayerFilter from "./ProPlayerFilter";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Pagination from "@/components/shared/Pagination";
 
 const ProPlayerList = () => {
@@ -15,13 +15,26 @@ const ProPlayerList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(8); // 페이지당 보여줄 아이템 수
 
+  const joinedData = useMemo(() => {
+    return proplayerData.map((player) => {
+      const teamInfo = proteamData.find(
+        (team) => team.team_id === player.team_id
+      );
+      return {
+        ...player,
+        team_name: teamInfo?.team_name || "UnKnown",
+        team_logo: teamInfo?.logo,
+      };
+    });
+  }, []);
+
   // 전체 페이지 수 계산
-  const totalPages = Math.ceil(proplayerData.length / itemsPerPage);
+  const totalPages = Math.ceil(joinedData.length / itemsPerPage);
 
   // 현재 페이지에 해당하는 데이터만 추출
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = proplayerData.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = joinedData.slice(indexOfFirstItem, indexOfLastItem);
 
   // 페이지 변경 핸들러
   const handlePageChange = (pageNumber: number) => {
@@ -83,7 +96,7 @@ const ProPlayerList = () => {
                     소속팀
                   </span>
                   <div className="text-l-medium text-w-neutral-1 truncate">
-                    {item?.team_id}
+                    {item?.team_name}
                   </div>
                 </div>
                 {/* <div>

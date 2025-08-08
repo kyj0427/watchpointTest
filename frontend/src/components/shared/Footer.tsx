@@ -92,7 +92,7 @@ const Footer = () => {
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
                   <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
-                    href="/gameinfo/gameinfoDetail"
+                    href="/gameinfo/heroes"
                     className="text-m-regular text-w-neutral-3"
                   >
                     영웅정보
@@ -174,7 +174,7 @@ const Footer = () => {
             <div className="lg:col-span-1">
               <div className="flex items-center gap-24p mb-24p">
                 <h4 className="heading-4 text-w-neutral-1 whitespace-nowrap">
-                  <Link href="#">강의</Link>
+                  <Link href="/coaching">강의</Link>
                 </h4>
                 <span className="flex-1 h-0.5 bg-w-neutral-1 max-w-[80px] lg:max-w-[100px]"></span>
               </div>
@@ -182,19 +182,19 @@ const Footer = () => {
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
                   <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
-                    href="/athena"
+                    href="/coaching"
                     className="text-m-regular text-w-neutral-3"
                   >
-                    코칭AI
+                    강의/멘토 목록
                   </Link>
                 </li>
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
                   <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
-                    href="/mentor-menti"
+                    href="/coaching/athena"
                     className="text-m-regular text-w-neutral-3"
                   >
-                    멘토/멘티 매칭
+                    코칭AI Athena
                   </Link>
                 </li>
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
@@ -203,7 +203,7 @@ const Footer = () => {
                     href="/game-details-two"
                     className="text-m-regular text-w-neutral-3"
                   >
-                    강사정보/후기
+                    내 강의
                   </Link>
                 </li>
                 <li className="invisible">

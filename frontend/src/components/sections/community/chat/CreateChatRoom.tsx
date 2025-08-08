@@ -35,7 +35,7 @@ const CreateChatRoom = () => {
         <h1 className="text-5xl font-extrabold text-center mb-16">Create a New Chat Room</h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-40p">
-          {/* Left: Form */}
+          {/* Chat Room Form */}
           <form onSubmit={handleSubmit} className="space-y-16">
             <p className="text-base text-w-neutral-4 mb-8">
               Design your perfect community space with customizable settings.
@@ -172,7 +172,7 @@ const CreateChatRoom = () => {
             </div>
           </form>
 
-          {/* Right: Chat Room Rules */}
+          {/* Notice Section */}
           <div className="bg-glass-5 rounded-2xl p-30p text-w-neutral-1">
             <h2 className="text-3xl font-bold mb-6">Notice</h2>
             <ul className="list-disc list-inside space-y-3 text-lg leading-relaxed">

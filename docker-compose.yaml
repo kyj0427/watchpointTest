@@ -63,3 +63,7 @@ services:
       - backend
     networks:
       - elastic
+
+volumes:
+  esdata:
+  kibana_data:

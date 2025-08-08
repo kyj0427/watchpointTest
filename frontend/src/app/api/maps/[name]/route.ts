@@ -15,7 +15,7 @@ export async function GET(req: NextRequest, { params }: { params: { name: string
       Authorization: 'Basic ' + btoa('elastic:watchpoint1234!')
     },
     body: JSON.stringify({
-      query: { match: { name } },
+      query: { match_phrase: { name } },
       size: 1
     })
   });

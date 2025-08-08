@@ -26,6 +26,16 @@ export default function MapDetails({ mapName }: { mapName: string }) {
   const [loading, setLoading] = useState(true);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [showDescription, setShowDescription] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+
+  const handleToggleDescription = () => {
+  if (!map?.description || map.description.trim() === "") {
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 1500);
+    return;
+  }
+  setShowDescription((prev) => !prev);
+};
 
   useEffect(() => {
     fetch(`/api/maps/${encodeURIComponent(mapName)}`)
@@ -33,13 +43,15 @@ export default function MapDetails({ mapName }: { mapName: string }) {
       .then((data) => {
         setMap(data);
         setLoading(false);
-        setSelectedIndex(0); // 새 맵 불러오면 초기화
+        setSelectedIndex(0);
       })
       .catch((err) => {
         console.error("맵 불러오기 실패:", err);
         setLoading(false);
       });
   }, [mapName]);
+
+  const markdownHTML = map?.description ? marked(map.description) : "";
 
   if (loading)
     return (
@@ -59,14 +71,12 @@ export default function MapDetails({ mapName }: { mapName: string }) {
     ? `https://flagcdn.com/w80/${map.country_code.toLowerCase()}.png`
     : null;
 
-  const markdownHTML = map.description ? marked(map.description) : "";
-
   const thumbnailsPerPage = 4;
   const currentSliceStart = Math.floor(selectedIndex / thumbnailsPerPage) * thumbnailsPerPage;
 
   return (
     <section className="relative min-h-screen text-white overflow-hidden">
-      {/* 🔹 배경 */}
+      {/* 배경 */}
       <div className="absolute inset-0 -z-10">
         <Image
           src={map.screenshots?.[selectedIndex] || ""}
@@ -78,22 +88,21 @@ export default function MapDetails({ mapName }: { mapName: string }) {
         <div className="absolute inset-0 bg-black/60" />
       </div>
 
-      {/* 🔹 본문 */}
+      {/* 본문 */}
       <div className="pt-40 pb-20 max-w-6xl mx-auto px-4 flex flex-col lg:flex-row items-stretch gap-10 relative">
-        {/* 🔹 왼쪽 썸네일 + 메인 이미지 */}
+        {/* 왼쪽 썸네일 + 메인 이미지 */}
         <div className="flex-1 flex flex-col gap-6">
           <h1 className="text-4xl font-bold">{map.name}</h1>
 
-          {/* 🔹 메인 이미지 */}
           <Image
             src={map.screenshots?.[selectedIndex] || ""}
-            alt={map.name}
+            alt={`${map.name} 스크린샷`}
             width={800}
             height={450}
             className="rounded-xl object-cover shadow-lg w-full"
           />
 
-          {/* 🔹 썸네일 슬라이더 */}
+          {/* 썸네일 슬라이더 */}
           <div className="relative mt-4">
             <button
               onClick={() => setSelectedIndex((prev) => Math.max(prev - 1, 0))}
@@ -112,7 +121,7 @@ export default function MapDetails({ mapName }: { mapName: string }) {
                     <Image
                       key={absoluteIndex}
                       src={src}
-                      alt={`썸네일 ${absoluteIndex}`}
+                      alt={`${map.name} 썸네일 ${absoluteIndex + 1}`}
                       width={90}
                       height={90}
                       onClick={() => setSelectedIndex(absoluteIndex)}
@@ -140,9 +149,8 @@ export default function MapDetails({ mapName }: { mapName: string }) {
           </div>
         </div>
 
-        {/* 🔹 오른쪽 정보 카드 */}
+        {/* 오른쪽 정보 카드 */}
         <div className="w-full lg:w-80 flex flex-col justify-between bg-zinc-900 rounded-lg shadow-lg text-sm p-6">
-          {/* 상단 정보 */}
           <div className="flex flex-col items-center gap-3 text-center">
             {map.gamemodes?.length > 0 && (
               <div className="flex items-center gap-2">
@@ -166,38 +174,55 @@ export default function MapDetails({ mapName }: { mapName: string }) {
                   height={18}
                   className="rounded-sm"
                 />
-                <span>{map.country_code}</span>
+                <span>{map.country_code?.toUpperCase()}</span>
               </div>
             )}
           </div>
 
-          {/* 하단 버튼 */}
           <div className="mt-8 flex flex-col gap-2">
             <button
-              onClick={() => setShowDescription(!showDescription)}
+              onClick={handleToggleDescription}
               className="btn btn-outline w-full"
             >
               {showDescription ? "맵 정보 닫기" : "맵 정보 보기"}
             </button>
-            <Link href="/maps" className="btn btn-primary w-full">
+            <Link href="/gameinfo/maps" className="btn btn-primary w-full">
               전체 맵 보기
             </Link>
           </div>
         </div>
       </div>
 
-      {/* 🔽 마크다운 설명 */}
-      {showDescription && (
-        <div className="max-w-4xl mx-auto mt-16 px-6 lg:px-8 bg-zinc-900/80 rounded-xl shadow-xl prose prose-invert prose-headings:text-yellow-400 prose-h1:mb-6 prose-h2:mt-10 prose-h2:mb-3 prose-p:leading-relaxed prose-li:marker:text-yellow-400">
-          {map.description ? (
-            <div dangerouslySetInnerHTML={{ __html: markdownHTML }} />
-          ) : (
-            <p className="text-red-400 font-semibold">
-              맵 정보가 없습니다.
-            </p>
-          )}
-        </div>
-      )}
+      {/* 마크다운 설명 */}
+      <section className="relative">
+        {/* Toast Message */}
+        {showToast && (
+              <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-red-600/90 text-white px-6 py-3 rounded-lg shadow-lg transition-opacity duration-300">
+                맵 설명이 없습니다.
+              </div>
+            )}
+        {/* Markdown Description */}
+        {showDescription && (
+          <div className="w-full mt-16 px-4 lg:px-8 flex justify-center">
+            <div
+              className="w-full max-w-6xl bg-zinc-900/80 rounded-xl shadow-xl overflow-y-auto max-h-[650px] p-8
+                scrollbar-thin scrollbar-thumb-yellow-400 scrollbar-track-zinc-800"
+            >
+              <div
+                className="prose prose-invert max-w-none
+                  prose-h1:text-yellow-400 prose-h1:text-3xl prose-h1:font-bold prose-h1:mb-6
+                  prose-h2:text-yellow-300 prose-h2:text-2xl prose-h2:font-semibold prose-h2:mb-4
+                  prose-p:text-white prose-p:leading-relaxed prose-p:my-2
+                  prose-li:marker:text-yellow-400 prose-li:ml-6 prose-li:text-white
+                  prose-strong:text-white prose-strong:font-bold
+                  prose-em:italic prose-code:text-green-400
+                  prose-table:border prose-th:border prose-td:border"
+                dangerouslySetInnerHTML={{ __html: markdownHTML }}
+              />
+            </div>
+          </div>
+        )}
+      </section>
     </section>
   );
 }
