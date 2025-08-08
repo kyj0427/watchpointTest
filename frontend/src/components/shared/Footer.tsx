@@ -185,7 +185,7 @@ const Footer = () => {
                     href="/coaching"
                     className="text-m-regular text-w-neutral-3"
                   >
-                    강의 목록
+                    강의/멘토 목록
                   </Link>
                 </li>
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
@@ -194,7 +194,7 @@ const Footer = () => {
                     href="/coaching/athena"
                     className="text-m-regular text-w-neutral-3"
                   >
-                    코칭 AI Athena
+                    코칭AI Athena
                   </Link>
                 </li>
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
@@ -203,7 +203,7 @@ const Footer = () => {
                     href="/game-details-two"
                     className="text-m-regular text-w-neutral-3"
                   >
-                    후기
+                    내 강의
                   </Link>
                 </li>
                 <li className="invisible">

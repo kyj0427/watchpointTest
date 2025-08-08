@@ -1,6 +1,7 @@
 import { StaticImageData } from "next/image";
 import Link from "next/link";
 import { twMerge } from "tailwind-merge";
+import CoachingTab from "./CoachingTab";
 
 export type BreadcrumbType = {
   title: string;
@@ -57,6 +58,9 @@ const CoachingBreadcrumb = ({ breadcrumb }: { breadcrumb: BreadcrumbType }) => {
           </div>
           <div className="overlay-11"></div>
         </div>
+      </div>
+      <div>
+        <CoachingTab/>
       </div>
     </section>
   );

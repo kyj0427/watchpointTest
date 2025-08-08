@@ -78,7 +78,7 @@ export const navMenu = [
         subMenu: [
             {
                 id: 41,
-                name: "강의목록",
+                name: "강의/멘토 목록",
                 link: "/coaching"
             },
             {
@@ -88,7 +88,7 @@ export const navMenu = [
             },
             {
                 id: 43,
-                name: "후기",
+                name: "내 강의",
                 link: "/game-details-two" //또는 library-details
             }
         ]
