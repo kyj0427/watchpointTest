@@ -84,7 +84,7 @@ export const navMenu = [
             {
                 id: 42,
                 name: "코칭AI Athena",
-                link: "/coaching/athena"
+                link: "/coaching/athena/analysis"
             },
             {
                 id: 43,
