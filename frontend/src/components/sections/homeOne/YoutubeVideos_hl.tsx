@@ -13,7 +13,7 @@ import FeaturedVideosSlider from "../FeaturedVideosSlider";
 const featuredVideosData = [
   {
     id: 1,
-    videoSrc: "/images/overwatch_hero_videos/Genji_video.webm",
+    videoSrc: "/images/game_hero/hero_abilities_video/Genji_video.webm",
     title: "Genji - 사이버 닌자 마스터",
     description: "Genji의 모든 스킬과 콤보를 완벽하게 마스터하는 방법을 배워보세요.",
     thumbnail: "/images/game_hero/hero_portrait_bg/Genji_heroImage_2.jpg",
@@ -23,7 +23,7 @@ const featuredVideosData = [
   },
   {
     id: 2,
-    videoSrc: "/images/overwatch_hero_videos/Mercy_video.webm", 
+    videoSrc: "/images/game_hero/hero_abilities_video/Mercy_video.webm", 
     title: "Mercy - 천사의 힐링",
     description: "Mercy로 팀을 완벽하게 지원하는 방법과 포지셔닝 팁을 공유합니다.",
     thumbnail: "/images/game_hero/hero_portrait_bg/Mercy_heroImage_2.jpg",
@@ -33,7 +33,7 @@ const featuredVideosData = [
   },
   {
     id: 3,
-    videoSrc: "/images/overwatch_hero_videos/Reinhardt_video.webm",
+    videoSrc: "/images/game_hero/hero_abilities_video/Reinhardt_video.webm",
     title: "Reinhardt - 방패의 기사",
     description: "Reinhardt의 방어와 공격 타이밍을 완벽하게 조절하는 방법을 배워보세요.",
     thumbnail: "/images/game_hero/hero_portrait_bg/Reinhardt_heroImage_2.jpg",
@@ -43,7 +43,7 @@ const featuredVideosData = [
   },
   {
     id: 4,
-    videoSrc: "/images/overwatch_hero_videos/D_Va_video.webm",
+    videoSrc: "/images/game_hero/hero_abilities_video/D_Va_video.webm",
     title: "D.Va - 메카 파일럿",
     description: "D.Va의 공격성과 방어력을 균형있게 활용하는 전략을 공유합니다.",
     thumbnail: "/images/game_hero/hero_portrait_bg/D_Va_heroImage_2.jpg",
@@ -53,7 +53,7 @@ const featuredVideosData = [
   },
   {
     id: 5,
-    videoSrc: "/images/overwatch_hero_videos/Reaper_video.webm",
+    videoSrc: "/images/game_hero/hero_abilities_video/Reaper_video.webm",
     title: "Reaper - 그림자 사신",
     description: "Reaper의 근접 전투와 그림자 걸음 스킬을 활용한 플레이 방법을 배워보세요.",
     thumbnail: "/images/game_hero/hero_portrait_bg/Reaper_heroImage_2.jpg",
@@ -63,7 +63,7 @@ const featuredVideosData = [
   },
   {
     id: 6,
-    videoSrc: "/images/overwatch_hero_videos/Moira_video.webm",
+    videoSrc: "/images/game_hero/hero_abilities_video/Moira_video.webm",
     title: "Moira - 생명의 과학자",
     description: "Moira의 힐링과 데미지를 균형있게 조절하는 고급 플레이 전략을 공유합니다.",
     thumbnail: "/images/game_hero/hero_portrait_bg/Moira_heroImage_2.jpg",
