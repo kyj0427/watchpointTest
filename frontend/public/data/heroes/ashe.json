@@ -1,0 +1,84 @@
+{
+  "name": "애쉬",
+  "description": "애쉬는 주도면밀하고 야심 찬 데드락 저항단의 두목이자 범죄의 세계에서 상징적인 인물입니다.",
+  "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/8dc2a024c9b7d95c7141b2ef065590dbc8d9018d12ad15f76b01923986702228.png",
+  "role": "damage",
+  "location": "미국, 아리조나, 데드락 협곡",
+  "birthday": "10월 1일",
+  "age": 41,
+  "hitpoints": {
+    "armor": 0,
+    "health": 250,
+    "shields": 0,
+    "total": 250
+  },
+  "abilities": [
+    {
+      "name": "바이퍼",
+      "description": "반자동 소총입니다.  누르고 있으면 조준하며, 공격력과 정확도가 증가하지만 발사 속도가 감소합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/cca8472a3e966de2b9985cee492e527eac5063e9881797dded4ca1e32e292bc0.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltde449a1db082c1a1/633904ac64fe5a7d4481a060/ASHE_THE_VIPER.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt0392f13ed7cbaad5/633904ba7e84e17596f9c8a0/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_AsheTheViper_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltfb9b1667be81b34b/66798c4d8e2bf82c48b2434c/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_AsheTheViper_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "충격 샷건",
+      "description": "전방의 적들을 날려버리고 자신을 뒤로 밀쳐냅니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/e18f7b6e464f0cf34789babf7a76b7e1d851e62102dccfe10769bcf8716e5554.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt0f6057298d1c0012/633904ac3922a2677fc88cfe/ASHE_COACH_GUN.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt5824af9c9f779680/633904bada1d806602f83ef2/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_AsheCoachGun_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt65112ab5e888622d/66798bb44f84ebea9324bbbd/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_AsheCoachGun_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "다이너마이트",
+      "description": "폭발물을 던집니다. 폭발물은 잠시 후에 폭발하지만, 쏴서 바로 터뜨릴 수도 있습니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/a326b202a821ab3e196d1faab6144460f470001b26a8b6f2ab96cb3af5f325b3.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltbbcb722a61594c10/633904acf87c00687e8ef226/ASHE_DYNAMITE.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt47d653f314da6451/633904ba3917977bfd9861a3/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_AsheDynamite_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt9de32278cc1b4ea0/66798c4f4f84eb028e24bbc1/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_AsheDynamite_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "B.O.B.",
+      "description": "밥을 호출합니다. 밥은 전방으로 돌진하여 적들을 공중으로 띄우고 팔에 달린 총으로 공격합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/e788b12d476e896dac3831bbc0842fb3b4d07a89b3c337959d9a6cd6ea5a7df5.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt171114cdbf544989/633904aced7dcc6a002803a0/ASHE_BOB.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt92f7f37e3c25be11/633904ba2dc7636608cc711e/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_AsheBOB_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltc1dff03c9903dad0/66798b1c9d84e7d1c2e03baf/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_AsheBOB_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    }
+  ],
+  "story": {
+    "summary": "애쉬는 부유한 가문에서 태어났고, 그녀의 부모는 딸보다는 부를 더 중요하게 생각했다. 주도면밀하고 야심 찬 애쉬는 이에 반발해 데드락 저항단을 만들었고, 저항단은 곧 범죄 세계에서 악명이 드높아졌다. 남서부의 갱단들과 협력을 이루어 낸 그녀는 과거 미국 서부가 떨친 평판을 되찾으며 전설적인 존재로 거듭났다.",
+    "media": {
+      "type": "video",
+      "link": "https://youtu.be/yvT9wKCrEyo"
+    },
+    "chapters": [
+      {
+        "title": "어린 시절",
+        "content": "부유한 가문에서 태어난 애쉬는 온갖 특권 속에서 자랐다. 애쉬의 부모님은 아발리스트 무기 회사를 가업으로 운영하고 있었는데, 회사는 옴닉 사태를 거치며 영향력과 사업 범위를 크게 확장했다. 부부는 무기나 기술 등에는 별로 관심이 없었지만, 이 기회를 바탕으로 전 세계 주요 인사들이 즐겨 찾는 사업 자문 위원이자 코치가 되었다. 부모는 애쉬를 별로 신경 쓰지 않은 채 옴닉 집사인 B.O.B.에게 대부분의 양육을 맡겼으나, 그녀의 성공을 위해서라면 지원을 아끼지 않았다. 하지만 우연히 동네 깡패였던 콜 캐서디를 만나 즉흥적인 범죄를 연달아 저지르며 공범이 된 애쉬는 이것이 자신의 천직임을 깨달았다. 목표의 허를 찌르고도 잡히지 않았을 때의 짜릿한 희열에 그녀는 홀린 듯 무법자의 길을 걷게 되었다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltc6f4b34d356c0754/637da13646a48b0e063e4a8d/ashe-00.jpg"
+      },
+      {
+        "title": "데드락 저항단",
+        "content": "데드락 저항단을 조직한 다른 세 조직원들과 함께 애쉬는 더 크고 화려한 강도 행각을 벌이며 명성을 떨치기 시작했다. 이런 활동이 결과적으로는 오버워치의 주의를 끌었고, 오버워치는 저항단의 초기 활동을 저지하며 캐서디를 수감하기도 했다. 데드락 저항단은 빠르게 성장한 탓에 법집행기관 외의 다른 세력과도 부딪히는 일이 잦았다. 미국 남서부의 다른 범죄 조직들도 저마다 각자의 몫을 원했고, 조직들 사이에 폭력 사태까지 일어나기도 했다. 수년의 충돌과 유혈 사태 끝에, 애쉬는 주요 범죄 조직의 우두머리들을 한자리에 모으기에 이르렀다. 애쉬는 각 조직 모두가 세력을 펼칠 수 있으리라 믿었고, 부모에게 배운 사업 컨설팅 능력을 발휘해 힘을 합치자는(그게 안 되면 최소한 서로 싸우지는 말자는) 취지로 갱단 사이의 규율을 제안했다. 다른 갱단과 옥신각신하며 힘을 뺄 필요가 없어진 애쉬는 이제 미국 남서부에서 연이어 대담한 강도와 절도 행위를 벌이며 악명을 떨치고 있으며, 전설의 무법자로서 자신의 행보를 더욱 견고히 하고 있다. 그녀의 신조는 약속을 지키고, 법에 저항하며, 서로의 영토를 인정하고, 배신자는 무조건 처단하는 것이다. 그런 맥락에서 덧붙이면, 콜 캐서디가 배신하며 오버워치에 합류하고 수십 년이 지난 후, 데드락 저항단은 아주 값비싼 기술이 초고속열차에 실려 자기들 구역을 통과한다는 정보를 입수했다. 도저히 무시할 수 없는 기회였기에 저항단은 열차 강도를 계획했지만, 알고 보니 오히려 범죄의 목표물이 된 건 바로 자신들이었다. 캐서디는 저항단을 무력화하고 에코를 세상에 풀어 주었고, 혼자서 애쉬의 바이크와 전리품, 복수의 기회까지 모두 훔쳐 가 버렸다. 하지만 이토록 모든 것이 불확실한 시대에도 한 가지만큼은 확실하다. 애쉬는 원하는 건 반드시 얻어내고 만다. 그리고 그녀와 데드락 저항단은 자기들 몫(그리고 아마 당신들 몫까지)을 되찾기 전까진 절대 멈추지 않을 것이다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt811b34d14ae2f336/63880844c72c2b107a6f7dd4/ashe-01.jpg"
+      }
+    ]
+  }
+}

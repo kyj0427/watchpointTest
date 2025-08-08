@@ -1,0 +1,108 @@
+{
+  "name": "에코",
+  "description": "에코는 세계에서 가장 복잡한 인공 지능을 갖추고 전장에서 다양한 역할을 수행하는 적응형 로봇으로, 미나 랴오 박사가 오버워치의 전투 임무에서 사용하기 위해 제작했습니다.",
+  "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/f086bf235cc6b7f138609594218a8385c8e5f6405a39eceb0deb9afb429619fe.png",
+  "role": "damage",
+  "location": "스위스(이전 기록), 미국(이전 기록), 감시 기지: 지브롤터",
+  "birthday": "2월 5일",
+  "age": 14,
+  "hitpoints": {
+    "armor": 0,
+    "health": 150,
+    "shields": 75,
+    "total": 225
+  },
+  "abilities": [
+    {
+      "name": "삼각탄",
+      "description": "삼각형 모양으로 동시에 세 발을 발사하는 투사체입니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/8fc9f68f9cdcd7c90ce902d1882bca2e783609f7f0e62c8ee00996eec4026063.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt483dfef9ae2ea15a/633905961a0b5e7d3d1ec5ad/ECHO_Tri-Shot.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltcaf5b2477a335e99/633905901a0b5e7d3d1ec5a9/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_EchoTriShot_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blta21cd362a98ba3b5/6679ab8b9d84e7b75de03bb9/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_EchoTriShot_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "점착 폭탄",
+      "description": "여러 개의 점착 폭탄을 발사합니다. 점착 폭탄은 잠시 후에 폭발합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/dcaa626e367b80b5bcd2425e26e0075b5343990785bc96e1705325904f73fe96.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltd8b127e3e4bf8db1/63390596425ea374105b6155/ECHO_Sticky_Bombs.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt6d5acb4869cfaa99/633905908537f87bfbcdc408/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_EchoStickyBombs_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltd1d3e94d4d72b44d/66799c862134bd49dbc554ea/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_EchoStickyBombs_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "비행",
+      "description": "전방으로 빠르게 비행한 후, 잠시 동안 자유롭게 날 수 있습니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/711f211c988ff1fafe99276bddefa3a861789e4b27859260e8ad87df5b879337.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt975cdb345edec6c5/633905961ccd046877c0e4ef/ECHO_Flight.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltad8ca5c9cc7e51a4/6339058f399a07678557c14f/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_EchoFlight_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt71b50ffb439eafe6/667992028ec4a46864373484/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_EchoFlight_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "광선 집중",
+      "description": "정신을 집중하여 잠시 동안 광선을 발사합니다. 생명력이 절반 이하인 적들에게 매우 큰 피해를 줍니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/6552feeb85a32ae7131df50f61a9c0fa24bf347bf007e208a356a940561129ae.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt817d398a8afd5d18/633905968537f87bfbcdc40c/ECHO_Focusing_Beam.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blte22dd259fbe97030/6339058f3922a2677fc88d10/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_EchoFocusingBem_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltacf16f2d032ada5d/667992054ac9fe4954f050f8/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_EchoFocusingBem_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "복제",
+      "description": "대상 적 영웅을 복제합니다. 대상은 지속 시간 동안 영웅을 교체할 수 없습니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/457d6ebcb2b92d1e7f7a7174b426903879e131422196825589adbc5e5d9f7efb.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltfaa1b8967761184f/63390596e3c2a2741688cbb1/ECHO_Duplicate.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt4c146a6ef581377c/6339058fed7dcc6a002803b0/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_EchoDuplicate_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt78aa693d01ffec06/667992044ac9fed312f050f6/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_EchoDuplicate_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "활공",
+      "description": "점프 키를 계속 누르면 낙하 중에 활공합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/e90772df1f7e55d4ea6e639ce909773ae2e28172d06afd8afa00e85bbef0a20d.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt108f249c92064ee1/63390596ed7dcc6a002803b4/ECHO_Glide.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltee8e8e2994e4e62c/63390590425ea374105b6151/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_EchoGlide_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt1574c7dc5a9cec2b/66799c31845030afc377894e/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_EchoGlide_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    }
+  ],
+  "story": {
+    "summary": "에코는 적응성이 뛰어난 첨단 인공지능 로봇으로, 자신을 만든 오버워치 로봇 기술자인 미나 랴오의 행동과 말투를 습득했다. 그러나 랴오가 살해당한 후에 그녀의 프로젝트는 중단되었고, 에코는 군 시설에 격리되었다. 수년이 지난 후에 에코는 콜 캐서디에게 구출되었으며, 새로운 오버워치에 합류하여 세계를 구하기 위한 싸움에 뛰어들었다.",
+    "media": {
+      "type": "video",
+      "link": "https://youtu.be/WeKUX6a5Nws"
+    },
+    "chapters": [
+      {
+        "title": "미나 랴오",
+        "content": "에코 프로젝트의 배경을 이해하려면 오버워치의 설립자들 중 한 명인 싱가포르 과학자 미나 랴오 박사의 개인사에 대해 알아야 한다. 랴오 박사는 오버워치에 합류하기 전부터 로봇 공학과 인공 지능에 남다른 두각을 나타낸 전문가였다. 옴니카 코퍼레이션의 일원이었을 때, 그녀는 옴닉의 설계 및 제작을 담당했고 그렇게 발명된 옴닉으로 인해 인류와 옴닉의 대대적인 전쟁인 옴닉 사태가 발발하고 만다. 하지만 옴닉에 대한 그 전문성을 인정받아 고용된 랴오 박사는 오버워치의 창설을 돕게 됐고, 나아가 자신이 발명한 옴닉들을 막기 위해 노력하게 된다. 하지만 대참사 후에도 인공 지능의 잠재력에 대한 랴오 박사의 굳건한 믿음은 흔들리지 않았다. 그녀는 인공 지능이 세상을 더욱 살기 좋게 바꿀 수 있을 거라 믿었다. 옴닉 사태 이후 그녀는 기존 옴닉 디자인을 개선하는 걸 꿈꿨지만, 오버워치에서 인공 지능의 연구 개발을 제한했기 때문에 어쩔 수 없이 새로운 에코 프로젝트의 매개변수를 상당 부분 제한해야 했다. 대신 박사는 의료 지원에서 건축에 이르기까지 다양한 기능을 습득할 수 있도록 프로그래밍된 다용도 적응형 로봇을 개발했지만, 자율적 의사 결정 능력만큼은 철저하게 제한하고 다수의 보안 계층과 안전장치, 보안 조치를 통해 제어할 수 있도록 했다. 에코는 오버워치 타격팀과 함께 다양한 실험 임무에서 성공을 거두었지만, 오버워치의 수뇌부는 에코를 본격적으로 활용하는 것에는 난색을 표했다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt2732d775e1abb0e9/6388092a6f080311223b5518/echo-00.jpg"
+      },
+      {
+        "title": "오버워치",
+        "content": "하지만 랴오 박사는 에코에 강력한 범용 인공 지능을 탑재하여, 인간처럼 관찰을 통해 학습할 수 있게 만들었다. 수천 시간 동안 박사를 옆에서 관찰한 끝에, 로봇 에코는 랴오 박사의 행동과 말투까지 습득하게 되었다. 이 비밀을 알고 있는 사람은 극소수에 불과했다. 한때 랴오 박사의 경호원으로 근무했던 블랙워치 요원 콜 캐서디도 그중 한 명이었다. 랴오 박사가 오버워치 시설에 대한 공격에서 살해된 후, 오버워치 지도부는 랴오의 철저한 관리가 없는 상태에서 이런 로봇이 발휘할 수 있는 힘을 두려워했다. 이에 에코 개발은 전격 중단되었으며, 로봇 에코 또한 격리되었다. 데드락 저항단의 강탈 시도를 저지한 콜 캐서디의 손에 풀려난 에코는 새로운 오버워치 팀에 합류하여 널 섹터의 급습으로부터 파리를 지켰다. 에코는 사상 처음으로 오버워치의 정식 일원으로 현장에서의 전투를 경험했다. 하지만 인도해 줄 랴오 박사 없이 새로운 사람과 사상, 상황에 노출된 에코가 향후 어떻게 진화할지는 아무도 모르는 일이다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt770f765476047dd7/637da15d113983111ba8cece/echo-01.jpg"
+      }
+    ]
+  }
+}

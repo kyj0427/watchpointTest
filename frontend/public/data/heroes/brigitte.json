@@ -1,0 +1,120 @@
+{
+  "name": "브리기테",
+  "description": "브리기테 린드홀름은 방관하고만 있기를 거부하고 도움이 필요한 이들을 지키고자 무기를 들었습니다.",
+  "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/48392820c6976ee1cd8dde13e71df85bf15560083ee5c8658fe7c298095d619a.png",
+  "role": "support",
+  "location": "스웨덴, 예테보리(이전 기록), 감시 기지: 지브롤터",
+  "birthday": "9월 22일",
+  "age": 25,
+  "hitpoints": {
+    "armor": 50,
+    "health": 200,
+    "shields": 0,
+    "total": 250
+  },
+  "abilities": [
+    {
+      "name": "로켓 도리깨",
+      "description": "사거리가 긴 근접 무기입니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/1304eead9caa02eb2057c7f9a3eb758bd438086223a8d6c475bb6912da5b8132.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt4a2cb6d9049cd42a/6333c83f2dc7636608cc7074/BRIGITTE_ROCKET_FLAIL.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt060fa3c1944738ff/6333c831425ea374105b609f/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_BrigitteRocketFail_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt87e781447a1a166a/667991ed2cfadc4f960cf39d/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_BrigitteRocketFail_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    },
+    {
+      "name": "수리 팩",
+      "description": "짧은 시간 동안 아군을 치유합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/5f9f1e00af992f4a090cafc8e83821dd2848f22cb9e0205fafcedacb26bd7335.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blta340c81dd7511bdf/6333c83f1a0b5e7d3d1ec4d1/BRIGITTE_REPAIR_PACK.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt5b35fc5856a41b59/6333c8313922a2677fc88c38/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_BrigitteRepairPack_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt97355a70bed04fe4/667991e7395c0a87c992c693/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_BrigitteRepairPack_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    },
+    {
+      "name": "도리깨 투척",
+      "description": "전방으로 도리깨를 늘려 적을 밀쳐냅니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/50af1a0bc61a1f022fe2ee69aa460f151aba3c0ccde41377bfb0d5c45b2c55a3.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt6c43820df8889bad/6333c83fda1d806602f83e28/BRIGITTE_WHIP_SHOT.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltdbbb68302836697b/6333c831f87c00687e8ef176/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_BrigitteWhipShot_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt05c1a4120a65536a/667991e7395c0ab7b492c695/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_BrigitteWhipShot_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    },
+    {
+      "name": "방벽 방패",
+      "description": "를 누르고 있으면 전방에 에너지 방벽을 전개합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/2b1bb6338180161e55c5f2184879dce395eca9e58f974befe729293fcc3dfdca.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blte8e0a1875df37e43/6333c83fed7dcc6a002802e6/BRIGITTE_BARRIER_SHIELD.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltfb9e05630de99dbe/6333c8318537f87bfbcdc33c/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_BrigitteBarrierShield_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltdb92d8a4ea1f10cf/667991e191d53b5280dc0617/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_BrigitteBarrierShield_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    },
+    {
+      "name": "방패 밀쳐내기",
+      "description": "방벽 방패를 들고 있을 때 사용할 수 있습니다. 전방으로 짧게 돌진하여 적을 밀쳐냅니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/79f145b07b35e744fd0400dceff5fb11a06f9a73c48809f1cfb462fe82fe1185.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt090bd55fb021ee4d/6333c83fec7e18758be50fa4/BRIGITTE_SHIELD_BASH.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt996643d4bdf5b792/6333c831399a07678557c0a7/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_BrigitteShieldBash_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltba937e7dd7510c8c/667991e76711605838433797/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_BrigitteShieldBash_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    },
+    {
+      "name": "집결",
+      "description": "방어력이 증가하고, 방벽 방패가 강화되며 주위 아군에게 추가 생명력을 제공합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/08552423da53faa55238bd66a2a72d32d1038e42f2eebc911921bc9d5d575432.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt3f08d5c25b3701e8/6333c83f425ea374105b60a3/BRIGITTE_RALLY.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blte03bc4623339406a/643079a40a35fd6e61e9c39a/Brig_Reworked_Ult.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltb105c91cbc738116/643079a3d402e526b209455f/Brig_Reworked_Ult.webm"
+        }
+      }
+    },
+    {
+      "name": "격려",
+      "description": "적에게 도리깨를 적중시키면 주위 아군을 치유합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/487545fb37163e4029e1e8483266180fbcc59b7e8482062563168998774615f8.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt145b9f490b0d4535/6333c83fe3c2a2741688cae1/BRIGITTE_INSPIRE.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt50c1e85c6e9e3ee1/6333c8311ccd046877c0e435/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_BrigitteInspire_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blte42e0e1a880df5d6/667991e11d126b1aee6b09c2/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_BrigitteInspire_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    }
+  ],
+  "story": {
+    "summary": "린드홀름의 피를 뼛속까지 이어받은 브리기테는 기계공학에 소질이 있는 만큼, 명예도 중시한다. 브리기테는 어릴 때부터 대부 라인하르트에게서 들은 영웅담에 감명을 받아, 성년이 되자 그의 종자가 되었다. 그리고 둘은 세상의 잘못을 바로잡기 위해 새로운 오버워치에 합류했다.",
+    "media": {
+      "type": "video",
+      "link": "https://youtu.be/K_m8fcJb5tE"
+    },
+    "chapters": [
+      {
+        "title": "아이언클래드",
+        "content": "무기 설계 기술자인 토르비욘 린드홀름의 막내딸인 브리기테는 토르비욘의 자녀 중 가장 먼저 기계공학에 관심을 보인 아이였다. 브리기테는 아버지의 작업장에서 많은 시간을 보내며 기술을 배우고 실력을 키웠다. 브리기테의 기술자로서의 재능은 아버지를 꼭 빼닮았는데, 아버지인 토르비욘이 전 세계에서 사용되는 무기 시스템을 설계한 것으로 명성과 악명을 떨쳤던 것과는 다르게 브리기테가 가장 관심을 보인 기술은 방어구 제작과 방어 시스템 구축이었다. 모두 브리기테가 수습 생활을 이어가며 아버지의 발자취를 따를 것으로 기대했다. 하지만 브리기테의 계획은 그녀의 인생에 가장 큰 영향을 미친 핵심 인물, 바로 토르비욘의 오버워치 동료 요원이었던 라인하르트 빌헬름에 의해 바뀌게 되었다. 토르비욘의 가족과도 가까운 친구이자 브리기테의 대부이기도 한 라인하르트는 브리기테에게 온갖 영웅담을 들려주고 기사도 정신을 심어주었다. 그리고 오버워치의 몰락 이후 은퇴한 라인하르트가 정의를 추구하는 방랑 기사가 되는 길을 택했을 때, 브리기테는 그의 종자가 되겠다며 라인하르트를 놀라게 했고, 라인하르트는 이를 받아들였다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt7a7354b508be474b/637da148a86e5310c692c01b/brigitte-00.jpg"
+      },
+      {
+        "title": "종자",
+        "content": "종자가 된 브리기테는 많은 일을 책임지고 있었으나, 그중에서도 아버지가 설계했기에 익숙했던 라인하르트의 크루세이더 갑주 유지보수 업무가 가장 중요했다. 하지만 시간이 가면 갈수록, 브리기테는 자신의 주된 업무가 라인하르트를 돌보는 일이 되고 있음을 깨달았다. 유럽을 여행하는 동안, 두 사람은 드래곤즈라는 지역 갱단에게 짓밟힌 마을에 이르렀다. 하지만 라인하르트는 의욕이 지나쳐 하마터면 전투에서 패할 뻔했다. 브리기테는 최소한의 부품만으로 최선을 다해 그의 갑주를 수리했고, 오랜 전투로 무너져 내리는 스승의 몸을 치료했다. 라인하르트는 결국 드래곤즈를 상대로 승리했지만, 브리기테는 라인하르트를 돕는 최선의 방법은 기술자로서 라인하르트를 보좌하는 게 아니라 직접 전투에 나서는 길이라는 것을 깨달았다. 브리기테는 틈틈이 라인하르트에게 싸우는 법을 배우며 자신만의 갑주를 만들기 시작했다. 오버워치 소집으로 두 사람은 아이헨발데의 폐허로부터 파리의 거리로 이동했고, 그곳에서 브리기테는 라인하르트 곁에서 싸우며 그와 도움이 필요한 다른 사람들을 널 섹터의 유린으로부터 보호했다. 어떤 위협을 상대할 때라도, 기사와 종자는 한 번에 하나씩 전투를 치르며 세계를 더 나은 곳으로 만드는 여정을 계속하고 있다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltb223aa8661613921/637da148e5d09810cdaff5bc/brigitte-01.jpg"
+      }
+    ]
+  }
+}

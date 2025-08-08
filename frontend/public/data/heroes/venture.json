@@ -1,0 +1,94 @@
+{
+  "name": "벤처",
+  "description": "벤처는 전 세계를 누비며 역사의 수수께끼를 푸는 데 열정을 쏟는 고고학자이자 탐험가입니다.",
+  "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/5d87623006ccc77578396831d4629f91b5162235a553b3f442e1a43161898e94.png",
+  "role": "damage",
+  "location": "캐나다 노바스코샤(이전), 고정 거주지 없음",
+  "age": null,
+  "birthday": null,
+  "hitpoints": {
+    "health": 250,
+    "armor": 0,
+    "shields": 0,
+    "total": 250
+  },
+  "abilities": [
+    {
+      "name": "스마트 굴착기",
+      "description": "지진 충전물을 발사합니다. 충전물은 짧은 거리를 날아간 뒤 폭발합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/9d5a868a280aba70231d6555b6a5df3bb713b39ea9f994a37eb7cb7425d8f7e6.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt3f66ad07398a5754/660613650b9c8285965adbcc/Primary_Fire.png",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt3334d2fce85164f0/66060f305c53c24c15275be6/0208_VENTURE_PrimaryFire_1P_GH_01.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltc0d09a7b2bb7a03d/667a057d8e2bf8aed8b24395/0208_VENTURE_PrimaryFire_1P_GH_01.webm"
+        }
+      }
+    },
+    {
+      "name": "드릴 돌진",
+      "description": "지상 또는 지하에서 앞으로 돌진해 적을 뒤로 밀쳐냅니다. 잠복이 활성화되어 있는 동안 재사용 대기시간이 더 빨리 감소합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/2ad4581a6801402aaa413301fdf851d1b4d09d67e1ef2a4538baf52ea0a5a889.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt1d750c94b740c787/660613720b9c82f22a5adbd0/Dash.png",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blta5e155ccfa612060/66060f1b022c720b2987feda/0208_VENTURE_DrillDash_1P_GH_01.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt13fe15b6597f155a/667a0573395c0a5da192c6bb/0208_VENTURE_DrillDash_1P_GH_01.webm"
+        }
+      }
+    },
+    {
+      "name": "잠복",
+      "description": "땅 속으로 이동하며 피해에 면역이 됩니다. 좌Shift 키를 누르거나 길게 누르면 땅 위로 솟구쳐 적에게 피해를 줍니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/c2d29876f3015bb9625743a7bb03ba22e2758571a34703d3b5546727679679c5.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt9d886e18230e6630/6606138e4db0eebd5bfe16c5/Burrow.png",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt873e0caae783f695/66060f132829dd3ab1e9cfea/0208_VENTURE_BurrowDash_1P_GH_01.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltf0769366275c35e0/667a0569e333effd2feb71ce/0208_VENTURE_BurrowDash_1P_GH_01.webm"
+        }
+      }
+    },
+    {
+      "name": "지각 충격",
+      "description": "피해를 주는 충격파를 발사합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/210991b74451a635e28e53da0fcfdfe2a0600c0845392db627e8829ecca7149e.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltc2d5be58fd6f6eec/660613845c53c244c3275bf9/Ult.png",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt873ea303e8626efc/660611072829dde5c2e9cfee/0208_VENTURE_Ult_1P_GH_01.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltfbd8afecd90bd199/667a05865e8b8643a485d195/0208_VENTURE_Ult_1P_GH_01.webm"
+        }
+      }
+    }
+  ],
+  "story": {
+    "summary": "모험이 부르는 곳엔 언제나 슬론 카메론이 있습니다. 웨이파인더 소사이어티 회원인 슬론은 전 세계를 여행하며 발굴 도구를 사용해 유물을 발견하고, 도굴꾼과 도둑, 더 위험한 범죄 단체로부터 유적지를 보호합니다.",
+    "media": {
+      "type": "video",
+      "link": "https://youtu.be/jZgG4CvcZso"
+    },
+    "chapters": [
+      {
+        "title": "천부적 고고학자",
+        "content": "슬론 카메론은 어렸을 때부터 잊힌 물건을 찾는 데 관심이 많았습니다. 한 곳에 오래 머물며 지낸 적이 없었고, 새로운 곳으로 거처를 옮길 때마다 보물이나 장신구, 과거의 흔적을 발굴하는 탐험을 새로이 시작했죠. 이 남다른 재능은 슬론을 전 세계 고고학자와 역사학자들이 모인 웨이파인더 소사이어티로 이끌었습니다. 열여섯 살에 견습생이 되어 일을 시작했고, 거침없이 성공가도를 달렸습니다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt0c11bc422f6b4e2a/660da1e42c8f665953848432/Venture1.jpg"
+      },
+      {
+        "title": "웨이파인더 소사이어티",
+        "content": "자유분방하고 용감무쌍한 슬론은 웨이파인더의 명석한 인재들 사이에서도 특별한 존재가 되었습니다. 고대 유적지부터 휴면 상태의 옴니움까지, 위험천만한 탐험은 곧 슬론이 즐겨 찾는 임무가 되었습니다. 종종 흙먼지나 상처, 현지 동물들의 흔적으로 뒤덮힌 채 발굴을 마치고 돌아오기도 했지만, 항상 웃는 얼굴로 자신이 발굴한 유물을 배우고자 하는 열망으로 가득했죠. 이러한 헌신 덕에 마침내 견습생 과정을 졸업하고 정식 회원이 될 수 있었습니다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt86a80ad31479a93c/660da2164db0ee7bedfe1758/Venture2.jpg"
+      },
+      {
+        "title": "도전에 도전하다",
+        "content": "슬론의 겁 없는 성정은 탐험뿐 아니라 다른 분야에서도 도움이 되었습니다. 웨이파인더 유적지를 향한 위협이 증가하면서, 슬론은 종종 보안을 담당하기도 했습니다. 도굴꾼과 도적, 심지어 잔뼈 굵은 도둑까지 웨이파인더가 찾아낸 유물을 훔치려 들었지만, 그는 발굴 도구와 재치 있는 순발력으로 도둑들을 전부 막아냈습니다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt4ef6b8b5918c3d11/660da22d2c8f665540848434/Venture3.jpg"
+      },
+      {
+        "title": "새로운 미스터리",
+        "content": "일리오스의 유적지에서 슬론은 가장 힘겨운 적과 싸워야 했습니다. 바로 탈론이었죠. 이 어둠의 조직은 무자비하게 현장을 약탈했고, 슬론은 이들과 맞서 싸울 수밖에 없었습니다. 오랜 전투 끝에 탈론을 몰아내는 데 성공했지만, 탈론의 공격 이후에도 슬론의 머리속을 떠나지 않는 의문이 있었습니다. 그렇게나 강력한 조직이 이 폐허에서 무엇을 찾는 걸까요? 그야말로 수수께끼가 아닐 수 없습니다... 그리고 슬론은 수수께끼라면 풀어야 직성이 풀리는 사람이죠.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltb6e0d1b51e54e567/660da28c2c8f665c26848436/Venture4.jpg"
+      }
+    ]
+  }
+}

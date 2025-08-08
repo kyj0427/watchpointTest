@@ -1,0 +1,101 @@
+{
+  "name": "키리코",
+  "description": "카네자카 신사의 미코이자 시마다 전 검성의 딸인 카모리 키리코는 영적 능력 및 인술을 활용하여 분열된 고향을 치유합니다.",
+  "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/088aff2153bdfa426984b1d5c912f6af0ab313f0865a81be0edd114e9a2f79f9.png",
+  "role": "support",
+  "location": "일본, 카네자카",
+  "age": 21,
+  "birthday": "7월 7일",
+  "hitpoints": {
+    "health": 250,
+    "armor": 0,
+    "shields": 0,
+    "total": 250
+  },
+  "abilities": [
+    {
+      "name": "치유의 부적",
+      "description": "정신을 집중하여 치유의 힘이 깃든 부적을 날립니다. 부적은 대상 아군을 추적할 수 있습니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/6b8830bd7173de38016ef129e117ac6f418026a6ec4501ab5cb7cdd99bd6f5b8.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blta9a73179b9759022/6333cac3b8dbde69f5279858/KIRIKO_HEALING_OFUDA.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt7669c2e66554a1d2/6333cab6399a07678557c0b9/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_KirikoHealingOfuda_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt8e783ecec766996e/6679a167671160a38d43379f/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_KirikoHealingOfuda_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    },
+    {
+      "name": "쿠나이",
+      "description": "원거리에 투사체를 던집니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/dd7da4b0caa30dafaa3359c902b31866e547f9a1ea7952d7f536e1671d47d9bd.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt980a3b592aec4ecd/6333cac3399a07678557c0bd/KIRIKO_KUNAI.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltfd922b446782a8c4/6333cab664fe5a7d44819f94/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_KirikoKunai_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltd9788d59e5067c90/6679a14891d53b56f8dc061d/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_KirikoKunai_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    },
+    {
+      "name": "순보",
+      "description": "아군에게 즉시 순간이동합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/e6ed3a36c4ed15b2127d6ca74756b25e0db7cf33ce7e26d9a79fd821526f055f.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltdba7de53dfdf8ff8/6333cac3da1d806602f83e40/KIRIKO_SWIFT_STEP.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt7e6111d3c7827bd0/6333cab6f87c00687e8ef182/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_KirikoSwiftStep_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blta710b0f008b60146/6679a12f8e2bf8e76bb24352/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_KirikoSwiftStep_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    },
+    {
+      "name": "정화의 방울",
+      "description": "수호의 힘이 깃든 방울을 던져 아군을 일시적으로 모든 피해에 면역이 되게 만들고, 대부분의 해로운 효과들을 정화합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/3775c37a363e1aaf02a6df4cdfb611f18e38bb69ce42dd59abddb4140cea9790.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt683a2b73f84ea062/6333cac33917977bfd98610f/KIRIKO_PROTECTION_SUZU.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blte8fc68c16da8830e/6333cab72dc7636608cc7082/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_KirikoProtectionSuzu_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt1fc01e8f0b2b46b9/6679ac5d2134bd9e63c554f2/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_KirikoProtectionSuzu_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    },
+    {
+      "name": "여우길",
+      "description": "전방으로 질주하며 길을 남기는 여우의 혼을 소환합니다. 아군은 길 위에 있는 동안 이동 속도와 공격 속도가 증가하고, 재사용 대기시간이 더 빨리 감소합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/f29fd68592d73f20da39d783e0e2f86dcc65c311912d3284062d2bd1a8aa1c52.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt4eada67801d9383f/6333cac3e3c2a2741688caed/KIRIKO_KITSUN_RUSH.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltba2fc92d54a2fe05/6333cab67e84e17596f9c7e4/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_KirikoKitsuneRush_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt6019d31b0d1e522d/6679a15b395c0a3fbb92c699/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_KirikoKitsuneRush_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    }
+  ],
+  "story": {
+    "summary": "키리코는 어머니인 아사로부터 치명적인 인술을 배웠다. 시마다 가문이 몰락하자, 경쟁 상대인 하시모토 가문은 키리코의 아버지를 인질로 잡아갔다. 키리코는 안전을 위해 할머니에게 갔고, 할머니는 그녀에게 치유의 기술을 가르쳐 주었다. 수년이 흐른 후, 키리코는 잔악무도한 하시모토 가문으로부터 고향을 해방하려 돌아왔다.",
+    "media": {
+      "type": "video",
+      "link": "https://youtu.be/LLsJaMzLltE"
+    },
+    "chapters": [
+      {
+        "title": "시마다 일족",
+        "content": "키리코의 어린 시절은 영향력 있는 여러 인물들과 함께 성장하는 기간이었다. 우선 키리코는 할머니를 위해 카네자카 신사의 바닥을 쓸며, 여우신과의 소통을 배웠다. 또한 아버지는 시마다 일족의 유명한 대장장이였고, 어머니 아사는 일족의 검성이었다. 그 덕분에 키리코는 어머니가 가르치는 한조와 겐지 시마다와 함께 훈련을 받았다. 키리코는 시마다의 가족 같은 대접을 받았고, 특히 겐지가 어린 소녀를 아주 아꼈다. 그들은 함께 말썽을 부리고, 주방에서 사탕을 훔치고, 자기들의 유머를 좋아하지 않는 고지식한 사람들에게 장난을 치곤 했다. 겐지는 시마다 성의 구석구석을 그녀에게 안내해 주었고, 영지 내의 오락실에 함께 가기도 했다.  하지만 키리코의 평화롭던 세상은 이내 산산이 조각났다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt0df31a2b44c77c9a/63880e31a86e5310c692c163/kiriko-00.jpg"
+      },
+      {
+        "title": "카네자카 신사",
+        "content": "열두 살이 되던 해, 일족의 수장인 소지로 시마다가 라이벌 하시모토 일족에 의해 암살되었다. 하나무라와 카네자카에서 겐지가 죽고 한조가 달아났다는 소문이 번지면서, 하시모토 일족은 도시를 점령했다.  하시모토 일족은 키리코의 가족이 잠재적인 위협이 될 수 있음을 알아채고, 빠르게 조치를 했다. 그들은 키리코의 아버지를 납치하여 강제로 일족에 무기를 공급하게 했다. 홀로 남아 어쩔 수가 없어진 아사도 맞서 싸우지는 못했다. 딸을 보호하기 위해, 아사는 키리코를 할머니에게 보냈고, 성을 결혼 전의 성인 카모리로 바꿨다.  할머니의 보살핌 아래 키리코는 신사의 관리자로 일하며 여우신과 영속적인 관계를 맺었다. 하지만 사랑하던 할머니가 돌아가신 후, 키리코는 부모님을 괴롭히는 곤경과 하시모토 일족이 카네자카에 가하는 고통을 비로소 깨닫게 되었다. 도쿄에서, 토시로는 키리코의 마음에 공감하며 손편지를 통해 아사에게 정보를 전했다. 하시모토의 불의를 오랫동안 목격한 끝에, 키리코는 고향의 평화를 되찾기로 맹세했다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt55848e6e0c64a0fb/63880e31113983111ba8cfb9/kiriko-01.jpg"
+      },
+      {
+        "title": "Yokai",
+        "content": "하시모토 일족의 종말을 꾀하는 사람은 키리코만이 아니었다. 자칭 하나무라의 요괴라는 어린 말썽꾸러기들이 공공 기물을 파손하는 등 말썽을 부리며 그 일족을 저지하려 했다. 키리코의 지적 능력과 탁월한 지도력이 새롭게 더해지면서, 요괴는 점점 더 하시모토의 눈엣가시가 되었다. 그들은 하시모토의 사업장을 기습 공격하고, 보급망을 훼손하고, 지속적으로 전략적 공격을 통해 일족의 세력을 약화시켰다. 하지만 하시모토가 아무리 강한 압박을 가한다 해도, 요괴는 그들의 손아귀에서 유유히 빠져나갔다. 어쩌면 카네자카 사람들이 친구들을 보호했기 때문일 수도 있고, 또 이 소규모 갱단이 실제로 자기들의 이름을 따온 정령들만큼 강하기 때문일 수도 있었다.  진실이 무엇이든, 키리코는 하시모토 일족이 오래전 빼앗아 간 평화와 카네자카 사람들의 두려울 것 없는 미래를 위해 계속해서 싸울 것이다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt98316888daf5cf94/63880e31e5d09810cdaff693/kiriko-02.jpg"
+      }
+    ]
+  }
+}
