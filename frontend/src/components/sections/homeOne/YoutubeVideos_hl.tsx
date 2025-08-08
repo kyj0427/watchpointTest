@@ -16,7 +16,7 @@ const featuredVideosData = [
     videoSrc: "/images/overwatch_hero_videos/Genji_video.webm",
     title: "Genji - 사이버 닌자 마스터",
     description: "Genji의 모든 스킬과 콤보를 완벽하게 마스터하는 방법을 배워보세요.",
-    thumbnail: "/images/overwatch_hero_images/Genji_heroImage_1.jpg",
+    thumbnail: "/images/game_hero/hero_portrait_bg/Genji_heroImage_2.jpg",
     viewers: 270,
     tags: ["DPS", "Genji"],
     category: "DPS"
@@ -26,7 +26,7 @@ const featuredVideosData = [
     videoSrc: "/images/overwatch_hero_videos/Mercy_video.webm", 
     title: "Mercy - 천사의 힐링",
     description: "Mercy로 팀을 완벽하게 지원하는 방법과 포지셔닝 팁을 공유합니다.",
-    thumbnail: "/images/overwatch_hero_images/Mercy_heroImage_1.jpg",
+    thumbnail: "/images/game_hero/hero_portrait_bg/Mercy_heroImage_2.jpg",
     viewers: 360,
     tags: ["Support", "Mercy"],
     category: "Support" 
@@ -36,7 +36,7 @@ const featuredVideosData = [
     videoSrc: "/images/overwatch_hero_videos/Reinhardt_video.webm",
     title: "Reinhardt - 방패의 기사",
     description: "Reinhardt의 방어와 공격 타이밍을 완벽하게 조절하는 방법을 배워보세요.",
-    thumbnail: "/images/overwatch_hero_images/Reinhardt_heroImage_1.jpg",
+    thumbnail: "/images/game_hero/hero_portrait_bg/Reinhardt_heroImage_2.jpg",
     viewers: 420,
     tags: ["Tank", "Reinhardt"],
     category: "Tank"
@@ -46,7 +46,7 @@ const featuredVideosData = [
     videoSrc: "/images/overwatch_hero_videos/D_Va_video.webm",
     title: "D.Va - 메카 파일럿",
     description: "D.Va의 공격성과 방어력을 균형있게 활용하는 전략을 공유합니다.",
-    thumbnail: "/images/overwatch_hero_images/D_Va_heroImage_1.jpg",
+    thumbnail: "/images/game_hero/hero_portrait_bg/D_Va_heroImage_2.jpg",
     viewers: 380,
     tags: ["Tank", "D.Va"],
     category: "Tank"
@@ -56,7 +56,7 @@ const featuredVideosData = [
     videoSrc: "/images/overwatch_hero_videos/Reaper_video.webm",
     title: "Reaper - 그림자 사신",
     description: "Reaper의 근접 전투와 그림자 걸음 스킬을 활용한 플레이 방법을 배워보세요.",
-    thumbnail: "/images/overwatch_hero_images/Reaper_heroImage_1.jpg",
+    thumbnail: "/images/game_hero/hero_portrait_bg/Reaper_heroImage_2.jpg",
     viewers: 450,
     tags: ["DPS", "Reaper"],
     category: "DPS"
@@ -66,7 +66,7 @@ const featuredVideosData = [
     videoSrc: "/images/overwatch_hero_videos/Moira_video.webm",
     title: "Moira - 생명의 과학자",
     description: "Moira의 힐링과 데미지를 균형있게 조절하는 고급 플레이 전략을 공유합니다.",
-    thumbnail: "/images/overwatch_hero_images/Moira_heroImage_1.jpg",
+    thumbnail: "/images/game_hero/hero_portrait_bg/Moira_heroImage_2.jpg",
     viewers: 320,
     tags: ["Support", "Moira"],
     category: "Support"
