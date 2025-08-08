@@ -238,7 +238,7 @@ const Maches = () => {
                         {/* ======================================= */}
                         <Tab.Panel className="flex flex-col items-center gap-6">
                           <h4 className="text-xl font-bold text-white">
-                            아테나의 전술 분석
+                            아테나의 승부 예측
                           </h4>
 
                           {/* --- 승리 확률 바 --- */}
