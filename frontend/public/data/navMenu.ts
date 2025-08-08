@@ -78,17 +78,17 @@ export const navMenu = [
         subMenu: [
             {
                 id: 41,
-                name: "코칭AI",
-                link: "/athena"
+                name: "강의목록",
+                link: "/coaching"
             },
             {
                 id: 42,
-                name: "멘토/멘티 매칭",
-                link: "/mentor-menti"
+                name: "코칭AI Athena",
+                link: "/coaching/athena"
             },
             {
                 id: 43,
-                name: "강사정보/후기",
+                name: "후기",
                 link: "/game-details-two" //또는 library-details
             }
         ]
