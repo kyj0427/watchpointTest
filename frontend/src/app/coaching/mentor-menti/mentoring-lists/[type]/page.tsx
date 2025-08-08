@@ -30,9 +30,10 @@ export default async function PostPage(props: PageProps) {
 
   const navLinks: NavLinkProps[] = [
     { id: 1, url: "/", label: "Home" },
-    { id: 2, url: "", label: "멘토/멘티 찾기" },
-    { id: 3, url: `/mentoring-lists/${type}`, label: title },
-  ];
+    { id: 2, url: "/coaching", label: "코칭" },
+    { id: 3, url: "/coaching/mentor-menti/mentoring-lists", label: "멘토/멘티 매칭" },
+    { id: 4, url: `/coaching/mentor-menti/mentoring-lists/${type}`, label: title },
+  ]
 
   let data: any[] = [];
 
