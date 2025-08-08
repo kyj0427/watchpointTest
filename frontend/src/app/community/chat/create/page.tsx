@@ -1,4 +1,4 @@
-import CreateChatRoom from "@/components/sections/chat/CreateChatRoom";
+import CreateChatRoom from "@/components/sections/community/chat/CreateChatRoom";
 
 export default function Page() {
   return <CreateChatRoom />;

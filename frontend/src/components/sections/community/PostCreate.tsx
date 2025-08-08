@@ -1,9 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Image from "next/image";
 import user1 from "@public/images/users/user1.png";
-import { IconUsers } from "@tabler/icons-react";
 
 interface FormData {
   post: string;
@@ -11,69 +11,78 @@ interface FormData {
 }
 
 const PostCreate = () => {
+  const [expanded, setExpanded] = useState(false);
   const { register, handleSubmit, reset } = useForm<FormData>();
 
   const onSubmit = (data: FormData) => {
-    // form submit event
-
+    console.log(data);
     reset();
+    setExpanded(false);
   };
 
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="bg-b-neutral-3 rounded-12 px-32p py-20p"
+      className="bg-b-neutral-3 rounded-12 px-32p py-24p shadow-xl border border-b-neutral-2 transition"
     >
-      <div className="flex-y gap-3.5 mb-24p">
+      <div className="flex items-start gap-4">
+        {/* 아바타 */}
         <Image
           width={60}
           height={60}
-          className="shrink-0 avatar size-60p"
+          className="rounded-full border border-b-neutral-2 shadow-sm"
           src={user1}
           alt="user"
         />
-        <div className="w-full flex items-center gap-2 bg-b-neutral-2 text-sm text-w-neutral-1 rounded-32">
-          <input
-            className="w-full bg-transparent text-sm text-w-neutral-1 placeholder:text-w-neutral-4 py-16p px-24p"
-            type="text"
-            placeholder="What’s Your Mind?"
+
+        {/* 입력 + 확장 */}
+        <div className="flex-1">
+          <textarea
             {...register("post", { required: true })}
+            rows={expanded ? 6 : 1}
+            placeholder="What's on your mind?"
+            className="w-full resize-none bg-b-neutral-2 text-w-neutral-1 placeholder:text-w-neutral-4 rounded-xl px-6 py-4 text-sm outline-none transition-all duration-300 ease-in-out"
           />
-          <button
-            type="submit"
-            className="btn btn-xsm btn-primary rounded-full mr-2"
-          >
-            Post
-          </button>
+
+          {/* 확장 영역 */}
+          {expanded && (
+            <div className="mt-6 mb-4">
+              <label className="inline-flex items-center gap-2 text-sm cursor-pointer text-w-neutral-1 hover:opacity-90">
+                <i className="ti ti-photo text-green-400 text-lg" />
+                <span>Attach Photo</span>
+                <input type="file" {...register("media")} className="hidden" />
+              </label>
+            </div>
+          )}
+
+          {/* 버튼 영역 */}
+          <div className="flex justify-end items-center gap-3 mt-2">
+            {expanded ? (
+              <button
+                type="button"
+                onClick={() => setExpanded(false)}
+                className="text-xs text-w-neutral-4 hover:text-white transition"
+              >
+                Close ▲
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={() => setExpanded(true)}
+                className="text-xs text-w-neutral-4 hover:text-white transition"
+              >
+                More ▼
+              </button>
+            )}
+
+            <button
+              type="submit"
+              className="bg-primary hover:bg-primary/90 text-white rounded-full px-6 py-2 text-sm font-semibold transition shadow"
+            >
+              Post
+            </button>
+          </div>
         </div>
-      </div>
-      <div className="flex flex-wrap items-center justify-around gap-3">
-        <label htmlFor="media" className="flex-y gap-3 cursor-pointer">
-          <span className="shrink-0 flex-c size-48p rounded-full bg-secondary/20 text-secondary icon-24">
-            <i className="ti ti-photo"></i>
-          </span>
-          <span className="text-s-medium text-w-neutral-1">Photo/Video</span>
-          <input
-            type="file"
-            id="media"
-            className="hidden"
-            {...register("media")}
-          />
-        </label>
-        <button type="button" className="flex-y gap-3 cursor-pointer">
-          <span className="shrink-0 flex-c size-48p rounded-full bg-primary/20 text-primary icon-24">
-            <IconUsers />
-          </span>
-          <span className="text-s-medium text-w-neutral-1">Tag Friend</span>
-        </button>
-        <button type="button" className="flex-y gap-3 cursor-pointer">
-          <span className="shrink-0 flex-c size-48p rounded-full bg-accent-4/20 text-accent-4 icon-24">
-            <i className="ti ti-mood-smile-beam"></i>
-          </span>
-          <span className="text-s-medium text-w-neutral-1">
-            Feeling /Activity
-          </span>
-        </button>
       </div>
     </form>
   );
