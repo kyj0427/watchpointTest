@@ -17,11 +17,11 @@ const GameInfoTab = () => {
     },
     {
       title: "영웅별유저통계",
-      link: `/`,
+      link: `/hero`,
     },
     {
       title: "맵정보",
-      link: `/maps`,
+      link: `/gameinfo/maps`,
     },
     {
       title: "유저랭킹",
@@ -29,7 +29,7 @@ const GameInfoTab = () => {
     },
     {
       title: "패치노트",
-      link: `/patchnotes`,
+      link: `/gameinfo/patchnotes`,
     },
   ];
 
