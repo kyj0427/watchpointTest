@@ -9,13 +9,17 @@ import user33 from "@public/images/users/user33.png";
 interface ProfileFormData {
   coverPhoto: FileList;
   profilePhoto: FileList;
-  first_name: string;
-  last_name: string;
+  tag_name: string; //배틀태그
+  nick_name: string; //닉네임
   email: string;
+  password:string;
+  confirmPassword: string;
   about: string;
   location: string;
   working: string;
   relationship: string;
+  remember?:boolean;
+  //setvalue DB에서 가져온 값을 필드에 자동 주입할때 사용 
 }
 
 const ProfileSettings = () => {
@@ -26,6 +30,14 @@ const ProfileSettings = () => {
     formState: { errors },
   } = useForm<ProfileFormData>();
 
+  const password = watch("password");
+
+
+ 
+  
+
+
+
   // Watch file input fields for changes
   const coverPhotoFile = watch("coverPhoto");
   const profilePhotoFile = watch("profilePhoto");
@@ -34,7 +46,9 @@ const ProfileSettings = () => {
   const [profilePreview, setProfilePreview] = useState<string | null>(null);
 
   // Update cover photo preview when a new file is selected
+    // 아래 useEffect에서 DB에서 사용자 정보를 불러와 setValue로 세팅하면 됩니다
   useEffect(() => {
+    // 이 위치에서 사용자 정보를 DB에서 불러와 초기값으로 세팅하세요
     if (coverPhotoFile && coverPhotoFile.length > 0) {
       const file = coverPhotoFile[0];
       const objectUrl = URL.createObjectURL(file);
@@ -173,42 +187,87 @@ const ProfileSettings = () => {
                 </h4>
                 <div className="grid grid-cols-8 gap-30p">
                   <div className="sm:col-span-4 col-span-8">
-                    <label htmlFor="first_name" className="label label-lg mb-3">
-                      First Name
+                    <label htmlFor="tag_name" className="label label-lg mb-3">
+                      배틀태그
                     </label>
                     <input
                       type="text"
-                      {...register("first_name")}
-                      id="first_name"
+                      {...register("tag_name")}
+                      id="tag_name"
                       className="box-input-3"
-                      placeholder="First Name"
+                      placeholder="홍길동#1234"
                     />
                   </div>
                   <div className="sm:col-span-4 col-span-8">
-                    <label htmlFor="last_name" className="label label-lg mb-3">
-                      Last Name
+                    <label htmlFor="nick_name" className="label label-lg mb-3">
+                      닉네임
                     </label>
                     <input
                       type="text"
-                      {...register("last_name")}
-                      id="last_name"
+                      {...register("nick_name")}
+                      id="nick_name"
                       className="box-input-3"
-                      placeholder="Last Name"
+                      placeholder="닉네임"
+                      //DB에서 (nick_name)값을 받아와 자동 세팅
                     />
                   </div>
-                  <div className="col-span-8">
-                    <label htmlFor="email" className="label label-lg mb-3">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      {...register("email")}
-                      id="email"
-                      className="box-input-3"
-                      placeholder="Email"
-                    />
-                  </div>
-                  <div className="col-span-8">
+
+
+                  {/* 비밀번호 */}
+                     <div className="col-span-8">
+                    <label htmlFor="password" className="label label-lg mb-3">
+                        비밀번호
+                      </label>
+                      <input
+                        className="border-input-1"
+                        type="password"
+                         {...register("password", {
+                              required: "비밀번호를 입력해주세요.",
+                              pattern: {
+                                value: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]).{8,}$/,
+                                message:
+                                  "비밀번호는 8자 이상이며, 영문자, 숫자, 특수문자를 포함해야 합니다.",
+                              },
+                            })}
+                            id="password"
+                            placeholder="비밀번호 입력해주세요"
+                          />
+                      {errors.password?.message && (
+                        <p className="text-red-500 text-sm">
+                          {String(errors.password.message)}
+                        </p>
+                      )}
+                    </div>
+                      
+
+                      {/* 비밀번호 확인 */}
+                   <div className="col-span-8">
+                      <label htmlFor="confirmPassword" className="label label-lg mb-3">
+                        비밀번호 확인
+                      </label>
+                      <input
+                        className="border-input-1"
+                        type="password"
+                        {...register("confirmPassword", {
+                          required: "비밀번호 확인을 입력해주세요.",
+                          validate: (value) =>
+                            value === password || "비밀번호가 일치하지 않습니다.",
+                        })}
+                        id="confirmPassword"
+                        placeholder="비밀번호를 다시 입력하세요"
+                      />
+                      {errors.confirmPassword?.message && (
+                        <p className="text-red-500 text-sm">
+                          {String(errors.confirmPassword.message)}
+                        </p>
+                      )}
+                    </div>
+
+                        {/* 비밀번호와 비밀번호 확인은 DB에서 불러오지않고 사용자가 새로 입력하도록 남겨두기 
+                        setValue 사용x */}
+
+
+                    <div className="col-span-8">
                     <label htmlFor="about" className="label label-lg mb-3">
                       About me
                     </label>
@@ -221,43 +280,20 @@ const ProfileSettings = () => {
                   </div>
                   <div className="col-span-8">
                     <label htmlFor="location" className="label label-lg mb-3">
-                      Location
+                      선호포지션
                     </label>
-                    <input
-                      type="text"
-                      {...register("location")}
+                    <select
                       id="location"
-                      className="box-input-3"
-                      placeholder="Location"
-                    />
-                  </div>
-                  <div className="sm:col-span-4 col-span-8">
-                    <label htmlFor="working" className="label label-lg mb-3">
-                      Working at
-                    </label>
-                    <input
-                      type="text"
-                      {...register("working")}
-                      id="working"
-                      className="box-input-3"
-                      placeholder="Company/Organization"
-                    />
-                  </div>
-                  <div className="sm:col-span-4 col-span-8">
-                    <label
-                      htmlFor="relationship"
-                      className="label label-lg mb-3"
+                      {...register("location")}
+                      className="box-input-3 bg-b-neutral-3 text-white"
                     >
-                      Relationship
-                    </label>
-                    <input
-                      type="text"
-                      {...register("relationship")}
-                      id="relationship"
-                      className="box-input-3"
-                      placeholder="Relationship Status"
-                    />
+                      <option value="">선택하세요</option>
+                      <option value="탱커">탱커</option>
+                      <option value="딜러">딜러</option>
+                      <option value="힐러">힐러</option>
+                    </select>
                   </div>
+                  
                 </div>
                 <div className="flex items-center md:justify-end justify-center">
                   <button
@@ -276,4 +312,4 @@ const ProfileSettings = () => {
   );
 };
 
-export default ProfileSettings;
+export default ProfileSettings; 
