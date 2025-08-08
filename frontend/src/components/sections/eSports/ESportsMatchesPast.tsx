@@ -15,7 +15,7 @@ const Maches = () => {
 
   return (
     <>
-      <section className="section-pb overflow-visible relative pt-18">
+      <section className="section-title">
         <div className="container">
           <div className="grid 4xl:grid-cols-12 grid-cols-1 gap-30p">
             <div className="4xl:col-start-2 4xl:col-end-12">
