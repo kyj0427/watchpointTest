@@ -5,7 +5,7 @@
 import { ReactNode, useState, useEffect } from "react";
 import { AuthContext, AuthContextType } from "@/contexts/AuthContext";
 import {User, UserFromAPI} from "@/config/user";
-import axios from "axios"; //npm install axios
+// import axios from "axios"; //npm install axios
 import { useRouter } from "next/navigation";
 
 
@@ -38,7 +38,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
 
     useEffect(() => {
-        console.log("AuthProvider useEffect 실행됨"); // 디버깅용
+        // console.log("AuthProvider useEffect 실행됨"); // 디버깅용
         const checkUserStatus = async ()=>{
             setLoading(true);
             try{
@@ -89,7 +89,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
               // 상태 업데이트
               // setUser(userData)
 
-            console.log("Faker 로그인 설정됨:", userWithImage); // 디버깅용
+            // console.log("Faker 로그인 설정됨:", userWithImage); // 디버깅용
             setUser(userWithImage)
               // setUser(userWithoutImage)
 
