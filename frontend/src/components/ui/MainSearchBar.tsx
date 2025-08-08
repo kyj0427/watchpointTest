@@ -17,15 +17,12 @@ const MainSearchBar = () => {
     <section className="section-pt">
       <div className="container relative">
         <div className="mx-80p">
-          <div className="w-full"> 
+          <div className="w-full">
             <div className="relative group">
-              <h3 className="text-24 text-secondary font-bold gap-mb-24">
-                Search here
+              <h3 className="heading-2 text-w-neutral-1 text-split-left mb-3">
+                유저 검색
               </h3>
-              <form
-                className="w-full"
-                onSubmit={handleSubmit}
-              >
+              <form className="w-full" onSubmit={handleSubmit}>
                 <div className="relative w-full">
                   <input
                     autoComplete="off"
@@ -35,13 +32,15 @@ const MainSearchBar = () => {
                     type="text"
                     name="search"
                     id="search"
-                    placeholder="배틀태그#1234 또는 유저명 검색..."
+                    placeholder="배틀태그#1234 로 검색..."
                     required
-                  />                  
-                  <button 
+                    title="배틀태그를 입력해주세요"
+                  />
+                  <button
                     type="submit"
-                    className="absolute right-8p sm:right-12p top-1/2 -translate-y-1/2 btn-c btn-c-sm sm:btn-c-md
-                      bg-primary hover:bg-primary/80 text-b-neutral-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-primary/25"
+                    className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 bg-primary hover:bg-primary/80 
+                    text-b-neutral-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-primary/25
+                    w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center"
                   >
                     <i className="ti ti-search icon-20 sm:icon-24"></i>
                   </button>
@@ -52,7 +51,7 @@ const MainSearchBar = () => {
         </div>
       </div>
     </section>
-  )
+  );
 };
 
 export default MainSearchBar;
