@@ -10,7 +10,7 @@ const Page = () => {
     ];
 
     return (
-        <main>
+        <main className="min-h-screen bg-black">
             <AthenaMain/>
             <AthenaDescription/>
         </main>

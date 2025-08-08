@@ -174,7 +174,7 @@ const Footer = () => {
             <div className="lg:col-span-1">
               <div className="flex items-center gap-24p mb-24p">
                 <h4 className="heading-4 text-w-neutral-1 whitespace-nowrap">
-                  <Link href="/coaching">강의</Link>
+                  <Link href="/coaching/athena">강의</Link>
                 </h4>
                 <span className="flex-1 h-0.5 bg-w-neutral-1 max-w-[80px] lg:max-w-[100px]"></span>
               </div>
