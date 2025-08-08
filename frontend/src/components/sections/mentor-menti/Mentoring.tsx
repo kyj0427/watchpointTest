@@ -3,18 +3,33 @@
 import RatingStars from "@/components/ui/RatingStars";
 import { useToggle } from "@/hooks";
 import { Listbox } from "@headlessui/react";
-import { mentorings } from "@public/data/mentorings";
 import { IconChevronDown, IconCircleCheckFilled } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+
+type Mentoring = {
+    id: number;
+    title: string;
+    description: string;
+    category: string;
+    image: string;
+    price: number;
+    rating: number;
+    reviews: number;
+    author: {
+        name: string;
+        image: string;
+        role: string;
+    };
+};
 
 
 const positionCategory = ["dealer", "tank", "support"]
 
 const filterTypes = ["Popular", "Recommended"];
 
-const MentoringList = ({ type }: { type: string }) => {
+const MentoringList = ({ data, type }: { data: Mentoring[]; type: string }) => {
     const [category, setCategory] = useState<string>("all");
     const [selectedFilter, setSelectedFilter] = useState(filterTypes[0]);
 
@@ -25,7 +40,7 @@ const MentoringList = ({ type }: { type: string }) => {
     } = useToggle();
 
     // 필터링 조건 적용
-    const filteredData = mentorings.filter((item) =>
+    const filteredData = data.filter((item) =>
         category === "all" || item?.category === category
     );
 
@@ -94,7 +109,7 @@ const MentoringList = ({ type }: { type: string }) => {
                 />
                 </div>
                 <div className="p-28p">
-                <Link href={`/marketplace/${type}/${item.id}`} className="heading-3 link-1 mb-2 line-clamp-1">
+                <Link href={`/mentoring-lists/${type}/${item.id}`} className="heading-3 link-1 mb-2 line-clamp-1">
                     {item.title}
                 </Link>
                 <p className="text-l-regular text-w-neutral-2">

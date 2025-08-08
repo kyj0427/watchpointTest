@@ -1,136 +1,184 @@
-// 유저랭크 페이지/상세 공용 데이터 (템플릿 스타일 TS 모듈)
-// 다른 파일은 수정하지 말고, 필요한 곳에서 다음처럼 사용:
-//   import { userrankData } from "@/public/data/userrankProfileData";
-// 또는 프로젝트 alias 기준에 맞춰 경로만 조정하세요.
+// public/data/userData.ts
 
-// ==== 타입 ==== //
-export type UserRankRow = {
-  id: string;         // 고유 ID (문자열 권장)
-  slug?: string;      // URL 식별자(옵션)
-  name: string;       // 유저명
-  tag?: number;       // 배틀태그 숫자 (옵션)
+// ====== Types ======
+export type MostPlayedHero = {
+  name: string;
+  kda: string;
+  kdaDetail: string;
+  winRate: string;
+  games: string;
+  kdaWeight: "font-black" | "font-semibold";
+};
+
+export type RecentHero = {
+  name: string;
+  winRate: string;
+  record: string;
+};
+
+export type PositionBar = {
+  name: "탱커" | "딜러" | "힐러";
+  height: string; // e.g. "h-[19px]"
+  top: string;    // e.g. "top-[55px]"
+};
+
+export type StatCard = {
+  title: string;
+  value: string;
+  trend: "Up" | "Down" | "Neutral";
+  icon: string | null; // e.g. "/images/user/arrow-up.svg"
+  position: string;    // tailwind class: "top-[268px]"
+};
+
+export type Profile = {
+  id: string;
+  name: string;
+  tag?: number | string;
+  lastUpdated?: string;
+
+  // 티어/전적
   tier?: string;
   lp?: number;
   wins?: number;
   losses?: number;
+
+  // 요약
   kda?: number;
-};
-
-export type RecentHero = { hero: string; games: number; wins: number; losses: number };
-
-export type UserRankProfile = UserRankRow & {
   killPart?: number;
-  lastUpdated?: string;
+
+  // 플레이 스타일
   playStyle?: string;
   playStyleLabel?: string;
+
+  // 하이라이트
   bestHighlight?: string;
 
-  recent20?: {
-    wins: number;
-    losses: number;
-    byHero: RecentHero[];
-  };
+  // 섹션 데이터
+  mostPlayedHeroes?: MostPlayedHero[];
+  recentHeroes?: RecentHero[];
+  positionData?: PositionBar[];
+  seasons?: string[];
+  srValues?: string[];
+  statsCards?: StatCard[];
 
-  positions?: Array<{ name: "탱커" | "딜러" | "힐러"; ratio: number }>;
-
-  mostPlayed?: Array<{
-    hero: string;
-    k: number;
-    d: number;
-    a: number;
-    games: number;
-    winRate: number; // 0~100
-  }>;
-
-  seasons?: Array<{ code: string; sr: number }>;
-
-  // 카드용 지표(있으면 노출, 없으면 "—")
-  elimsPer10?: number;
-  finalBlows?: number;
-  damagePer10?: number;
-  objKills?: number;
-  healingPer10?: number;
+  // 최근 20게임
+  recent20Wins?: number;
+  recent20Losses?: number;
+  recent20WinRate?: number;
 };
 
-// ==== 더미 데이터 (크롤러가 주기적으로 이 파일을 덮어쓰면 자동 반영) ==== //
-const list: UserRankRow[] = [
-  {
-    id: "3507",
-    slug: "genji-main",
-    name: "유저명",
-    tag: 3507,
-    tier: "그랜드마스터",
-    lp: 1498,
-    wins: 335,
-    losses: 300,
-    kda: 2.31,
-  },
-  // 필요 시 더 추가
-];
+export type UserData = {
+  defaultProfile: Profile;
+  profiles: Record<string, Profile>;
+};
 
-const profilesById: Record<string, UserRankProfile> = {
-  "3507": {
-    id: "3507",
-    slug: "genji-main",
-    name: "유저명",
-    tag: 3507,
-    tier: "그랜드마스터",
-    lp: 1498,
-    wins: 335,
-    losses: 300,
-    kda: 2.31,
-    killPart: 59,
-    lastUpdated: "1일 전",
+// ====== Base(Default) Profile ======
+const baseProfile: Profile = {
+  id: "3507",
+  name: "유저명",
+  tag: 3507,
+  lastUpdated: "1일 전",
 
-    playStyle: "공격적",
-    playStyleLabel: "빠른 침투 전문가",
-    bestHighlight: "설정된 베스트 하이라이트",
+  // 티어/전적
+  tier: "그랜드마스터",
+  lp: 1498,
+  wins: 335,
+  losses: 300,
 
-    recent20: {
-      wins: 9,
-      losses: 11,
-      byHero: [
-        { hero: "겐지", games: 5, wins: 2, losses: 3 },
-        { hero: "솜브라", games: 3, wins: 2, losses: 1 },
-        { hero: "트레이서", games: 2, wins: 1, losses: 1 },
+  // 요약
+  kda: 2.31,
+  killPart: 59,
+
+  // 플레이 스타일
+  playStyle: "공격적",
+  playStyleLabel: "빠른 침투 전문가",
+
+  // 하이라이트
+  bestHighlight: "설정된 베스트 하이라이트",
+
+  // 모스트
+  mostPlayedHeroes: [
+    { name: "겐지",     kda: "3.96 KDA", kdaDetail: "145 / 182 / 335", winRate: "67%", games: "40게임", kdaWeight: "font-black" },
+    { name: "솜브라",   kda: "3.02 KDA", kdaDetail: "212 / 104 / 200", winRate: "63%", games: "38게임", kdaWeight: "font-semibold" },
+    { name: "트레이서", kda: "2.69 KDA", kdaDetail: "116 / 169 / 168", winRate: "39%", games: "38게임", kdaWeight: "font-semibold" },
+    { name: "리퍼",     kda: "2.52 KDA", kdaDetail: "203 / 145 / 214", winRate: "45%", games: "32게임", kdaWeight: "font-semibold" },
+    { name: "정크렛",   kda: "2.14 KDA", kdaDetail: "118 / 129 / 158", winRate: "57%", games: "22게임", kdaWeight: "font-semibold" },
+  ],
+
+  // 최근 20게임 영웅
+  recentHeroes: [
+    { name: "겐지",     winRate: "40%", record: "2승 3패" },
+    { name: "솜브라",   winRate: "59%", record: "2승 1패" },
+    { name: "트레이서", winRate: "50%", record: "1승 1패" },
+  ],
+
+  // 포지션 바
+  positionData: [
+    { name: "탱커", height: "h-[19px]", top: "top-[55px]" },
+    { name: "딜러", height: "h-[52px]", top: "top-[22px]" },
+    { name: "힐러", height: "h-[9px]",  top: "top-16" },
+  ],
+
+  // 시즌 SR 라벨
+  seasons:  ["S28", "S29", "S30", "S31", "S32", "S33"],
+  srValues: ["3700", "3900", "4100", "4350"],
+
+  // 카드
+  statsCards: [
+    { title: "K/D Ratio",       value: "2.75",   trend: "Up",      icon: "/images/user/arrow-up.svg",   position: "top-[268px]" },
+    { title: "Elims/10 min",    value: "38.2",   trend: "Up",      icon: "/images/user/image.svg",      position: "top-[344px]" },
+    { title: "Final Blows",     value: "2500",   trend: "Up",      icon: "/images/user/arrow-up-2.svg", position: "top-[420px]" },
+    { title: "Damage/10 min",   value: "12,540", trend: "Neutral", icon: null,                           position: "top-[497px]" },
+    { title: "Objective Kills", value: "870",    trend: "Neutral", icon: null,                           position: "top-[577px]" },
+    { title: "Healing/10 min",  value: "3,120",  trend: "Down",    icon: "/images/user/arrow-down.svg", position: "top-[653px]" },
+  ],
+
+  // 최근 20게임
+  recent20Wins: 9,
+  recent20Losses: 11,
+  recent20WinRate: 45,
+};
+
+// ====== Exported Data ======
+export const userData: UserData = {
+  defaultProfile: baseProfile,
+
+  // 여러 유저는 여기 추가
+  profiles: {
+    // 1) 기본 유저(동일)
+    "3507": { ...baseProfile },
+
+    // 2) 트레이서 장인 예시
+    "tracer-777": {
+      ...baseProfile,
+      id: "tracer-777",
+      name: "트레이서장인",
+      tag: 7777,
+      tier: "마스터",
+      lp: 4100,
+      kda: 2.85,
+      playStyle: "교란",
+      playStyleLabel: "후방 잠입 스페셜리스트",
+      mostPlayedHeroes: [
+        { name: "트레이서", kda: "3.10 KDA", kdaDetail: "220 / 130 / 250", winRate: "58%", games: "45게임", kdaWeight: "font-semibold" },
+        { name: "솜브라",   kda: "2.80 KDA", kdaDetail: "160 / 90 / 180",  winRate: "55%", games: "28게임", kdaWeight: "font-semibold" },
+        { name: "겐지",     kda: "2.40 KDA", kdaDetail: "140 / 150 / 170", winRate: "48%", games: "24게임", kdaWeight: "font-semibold" },
+        { name: "리퍼",     kda: "2.20 KDA", kdaDetail: "120 / 110 / 140", winRate: "51%", games: "20게임", kdaWeight: "font-semibold" },
+        { name: "정크렛",   kda: "1.90 KDA", kdaDetail: "90 / 100 / 90",   winRate: "47%", games: "15게임", kdaWeight: "font-semibold" },
       ],
+      recentHeroes: [
+        { name: "트레이서", winRate: "60%", record: "3승 2패" },
+        { name: "솜브라",   winRate: "66%", record: "2승 1패" },
+        { name: "겐지",     winRate: "50%", record: "1승 1패" },
+      ],
+      positionData: [
+        { name: "탱커", height: "h-[10px]", top: "top-[64px]" },
+        { name: "딜러", height: "h-[58px]", top: "top-[16px]" },
+        { name: "힐러", height: "h-[6px]",  top: "top-[70px]" },
+      ],
+      recent20Wins: 12,
+      recent20Losses: 8,
+      recent20WinRate: 60,
     },
-
-    positions: [
-      { name: "탱커", ratio: 0.25 },
-      { name: "딜러", ratio: 0.7 },
-      { name: "힐러", ratio: 0.05 },
-    ],
-
-    mostPlayed: [
-      { hero: "겐지", k: 145, d: 182, a: 335, games: 40, winRate: 67 },
-      { hero: "솜브라", k: 212, d: 104, a: 200, games: 38, winRate: 63 },
-      { hero: "트레이서", k: 116, d: 169, a: 168, games: 38, winRate: 39 },
-      { hero: "리퍼", k: 203, d: 145, a: 214, games: 32, winRate: 45 },
-      { hero: "정크렛", k: 118, d: 129, a: 158, games: 22, winRate: 57 },
-    ],
-
-    seasons: [
-      { code: "S28", sr: 3700 },
-      { code: "S29", sr: 3900 },
-      { code: "S30", sr: 4100 },
-      { code: "S31", sr: 4350 },
-    ],
-
-    elimsPer10: 38.2,
-    finalBlows: 2500,
-    damagePer10: 12540,
-    objKills: 870,
-    healingPer10: 3120,
   },
 };
-
-// ==== 최종 export ==== //
-export const userrankData = {
-  list,            // 유저랭킹 테이블용
-  profilesById,    // 상세 페이지용: id/slug로 찾아서 사용
-};
-
-// 사용 예시:
-// const rows = userrankData.list;
-// const profile = userrankData.profilesById["3507"];

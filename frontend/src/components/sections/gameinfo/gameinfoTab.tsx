@@ -13,11 +13,12 @@ const GameInfoTab = () => {
     },
     {
       title: "영웅정보",
-      link: `/gameinfo/hero`,
+
+      link: `/gameinfo/heroes`,
     },
     {
       title: "영웅별유저통계",
-      link: `/gameinfo/herouserStat`,
+      link: `/gameinfo/herouserstat`,
     },
     {
       title: "맵정보",

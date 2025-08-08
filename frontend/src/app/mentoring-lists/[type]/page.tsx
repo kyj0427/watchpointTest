@@ -37,9 +37,9 @@ export default async function PostPage(props: PageProps) {
   let data: any[] = [];
 
   if (type === "mentoring") {
-    data = mentors;
+    data = mentorings;
   } else if (type === "mentor") {
-    data = mentorings;  
+    data = mentors;  
   }
 
     const headerData = {

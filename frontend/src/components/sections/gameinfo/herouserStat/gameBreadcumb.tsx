@@ -1,4 +1,4 @@
-// 게임정보 메인페이지 메인상단 컴포넌트
+// 게임정보>영웅별통계 메인페이지 메인상단 컴포넌트
 
 import { StaticImageData } from "next/image";
 import Link from "next/link";

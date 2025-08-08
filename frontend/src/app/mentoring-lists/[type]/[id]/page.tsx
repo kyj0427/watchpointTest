@@ -1,3 +1,4 @@
+import MentorDetails from "@/components/sections/mentor-menti/MentorDetails";
 import MentoringDetails from "@/components/sections/mentor-menti/MentoringDetails";
 import Breadcrumb from "@/components/shared/Breadcumb";
 import { headerBannerType, NavLinkProps } from "@/config/types";
@@ -9,7 +10,27 @@ interface PageProps {
     searchParams?: { [key: string]: string | string[] | undefined };
 }
 
+// Generate static paths
+const allowedTypes = ["mentor", "mentoring"];
+
+export async function generateStaticParams() {
+    return allowedTypes.flatMap((type) => {
+        const dataList =
+        type === "mentor"
+            ? mentors
+            : type === "mentoring"
+            ? mentorings
+            : [];
+
+        return dataList.map((item) => ({
+        type,
+        id: item.id.toString(),
+        }));
+    });
+}
+
 const Details = async ({ params }: PageProps) => {
+    console.log("params:", params);
     const { type, id } = params;
 
     const labelMap: Record<string, string> = {

@@ -12,14 +12,6 @@ const ESportTab = () => {
       link: `/e-sports`,
     },
     {
-      title: "대회일정",
-      link: `/e-sports/tournaments`,
-    },
-    {
-      title: "승부예측",
-      link: `/e-sports/predictions`,
-    },
-    {
       title: "프로랭킹",
       link: `/e-sports/pro-ranks`,
     },
