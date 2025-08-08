@@ -1,6 +1,7 @@
-import HeroDetails from "@/components/sections/heroDetails/HeroDetails";
-import RelatedHero from "@/components/sections/heroDetails/RelatedHero";
-import Breadcrumb from "@/components/shared/Breadcumb";
+import HeroDetails from "@/components/sections/gameinfo/heroes/details/HeroDetails";
+import RelatedHero from "@/components/sections/gameinfo/heroes/details/RelatedHero";
+import GameBreadcrumb from "@/components/sections/gameinfo/gameBreadcumb";
+//import Breadcrumb from "@/components/shared/Breadcumb";
 import { headerBannerType, NavLinkProps } from "@/config/types";
 import { hero } from "@public/data/hero";
 
@@ -43,7 +44,7 @@ const HeroPage = async ({ params }: PageProps) => {
 
   return (
     <main>
-      <Breadcrumb breadcrumb={headerData} />
+      <GameBreadcrumb breadcrumb={headerData} />
       {singleHero ? (
         <HeroDetails/>
       ) : (
