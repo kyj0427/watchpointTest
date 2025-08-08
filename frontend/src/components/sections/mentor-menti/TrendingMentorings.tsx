@@ -1,13 +1,10 @@
 "use client";
 
 import RatingStars from "@/components/ui/RatingStars";
-import { useToggle } from "@/hooks";
-import { Listbox } from "@headlessui/react";
 import { marketplace } from "@public/data/marketplace";
-import { IconChevronDown, IconCircleCheckFilled } from "@tabler/icons-react";
+import { IconCircleCheckFilled } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import { Autoplay, Navigation, Scrollbar } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 

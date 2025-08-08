@@ -1,25 +1,29 @@
 "use client";
 
-import { useToggle } from "@/hooks";
-import { Listbox } from "@headlessui/react";
-import { topTrendingGames } from "@public/data/topTrending";
-import { IconChevronDown, IconCircleCheckFilled } from "@tabler/icons-react";
+import { mentors } from "@public/data/mentors";
+import { IconCircleCheckFilled } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import { Autoplay, FreeMode, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-const PopularMentors = ({ className }: { className?: string }) => {
-    const filterTypes = ["Popular", "Action", "Adventure", "Sports"];
+type Mentor = {
+    id: number;
+    title: string;
+    description: string;
+    category: string;
+    image: string;
+    price: number;
+    rating: number;
+    reviews: number;
+    author: {
+        name: string;
+        image: string;
+        role: string;
+    };
+};
 
-    const [selectedFilter, setSelectedFilter] = useState(filterTypes[0]);
-
-    const {
-        open: filterOpen,
-        handleToggle: filterToggle,
-        ref: filterRef,
-    } = useToggle();
+const PopularMentors = ({ className, type }: { className?: string; type: string }) => {
 
     return (
         <section className={`section-pt ${className && className}`}>
@@ -79,13 +83,13 @@ const PopularMentors = ({ className }: { className?: string }) => {
                 }}
                 modules={[FreeMode, Autoplay, Pagination]}
             >
-                {topTrendingGames?.map((item, idx) => (
+                {mentors?.map((item, idx) => (
                 <SwiperSlide key={idx} className="pb-60p">
                     <div className="w-full bg-b-neutral-3 p-24p rounded-24 grid 4xl:grid-cols-2 grid-cols-1 items-center gap-24p group">
                     <div className="overflow-hidden rounded-24">
                         <Image
                         className="w-full xxl:h-[304px] xl:h-[280px] md:h-[260px] h-[240px] object-cover group-hover:scale-110 transition-1"
-                        src={item?.photo}
+                        src={item?.image}
                         width={304}
                         height={280}
                         alt="img"
@@ -94,38 +98,30 @@ const PopularMentors = ({ className }: { className?: string }) => {
                     <div>
                         <div className="flex-y flex-wrap gap-2">
                         <span className="badge badge-neutral-2 badge-smm">
-                            {item?.genres[0]}
-                        </span>
-                        <span className="badge badge-danger badge-smm">Live</span>
-                        <span className="badge badge-neutral-2 badge-smm">
                             {item?.category}
                         </span>
                         </div>
                         <Link
-                        href="/live-stream"
+                        href={`/coaching/mentor-menti/mentoring-lists/${type}/${item.id}`}
                         className="heading-3 text-w-neutral-1 4xl:line-clamp-2 line-clamp-1 link-1 my-16p"
                         >
                         {item?.title}
                         </Link>
                         <div className="flex-y flex-wrap *:py-2 *:px-3 mb-20p">
                         <div className="flex-y gap-2.5">
+                            {/* 리뷰 들어가는 부분 */}
                             <span className="badge badge-secondary size-3 badge-circle"></span>
                             <p className="text-base text-neutral-100">
-                            <span className="span">{item?.views}</span> Viewers
-                            </p>
-                        </div>
-                        <div className="flex-y gap-2.5">
-                            <span className="badge badge-primary size-3 badge-circle"></span>
-                            <p className="text-base text-neutral-100">
-                            <span className="span">{item?.publish}</span>
+                            <span className="span">{item?.reviews}</span> 개의 리뷰
                             </p>
                         </div>
                         </div>
                         <div className="flex-y flex-wrap gap-3">
                         <Image
                             className="size-60p rounded-full shrink-0"
-                            src={item?.author.avatar}
+                            src={item?.author.image}
                             alt="user"
+                            width={20} height={20}
                         />
                         <div>
                             <Link
