@@ -1,8 +1,11 @@
+"use client"
+
 import AccordionOne from "@/components/ui/AccordionOne";
 import { faqItemsTwo } from "@public/data/faqItems";
-import { marketplace } from "@public/data/marketplace";
+import { mentorings } from "@public/data/mentorings";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 interface MentoringData {
     id: number;
@@ -26,7 +29,9 @@ interface MentoringDetailsProps {
 
 
 const MentoringDetails = ({ data }: MentoringDetailsProps) => {
-    const marketplaceDetails = marketplace[0];
+    const mentoringDetails = mentorings[0];
+    const [isChecked, setIsChecked] = useState(true);
+
     return (
         <section className="section-pb pt-60p overflow-visible">
         <div className="container">
@@ -37,7 +42,7 @@ const MentoringDetails = ({ data }: MentoringDetailsProps) => {
                     <div className="glitch-thumb">
                     <Image
                         className="w-full xl:h-[450px] md:h-[400px] sm:h-[300px] h-[280px] object-cover"
-                        src={marketplaceDetails?.bannerImage}
+                        src={mentoringDetails?.image}
                         width={1080}
                         height={480}
                         alt="image"
@@ -46,7 +51,7 @@ const MentoringDetails = ({ data }: MentoringDetailsProps) => {
                     <div className="glitch-thumb">
                     <Image
                         className="w-full xl:h-[450px] md:h-[400px] sm:h-[300px] h-[280px] object-cover"
-                        src={marketplaceDetails?.bannerImage}
+                        src={mentoringDetails?.image}
                         width={1080}
                         height={480}
                         alt="image"
@@ -58,18 +63,7 @@ const MentoringDetails = ({ data }: MentoringDetailsProps) => {
                     Description
                     </h3>
                     <p className="text-m-regular text-w-neutral-4 mb-2.5">
-                    We&lsquo;re a diverse group of gamers, ranging from casual
-                    players to hardcore enthusiasts, spanning various platforms
-                    and genres. What unites us is our belief that gaming is not
-                    just a pastime but an art form, a form of storytelling, and a
-                    means of forging connections with people from all walks of
-                    life.
-                    </p>
-                    <p className="text-m-regular text-w-neutral-4">
-                    We invite you to become a part of our gaming community. Share
-                    your stories, insights, and experiences. Engage with others
-                    who are as passionate about gaming as you are.of virtual
-                    adventures and make lasting memories.
+                        {mentoringDetails.description}
                     </p>
                     <div className="flex items-center flex-wrap gap-y-24p gap-x-60p mt-24p">
                     <div>
@@ -98,7 +92,9 @@ const MentoringDetails = ({ data }: MentoringDetailsProps) => {
                     <div className="flex items-center gap-3 py-3">
                         <Image
                         className="avatar size-60p"
-                        src={marketplaceDetails?.author?.image}
+                        src={mentoringDetails?.author?.image}
+                        width={300}
+                        height={220}
                         alt="user"
                         />
                         <div>
@@ -106,10 +102,10 @@ const MentoringDetails = ({ data }: MentoringDetailsProps) => {
                             href="/profile"
                             className="text-l-medium text-w-neutral-1 mb-1"
                         >
-                            {marketplaceDetails?.author?.name}
+                            {mentoringDetails?.author?.name}
                         </Link>
                         <span className="text-sm text-w-neutral-4">
-                            {marketplaceDetails?.author?.role}
+                            {mentoringDetails?.author?.role}
                         </span>
                         </div>
                     </div>
@@ -179,10 +175,11 @@ const MentoringDetails = ({ data }: MentoringDetailsProps) => {
                     <div>
                         <div className="checkbox-container shrink-0">
                         <input
-                            type="checkbox"
-                            id="live-coaching"
-                            className="border-corners-checkbox"
-                            checked
+                        type="checkbox"
+                        id="live-coaching"
+                        className="border-corners-checkbox"
+                        checked={isChecked}
+                        onChange={(e) => setIsChecked(e.target.checked)}
                         />
                         <label
                             htmlFor="live-coaching"
