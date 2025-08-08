@@ -40,10 +40,11 @@ const ProPlayerRank = () => {
                 <th className="text-l-medium px-24p py-3 lg:min-w-[300px] min-w-[280px]">
                   플레이어
                 </th>
-                <th className="text-l-medium px-24p py-3 min-w-25">승리</th>
-                <th className="text-l-medium px-24p py-3 min-w-25">패배</th>
-                <th className="text-l-medium px-24p py-3 min-w-25">게임횟수</th>
+
                 <th className="text-l-medium px-24p py-3 min-w-25">승률</th>
+                <th className="text-l-medium px-24p py-3 min-w-25">선수포인트</th>
+                <th className="text-l-medium px-24p py-3 min-w-25">소속팀</th>
+                <th className="text-l-medium px-24p py-3 min-w-25">지역</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-solid divide-shap border-b border-shap bg-b-neutral-3">
@@ -52,27 +53,28 @@ const ProPlayerRank = () => {
                   <td className="px-24p py-3">
                     <div className="flex items-center gap-3">
                       <i className="ti ti-chevrons-up icon-24 text-danger" />
-                      <span className="text-l-medium">{item?.순위}</span>
+                      <span className="text-l-medium">{item?.player_rank}</span>
                     </div>
                   </td>
 
                   <td className="px-24p py-3">
-                    <span className="text-l-medium">{item?.역할군}</span>
+                    <span className="text-l-medium">{item?.player_position}</span>
                   </td>
 
                   <td className="px-24p py-3">
                     <div className="flex items-center *:avatar *:size-10 *:border *:border-white *:-ml-3 ml-3">
-                      {item?.주영웅?.slice(0, 3)?.map((avatar, idx) => (
+                      {item?.signature_hero?.slice(0, 3)?.map((avatar, idx) => (
                         <Image key={idx} src={avatar} alt="heros" />
                       ))}
                     </div>
                   </td>
-                  <td className="px-24p py-3">{item?.플레이어}</td>
+                  <td className="px-24p py-3">{item?.player_name}</td>
 
-                  <td className="px-24p py-3">{item?.승리}</td>
-                  <td className="px-24p py-3">{item?.패배}</td>
-                  <td className="px-24p py-3">{item?.게임횟수}</td>
-                  <td className="px-24p py-3">{item?.승률}%</td>
+
+                  <td className="px-24p py-3">{item?.win_rate}%</td>
+                  <td className="px-24p py-3">{item?.player_ability}</td>
+                  <td className="px-24p py-3">{item?.team_name}</td>
+                  <td className="px-24p py-3">{item?.region}</td>
                 </tr>
               ))}
             </tbody>
