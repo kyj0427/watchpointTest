@@ -12,13 +12,17 @@ const ProgressBar = ({currentStep , totalSteps}: ProgressBarProps)=>{
     const percentage = (currentStep / totalSteps) * 100;
 
     return (
-    // 배경 바 (회색)
-    <div className="w-full h-1 bg-gray-200 rounded-full overflow-hidden mb-6">
+    <div className="flex justify-center mb-6 w-full">       
+    
+        <div className="w-full h-1 bg-gray-200 rounded-full overflow-hidden mb-6"
+             style={{ width: "180px" }}>
+        
         {/* 진행률 바는 width에 따라 채워짐 */}
         <div
-        className="bg-red-500 h-full rounded-full transition-all duration-300"
-        style={{ width: `${percentage}%` }} // → 진행 비율만큼 너비 설정
+            className="bg-primary h-full rounded-full transition-all duration-300"
+            style={{ width: `${percentage}%` }}
         ></div>
+    </div>
     </div>
     );
 };

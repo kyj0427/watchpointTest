@@ -1,10 +1,11 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { IconBrandFacebook, IconChevronDown } from "@tabler/icons-react";
 import Link from "next/link";
 import { use, useEffect, useState } from "react";
 import AnimateHeight from "react-animate-height";
+import PreferenceTotal from "../preference/PreferenceTotal";
+
 
 interface FormData {
   name: string;
@@ -16,7 +17,6 @@ interface FormData {
 const RegisterForm = () => {
   //더미데이터 (나중에 삭제 해야합니다)
   const [dummyCode, setDummyCode] = useState("");
-
   // 소셜 로그인 
   const [showMore, setShowMore] = useState<boolean>(false);
   // 마케팅 동의 여부
@@ -45,6 +45,9 @@ const RegisterForm = () => {
   const [codeTimer, setCodeTimer] = useState(0);
   // 타이머 인증 만료
   const [isExpired, setIsExpired] = useState(false);
+
+  // 회원가입 성공시 모달창 띄우기 
+  const [showPreferenceModal, setPreferenceModal] = useState(false);
 
   // 타이머 시간 감소 
   useEffect(() => {
@@ -103,6 +106,11 @@ const RegisterForm = () => {
       setSubmitAttempted(true);
       alert("약관에 동의하셔야 회원가입이 가능합니다")
     }  
+    // 실제 회원가입 API 호출
+    // await signup(data);
+
+    // 가입 성공했다고 임시 설정 => 성향 모달 오픈
+    setPreferenceModal(true);
   };
 
   return (
@@ -256,7 +264,7 @@ const RegisterForm = () => {
                   )}
                 </div>
               </div>
-                {/* 마케팅 수신 동의 */}
+                {/* 개인정보 수집 및 이용 동의 */}
                 <div>
                   <label className="label label-md text-w-neutral-1 inline-flex items-center cursor-pointer gap-3">
                     <input
@@ -369,6 +377,7 @@ const RegisterForm = () => {
           </div>
         </div>
       </div>
+              {showPreferenceModal && <PreferenceTotal />}
     </section>
   );
 };
