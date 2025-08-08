@@ -1,5 +1,6 @@
-import HeroAll from "@/components/sections/hero/HeroAll";
-import Breadcrumb from "@/components/shared/Breadcumb";
+import HeroAll from "@/components/sections/gameinfo/heroes/HeroAll";
+import GameBreadcrumb from "@/components/sections/gameinfo/gameBreadcumb";
+//import Breadcrumb from "@/components/shared/Breadcumb";
 import { headerBannerType, NavLinkProps } from "@/config/types";
 
 const Page = () => {
@@ -18,7 +19,8 @@ const Page = () => {
 
   return (
     <main>
-      <Breadcrumb breadcrumb={headerData} />
+      <GameBreadcrumb breadcrumb={headerData} />
+      
       <HeroAll />
     </main>
   );
