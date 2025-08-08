@@ -85,7 +85,7 @@ const MentoringDetails = ({ data }: MentoringDetailsProps) => {
                                     </div>
                                 </div>
 
-                                {/* 판매자 정보 */}
+                                {/* 강사 정보 */}
                                 <div className="py-40p">
                                     <h4 className="heading-4 text-w-neutral-1">강사</h4>
                                     <div className="flex items-center gap-3 py-3">
@@ -109,7 +109,7 @@ const MentoringDetails = ({ data }: MentoringDetailsProps) => {
                                         </div>
                                     </div>
                                     <p className="text-m-regular text-w-neutral-4">
-                                        Been playing TFT since set 1, usually hitting Grandmaster every set
+                                        강사소개
                                     </p>
                                 </div>
 

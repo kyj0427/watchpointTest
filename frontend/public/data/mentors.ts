@@ -29,4 +29,20 @@ export const mentors = [
             role: "Backend Engineer",
         },
     },
+    {
+        id: 3,
+        title: "멘토링 3",
+        description: "설명 3",
+        category: "backend",
+        image: "/images/blogs/blog3.png",
+        price: 60000,
+        rating: 4.6,
+        reviews: 8,
+        author: {
+            name: "김영희",
+            image: "/images/blogs/blog4.png",
+            role: "Backend Engineer",
+        },
+    },
+
 ];

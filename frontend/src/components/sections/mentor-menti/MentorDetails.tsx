@@ -68,18 +68,18 @@ const MentorDetails = ({ data }: MentorDetailsProps) => {
                     <div className="flex items-center flex-wrap gap-y-24p gap-x-60p mt-24p">
                     <div>
                         <span className="text-m-medium text-primary mb-1">
-                        Game
+                        티어
                         </span>
                         <p className="text-sm text-w-neutral-4">
-                        League of Legends
+                        티어
                         </p>
                     </div>
                     <div>
                         <span className="text-m-medium text-primary mb-1">
-                        Languages
+                        포지션
                         </span>
                         <p className="text-sm text-w-neutral-4">
-                        English, Romanian and French
+                        포지션
                         </p>
                     </div>
                     <div>
@@ -88,7 +88,7 @@ const MentorDetails = ({ data }: MentorDetailsProps) => {
                     </div>
                     </div>
                     <div className="py-40p">
-                    <h4 className="heading-4 text-w-neutral-1">Seller</h4>
+                    <h4 className="heading-4 text-w-neutral-1">강사정보</h4>
                     <div className="flex items-center gap-3 py-3">
                         <Image
                         className="avatar size-60p"

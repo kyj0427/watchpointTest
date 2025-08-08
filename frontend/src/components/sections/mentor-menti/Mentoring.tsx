@@ -2,7 +2,7 @@
 
 import RatingStars from "@/components/ui/RatingStars";
 import { useToggle } from "@/hooks";
-import { Listbox } from "@headlessui/react";
+import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from "@headlessui/react";
 import { IconChevronDown, IconCircleCheckFilled } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -40,13 +40,21 @@ const MentoringList = ({ data, type }: { data: Mentoring[]; type: string }) => {
     } = useToggle();
 
     // 필터링 조건 적용
-    const filteredData = data.filter((item) =>
+    let filteredData = data.filter((item) =>
         category === "all" || item?.category === category
     );
 
+    // // 추가 필터링 (정렬)
+    // if (selectedFilter === "Popular") {
+    // filteredData = filteredData.sort((a, b) => b.reviews - a.reviews);
+    // } else if (selectedFilter === "Recommended") {
+    // filteredData = filteredData.sort((a, b) => b.rating - a.rating);
+    // }
+
+
     return (
         <div>
-        <h2 className="heading-2 text-w-neutral-1 mb-40p">멘토링 목록</h2>
+        <h2 className="heading-2 text-w-neutral-1 mb-40p mt-10">멘토링 목록</h2>
         {/* 필터 바 */}
         <div className="flex items-center justify-between flex-wrap gap-24p pb-30p border-b border-shap">
             <Listbox
@@ -56,22 +64,22 @@ const MentoringList = ({ data, type }: { data: Mentoring[]; type: string }) => {
             as="div"
             className="dropdown group"
             >
-            <Listbox.Button onClick={filterToggle} className="dropdown-toggle toggle-1">
+            <ListboxButton onClick={filterToggle} className="dropdown-toggle toggle-1">
                 {selectedFilter}
                 <IconChevronDown className={`${filterOpen && "rotate-180"} icon-24`} />
-            </Listbox.Button>
-            <Listbox.Options className="dropdown-content left-0">
+            </ListboxButton>
+            <ListboxOptions className="dropdown-content left-0">
                 {filterTypes?.map((item, idx) => (
-                <Listbox.Option
+                <ListboxOption
                     // db맵부분
                     className={`dropdown-item ${selectedFilter === item && "active"}`}
                     key={idx}
                     value={item}
                 >
                     {item}
-                </Listbox.Option>
+                </ListboxOption>
                 ))}
-            </Listbox.Options>
+            </ListboxOptions>
             </Listbox>
             
             {/* 카테고리 버튼 */}
