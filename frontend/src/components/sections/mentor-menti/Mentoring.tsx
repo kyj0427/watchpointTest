@@ -63,6 +63,7 @@ const MentoringList = ({ data, type }: { data: Mentoring[]; type: string }) => {
             <Listbox.Options className="dropdown-content left-0">
                 {filterTypes?.map((item, idx) => (
                 <Listbox.Option
+                    // db맵부분
                     className={`dropdown-item ${selectedFilter === item && "active"}`}
                     key={idx}
                     value={item}
@@ -72,7 +73,7 @@ const MentoringList = ({ data, type }: { data: Mentoring[]; type: string }) => {
                 ))}
             </Listbox.Options>
             </Listbox>
-
+            
             {/* 카테고리 버튼 */}
             <div className="flex items-center overflow-x-auto scrollbar-0 max-w-[680px]">
             <div className="flex flex-wrap gap-2 text-base text-w-neutral-1 *:rounded-12 *:px-32p *:py-3 whitespace-nowrap">
@@ -109,7 +110,7 @@ const MentoringList = ({ data, type }: { data: Mentoring[]; type: string }) => {
                 />
                 </div>
                 <div className="p-28p">
-                <Link href={`/mentoring-lists/${type}/${item.id}`} className="heading-3 link-1 mb-2 line-clamp-1">
+                <Link href={`/coaching/mentor-menti/mentoring-lists/${type}/${item.id}`} className="heading-3 link-1 mb-2 line-clamp-1">
                     {item.title}
                 </Link>
                 <p className="text-l-regular text-w-neutral-2">

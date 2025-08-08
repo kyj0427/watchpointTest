@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { IconBrandKakoTalk, IconChevronDown } from "@tabler/icons-react";
@@ -7,60 +8,31 @@ import { useState } from "react";
 import AnimateHeight from "react-animate-height";
 import {useRef,ChangeEvent}from "react";
 import Head from "next/head";
+import ImageUploader from "@/components/ui/fileUpload/ImageUpload";
 
 const CourseRegister = () => {
   // 이미지 업로드 관련 state
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
-  //선호 포지션 선택
-const allPositions = ["탱커", "딜러", "힐러"];
-const [selectedPositions, setSelectedPositions] = useState<string[]>([]);
+    //선호 포지션 선택
+  const allPositions = ["탱커", "딜러", "힐러"];
+  const [selectedPositions, setSelectedPositions] = useState<string[]>([]);
 
-//포지션 토글 핸들러
-const handlePositionToggle = (position: string) => {
-  setSelectedPositions((prev) =>
-    prev.includes(position)
-      ? prev.filter((p) => p !== position)
-      : [...prev, position]
-  );
-};
-
-
- //이미지 선택 핸들러
-  const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-
-    //용량 제한
-    if (file.size > 5 * 1024 * 1024) {
-      alert("최대 5MB 이하 이미지만 업로드할 수 있습니다.");
-      return;
-    }
-    //확장자 제한
-    const allowedTypes = ["image/jpeg", "image/png", "image/gif"];
-    if (!allowedTypes.includes(file.type)) {
-      alert("JPG, PNG, GIF 파일만 업로드할 수 있습니다.");
-      return;
-    }
-
-    //미리보기 처리
-    const reader = new FileReader();
-    reader.onload = () => setImagePreview(reader.result as string);
-    reader.readAsDataURL(file);
+  //포지션 토글 핸들러
+  const handlePositionToggle = (position: string) => {
+    setSelectedPositions((prev) =>
+      prev.includes(position)
+        ? prev.filter((p) => p !== position)
+        : [...prev, position]
+    );
   };
 
-  //업로드 버튼 클릭시 input 클릭 유도
-  const handleClick = () => {
-    fileInputRef.current?.click();
-  };
+  const handleImageChange = (file: File | null) => {
+    console.log("선택된 파일:", file);
+    // 여기서 DB 저장용 상태 설정 또는 form 연결
+  }
 
-  //이미지 제거 처리
-  const handleRemove = () => {
-    setImagePreview(null);
-    if (fileInputRef.current) fileInputRef.current.value = "";
-  };
 
 //시간대 설정 상태변수
 const [selectedDays, setSelectedDays] = useState<string[]>([]);
@@ -100,52 +72,9 @@ const minutes = ["00", "05", "10", "15", "20", "25", "30"];
       <div className="container text-lg">
         <h1 className="text-4xl font-bold mb-8">강의 등록하기</h1>
 
-        {/*  이미지 업로드 섹션 */}
-        <div className="space-y-2 mb-10">
-          <label className="block text-sm font-medium">강좌 썸네일</label>
-
-          <div
-            className="upload-area h-[200px] rounded flex flex-col items-center justify-center cursor-pointer border border-dashed border-gray-400 relative overflow-hidden"
-            onClick={handleClick}
-          >
-            {/* 미리보기 유무에 따라 조건 렌더링 */}
-            {!imagePreview ? (
-              <div id="uploadPlaceholder" className="text-center">
-                <div className="w-12 h-12 mx-auto mb-2 flex items-center justify-center">
-                  <i className="ri-image-add-line text-gray-400 text-3xl"></i>
-                </div>
-                <p className="text-sm text-gray-500">이미지를 드래그하거나 클릭하여 업로드</p>
-                <p className="text-xs text-gray-400 mt-1">
-                  지원 형식: JPG, PNG, GIF (최대 5MB)
-                </p>
-              </div>
-            ) : (
-              <div className="w-full h-full relative">
-                <img
-                  src={imagePreview}
-                  alt="미리보기"
-                  className="w-full h-full object-contain"
-                />
-                <button
-                  type="button"
-                  onClick={handleRemove}
-                  className="absolute top-2 right-2 bg-white rounded-full p-1 shadow-md"
-                >
-                  <i className="ri-close-line text-gray-600 text-lg"></i>
-                </button>
-              </div>
-            )}
-          </div>
-
-          <input
-            type="file"
-            ref={fileInputRef}
-            accept="image/jpeg, image/png, image/gif"
-            onChange={handleImageChange}
-            className="hidden"
-          />
+        <div className="w-1/3">
+          <ImageUploader onFileChange={handleImageChange}/>
         </div>
-
         {/*  여기에 나중에 다른 강의 등록 input 폼 추가 가능 */}
 
               {/*  [추가] 닉네임 배틀태그 입력 폼 */}

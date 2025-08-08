@@ -43,12 +43,12 @@ const Details = async ({ params }: PageProps) => {
     const navLinks: NavLinkProps[] = [
         { id: 1, url: "/", label: "Home" },
         { id: 2, url: "", label: "멘토/멘티 찾기" },
-        { id: 3, url: `/mentoring-lists/${type}`, label: title },
-        { id: 4, url: `/mentoring-lists/${type}/${id}`, label: title },
+        { id: 3, url: `/coaching/mentor-menti/mentoring-lists/${type}`, label: title },
+        { id: 4, url: `/coaching/mentor-menti/mentoring-lists/${type}/${id}`, label: title },
     ];
 
     const headerData: headerBannerType = {
-        title: "Marketplace Details",
+        title: "상세보기",
         bgImgClasses: "",
         navLinks,
     };
