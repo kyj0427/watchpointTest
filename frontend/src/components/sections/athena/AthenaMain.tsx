@@ -30,7 +30,7 @@ const AthenaMain: FC = () => {
         } catch (error) {
             console.error("업로드 실패:", error);
         }
-    };
+    }; // 요청 흐름 : AthenaMain -> Athena AI -> AthenaFeedback.tsx
 
     return (
     <div>

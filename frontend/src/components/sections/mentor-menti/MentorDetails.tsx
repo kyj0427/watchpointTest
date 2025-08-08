@@ -2,12 +2,12 @@
 
 import AccordionOne from "@/components/ui/AccordionOne";
 import { faqItemsTwo } from "@public/data/faqItems";
-import { mentorings } from "@public/data/mentorings";
+import { mentors } from "@public/data/mentors";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-interface MentoringData {
+interface MentorData {
     id: number;
     title: string;
     description: string;
@@ -23,13 +23,13 @@ interface MentoringData {
     };
 }
 
-interface MentoringDetailsProps {
-    data: MentoringData;
+interface MentorDetailsProps {
+    data: MentorData;
 }
 
 
-const MentoringDetails = ({ data }: MentoringDetailsProps) => {
-    const mentoringDetails = mentorings[0];
+const MentorDetails = ({ data }: MentorDetailsProps) => {
+    const mentorDetails = mentors[0];
     const [isChecked, setIsChecked] = useState(true);
 
     return (
@@ -42,7 +42,7 @@ const MentoringDetails = ({ data }: MentoringDetailsProps) => {
                     <div className="glitch-thumb">
                     <Image
                         className="w-full xl:h-[450px] md:h-[400px] sm:h-[300px] h-[280px] object-cover"
-                        src={mentoringDetails?.image}
+                        src={mentorDetails?.image}
                         width={1080}
                         height={480}
                         alt="image"
@@ -51,7 +51,7 @@ const MentoringDetails = ({ data }: MentoringDetailsProps) => {
                     <div className="glitch-thumb">
                     <Image
                         className="w-full xl:h-[450px] md:h-[400px] sm:h-[300px] h-[280px] object-cover"
-                        src={mentoringDetails?.image}
+                        src={mentorDetails?.image}
                         width={1080}
                         height={480}
                         alt="image"
@@ -63,7 +63,7 @@ const MentoringDetails = ({ data }: MentoringDetailsProps) => {
                     Description
                     </h3>
                     <p className="text-m-regular text-w-neutral-4 mb-2.5">
-                        {mentoringDetails.description}
+                        {mentorDetails.description}
                     </p>
                     <div className="flex items-center flex-wrap gap-y-24p gap-x-60p mt-24p">
                     <div>
@@ -92,7 +92,7 @@ const MentoringDetails = ({ data }: MentoringDetailsProps) => {
                     <div className="flex items-center gap-3 py-3">
                         <Image
                         className="avatar size-60p"
-                        src={mentoringDetails?.author?.image}
+                        src={mentorDetails?.author?.image}
                         width={300}
                         height={220}
                         alt="user"
@@ -102,10 +102,10 @@ const MentoringDetails = ({ data }: MentoringDetailsProps) => {
                             href="/profile"
                             className="text-l-medium text-w-neutral-1 mb-1"
                         >
-                            {mentoringDetails?.author?.name}
+                            {mentorDetails?.author?.name}
                         </Link>
                         <span className="text-sm text-w-neutral-4">
-                            {mentoringDetails?.author?.role}
+                            {mentorDetails?.author?.role}
                         </span>
                         </div>
                     </div>
@@ -225,4 +225,4 @@ const MentoringDetails = ({ data }: MentoringDetailsProps) => {
     );
 };
 
-export default MentoringDetails;
+export default MentorDetails;
