@@ -22,7 +22,7 @@ export const proplayerData = [
   },
 
     {
-    player_id: 1,
+    player_id: 2,
     player_rank: "01",
     player_position: "딜러",
     player_name: "Proper",
@@ -35,7 +35,7 @@ export const proplayerData = [
   },
 
     {
-    player_id: 1,
+    player_id: 3,
     player_rank: "01",
     player_position: "딜러",
     player_name: "Proper",
@@ -48,7 +48,7 @@ export const proplayerData = [
   },
 
     {
-    player_id: 1,
+    player_id: 4,
     player_rank: "01",
     player_position: "딜러",
     player_name: "Proper",
@@ -61,7 +61,7 @@ export const proplayerData = [
   },
 
     {
-    player_id: 1,
+    player_id: 5,
     player_rank: "01",
     player_position: "딜러",
     player_name: "Proper",
@@ -70,58 +70,6 @@ export const proplayerData = [
     win_rate : 60,
     region : "한국",
     team_id : 1,
-    player_ability : 2
-  },
-
-  {
-    player_id: 2, 
-    player_rank: "02",
-    player_position: "딜러",
-    player_name: "Flora",
-    signature_hero: [avatar1, avatar2, avatar3, avatar4, avatar5],
-    player_img_url: playerImg,
-    win_rate : 60,
-    region : "한국",
-    team_id : 2,
-    player_ability : 2
-  },
-
-  {
-    player_id: 3, 
-    player_rank: "02",
-    player_position: "딜러",
-    player_name: "Flora",
-    signature_hero: [avatar1, avatar2, avatar3, avatar4, avatar5],
-    player_img_url: playerImg,
-    win_rate : 60,
-    region : "한국",
-    team_id : 3,
-    player_ability : 2
-  },
-
-  {
-    player_id: 4, 
-    player_rank: "02",
-    player_position: "딜러",
-    player_name: "Flora",
-    signature_hero: [avatar1, avatar2, avatar3, avatar4, avatar5],
-    player_img_url: playerImg,
-    win_rate : 60,
-    region : "한국",
-    team_id : 4,
-    player_ability : 2
-  },
-
-  {
-    player_id: 5, 
-    player_rank: "02",
-    player_position: "딜러",
-    player_name: "Flora",
-    signature_hero: [avatar1, avatar2, avatar3, avatar4, avatar5],
-    player_img_url: playerImg,
-    win_rate : 60,
-    region : "한국",
-    team_id : 5,
     player_ability : 2
   },
 
@@ -134,7 +82,7 @@ export const proplayerData = [
     player_img_url: playerImg,
     win_rate : 60,
     region : "한국",
-    team_id : 6,
+    team_id : 2,
     player_ability : 2
   },
 
@@ -147,7 +95,7 @@ export const proplayerData = [
     player_img_url: playerImg,
     win_rate : 60,
     region : "한국",
-    team_id : 7,
+    team_id : 3,
     player_ability : 2
   },
 
@@ -160,7 +108,7 @@ export const proplayerData = [
     player_img_url: playerImg,
     win_rate : 60,
     region : "한국",
-    team_id : 8,
+    team_id : 4,
     player_ability : 2
   },
 
@@ -173,12 +121,64 @@ export const proplayerData = [
     player_img_url: playerImg,
     win_rate : 60,
     region : "한국",
-    team_id : 9,
+    team_id : 5,
     player_ability : 2
   },
 
   {
     player_id: 10, 
+    player_rank: "02",
+    player_position: "딜러",
+    player_name: "Flora",
+    signature_hero: [avatar1, avatar2, avatar3, avatar4, avatar5],
+    player_img_url: playerImg,
+    win_rate : 60,
+    region : "한국",
+    team_id : 6,
+    player_ability : 2
+  },
+
+  {
+    player_id: 11, 
+    player_rank: "02",
+    player_position: "딜러",
+    player_name: "Flora",
+    signature_hero: [avatar1, avatar2, avatar3, avatar4, avatar5],
+    player_img_url: playerImg,
+    win_rate : 60,
+    region : "한국",
+    team_id : 7,
+    player_ability : 2
+  },
+
+  {
+    player_id: 12, 
+    player_rank: "02",
+    player_position: "딜러",
+    player_name: "Flora",
+    signature_hero: [avatar1, avatar2, avatar3, avatar4, avatar5],
+    player_img_url: playerImg,
+    win_rate : 60,
+    region : "한국",
+    team_id : 8,
+    player_ability : 2
+  },
+
+  {
+    player_id: 13, 
+    player_rank: "02",
+    player_position: "딜러",
+    player_name: "Flora",
+    signature_hero: [avatar1, avatar2, avatar3, avatar4, avatar5],
+    player_img_url: playerImg,
+    win_rate : 60,
+    region : "한국",
+    team_id : 9,
+    player_ability : 2
+  },
+
+  {
+    player_id: 14, 
     player_rank: "02",
     player_position: "딜러",
     player_name: "Flora",
