@@ -22,7 +22,7 @@ const CoachingBreadcrumb = ({ breadcrumb }: { breadcrumb: BreadcrumbType }) => {
   return (
     <section className={twMerge("pt-30p", breadcrumb?.className)}>
       <div className="section-pt">
-        <div className="relative bg-[url('/images/photos/breadcrumbImg.png')] bg-cover bg-no-repeat rounded-24 overflow-hidden">
+        <div className="relative bg-[url('/images/photos/overwatch_14.avif')] bg-cover bg-no-repeat rounded-24 overflow-hidden">
           <div className="container">
             <div className="grid grid-cols-12 gap-30p relative xl:py-[130px] md:py-30 sm:py-25 py-20 z-[2]">
               <div className="lg:col-start-2 lg:col-end-12 col-span-12">

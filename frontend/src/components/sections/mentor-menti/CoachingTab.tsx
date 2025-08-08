@@ -16,11 +16,11 @@ const CoachingTab = () => {
       link: `/coaching/athena`,
     },
     {
-      title: "내 강의",
-      link: `/profile/about`,
+      title: "강의 등록",
+      link: `/coaching/mentor-menti/courseRegister`,
     },
     {
-      title: "Teams",
+      title: "내 강의",
       link: `/profile/teams`,
     },
     {
