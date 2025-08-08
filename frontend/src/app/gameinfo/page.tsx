@@ -1,7 +1,6 @@
 //게임정보 메인페이지에 띄우는 페이지
 
 import GameInfoComp from "@/components/sections/gameinfo/gameinfoComp";
-import GameInfoTab from "@/components/sections/gameinfo/gameinfoTab";
 import { headerBannerType, NavLinkProps } from "@/config/types";
 import GameBreadcrumb from "@/components/sections/gameinfo/gameBreadcumb";
 
