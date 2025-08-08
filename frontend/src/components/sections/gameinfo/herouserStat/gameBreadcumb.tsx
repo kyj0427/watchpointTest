@@ -1,8 +1,9 @@
-// 유저랭킹 메인상단 컴포넌트
+// 게임정보 메인페이지 메인상단 컴포넌트
 
 import { StaticImageData } from "next/image";
 import Link from "next/link";
 import { twMerge } from "tailwind-merge";
+import GameInfoTab from "./gameinfoTab";
 
 export type BreadcrumbType = {
   title: string;
@@ -19,11 +20,11 @@ export type ItemsProps = {
   url?: string;
 };
 
-const UserrankBreadcrumb = ({ breadcrumb }: { breadcrumb: BreadcrumbType }) => {
+const GameBreadcrumb = ({ breadcrumb }: { breadcrumb: BreadcrumbType }) => {
   return (
     <section className={twMerge("pt-30p", breadcrumb?.className)}>
       <div className="section-pt">
-        <div className="relative bg-[url('/images/game_news/game1.png')] bg-cover bg-no-repeat rounded-24 overflow-hidden">
+        <div className="relative bg-[url('/images/game_news/game0.png')] bg-cover bg-no-repeat rounded-24 overflow-hidden">
           <div className="container">
             <div className="grid grid-cols-12 gap-30p relative xl:py-[130px] md:py-30 sm:py-25 py-20 z-[2]">
               <div className="lg:col-start-2 lg:col-end-12 col-span-12">
@@ -60,8 +61,11 @@ const UserrankBreadcrumb = ({ breadcrumb }: { breadcrumb: BreadcrumbType }) => {
           <div className="overlay-11"></div>
         </div>
       </div>
+      <div>
+        <GameInfoTab />
+      </div>
     </section>
   );
 };
 
-export default UserrankBreadcrumb;
+export default GameBreadcrumb;
