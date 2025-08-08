@@ -10,6 +10,7 @@ import { users } from "@public/data/users";
 import { Tab } from "@headlessui/react";
 import clsx from "clsx";
 import Pagination from "@/components/shared/Pagination";
+import VotePanel from "./VotePanel";
 
 const Maches = () => {
   const [openModal, setOpenModal] = useState<number | null>(null);
@@ -232,43 +233,73 @@ const Maches = () => {
 
                       {/* Tab Panels */}
                       <Tab.Panels className="pt-60p">
-                        {/* 승부 예측 */}
-                        <Tab.Panel>
-                          <div className="flex-col-c">
-                            <span className="icon-40 text-w-neutral-4">
-                              <i className="ti ti-list"></i>
-                            </span>
-                            <h6 className="heading-6 text-base text-w-neutral-1 my-2.5">
-                              승부 예측
-                            </h6>
-                            <p className="text-s-medium text-w-neutral-1">
-                              아테나의 예측 승리 팀 :{" "}
-                              {esportsmatches[openModal]?.rightPlayer?.name}
-                            </p>
+                        {/* ======================================= */}
+                        {/*          승부 예측 탭 패널             */}
+                        {/* ======================================= */}
+                        <Tab.Panel className="flex flex-col items-center gap-6">
+                          <h4 className="text-xl font-bold text-white">
+                            아테나의 전술 분석
+                          </h4>
+
+                          {/* --- 승리 확률 바 --- */}
+                          <div className="w-full">
+                            <div className="flex justify-between items-center mb-2">
+                              <span className="font-semibold text-white">
+                                {esportsmatches[openModal]?.leftPlayer?.name}
+                              </span>
+                              <span className="font-semibold text-white">
+                                {esportsmatches[openModal]?.rightPlayer?.name}
+                              </span>
+                            </div>
+                            <div className="relative w-full h-6 bg-gray-700 rounded-full overflow-hidden">
+                              {/* 예측 확률 (예시: 65%) */}
+                              <div
+                                className="absolute top-0 left-0 h-full bg-primary rounded-full transition-all duration-500"
+                                style={{ width: "65%" }}
+                              ></div>
+                              <div className="absolute inset-0 flex justify-between items-center px-4 text-white font-bold">
+                                <span>65%</span>
+                                <span>35%</span>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* --- 분석 신뢰도 및 핵심 근거 --- */}
+                          <div className="w-full p-4 bg-b-neutral-2 rounded-lg text-center">
+                            <p className="text-sm text-gray-400">분석 신뢰도</p>
+                            <p className="text-2xl font-bold text-white">85%</p>
+                          </div>
+
+                          <div className="w-full grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
+                            <div className="p-3 bg-b-neutral-2 rounded-lg">
+                              <i className="ti ti-trending-up text-primary text-2xl"></i>
+                              <p className="text-sm mt-1 text-white">
+                                최근 경기 승률 우세
+                              </p>
+                            </div>
+                            <div className="p-3 bg-b-neutral-2 rounded-lg">
+                              <i className="ti ti-shield-check text-primary text-2xl"></i>
+                              <p className="text-sm mt-1 text-white">
+                                조합 상성 유리
+                              </p>
+                            </div>
+                            <div className="p-3 bg-b-neutral-2 rounded-lg">
+                              <i className="ti ti-target-arrow text-primary text-2xl"></i>
+                              <p className="text-sm mt-1 text-white">
+                                주요 딜러 KDA 압도
+                              </p>
+                            </div>
                           </div>
                         </Tab.Panel>
 
                         {/* Lineups Tab Content */}
+                        {/* 투표 탭 패널 */}
                         <Tab.Panel>
-                          <div className="grid grid-cols-1 gap-3 *:flex *:items-center *:gap-3">
-                            {users?.map((item, idx) => (
-                              <div
-                                key={idx}
-                                className="flex items-center gap-3"
-                              >
-                                <Image
-                                  className="avatar size-8 shrink-0"
-                                  src={item?.avatar}
-                                  width={32}
-                                  height={32}
-                                  alt="user"
-                                />
-                                <Link href="/profile" className="link-1">
-                                  {item?.name}
-                                </Link>
-                              </div>
-                            ))}
-                          </div>
+                          {/* 2. VotePanel을 호출할 때, 필요한 선수 정보를 props로 전달합니다. */}
+                          <VotePanel
+                            leftPlayer={esportsmatches[openModal]?.leftPlayer}
+                            rightPlayer={esportsmatches[openModal]?.rightPlayer}
+                          />
                         </Tab.Panel>
                       </Tab.Panels>
                     </Tab.Group>
