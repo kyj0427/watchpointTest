@@ -6,7 +6,6 @@ import clone from "@public/images/icons/clone.svg";
 import { esportsmatches } from "@public/data/esportsmatches";
 import { Modal } from "@/components/ui";
 import { useState } from "react";
-import { users } from "@public/data/users";
 import { Tab } from "@headlessui/react";
 import clsx from "clsx";
 import Pagination from "@/components/shared/Pagination";
@@ -61,7 +60,8 @@ const Maches = () => {
                   >
                     <div className="flex items-center justify-end gap-4 w-1/3 flex-1">
                       <Link
-                        href={`/profile/${idx}`}
+                        //나중에 해당팀 상세정보로 링크
+                        href={`#`}
                         className="text-m-medium text-w-neutral-1 text-right line-clamp-1 link-1"
                       >
                         {item.leftPlayer.name}
@@ -95,7 +95,8 @@ const Maches = () => {
                         alt={item.rightPlayer.name}
                       />
                       <Link
-                        href={`/profile/${idx}`}
+                        //나중에 해당팀 상세정보로 링크
+                        href={`#`}
                         className="text-m-medium text-w-neutral-1 text-left line-clamp-1 link-1"
                       >
                         {item.rightPlayer.name}
@@ -135,25 +136,51 @@ const Maches = () => {
             </button>
             <div className="sm:h-[528px] h-[400px] overflow-y-auto scrollbar-sm">
               <div className="pr-2">
-                <h3 className="heading-3 text-white mb-3 text-center">
-                  Match {esportsmatches[openModal]?.id}
-                </h3>
-                <h6 className="heading-6 text-center">Best of 5 game</h6>
+                <div className="relative flex justify-center items-center mb-3">
+                  <a
+                    href="https://www.youtube.com/@ow_esports_kr"
+                    target="_blank" // 새 탭에서 열기
+                    rel="noopener noreferrer"
+                    className="absolute right-10 flex items-center justify-center icon-32 text-w-neutral-2 hover:text-danger transition-all"
+                    title="방송 링크로 이동"
+                  >
+                    <i className="ti ti-brand-youtube"></i>
+                  </a>
+                  <a
+                    href="https://www.twitch.tv/ow_esports"
+                    target="_blank" // 새 탭에서 열기
+                    rel="noopener noreferrer"
+                    className="absolute right-0 flex items-center justify-center icon-32 text-w-neutral-2 hover:text-danger transition-all"
+                    title="방송 링크로 이동"
+                  >
+                    <i className="ti ti-brand-twitch"></i>
+                  </a>
+
+                  {/* --- 중앙 제목 영역 --- */}
+                  <div className="text-center">
+                    <h3 className="heading-3 text-white">
+                      Match {esportsmatches[openModal]?.id}
+                    </h3>
+                    <h6 className="heading-6">Best of 5 game</h6>
+                  </div>
+                </div>
                 <div className="mt-60p">
                   <div className="relative flex max-sm:flex-col items-center justify-center gap-y-30p gap-x-40p sm:pb-6 pb-5 mb-60p">
                     <div className="flex items-center gap-3 min- w-[180px]">
                       <div>
                         <Link
-                          href="/profile"
+                          //나중에 해당팀 상세정보로 링크
+                          href={`#`}
                           className="text-m-medium text-w-neutral-1 line-clamp-1 link-1 mb-1"
                         >
                           {esportsmatches[openModal]?.leftPlayer?.name}
                         </Link>
                         <Link
-                          href="/teams/1"
+                          //나중에 해당팀 상세정보로 링크
+                          href="#"
                           className="text-xs-medium text-secondary"
                         >
-                          View Team
+                          팀 상세 정보
                         </Link>
                       </div>
                       <Image
@@ -170,7 +197,7 @@ const Maches = () => {
                       </h5>
                       <div className="flex-col-c">
                         <span className="badge badge-rounded px-3 py-2 badge-neutral-2 mb-16p">
-                          Waiting
+                          예정 경기
                         </span>
                         <Image src={clone} alt="clone" />
                       </div>
@@ -181,16 +208,18 @@ const Maches = () => {
                     <div className="flex items-center gap-3 min- w-[180px]">
                       <div>
                         <Link
-                          href="/profile"
+                          //나중에 해당팀 상세정보로 링크
+                          href="#"
                           className="text-m-medium text-w-neutral-1 line-clamp-1 link-1 mb-1"
                         >
                           {esportsmatches[openModal]?.rightPlayer?.name}
                         </Link>
                         <Link
+                          //나중에 해당팀 상세정보로 링크
                           href="#"
                           className="text-xs-medium text-secondary"
                         >
-                          View Team
+                          팀 상세 정보
                         </Link>
                       </div>
                       <Image

@@ -36,7 +36,7 @@ export const esportsmatchespast = [
     rightPlayer: { name: "Crazy Raccoon", image: cr },
     leftScore: 3,
     rightScore: 1,
-    status: "FT3",
+    status: "END",
   },
   {
     id: "002",
@@ -44,7 +44,7 @@ export const esportsmatchespast = [
     rightPlayer: { name: "T1", image: t1 },
     leftScore: 2,
     rightScore: 3,
-    status: "FT3",
+    status: "END",
   },
   {
     id: "003",
@@ -52,7 +52,7 @@ export const esportsmatchespast = [
     rightPlayer: { name: "Old Ocean", image: oldocean },
     leftScore: 3,
     rightScore: 0,
-    status: "FT3",
+    status: "END",
   },
   {
     id: "004",
@@ -60,7 +60,7 @@ export const esportsmatchespast = [
     rightPlayer: { name: "VEC", image: vec },
     leftScore: 3,
     rightScore: 0,
-    status: "FT3",
+    status: "END",
   },
   {
     id: "005",
@@ -68,7 +68,7 @@ export const esportsmatchespast = [
     rightPlayer: { name: "Gen.G", image: geng },
     leftScore: 3,
     rightScore: 1,
-    status: "FT3",
+    status: "END",
   },
   {
     id: "006",
@@ -76,7 +76,7 @@ export const esportsmatchespast = [
     rightPlayer: { name: "ZETA DIVISION", image: zeta },
     leftScore: 2,
     rightScore: 3,
-    status: "FT3",
+    status: "END",
   },
   {
     id: "007",
@@ -84,7 +84,7 @@ export const esportsmatchespast = [
     rightPlayer: { name: "Onside Gaming", image: onside },
     leftScore: 1,
     rightScore: 3,
-    status: "FT3",
+    status: "END",
   },
   {
     id: "008",
@@ -92,7 +92,7 @@ export const esportsmatchespast = [
     rightPlayer: { name: "Crazy Raccoon", image: cr },
     leftScore: 3,
     rightScore: 2,
-    status: "FT3",
+    status: "END",
   },
   {
     id: "009",
@@ -100,7 +100,7 @@ export const esportsmatchespast = [
     rightPlayer: { name: "Poker Face", image: pokerface },
     leftScore: 3,
     rightScore: 2,
-    status: "FT3",
+    status: "END",
   },
   {
     id: "010",
@@ -108,6 +108,6 @@ export const esportsmatchespast = [
     rightPlayer: { name: "Onside Gaming", image: onside },
     leftScore: 3,
     rightScore: 0,
-    status: "FT3",
+    status: "END",
   },
 ];
