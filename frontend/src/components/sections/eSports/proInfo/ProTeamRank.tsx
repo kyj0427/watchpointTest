@@ -40,9 +40,6 @@ const ProTeamRank = () => {
                 <th className="text-l-medium px-24p py-3 lg:min-w-[300px] min-w-[280px]">
                   팀이름
                 </th>
-                <th className="text-l-medium px-24p py-3 min-w-25">승리</th>
-                <th className="text-l-medium px-24p py-3 min-w-25">패배</th>
-                <th className="text-l-medium px-24p py-3 min-w-25">게임횟수</th>
                 <th className="text-l-medium px-24p py-3 min-w-25">승률</th>
               </tr>
             </thead>
@@ -52,17 +49,17 @@ const ProTeamRank = () => {
                   <td className="px-24p py-3">
                     <div className="flex items-center gap-3">
                       <i className="ti ti-chevrons-up icon-24 text-danger" />
-                      <span className="text-l-medium">{item?.순위}</span>
+                      <span className="text-l-medium">{item?.rank}</span>
                     </div>
                   </td>
 
                   <td className="px-24p py-3">
-                    <span className="text-l-medium">{item?.지역}</span>
+                    <span className="text-l-medium">{item?.region}</span>
                   </td>
 
                   <td className="px-24p py-3">
                     <div className="flex items-center *:avatar *:size-10 *:border *:border-white *:-ml-3 ml-3">
-                      {item?.선수?.slice(0, 3)?.map((avatar, idx) => (
+                      {item?.players?.slice(0, 3)?.map((avatar, idx) => (
                         <Image key={idx} src={avatar} alt="heros" />
                       ))}
                     </div>
@@ -70,19 +67,17 @@ const ProTeamRank = () => {
                   <td className="px-24p py-3">
                     <div className="flex items-center gap-4">
                       <Image
-                        src={item.로고}
-                        alt={item.팀이름}
+                        src={item.logo}
+                        alt={item.team_name}
                         width={40}
                         height={40}
                       />
-                      <span>{item.팀이름}</span>
+                      <span>{item.team_name}</span>
                     </div>
                   </td>
 
-                  <td className="px-24p py-3">{item?.승리}</td>
-                  <td className="px-24p py-3">{item?.패배}</td>
-                  <td className="px-24p py-3">{item?.게임횟수}</td>
-                  <td className="px-24p py-3">{item?.승률}%</td>
+
+                  <td className="px-24p py-3">{item?.win_rate}%</td>
                 </tr>
               ))}
             </tbody>

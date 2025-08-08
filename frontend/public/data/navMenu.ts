@@ -47,25 +47,25 @@ export const navMenu = [
             {
                 id : 31,
                 name : "대회일정",
-                link : "/e-sports/tournaments"
+                link : "/e-sports"
             },
-            {
-                id : 32,
-                name : "승부예측",
-                link : "/e-sports/predictions"
-            },
+            // {
+            //     id : 32,
+            //     name : "승부예측",
+            //     link : "/e-sports/predictions"
+            // },
             // {
             //     id : 33,
             //     name : "예측포인트 랭킹",
             //     link : "/e-sports/predictions-ranks"
             // },
             {
-                id : 33,
+                id : 32,
                 name : "프로랭킹",
                 link : "/e-sports/pro-ranks"
             },
             {
-                id : 34,
+                id : 33,
                 name : "프로선수정보",
                 link : "/e-sports/pro-players"
             }
