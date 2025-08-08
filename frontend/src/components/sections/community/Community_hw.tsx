@@ -4,7 +4,7 @@ import { blogPosts } from "@public/data/blogPosts";
 import Image from "next/image";
 import Link from "next/link";
 import PostCreate from "../community/PostCreate";
-import ProfilePosts from "../profile/ProfilePosts_hw";
+import Posts from "../community/post";
 import { useState } from "react";
 
 const Squad = [
@@ -66,7 +66,7 @@ const Community = () => {
           <div className="col-span-12 xl:col-span-6">
             <div className="flex flex-col gap-30p">
               <PostCreate />
-              <ProfilePosts />
+              <Posts />
               <div className="text-center mt-30p">
                 <button className="btn btn-lg btn-neutral-3 rounded-12">Load more...</button>
               </div>
