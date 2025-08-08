@@ -9,9 +9,28 @@ import { useState } from "react";
 import { users } from "@public/data/users";
 import { Tab } from "@headlessui/react";
 import clsx from "clsx";
+import Pagination from "@/components/shared/Pagination";
 
 const Maches = () => {
   const [openModal, setOpenModal] = useState<number | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(5); // 페이지당 보여줄 아이템 수
+
+  // 전체 페이지 수 계산
+  const totalPages = Math.ceil(esportsmatchespast.length / itemsPerPage);
+
+  // 현재 페이지에 해당하는 데이터만 추출
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = esportsmatchespast.slice(
+    indexOfFirstItem,
+    indexOfLastItem
+  );
+
+  // 페이지 변경 핸들러
+  const handlePageChange = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
 
   return (
     <>
@@ -20,9 +39,7 @@ const Maches = () => {
           <div className="grid 4xl:grid-cols-12 grid-cols-1 gap-30p">
             <div className="4xl:col-start-2 4xl:col-end-12">
               <div className="flex-y justify-between flex-wrap gap-24p mb-30p">
-                <h2 className="heading-2 text-w-neutral-1">
-                  지난 경기 ({esportsmatchespast.length})
-                </h2>
+                <h2 className="heading-2 text-w-neutral-1">지난 경기</h2>
                 <form className="px-20p py-16p max-w-[390px] flex items-center sm:gap-3 gap-2 min-w-[300px] bg-b-neutral-3 rounded-12">
                   <span className="flex-c icon-20 text-white">
                     <i className="ti ti-search"></i>
@@ -39,7 +56,7 @@ const Maches = () => {
               </div>
 
               <div className="grid xl:grid-cols-1 md:grid-cols-2 grid-cols-1 justify-center max-xl:gap-x-30p divide-y divide-shap/70 4xl:px-[140px] px-80p px-120p py-80p bg-b-neutral-3">
-                {esportsmatchespast.map((item, idx) => (
+                {currentItems.map((item, idx) => (
                   <div
                     key={idx}
                     className="relative flex items-center justify-between gap-4 w-full sm:py-6 py-5"
@@ -99,6 +116,12 @@ const Maches = () => {
               </div>
             </div>
           </div>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+            className="mt-48p"
+          />
         </div>
       </section>
 
@@ -136,7 +159,7 @@ const Maches = () => {
                         </Link>
                       </div>
                       <Image
-                        className="avatar size-48p shrink-0"
+                        className="avatar size-48p shrink-0 object-contain"
                         src={esportsmatchespast[openModal]?.leftPlayer?.image}
                         width={48}
                         height={48}
@@ -173,7 +196,7 @@ const Maches = () => {
                         </Link>
                       </div>
                       <Image
-                        className="avatar size-48p shrink-0"
+                        className="avatar size-48p shrink-0 object-contain"
                         width={48}
                         height={48}
                         src={esportsmatchespast[openModal]?.rightPlayer?.image}
