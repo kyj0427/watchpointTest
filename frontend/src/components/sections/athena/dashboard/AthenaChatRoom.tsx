@@ -71,7 +71,7 @@ const AthenaChatRoom = () => {
                   spaceBetween={10}
                   slidesPerView={1}
                   speed={800}
-                  loop={topTrendingGames.length > 1}
+                  loop={false}
                   navigation={{
                     nextEl: ".swiper-button-next",
                     prevEl: ".swiper-button-prev",
@@ -89,56 +89,73 @@ const AthenaChatRoom = () => {
                   modules={[Navigation, Pagination, Thumbs]}
                   className="swiper thumbs-gallery-main"
                 >
-                  {topTrendingGames?.map((item, idx) => (
-                    <SwiperSlide
-                      key={idx}
+                  {video ? (
+                    <SwiperSlide                      
                       className="rounded-12 overflow-hidden"
                     >
                       <div className="w-full">
                         <div className="relative ">
-                          <span className="absolute sm:left-5 left-2 sm:top-5 top-2 badge badge-smm badge-danger font-normal z-[4]">
-                            24K Watching
+                          <span className="absolute sm:left-5 left-2 sm:top-5 top-2 badge badge-smm badge-primary font-normal z-[4]">
+                            {video.hero} - {video.map}
                           </span>
-                          {item?.video.isLive && (
+                          
                             <VideoPlayer
-                              posterSrc={item?.video?.thumbnail}
-                              videoSrc={item?.video?.videoUrl}
+                              // posterSrc={video.thumbnail}
+                              videoSrc={video.file_path}                              
                             />
-                          )}
+                          
                         </div>
                       </div>
                     </SwiperSlide>
-                  ))}
+                  ) : (
+                    // 비디오 찾을수없을떄 화면
+                    <SwiperSlide className="rounded-12 overflow-hidden">
+                      <div className="w-full">
+                        <div className="relative bg-b-neutral-3 h-96 flex items-center justify-center">
+                          <div className="text-center">
+                            <i className="ti ti-video-off icon-48 text-w-neutral-4 mb-16p"></i>
+                            <p className="text-w-neutral-4">동영상을 찾을 수 없습니다</p>
+                            <p className="text-sm text-w-neutral-5 mt-8p">요청하신 동영상이 존재하지 않거나 삭제되었습니다.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  )
+                }
                 </Swiper>
                 
               </div>
               <div>
                 <h4 className="heading-4 text-w-neutral-1 mb-16p">
-                  About Trending Game
+                  동영상 정보
                 </h4>
                 <div className="grid grid-cols-1 gap-16p">
+                  <div className="flex-y gap-3 text-m-regular text-w-neutral-3">
+                    <span className="badge badge-compact badge-glass">
+                      {video?.hero || '영웅'}
+                    </span>
+                    <span className="badge badge-compact badge-glass">
+                      {video?.map || '맵'}
+                    </span>
+                    <span className="badge badge-compact badge-glass">
+                      {video?.rank || '랭크'}
+                    </span>
+                  </div>
                   <p className="text-m-regular text-w-neutral-3">
-                    Our vision is to create a welcoming, inclusive, and
-                    supportive environment where gamers of all backgrounds and
-                    skill levels can come together. We believe in the power of
-                    gaming to foster camaraderie, creativity, and personal
-                    growth. Whether you&lsquo;re a solo player, a competitive
-                    gamerstreamer, or a game developer, you have a place here.
+                    {video?.description || '동영상 설명이 없습니다.'}
                   </p>
-                  <p className="text-m-regular text-w-neutral-3">
-                    We&lsquo;re a diverse group of gamers, ranging from casual
-                    players to hardcore enthusiasts, spanning various platforms
-                    and genres. What unites us is our belief that gaming is not
-                    just a pastime but an art form, a form of storytelling, and
-                    a means of forging connections with people from all walks of
-                    life
-                  </p>
-                  <p className="text-m-regular text-w-neutral-3">
-                    As a result the villagers began invading one another, which
-                    in turn led to an ultimate war. Wild Ninnekos are born with
-                    to help the Ninnekos conquer the entire forest, build new
-                    villages, and establish a strong empire.
-                  </p>
+                  {video?.analysis && (
+                    <div className="grid grid-cols-2 gap-16p">
+                      <div className="text-center p-16p bg-b-neutral-3 rounded-12">
+                        <p className="text-xs text-w-neutral-4 mb-8p">전체 점수</p>
+                        <p className="text-xl font-bold text-primary">{video.analysis.overallScore}</p>
+                      </div>
+                      <div className="text-center p-16p bg-b-neutral-3 rounded-12">
+                        <p className="text-xs text-w-neutral-4 mb-8p">포지셔닝</p>
+                        <p className="text-xl font-bold text-primary">{video.analysis.positioning}</p>
+                      </div>
+                    </div>
+                  )}
                   <AnimateHeight height={toggle ? "auto" : 0} duration={500}>
                     <div className="grid grid-cols-1 gap-16p">
                       <p className="text-m-regular text-w-neutral-3">

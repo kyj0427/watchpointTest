@@ -16,7 +16,7 @@ const AthenaVideoList = () => {
   
   // 페이징 상태 관리
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(6); // 페이지당 6개씩 보여주기
+  const [itemsPerPage] = useState(12); // 페이지당 12개씩 보여주기
   
   // 전체 페이지 수 계산
   const totalPages = Math.ceil(videos.length / itemsPerPage);
@@ -68,11 +68,11 @@ const AthenaVideoList = () => {
           {currentVideos?.map((video, idx) => (
             <div key={idx} className="library-card group" data-aos="fade-up">
               <div className="flex flex-col justify-between h-full relative z-[2]">
-                <div className="flex-y justify-between flex-wrap gap-16p">
-                  <span className={`badge badge-compact badge-glass flex-y gap-1 text-w-neutral-1 ${getStatusColor(video.analysisStatus)}`}>
+                <div className="flex-y justify-end flex-wrap gap-16p">
+                  {/* <span className={`badge badge-compact badge-glass flex-y gap-1 text-w-neutral-1 ${getStatusColor(video.analysisStatus)}`}>
                     <i className="ti ti-star icon-24 text-primary"></i>
                     {video.analysis?.overallScore || "N/A"}
-                  </span>
+                  </span> */}
                   <Menu as="div" className="dropdown shrink-0">
                     <Menu.Button className="dropdown-toggle dropdown-toggle w-fit btn-c btn-c-md sm:size-10 size-9 btn-primary">
                       <i className="ti ti-dots-vertical icon-24"></i>
@@ -97,7 +97,7 @@ const AthenaVideoList = () => {
                   <div className="flex-y gap-3 text-l-regular text-w-neutral-2">
                     <span>{video.hero}</span>
                     <span className="badge badge-circle badge-dot badge-light size-1"></span>
-                    <span>{formatDate(video.uploadDate)}</span>
+                    <span>{formatDate(video.upload_date || '')}</span>
                   </div>                 
                 </div>
               </div>
@@ -141,7 +141,7 @@ const AthenaVideoList = () => {
         </div>
         
         {/* 페이징 컴포넌트 */}
-        {totalPages > 1 && (
+        
           <div className="mt-48p">
             <Pagination
               currentPage={currentPage}
@@ -149,7 +149,7 @@ const AthenaVideoList = () => {
               onPageChange={handlePageChange}
             />
           </div>
-        )}
+        
       </div>
     </section>
   );

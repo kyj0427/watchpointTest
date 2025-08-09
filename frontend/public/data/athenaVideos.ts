@@ -20,10 +20,17 @@ export type ChatMessage = {
 };
 
 export type Video = {
-  id: string;
+  //DB 타입 동일
+  file_id?: string;
+  file_name?: string;
+  file_path?: string;
+  file_size?: number;
+  upload_date?: string; 
+
+  //추가필드
+  id : string;
   title: string;
   description: string;
-  uploadDate: string;
   duration: string;
   fileSize: string;
   status: "completed" | "processing" | "failed";
@@ -66,12 +73,13 @@ export const athenaVideosData: AthenaVideosData = {
       id: "1",
       title: "플레이 영상 1 - 리퍼 플레이",
       description: "리퍼로 한 게임 플레이 영상입니다. 포지셔닝과 궁극기 활용에 대한 분석이 필요합니다.",
-      uploadDate: "2024-01-15T10:30:00Z",
+      upload_date: "2024-01-15T10:30:00Z",
       duration: "15:32",
       fileSize: "45.2MB",
       status: "completed",
       analysisStatus: "분석 완료",
       thumbnail: "/images/game_hero/hero_portrait_bg/Reaper_heroImage_3.jpg",
+      file_path: "/images/game_hero/hero_abilites_video/Reaper_video.webm" , 
       hero: "Reaper",
       map: "King's Row",
       rank: "Diamond",
@@ -108,7 +116,7 @@ export const athenaVideosData: AthenaVideosData = {
       id: "2",
       title: "플레이 영상 2 - 메르시 힐링",
       description: "메르시 힐러 플레이 영상입니다. 힐링 우선순위와 포지셔닝에 대한 피드백이 필요합니다.",
-      uploadDate: "2024-01-14T14:20:00Z",
+      upload_date: "2024-01-14T14:20:00Z",
       duration: "18:45",
       fileSize: "52.1MB",
       status: "completed",
@@ -150,7 +158,7 @@ export const athenaVideosData: AthenaVideosData = {
       id: "3", 
       title: "플레이 영상 3 - 라인하르트 탱킹",
       description: "라인하르트 탱커 플레이 영상입니다. 실드 관리와 궁극기 타이밍에 대한 분석이 필요합니다.",
-      uploadDate: "2024-01-13T09:15:00Z",
+      upload_date: "2024-01-13T09:15:00Z",
       duration: "20:18",
       fileSize: "58.7MB",
       status: "completed",
@@ -192,7 +200,7 @@ export const athenaVideosData: AthenaVideosData = {
       id: "4",
       title: "플레이 영상 4 - 한조 스나이핑",
       description: "한조 스나이퍼 플레이 영상입니다. 에임과 포지셔닝에 대한 피드백이 필요합니다.",
-      uploadDate: "2024-01-12T16:45:00Z",
+      upload_date: "2024-01-12T16:45:00Z",
       duration: "17:30",
       fileSize: "48.9MB",
       status: "processing",
@@ -208,7 +216,7 @@ export const athenaVideosData: AthenaVideosData = {
       id: "5",
       title: "플레이 영상 5 - 아나 스나이핑",
       description: "아나 스나이퍼 플레이 영상입니다. 힐링과 딜링 밸런스에 대한 분석이 필요합니다.",
-      uploadDate: "2024-01-11T11:30:00Z",
+      upload_date: "2024-01-11T11:30:00Z",
       duration: "19:22",
       fileSize: "55.3MB",
       status: "failed",
@@ -241,12 +249,13 @@ export const userVideosData: UserVideosData = {
         id: "1",
         title: "플레이 영상 1 - 리퍼 플레이",
         description: "리퍼로 한 게임 플레이 영상입니다. 포지셔닝과 궁극기 활용에 대한 분석이 필요합니다.",
-        uploadDate: "2024-01-15T10:30:00Z",
+        upload_date: "2024-01-15T10:30:00Z",
         duration: "15:32",
         fileSize: "45.2MB",
         status: "completed",
         analysisStatus: "분석 완료",
-        thumbnail: "/images/game_hero/hero_portrait_bg/Reaper_heroImage_3.jpg",
+        thumbnail: "/images/game_hero/hero_portrait_bg/Reaper_heroImage_2.jpg",
+        file_path: "https://www.youtube.com/embed/z-fEjgCuZWE" ,
         hero: "Reaper",
         map: "King's Row",
         rank: "Diamond",
@@ -283,12 +292,13 @@ export const userVideosData: UserVideosData = {
         id: "2",
         title: "플레이 영상 2 - 메르시 힐링",
         description: "메르시 힐러 플레이 영상입니다. 힐링 우선순위와 포지셔닝에 대한 피드백이 필요합니다.",
-        uploadDate: "2024-01-14T14:20:00Z",
+        upload_date: "2024-01-14T14:20:00Z",
         duration: "18:45",
         fileSize: "52.1MB",
         status: "completed",
         analysisStatus: "분석 완료",
-        thumbnail: "/images/game_hero/hero_portrait_bg/Mercy_heroImage_3.jpg",
+        thumbnail: "/images/game_hero/hero_portrait_bg/Mercy_heroImage_2.jpg",
+        file_path: "/images/game_hero/hero_abilities_video/Mercy_video.webm",
         hero: "Mercy",
         map: "Numbani",
         rank: "Platinum",
@@ -325,7 +335,7 @@ export const userVideosData: UserVideosData = {
         id: "3", 
         title: "플레이 영상 3 - 라인하르트 탱킹",
         description: "라인하르트 탱커 플레이 영상입니다. 실드 관리와 궁극기 타이밍에 대한 분석이 필요합니다.",
-        uploadDate: "2024-01-13T09:15:00Z",
+        upload_date: "2024-01-13T09:15:00Z",
         duration: "20:18",
         fileSize: "58.7MB",
         status: "completed",
@@ -367,7 +377,7 @@ export const userVideosData: UserVideosData = {
         id: "4",
         title: "플레이 영상 4 - 한조 스나이핑",
         description: "한조 스나이퍼 플레이 영상입니다. 에임과 포지셔닝에 대한 피드백이 필요합니다.",
-        uploadDate: "2024-01-12T16:45:00Z",
+        upload_date: "2024-01-12T16:45:00Z",
         duration: "17:30",
         fileSize: "48.9MB",
         status: "processing",
@@ -383,7 +393,7 @@ export const userVideosData: UserVideosData = {
         id: "5",
         title: "플레이 영상 5 - 아나 스나이핑",
         description: "아나 스나이퍼 플레이 영상입니다. 힐링과 딜링 밸런스에 대한 분석이 필요합니다.",
-        uploadDate: "2024-01-11T11:30:00Z",
+        upload_date: "2024-01-11T11:30:00Z",
         duration: "19:22",
         fileSize: "55.3MB",
         status: "failed",
