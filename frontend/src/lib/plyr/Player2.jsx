@@ -70,14 +70,14 @@ const Player = ({ videoSrc, posterSrc, videoTitle = "" }) => {
       {isYouTube ? (
         <>
           {/* YouTube용 썸네일 이미지 */}
-          {posterSrc && (
+          {/* {posterSrc && (
             <Image 
               className="absolute inset-0 w-full h-full object-cover z-10 plyr_custom_poster cursor-pointer" 
               src={posterSrc} 
               alt="poster" 
               fill
             />
-          )}
+          )} */}
           {/* YouTube iframe */}
           <iframe
             src={videoSrc}
