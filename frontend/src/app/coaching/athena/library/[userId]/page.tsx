@@ -1,29 +1,23 @@
-"use client";
+// 아테나 동영상 목록 페이지
 
-
-import AthenaAnalysis from "@/components/sections/athena/dashboard/AthenaAnalysis";
 import CoachingBreadcrumb from "@/components/sections/mentor-menti/CoachingBreadcumb";
 import { headerBannerType, NavLinkProps } from "@/config/types";
-
-// 메인 분기 페이지
 
 const Page = () => {
 
   const navLinks: NavLinkProps[] = [
-    { id: 1, url: "/coaching", label: "강의" },
-    { id: 2, url: "", label: "Athena" },
+    { id: 1, url: "/coaching/athena/analysis", label: "Athena" },
+    { id: 2, url: "", label: "Athena 라이브러리" },
 ];
 
 const headerData: headerBannerType = {
-    title: "Athena",
+    title: "Athena AI",
     bgImgClasses: "",
     navLinks,
 };
-
   return (
     <main>
       <CoachingBreadcrumb breadcrumb={headerData}/>
-      <AthenaAnalysis/>
     </main>
   )
 }

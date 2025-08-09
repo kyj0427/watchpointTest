@@ -191,7 +191,7 @@ const Footer = () => {
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
                   <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
-                    href="/coaching/athena/feedback"
+                    href="/coaching/athena/libaray"
                     className="text-m-regular text-w-neutral-3"
                   >
                     코칭AI Athena

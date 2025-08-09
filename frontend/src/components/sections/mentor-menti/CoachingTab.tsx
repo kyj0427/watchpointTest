@@ -13,7 +13,7 @@ const CoachingTab = () => {
     },
     {
       title: "Athena",
-      link: `/coaching/athena/analysis`,
+      link: `/coaching/athena/library`,
     },
     {
       title: "강의 등록",
