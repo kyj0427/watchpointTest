@@ -65,12 +65,12 @@ const AthenaDashboard = ({ isGuest = false, userId = null }) => {
             return;
         }
 
-        //썸네일 추출출
-        const thumbnail = await generateThumbnail(selectedFile);
+        //썸네일 추출
+        // const thumbnail = await generateThumbnail(selectedFile);
 
         const formData = new FormData();
         formData.append("file", selectedFile);
-        formData.append("thumbnail", thumbnail); //썸네일도 함께 전송
+        // formData.append("thumbnail", thumbnail); //썸네일도 함께 전송
 
         try {
             const response = await fetch("/api/ai-process-video", {

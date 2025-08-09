@@ -1,13 +1,11 @@
 "use client";
 
-import { topTrendingGames } from "@public/data/topTrending";
-import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState } from "react";
-import { FreeMode, Navigation, Pagination, Thumbs } from "swiper/modules";
+import { useRef, useState, useEffect } from "react";
+import { Navigation, Pagination, Thumbs } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import AnimateHeight from "react-animate-height";
-import VideoPlayer from "@/lib/plyr/VideoPlayer";
+import VideoPlayer2 from "@/lib/plyr/VideoPlayer2";
 import { useParams } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
 import { userVideosData } from "@public/data/athenaVideos";
@@ -23,21 +21,49 @@ const AthenaChatRoom = () => {
   // 동영상 데이터 찾기
   const video = user && userVideosData[user.id]?.videos.find(v => v.id === videoId);
 
-  const thumbsSwiperRef = useRef(null);
+  // YouTube URL인지 확인하는 함수
+  const isYouTubeUrl = (url: string) => {
+    return url.includes('youtube.com') || url.includes('youtu.be');
+  };
+
+  // 파일 존재 여부 확인 함수
+  const checkFileExists = async (filePath: string) => {
+    // YouTube URL이면 항상 true 반환
+    if (isYouTubeUrl(filePath)) {
+      return true;
+    }
+    
+    // 로컬 파일인 경우에만 실제 존재 여부 확인
+    try {
+      const response = await fetch(filePath, { method: 'HEAD' });
+      return response.ok;
+    } catch (error) {
+      return false;
+    }
+  };
+
+  // 파일 존재 여부 상태
+  const [fileExists, setFileExists] = useState<boolean | null>(null);
+
+  // 파일 존재 여부 확인
+  useEffect(() => {
+    if (video?.file_path) {
+      checkFileExists(video.file_path).then(exists => {
+        setFileExists(exists);
+      });
+    } else {
+      setFileExists(null);
+    }
+  }, [video]);
 
   // Define a type for the thumbsSwiper instance
   type ThumbsSwiperType = any | null;
 
-  // Default initial state
-  const defaultThumbsSwiper: ThumbsSwiperType = null;
-
   // Use the defined type for thumbsSwiper
-  const [thumbsSwiper, setThumbsSwiper] =
-    useState<ThumbsSwiperType>(defaultThumbsSwiper);
+  const [thumbsSwiper, setThumbsSwiper] = useState<ThumbsSwiperType>(null);
 
   // function to handle Swiper instance
   const handleSwiper = (swiper: ThumbsSwiperType) => {
-    // store the Swiper instance in state
     setThumbsSwiper(swiper);
   };
 
@@ -89,7 +115,8 @@ const AthenaChatRoom = () => {
                   modules={[Navigation, Pagination, Thumbs]}
                   className="swiper thumbs-gallery-main"
                 >
-                  {video ? (
+                  {video && fileExists ? (
+                    // 비디오가 있고 파일도 존재할 때
                     <SwiperSlide                      
                       className="rounded-12 overflow-hidden"
                     >
@@ -99,16 +126,16 @@ const AthenaChatRoom = () => {
                             {video.hero} - {video.map}
                           </span>
                           
-                            <VideoPlayer
-                              // posterSrc={video.thumbnail}
+                            <VideoPlayer2
+                              posterSrc={video.thumbnail}
                               videoSrc={video.file_path}                              
                             />
                           
                         </div>
                       </div>
                     </SwiperSlide>
-                  ) : (
-                    // 비디오 찾을수없을떄 화면
+                  ) : video && fileExists === false ? (
+                    // 비디오 데이터는 있지만 파일이 없을 때
                     <SwiperSlide className="rounded-12 overflow-hidden">
                       <div className="w-full">
                         <div className="relative bg-b-neutral-3 h-96 flex items-center justify-center">
@@ -116,6 +143,31 @@ const AthenaChatRoom = () => {
                             <i className="ti ti-video-off icon-48 text-w-neutral-4 mb-16p"></i>
                             <p className="text-w-neutral-4">동영상을 찾을 수 없습니다</p>
                             <p className="text-sm text-w-neutral-5 mt-8p">요청하신 동영상이 존재하지 않거나 삭제되었습니다.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  ) : !video ? (
+                    // 비디오 데이터 자체가 없을 때
+                    <SwiperSlide className="rounded-12 overflow-hidden">
+                      <div className="w-full">
+                        <div className="relative bg-b-neutral-3 h-96 flex items-center justify-center">
+                          <div className="text-center">
+                            <i className="ti ti-video-off icon-48 text-w-neutral-4 mb-16p"></i>
+                            <p className="text-w-neutral-4">동영상을 찾을 수 없습니다</p>
+                            <p className="text-sm text-w-neutral-5 mt-8p">요청하신 동영상이 존재하지 않거나 삭제되었습니다.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  ) : (
+                    // 파일 존재 여부 확인 중일 때 (로딩)
+                    <SwiperSlide className="rounded-12 overflow-hidden">
+                      <div className="w-full">
+                        <div className="relative bg-b-neutral-3 h-96 flex items-center justify-center">
+                          <div className="text-center">
+                            <i className="ti ti-loader icon-48 text-w-neutral-4 mb-16p animate-spin"></i>
+                            <p className="text-w-neutral-4">동영상을 확인하는 중...</p>
                           </div>
                         </div>
                       </div>
