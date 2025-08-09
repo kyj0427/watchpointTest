@@ -1,297 +1,448 @@
-"use client";
+// GameInfoMain_ReactScaffold.tsx
+// 목적: 붙여주신 OP.GG 스타일의 "게임정보 메인"을 Next.js/React 컴포넌트 구조로 분리·이식한 스캐폴드
+// - 광고/스크립트 제거, 정적인 레이아웃만 구성
+// - Tailwind 기반 스타일 유지를 가정 (프로젝트에 이미 존재하는 유틸 클래스 사용)
+// - 외부 이미지(next/image) 사용 편의를 위해 일단 unoptimized 옵션 사용 (next.config.js로 domains 등록 시 제거 가능)
+// - 실제 데이터는 API 연동 전까지 mockData로 대체
 
+import Image from "next/image";
+import Link from "next/link";
 import { useMemo } from "react";
-import { useSearchParams } from "next/navigation";
-import { userData, Profile } from "@/../public/data/userData";
 
-type MostPlayedHero = {
-  name: string; kda: string; kdaDetail: string; winRate: string; games: string;
-  kdaWeight: "font-black" | "font-semibold";
+// ---------- Types ----------
+export type Role = "탱커" | "딜러" | "지원" | "돌격" | "공격";
+
+export interface PlayerHeaderData {
+  uid: string;
+  mode: "competitive" | "quick";
+  platform: "pc" | "console";
+  backgroundUrl: string;
+  portraitUrl: string;
+  name: string;
+  title?: string;
+  lastUpdatedText?: string; // 예: "최근 업데이트 : 32시간 전"
+}
+
+export interface RoleTierSummary {
+  roleIconUrl: string;
+  rankIconUrl: string;
+  tierText?: string; // 예: "마스터 2"
+  scoreText?: string; // 예: "3,800"
+  winRateText?: string; // 예: "69%"
+  winLoseText?: string; // 예: "9승 / 3패"
+  kdText?: string; // 예: "2.64 : 1 K/D"
+  kdDetailText?: string; // 예: "21.7 / 8.2"
+  placementPending?: boolean; // 배치 전
+}
+
+export interface RoleRowStat {
+  roleLabel: string; // 공격/지원/돌격
+  roleIconUrl: string;
+  playTime: string; // 예: "2시간"
+  winRatio: string; // "69%"
+  win: string; // "9W"
+  lose: string; // "3L"
+  kd: string; // "2.64 : 1"
+  kdDetail?: string; // "21.7 / 8.2"
+}
+
+export interface HeroRowStat {
+  heroName: string; // 트레이서 등
+  heroImageUrl: string;
+  gradeText: string; // B, A 등급
+  win: string; // "2"
+  lose: string; // "1"
+  winRatio: string; // "58%"
+  kd: string; // "2.29 : 1"
+  kdDetail?: string; // "20.00 / 8.75"
+  avgObjective?: string; // "59초" 등 (원문 테이블에서 평균임무기여)
+  playTime: string; // "44분"
+  moreLink?: string; // 영웅 상세 링크
+}
+
+export interface SideSummaryItem { label: string; value: string; }
+
+// ---------- Mock Data (원문 HTML을 바탕으로 축약) ----------
+const mockHeader: PlayerHeaderData = {
+  uid: "201249062153129198199098",
+  mode: "competitive",
+  platform: "pc",
+  backgroundUrl:
+    "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltb9e273d8483050b8/631a8aab3ab6f40dd2a90699/1600_Tracer.jpg",
+  portraitUrl:
+    "https://d15f34w2p8l1cc.cloudfront.net/overwatch/71d29660fd426e7b2a78a9b896027c79fcbe03c5c63e19c5937078eb13f8f9a5.png",
+  name: "Fickle",
+  title: "Overwatch Agent",
+  lastUpdatedText: "최근 업데이트 : 32시간 전",
 };
-type RecentHero = { name: string; winRate: string; record: string };
-type PositionBar = { name: "탱커" | "딜러" | "힐러"; height: string; top: string };
 
-export default function UserComp() {
-  const params = useSearchParams();
-  const id = (params.get("id") ?? params.get("q") ?? "").trim();
+const mockRoleTiers: RoleTierSummary[] = [
+  {
+    roleIconUrl: "https://s-overwatch.op.gg/img/icon/icon_tank_transparent@2x.png",
+    rankIconUrl: "https://s-overwatch.op.gg/img/rankIcon/rank-1.png",
+    placementPending: true,
+    winRateText: "0%",
+    winLoseText: "0승 / 0패",
+    kdText: "8.00 : 1 K/D",
+  },
+  {
+    roleIconUrl: "https://s-overwatch.op.gg/img/icon/icon_attack_transparent@2x.png",
+    rankIconUrl: "https://s-overwatch.op.gg/img/rankIcon/TierMaster.png",
+    tierText: "마스터 2",
+    scoreText: "3,800",
+    winRateText: "69%",
+    winLoseText: "9승 / 3패",
+    kdText: "2.64 : 1 K/D",
+    kdDetailText: "21.7 / 8.2",
+  },
+  {
+    roleIconUrl: "https://s-overwatch.op.gg/img/icon/icon_support_transparent@2x.png",
+    rankIconUrl: "https://s-overwatch.op.gg/img/rankIcon/TierDiamond.png",
+    tierText: "다이아몬드 4",
+    scoreText: "3,100",
+    winRateText: "33%",
+    winLoseText: "1승 / 1패",
+    kdText: "2.29 : 1 K/D",
+    kdDetailText: "23.7 / 10.3",
+  },
+];
 
-const profile: Profile = useMemo(() => {
-  const id = (params.get("id") ?? params.get("q") ?? "").trim();
-  if (!id) return userData.defaultProfile;
+const mockRoleRows: RoleRowStat[] = [
+  {
+    roleLabel: "공격",
+    roleIconUrl: "https://s-overwatch.op.gg/img/icon/icon_attack.png",
+    playTime: "2시간",
+    winRatio: "69%",
+    win: "9W",
+    lose: "3L",
+    kd: "2.64 : 1",
+    kdDetail: "21.7 / 8.2",
+  },
+  {
+    roleLabel: "지원",
+    roleIconUrl: "https://s-overwatch.op.gg/img/icon/icon_support.png",
+    playTime: "46분",
+    winRatio: "33%",
+    win: "1W",
+    lose: "1L",
+    kd: "2.29 : 1",
+    kdDetail: "23.7 / 10.3",
+  },
+  {
+    roleLabel: "돌격",
+    roleIconUrl: "https://s-overwatch.op.gg/img/icon/icon_tank.png",
+    playTime: "2분",
+    winRatio: "-",
+    win: "0W",
+    lose: "0L",
+    kd: "8.00 : 1",
+    kdDetail: "0 / 0",
+  },
+];
 
-  // profiles는 Record<string, Profile>로 타입이기 때문에 바로 인덱싱 OK
-  return userData.profiles[id] ?? userData.defaultProfile;
-}, [params]);
+const mockHeroRows: HeroRowStat[] = [
+  {
+    heroName: "트레이서",
+    heroImageUrl:
+      "https://d15f34w2p8l1cc.cloudfront.net/overwatch/a66413200e934da19540afac965cfe8a2de4ada593d9a52d53108bb28e8bbc9c.png",
+    gradeText: "B",
+    win: "2",
+    lose: "1",
+    winRatio: "58%",
+    kd: "2.29 : 1",
+    kdDetail: "20.00 / 8.75",
+    avgObjective: "59초",
+    playTime: "44분",
+    moreLink: "#Hero-3",
+  },
+  {
+    heroName: "겐지",
+    heroImageUrl:
+      "https://d15f34w2p8l1cc.cloudfront.net/overwatch/4edf5ea6d58c449a2aeb619a3fda9fff36a069dfbe4da8bc5d8ec1c758ddb8dc.png",
+    gradeText: "B",
+    win: "3",
+    lose: "0",
+    winRatio: "100%",
+    kd: "3.43 : 1",
+    kdDetail: "24.00 / 7.00",
+    avgObjective: "47초",
+    playTime: "26분",
+    moreLink: "#Hero-14",
+  },
+  // ... 필요시 더 추가
+];
 
-  const mostPlayedHeroes: MostPlayedHero[] = profile?.mostPlayedHeroes ?? [];
-  const recentHeroes: RecentHero[] = profile?.recentHeroes ?? [];
-  const positionData: PositionBar[] = profile?.positionData ?? [];
-  const seasons: string[] = profile?.seasons ?? [];
-  const srValues: string[] = profile?.srValues ?? [];
-  const statsCards = profile?.statsCards ?? [];
+const mockSideSummary: SideSummaryItem[] = [
+  { label: "승패", value: "12승 6패 (67%)" },
+  { label: "K/D", value: "2.59 : 1" },
+  { label: "킬", value: "20.1" },
+  { label: "데스", value: "7.8" },
+  { label: "게임당 평균 딜량", value: "8,870" },
+  { label: "게임당 평균 힐량", value: "2,577" },
+  { label: "플레이 시간", value: "3시간" },
+  { label: "일 평균 플레이 시간", value: "3초" },
+  { label: "최고 폭주 시간", value: "4분 54초" },
+  { label: "평균 임무 기여 시간", value: "48초" },
+  { label: "평균 임무 기여 처치", value: "5.44" },
+];
 
+// ---------- Components ----------
+function PlayerHeader({ data }: { data: PlayerHeaderData }) {
   return (
-    <main className="relative w-[1114px] h-[756px]" role="main">
-      {/* Header */}
-      <header className="absolute w-[1086px] h-[205px] top-3.5 left-[18px] bg-[#d9d9d9]">
-        <div className="absolute w-[79px] h-[79px] top-[67px] left-[3px] bg-[#a6a6a6] rounded-[10px] border-[3px] border-solid border-white shadow-[0px_4px_4px_#00000040]" role="img" aria-label="프로필 이미지" />
-        <button className="absolute w-[90px] h-[34px] top-[113px] left-[109px] bg-[#565e6d] rounded-[10px] hover:bg-[#4a5261] transition-colors">
-          <span className="h-[9px] top-[11px] left-[21px] [font-family:'Inter-Medium',Helvetica] font-medium text-white text-xs text-center leading-[normal] whitespace-nowrap absolute tracking-[0]">
-            전적 갱신
-          </span>
-        </button>
-        <p className="h-[9px] top-[159px] left-[110px] [font-family:'Inter-Medium',Helvetica] font-medium text-white text-xs text-center leading-[normal] whitespace-nowrap absolute tracking-[0]">
-          최근 업데이트 : {profile?.lastUpdated ?? "—"}
-        </p>
-        <h1 className="h-5 top-[79px] left-[107px] [font-family:'Inter-Bold',Helvetica] font-bold text-white text-[28px] text-center leading-[normal] whitespace-nowrap absolute tracking-[0]">
-          {profile?.name ?? "유저"}
-        </h1>
-        {profile?.tag && (
-          <span className="h-3 top-[83px] left-[189px] [font-family:'Inter-Bold',Helvetica] font-bold text-white text-base text-center leading-[normal] whitespace-nowrap absolute tracking-[0]">
-            #{profile.tag}
-          </span>
-        )}
-
-        {/* Play Style */}
-        <section className="absolute w-[205px] h-[177px] top-3.5 left-[550px]" aria-labelledby="playstyle-title">
-          <div className="absolute w-[149px] h-[103px] top-[37px] left-0">
-            <div className="absolute w-[124px] h-[21px] top-[27px] left-[42px] bg-[#565e6d] rounded-[60px]">
-              <p className="h-1.5 top-[7px] left-[22px] [font-family:'Inter-Medium',Helvetica] font-medium text-white text-[8px] text-center leading-[normal] whitespace-nowrap absolute tracking-[0]">
-                플레이 스타일 : {profile?.playStyle ?? "—"} &nbsp;&gt;
-              </p>
-            </div>
-            <h2 id="playstyle-title" className="h-[15px] top-[-7px] left-[45px] [font-family:'Inter-Black',Helvetica] font-black text-white text-xl text-center leading-[normal] whitespace-nowrap absolute tracking-[0]">
-              {profile?.playStyleLabel ?? "—"}
-            </h2>
-            <div className="h-[9px] top-[78px] left-[42px] [font-family:'Inter-Medium',Helvetica] font-medium text-white text-xs text-center leading-[normal] whitespace-nowrap absolute tracking-[0]">
-              주요 영웅
-            </div>
-            <div className="absolute w-[26px] h-[27px] top-[76px] left-[104px] bg-[#a6a6a6] rounded-[13px/13.5px] shadow-[0px_4px_4px_#00000040]" role="img" aria-label="주요 영웅 1" />
-            <div className="absolute w-[26px] h-[27px] top-[76px] left-[131px] bg-[#a6a6a6] rounded-[13px/13.5px] shadow-[0px_4px_4px_#00000040]" role="img" aria-label="주요 영웅 2" />
-            <div className="absolute w-[26px] h-[27px] top-[76px] left-[158px] bg-[#a6a6a6] rounded-[13px/13.5px] shadow-[0px_4px_4px_#00000040]" role="img" aria-label="주요 영웅 3" />
-          </div>
-          <div className="absolute w-[177px] h-[177px] top-0 left-7 rounded-lg border border-solid border-[#8c8d8b]" />
-        </section>
-
-        {/* Best Highlight */}
-        <section className="absolute w-[303px] h-[177px] top-3.5 left-[769px] rounded-lg" aria-labelledby="highlight-title">
-          <div className="absolute w-[94px] h-[21px] top-[7px] left-1.5 bg-[#565e6d] rounded-[10px]" />
-          <h2 id="highlight-title" className="h-1.5 top-3.5 left-[23px] [font-family:'Inter-Bold',Helvetica] font-bold text-white text-[8px] text-center leading-[normal] whitespace-nowrap absolute tracking-[0]">
-            베스트 하이라이트
-          </h2>
-          <div className="h-1.5 top-[88px] left-[109px] [font-family:'Inter-Bold',Helvetica] font-bold text-white text-[8px] text-center leading-[normal] whitespace-nowrap absolute tracking-[0]">
-            {profile?.bestHighlight ?? "설정된 베스트 하이라이트"}
-          </div>
-          <div className="absolute w-[303px] h-[177px] top-0 left-0 rounded-lg border border-dashed border-[#8c8d8b]" />
-        </section>
-      </header>
-
-      {/* Tier */}
-      <section className="absolute w-[336px] h-[120px] top-[267px] left-[17px] bg-[#a6a6a6] rounded-[10px]" aria-labelledby="tier-title">
-        <h2 id="tier-title" className="h-2.5 top-[22px] left-[15px] [font-family:'Inter-Bold',Helvetica] font-bold text-white text-sm text-center leading-[normal] whitespace-nowrap absolute tracking-[0]">티어</h2>
-        <div className="h-[9px] top-14 left-[84px] [font-family:'Inter-Bold',Helvetica] font-bold text-white text-xs leading-[normal] whitespace-nowrap absolute tracking-[0]">
-          {profile?.tier ?? "—"}
-        </div>
-        <div className="absolute h-[9px] top-[76px] left-[85px] [font-family:'Inter-Medium',Helvetica] font-medium text-white text-xs text-center tracking-[0] leading-[normal] whitespace-nowrap">
-          {profile?.lp != null ? `${profile.lp.toLocaleString()} LP` : "—"}
-        </div>
-        <div className="h-[9px] top-[76px] left-[268px] [font-family:'Inter-Medium',Helvetica] font-medium text-white text-xs text-center leading-[normal] whitespace-nowrap absolute tracking-[0]">
-          승률 {profile?.wins != null && profile?.losses != null
-            ? Math.round((profile.wins / (profile.wins + profile.losses)) * 100)
-            : 0}%</div>
-        <div className="h-[9px] top-14 left-[246px] [font-family:'Inter-Medium',Helvetica] font-medium text-white text-xs text-center leading-[normal] whitespace-nowrap absolute tracking-[0]">
-          {(profile?.wins ?? 0)}승 {(profile?.losses ?? 0)}패
-        </div>
-        <div className="absolute w-[35px] h-9 top-[57px] left-7 bg-[#d9d9d9] rounded-[17.5px/18px] shadow-[0px_4px_4px_#00000040]" role="img" aria-label="티어 아이콘" />
-      </section>
-
-      {/* Match History */}
-      <section className="absolute w-[557px] h-[191px] top-[267px] left-[370px] bg-[#a6a6a6] rounded-[9.42px]" aria-labelledby="match-history-title">
-        <h2 id="match-history-title" className="h-2.5 top-[21px] left-[18px] [font-family:'Inter-Bold',Helvetica] font-bold text-white text-[13.2px] leading-[normal] whitespace-nowrap absolute tracking-[0]">
-          매치 히스토리
-        </h2>
-        <div className="h-2 top-[57px] left-[18px] [font-family:'Inter-Bold',Helvetica] font-bold text-white text-[11.3px] text-center leading-[normal] whitespace-nowrap absolute tracking-[0]">
-          20전 {profile?.recent20Wins ?? 9}승 {profile?.recent20Losses ?? 11}패
-        </div>
-
-        {/* Win Rate Circle */}
-        <div className="absolute w-[97px] h-[97px] top-[85px] left-3.5">
-          <div className="absolute h-[11px] top-[38px] left-9 [font-family:'Inter-Bold',Helvetica] font-bold text-white text-[15.1px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
-            {profile?.recent20WinRate ?? 45}%
-          </div>
-          <div className="absolute w-[90px] h-[90px] top-0 left-1 bg-[#d9d9d9] rounded-[44.77px]" />
-          <img className="absolute w-[97px] h-[97px] top-0 left-0" alt="승률 차트" src="/images/user/exclude.svg" />
-          <img className="absolute w-px h-3.5 top-0 left-12" alt="Line" src="/images/user/line-111.svg" />
-          <img className="absolute w-px h-[15px] top-[74px] left-12" alt="Line" src="/images/user/line-112.svg" />
-        </div>
-
-        <div className="absolute h-[11px] top-[116px] left-[123px] [font-family:'Inter-Bold',Helvetica] font-bold text-white text-[15.1px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
-          KDA {profile?.kda ?? 0}
-        </div>
-
-        <p className="h-2 top-[134px] left-[123px] [font-family:'Inter-Medium',Helvetica] font-normal text-white text-[11.3px] text-center leading-[normal] whitespace-nowrap absolute tracking-[0]">
-          <span className="font-medium">킬 관여율 </span>
-          <span className="[font-family:'Inter-ExtraBold',Helvetica] font-extrabold">{profile?.killPart ?? 0}%</span>
-        </p>
-
-        {/* Position Preference */}
-        <div className="h-2 top-[59px] left-[245px] [font-family:'Inter-Bold',Helvetica] font-bold text-white text-[11.3px] text-center leading-[normal] whitespace-nowrap absolute tracking-[0]">
-          선호 포지션
-        </div>
-
-        {positionData.map((p, i) => (
-          <div key={p.name}>
-            {/* ✅ 스타일 템플릿 리터럴 올바르게 수정됨 */}
-            <div
-              className="h-[5px] top-[164px] [font-family:'Inter-Regular',Helvetica] font-normal text-white text-[7.5px] text-center leading-[normal] whitespace-nowrap absolute tracking-[0]"
-              style={{ left: `${248 + i * 37}px` }}
-            >
-              {p.name}
-            </div>
-            <div
-              className="absolute w-2.5 h-[74px] top-[85px] bg-[#d9d9d9] rounded-[7.54px]"
-              style={{ left: `${250 + i * 37}px` }}
-            >
-              <div className={`relative ${p.height} ${p.top} bg-[#565e6d] rounded-[7.54px] shadow-[0px_3.77px_3.77px_#00000040]`} />
-            </div>
-          </div>
-        ))}
-
-        {/* Recent Heroes */}
-        <div className="h-2 top-[58px] left-[388px] [font-family:'Inter-Bold',Helvetica] font-bold text-white text-[11.3px] text-center leading-[normal] whitespace-nowrap absolute tracking-[0]">
-          플레이한 영웅 *최근 20게임)
-        </div>
-
-        {recentHeroes.map((h, i) => (
-          <div key={h.name}>
-            <div
-              className="absolute w-6 h-[25px] bg-[#d9d9d9] rounded-[11.9px/12.5px] shadow-[0px_3.77px_3.77px_#00000040]"
-              style={{ top: `${82 + i * 33}px`, left: "389px" }}
-              role="img" aria-label={`${h.name} 아이콘`}
+    <div className="rounded-2xl overflow-hidden border border-shap">
+      <div
+        className="relative h-56 md:h-72 w-full bg-cover bg-center"
+        style={{ backgroundImage: `url(${data.backgroundUrl})` }}
+      >
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="relative z-10 flex items-end h-full p-4 md:p-6 gap-4">
+          <div className="shrink-0">
+            <Image
+              src={data.portraitUrl}
+              alt="portrait"
+              width={72}
+              height={72}
+              className="rounded-xl bg-white/10 p-1"
+              unoptimized
             />
-            <div
-              className="h-[5px] [font-family:'Inter-Medium',Helvetica] font-medium text-white text-[7.1px] leading-[normal] whitespace-nowrap absolute tracking-[0]"
-              style={{ top: `${89 + i * 33}px`, left: "417px" }}
-            >
-              {h.name}
-            </div>
-            <div
-              className="h-[5px] [font-family:'Inter-Medium',Helvetica] font-medium text-[7.1px] absolute text-white tracking-[0] leading-[normal] whitespace-nowrap"
-              style={{ top: `${89 + i * 33}px`, left: "455px" }}
-            >
-              {h.winRate}
-            </div>
-            <div
-              className="h-[5px] [font-family:'Inter-Bold',Helvetica] font-bold text-white text-[7.1px] leading-[normal] whitespace-nowrap absolute tracking-[0]"
-              style={{ top: `${89 + i * 33}px`, left: "497px" }}
-            >
-              {h.record}
-            </div>
+            <div className="mt-2 text-center text-xs text-white/80">{data.platform.toUpperCase()}</div>
           </div>
-        ))}
-      </section>
 
-      {/* Most Played Heroes */}
-      <section className="absolute w-[336px] h-[347px] top-[397px] left-4" aria-labelledby="most-played-title">
-        <div className="absolute w-[336px] h-[341px] top-1.5 left-0 bg-[#a6a6a6] rounded-[10px]" />
-        <h2 id="most-played-title" className="w-[110px] h-[75px] top-0 left-[15px] [font-family:'Inter-Bold',Helvetica] font-bold text-white text-sm text-center leading-[normal] absolute tracking-[0]">
-          모스트 플레이 영웅
-        </h2>
-
-        {mostPlayedHeroes.map((h, i) => (
-          <div key={h.name}>
-            <div
-              className="absolute w-10 h-[42px] bg-[#d9d9d9] rounded-[20px/21px] shadow-[0px_4px_4px_#00000040]"
-              style={{ top: `${67 + i * 55}px`, left: "15px" }}
-              role="img" aria-label={`${h.name} 아이콘`}
-            />
-            <div
-              className="h-[9px] [font-family:'Inter-Medium',Helvetica] font-medium text-white text-xs leading-[normal] whitespace-nowrap absolute tracking-[0]"
-              style={{ top: `${79 + i * 55}px`, left: "62px" }}
-            >
-              {h.name}
+          <div className="text-white">
+            <div className="text-2xl font-semibold flex items-center gap-2">
+              <span>{data.name}</span>
             </div>
-            <div
-              className={`absolute h-[9px] ${h.kdaWeight} text-white text-xs tracking-[0] leading-[normal] whitespace-nowrap`}
-              style={{ top: `${72 + i * 55}px`, left: "188px" }}
-            >
-              {h.kda}
-            </div>
-            <p
-              className="absolute h-[7px] [font-family:'Inter-Medium',Helvetica] font-medium text-white text-[10px] tracking-[0] leading-[normal] whitespace-nowrap"
-              style={{ top: `${88 + i * 55}px`, left: "180px" }}
-            >
-              {h.kdaDetail}
-            </p>
-            <div
-              className={`h-[9px] ${h.kdaWeight === "font-black" ? "font-black" : "font-medium"} text-xs absolute text-white tracking-[0] leading-[normal] whitespace-nowrap`}
-              style={{ top: `${72 + i * 55}px`, left: "294px" }}
-            >
-              {h.winRate}
-            </div>
-            <div
-              className="h-[7px] [font-family:'Inter-Medium',Helvetica] font-medium text-white text-[10px] leading-[normal] whitespace-nowrap absolute tracking-[0]"
-              style={{ top: `${88 + i * 55}px`, left: "288px" }}
-            >
-              {h.games}
-            </div>
+            {data.title && <div className="text-sm opacity-90">{data.title}</div>}
+            {data.lastUpdatedText && (
+              <div className="mt-1 text-xs text-white/70">{data.lastUpdatedText}</div>
+            )}
           </div>
-        ))}
-      </section>
 
-      {/* Summary + Divider */}
-      <div className="h-[9px] top-[230px] left-[17px] [font-family:'Inter-Bold',Helvetica] font-bold text-[#565e6d] text-xs text-center leading-[normal] whitespace-nowrap absolute tracking-[0]">
-        종합
+          <div className="ml-auto flex gap-2">
+            <button className="px-3 py-2 rounded-lg bg-primary text-white text-sm shadow">
+              전적갱신
+            </button>
+            <button className="px-3 py-2 rounded-lg bg-white/10 text-white text-sm">
+              즐겨찾기
+            </button>
+          </div>
+        </div>
       </div>
-      <img className="absolute w-[22px] h-[3px] top-[249px] left-[17px]" alt="구분선" src="/images/user/line-109.svg" />
+    </div>
+  );
+}
 
-      {/* SR Progression */}
-      <section className="w-[553px] h-[244px] top-[472px] left-[370px] rounded-[9.42px] border-[0.64px] border-solid absolute bg-[#a6a6a6] border-[#9095a0]" aria-labelledby="sr-progression-title">
-        <h2 id="sr-progression-title" className="absolute top-[17px] left-4 [font-family:'Archivo-SemiBold',Helvetica] font-semibold text-white text-[12.7px] tracking-[0] leading-[17.8px] whitespace-nowrap">
-          SR Progression Over Seasons
-        </h2>
-        <div className="absolute top-[38px] left-4 [font-family:'Inter-Regular',Helvetica] font-normal text-white text-[8.9px] tracking-[0] leading-[12.7px] whitespace-nowrap">
-          텍스트
-        </div>
-        <div className="absolute w-[523px] h-[132px] top-[65px] left-4">
-          <div className="relative w-[503px] h-[132px] bg-[url(/image-2.svg)] bg-[100%_100%]">
-            {seasons.map((s, i) => (
-              <div key={s} className="absolute top-[116px] [font-family:'Inter-Regular',Helvetica] font-normal text-white text-[6.2px] tracking-[0] leading-[9.3px] whitespace-nowrap" style={{ left: `${45 + i * 85}px` }}>
-                {s}
-              </div>
-            ))}
-            {srValues.map((v, i) => (
-              <div key={v} className="absolute [font-family:'Inter-Regular',Helvetica] font-normal text-[6.2px] leading-[9.3px] text-white tracking-[0] whitespace-nowrap" style={{ top: `${110 - i * 35}px`, left: "22px" }}>
-                {v}
-              </div>
-            ))}
+function RoleTierGrid({ items }: { items: RoleTierSummary[] }) {
+  return (
+    <div className="grid md:grid-cols-3 gap-4">
+      {items.map((it, i) => (
+        <div key={i} className="rounded-xl border border-shap bg-b-neutral-3 p-4">
+          <div className="flex items-center gap-3">
+            <Image src={it.roleIconUrl} alt="role" width={32} height={32} unoptimized />
+            <Image src={it.rankIconUrl} alt="rank" width={40} height={40} unoptimized />
+            <div className="ml-auto text-right">
+              {it.placementPending ? (
+                <div className="text-sm text-w-neutral-2">
+                  <b>경쟁전 실력 평점</b> (배치 전)
+                </div>
+              ) : (
+                <>
+                  {it.tierText && <div className="text-sm text-navy">{it.tierText}</div>}
+                  {it.scoreText && <div className="text-lg font-semibold text-navy">{it.scoreText}</div>}
+                </>
+              )}
+            </div>
           </div>
-        </div>
-      </section>
 
-      {/* Stats Cards */}
-      {statsCards.map((s: any) => (
-        <div key={s.title} className={`w-[165px] h-[63px] left-[939px] rounded-lg border-[0.67px] border-solid absolute bg-[#a6a6a6] border-[#9095a0] ${s.position}`}>
-          <div className="absolute top-[11px] left-[11px] [font-family:'Inter-Medium',Helvetica] font-medium text-white text-[9.4px] tracking-[0] leading-[13.5px] whitespace-nowrap">
-            {s.title}
+          <div className="mt-3 flex items-center gap-3 text-sm">
+            <b className="text-w-neutral-1">{it.winRateText}</b>
+            <span className="text-w-neutral-2">{it.winLoseText}</span>
           </div>
-          <div className="top-7 left-[11px] [font-family:'Archivo-ExtraBold',Helvetica] font-extrabold text-white text-[20.2px] leading-[24.3px] whitespace-nowrap absolute tracking-[0]">
-            {s.value}
-          </div>
-          {s.icon ? (
-            <img className="absolute w-[11px] h-[11px] top-10" style={{ left: s.trend === "Down" ? "114px" : "127px" }} alt={`${s.trend} 화살표`} src={s.icon} />
-          ) : (
-            s.trend === "Neutral" && (
-              <div className="absolute w-[11px] h-[11px] top-10 left-[107px]">
-                <div className="relative w-[7px] h-px top-[5px] left-0.5 bg-[url(/vector.svg)] bg-[100%_100%]" />
-              </div>
-            )
-          )}
-          <div className="absolute top-[38px] [font-family:'Inter-Regular',Helvetica] font-normal text-white text-[9.4px] tracking-[0] leading-[13.5px] whitespace-nowrap" style={{ left: s.trend === "Down" ? "127px" : s.trend === "Neutral" ? "121px" : "140px" }}>
-            {s.trend}
+
+          <div className="mt-2 text-sm">
+            <b>{it.kdText}</b>
+            {it.kdDetailText && <span className="ml-2 text-w-neutral-2">{it.kdDetailText}</span>}
           </div>
         </div>
       ))}
+    </div>
+  );
+}
+
+function RoleStatsTable({ rows }: { rows: RoleRowStat[] }) {
+  return (
+    <div className="rounded-xl border border-shap bg-b-neutral-3 overflow-hidden">
+      <table className="w-full text-sm">
+        <thead className="bg-shap text-left">
+          <tr>
+            <th className="px-4 py-3">역할</th>
+            <th className="px-4 py-3">플레이 시간</th>
+            <th className="px-4 py-3">승률</th>
+            <th className="px-4 py-3">K/D</th>
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-shap">
+          {rows.map((r, i) => (
+            <tr key={i}>
+              <td className="px-4 py-3 flex items-center gap-2">
+                <Image src={r.roleIconUrl} alt={r.roleLabel} width={20} height={20} unoptimized />
+                {r.roleLabel}
+              </td>
+              <td className="px-4 py-3">{r.playTime}</td>
+              <td className="px-4 py-3">
+                <div className="flex items-center gap-2">
+                  <div className="w-28 h-2 bg-black/20 rounded">
+                    <div
+                      className="h-2 bg-primary rounded"
+                      style={{ width: r.winRatio.endsWith("%") ? r.winRatio : `${r.winRatio}%` }}
+                    />
+                  </div>
+                  <span>{r.winRatio}</span>
+                  <span className="text-w-neutral-2">{r.win} / {r.lose}</span>
+                </div>
+              </td>
+              <td className="px-4 py-3">
+                <b>{r.kd}</b>
+                {r.kdDetail && <span className="ml-2 text-w-neutral-2">{r.kdDetail}</span>}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function HeroStatsTable({ rows }: { rows: HeroRowStat[] }) {
+  return (
+    <div className="rounded-xl border border-shap bg-b-neutral-3 overflow-hidden">
+      <table className="w-full text-sm">
+        <thead className="bg-shap text-left">
+          <tr>
+            <th className="px-4 py-3">영웅</th>
+            <th className="px-4 py-3">등급</th>
+            <th className="px-4 py-3">승</th>
+            <th className="px-4 py-3">패</th>
+            <th className="px-4 py-3">승률</th>
+            <th className="px-4 py-3">K/D</th>
+            <th className="px-4 py-3">평균임무기여</th>
+            <th className="px-4 py-3">플레이시간</th>
+            <th className="px-4 py-3"></th>
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-shap">
+          {rows.map((h, i) => (
+            <tr key={i}>
+              <td className="px-4 py-3">
+                <div className="flex items-center gap-3">
+                  <Image src={h.heroImageUrl} alt={h.heroName} width={36} height={36} className="rounded" unoptimized />
+                  <span>{h.heroName}</span>
+                </div>
+              </td>
+              <td className="px-4 py-3"><b className="text-cyan-400">{h.gradeText}</b></td>
+              <td className="px-4 py-3"><b className="text-navy">{h.win}</b></td>
+              <td className="px-4 py-3"><b>{h.lose}</b></td>
+              <td className="px-4 py-3">{h.winRatio}</td>
+              <td className="px-4 py-3">
+                <b>{h.kd}</b>
+                {h.kdDetail && <span className="ml-2 text-w-neutral-2">{h.kdDetail}</span>}
+              </td>
+              <td className="px-4 py-3">{h.avgObjective ?? "-"}</td>
+              <td className="px-4 py-3">{h.playTime}</td>
+              <td className="px-4 py-3 text-right">
+                {h.moreLink && (
+                  <Link href={h.moreLink} className="text-primary underline">더보기</Link>
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function SideSummary({ items }: { items: SideSummaryItem[] }) {
+  return (
+    <div className="rounded-xl border border-shap bg-b-neutral-3 p-4">
+      <div className="text-lg font-semibold mb-3">종합통계</div>
+      <ul className="space-y-2">
+        {items.map((it, i) => (
+          <li key={i} className="flex justify-between gap-4">
+            <b className="text-w-neutral-1">{it.label}</b>
+            <span className="text-right text-w-neutral-2">{it.value}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function FooterLite() {
+  return (
+    <footer className="mt-10 py-8 border-t border-shap text-sm text-w-neutral-2">
+      <div className="container mx-auto">
+        <div>© 2012-2025 OP.GG. Data based on Overwatch.</div>
+        <div className="opacity-80 mt-2">본 데모는 학습/개발 참고용 레이아웃 이식본입니다.</div>
+      </div>
+    </footer>
+  );
+}
+
+// ---------- Page (Preview) ----------
+export default function GameInfoMainPage() {
+  // 실제에선 useEffect+fetch로 교체
+  const header = mockHeader;
+  const roleTiers = mockRoleTiers;
+  const roleRows = mockRoleRows;
+  const heroRows = mockHeroRows;
+  const summary = mockSideSummary;
+
+  const winLoseSummary = useMemo(() => {
+    const item = summary.find((s) => s.label === "승패");
+    return item?.value ?? "-";
+  }, [summary]);
+
+  return (
+    <main className="container mx-auto px-4 md:px-6 py-6 space-y-6">
+      {/* 헤더 */}
+      <PlayerHeader data={header} />
+
+      {/* 상단 요약 카드 (승률/KD/플레이시간 등) -> 간단 예시 */}
+      <section className="grid md:grid-cols-3 gap-4">
+        <div className="rounded-xl border border-shap bg-b-neutral-3 p-4">
+          <h3 className="text-lg font-semibold">경쟁전 실력 평점</h3>
+          <div className="mt-2 text-w-neutral-2">승률, K/D, 플레이 시간 요약</div>
+          <div className="mt-1 text-w-neutral-1">{winLoseSummary}</div>
+        </div>
+        <div className="rounded-xl border border-shap bg-b-neutral-3 p-4">
+          <h3 className="text-lg font-semibold">역할별 티어</h3>
+          <div className="mt-2 text-w-neutral-2">현재 시즌 배치/점수</div>
+        </div>
+        <div className="rounded-xl border border-shap bg-b-neutral-3 p-4">
+          <h3 className="text-lg font-semibold">즐겨찾기/갱신</h3>
+          <div className="mt-2 text-w-neutral-2">유저 액션 섹션</div>
+        </div>
+      </section>
+
+      {/* 역할 티어 그리드 */}
+      <RoleTierGrid items={roleTiers} />
+
+      <section className="grid lg:grid-cols-12 gap-6">
+        <div className="lg:col-span-8 space-y-6">
+          {/* 영웅별 통계 테이블 */}
+          <HeroStatsTable rows={heroRows} />
+        </div>
+        <aside className="lg:col-span-4 space-y-6">
+          {/* 역할별 요약 테이블 */}
+          <RoleStatsTable rows={roleRows} />
+
+          {/* 사이드 종합 통계 */}
+          <SideSummary items={summary} />
+        </aside>
+      </section>
+
+      <FooterLite />
     </main>
   );
 }
