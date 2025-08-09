@@ -2,11 +2,39 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useEffect, useState } from "react";
 import { Modal } from "@/components/ui";
 import VideoUploader from "@/components/ui/fileUpload/VideoUpload";
+import AthenaVideoList from "./AthenaVideoList";
+import EmptyState from "./EmptyState";
+import { userVideosData, Video } from "@public/data/athenaVideos";
+import { resolve } from "path";
 
+//동영상에서 썸네일 생성
+const generateThumbnail = (videoFile: File): Promise<string> => {
+  return new Promise((resolve) => {
+    const video = document.createElement('video');
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    
+    video.onloadeddata = () => {
+      //동영상 1초 지점에서 썸네일 추출출
+      video.currentTime = 1;
+      video.onseeked = () => {
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        ctx?.drawImage(video, 0, 0);
+
+        // Canvas를 base64 이미지로 변환
+        const thumbnail = canvas.toDataURL('image/jpeg', 0.8);
+        resolve(thumbnail);
+      };
+    };
+    
+    video.src = URL.createObjectURL(videoFile);
+  });
+};
 
 const AthenaDashboard = ({ isGuest = false, userId = null }) => {
     const { user } = useAuth(); //유저정보불러오기
-    const [userVideos, setUserVideos] = useState([]); // 유저 비디오
+    const [userVideos, setUserVideos] = useState<Video[]>([]); // 유저 비디오 임시데이터
     const [openModal, setOpenModal] = useState<null | boolean>(null);
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     
@@ -14,14 +42,20 @@ const AthenaDashboard = ({ isGuest = false, userId = null }) => {
     const currentUserId = userId || user?.id;
     const isCurrentGuest = isGuest || !user;
 
+    
     // 로그인 유저만 동영상 데이터 가져오기
     useEffect(()=>{
       if (user) {
-        // DB 유저 동영상목록 불러오기
-        // fetchUserVideos(user.id);
+        // 유저별 동영상목록 불러오기
+        const userData = userVideosData[user.id];
+        if (userData) {
+          setUserVideos(userData.videos);
+        } else {
+          // 유저 데이터가 없으면 빈 배열
+          setUserVideos([]);
+        }
       }
     },[user])
-
 
 
 
@@ -31,8 +65,12 @@ const AthenaDashboard = ({ isGuest = false, userId = null }) => {
             return;
         }
 
+        //썸네일 추출출
+        const thumbnail = await generateThumbnail(selectedFile);
+
         const formData = new FormData();
         formData.append("file", selectedFile);
+        formData.append("thumbnail", thumbnail); //썸네일도 함께 전송
 
         try {
             const response = await fetch("/api/ai-process-video", {
@@ -54,20 +92,32 @@ const AthenaDashboard = ({ isGuest = false, userId = null }) => {
       <section className="section-title">
         <div className="container mx-auto px-4 py-8">
           <h2 className="heading-2 text-w-neutral-1 mb-3">
-            {isCurrentGuest ? "게스트 Athena 라이브러리리" : `${user?.name || currentUserId}님의 Athena 라이브러리`}
+            {isCurrentGuest ? "게스트 Athena 라이브러리" : `${user?.name || currentUserId}님의 Athena 라이브러리`}
           </h2>
+          {/* 동영상 업로드 버튼 - 로그인 유저 + 동영상 있을 때만 표시 */}
+          {user && userVideos.length > 0 && (
+            <div className="flex justify-end mb-6">
+              <button
+                onClick={() => setOpenModal(true)}
+                className="btn btn-md btn-primary rounded-12 flex items-center gap-2 hover:bg-primary/80 transition-colors"
+              >
+                <i className="ti ti-upload icon-20"></i>
+                동영상 업로드
+              </button>
+            </div>
+          )}
           <div>
-            {/* {!user ? (
+            {!user ? (
             // 비로그인 유저: 항상 EmptyState
             <EmptyState />
               ) : userVideos.length > 0 ? (
-              // 로그인 유저 + 동영상 있음: 목록 + AI 챗봇
-              <VideoListAndChat videos={userVideos} />
+              // 로그인 유저 + 동영상 있음
+              <AthenaVideoList />
             ) : (
               // 로그인 유저 + 동영상 없음: 안내 + 업로드 유도
               <EmptyState />
             )}
-           */}
+
           </div>
   
         </div>

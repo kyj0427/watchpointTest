@@ -89,9 +89,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
               // 상태 업데이트
               // setUser(userData)
 
-            // console.log("Faker 로그인 설정됨:", userWithImage); // 디버깅용
+            // Faker (동영상 있음) - 테스트용
             setUser(userWithImage)
-              // setUser(userWithoutImage)
+            
+            // Newbie (동영상 없음) - 테스트용
+            // setUser(userWithoutImage)
 
             
 

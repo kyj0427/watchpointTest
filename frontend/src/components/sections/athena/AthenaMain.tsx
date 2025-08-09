@@ -4,10 +4,12 @@ import React, { FC, useState } from "react";
 import VideoUploader from "../../ui/fileUpload/VideoUpload";
 import { Modal } from "@/components/ui";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const AthenaMain: FC = () => {
     const [openModal, setOpenModal] = useState<null | boolean>(null);
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
+    const router = useRouter();
 
         const handleSubmit = async () => {
         if (!selectedFile) {
@@ -28,6 +30,11 @@ const AthenaMain: FC = () => {
 
             const data = await response.json();
             console.log("서버 응답:", data);
+
+            //제출하기 버튼 클릭시 아테나 라이브러리로 이동
+            router.push('/coaching/athena/libaray')
+            setOpenModal(null) //모달닫기
+
         } catch (error) {
             console.error("업로드 실패:", error);
         }
