@@ -1,76 +1,33 @@
-//userrank Data
-import team12 from "@public/images/teams/team12.webp";
-import team13 from "@public/images/teams/team13.webp";
-import team14 from "@public/images/teams/team14.webp";
-import team15 from "@public/images/teams/team15.webp";
-import team16 from "@public/images/teams/team16.webp";
-import team17 from "@public/images/teams/team17.webp";
-import team18 from "@public/images/teams/team18.webp";
-import team19 from "@public/images/teams/team19.webp";
-import team20 from "@public/images/teams/team20.webp";
-import team21 from "@public/images/teams/team21.webp";
-
 // 주영웅 이미지파일 images>game_hero_hero_portrait 임포트
-import ana from "@public/images/game_hero/hero_portrait/ana.png";
-import ashe from "@public/images/game_hero/hero_portrait/ashe.png";
-import baptiste from "@public/images/game_hero/hero_portrait/baptiste.png";
-import bastion from "@public/images/game_hero/hero_portrait/bastion.png";
-import brigitte from "@public/images/game_hero/hero_portrait/brigitte.png";
-import cassidy from "@public/images/game_hero/hero_portrait/cassidy.png";
-import doomfist from "@public/images/game_hero/hero_portrait/doomfist.png";
-import dva from "@public/images/game_hero/hero_portrait/dva.png";
-import echo from "@public/images/game_hero/hero_portrait/echo.png";
-import freja from "@public/images/game_hero/hero_portrait/freja.png";
-import genji from "@public/images/game_hero/hero_portrait/genji.png";
-import hanzo from "@public/images/game_hero/hero_portrait/hanzo.png";
-import hazard from "@public/images/game_hero/hero_portrait/hazard.png";
-import illari from "@public/images/game_hero/hero_portrait/illari.png";
-import junkerqueen from "@public/images/game_hero/hero_portrait/junkerqueen.png";
-import junkrat from "@public/images/game_hero/hero_portrait/junkrat.png";
-import juno from "@public/images/game_hero/hero_portrait/juno.png";
-import kiriko from "@public/images/game_hero/hero_portrait/kiriko.png";
-import lifeweaver from "@public/images/game_hero/hero_portrait/lifeweaver.png";
-import lucio from "@public/images/game_hero/hero_portrait/lucio.png";
-import mauga from "@public/images/game_hero/hero_portrait/mauga.png";
-import mei from "@public/images/game_hero/hero_portrait/mei.png";
-import mercy from "@public/images/game_hero/hero_portrait/mercy.png";
-import moira from "@public/images/game_hero/hero_portrait/moira.png";
-import orisa from "@public/images/game_hero/hero_portrait/orisa.png";
-import pharah from "@public/images/game_hero/hero_portrait/pharah.png";
-import ramattra from "@public/images/game_hero/hero_portrait/ramattra.png";
-import reaper from "@public/images/game_hero/hero_portrait/reaper.png";
-import reinhardt from "@public/images/game_hero/hero_portrait/reinhardt.png";
-import roadhog from "@public/images/game_hero/hero_portrait/roadhog.png";
-import sigma from "@public/images/game_hero/hero_portrait/sigma.png";
-import sojourn from "@public/images/game_hero/hero_portrait/sojourn.png";
-import soldier76 from "@public/images/game_hero/hero_portrait/soldier76.png";
-import sombra from "@public/images/game_hero/hero_portrait/sombra.png";
-import symmetra from "@public/images/game_hero/hero_portrait/symmetra.png";
-import torbjorn from "@public/images/game_hero/hero_portrait/torbjorn.png";
-import tracer from "@public/images/game_hero/hero_portrait/tracer.png";
-import venture from "@public/images/game_hero/hero_portrait/venture.png";
-import widowmaker from "@public/images/game_hero/hero_portrait/widowmaker.png";
-import winston from "@public/images/game_hero/hero_portrait/winston.png";
-import wreckingball from "@public/images/game_hero/hero_portrait/wreckingball.png";
-import zarya from "@public/images/game_hero/hero_portrait/zarya.png";
-import zenyatta from "@public/images/game_hero/hero_portrait/zenyatta.png";
+import heroPortraits from "@public/images/game_hero/hero_portrait";
+import avatar11 from "@public/images/users/avatar11.png"
+import avatar13 from "@public/images/users/avatar13.png"
+import avatar2 from "@public/images/users/avatar2.png"
 
-export const userListData = [
-  {
-    id: "3507",
-    name: "유저명",
-    battletag: "유저명#3507",
-    platform: "PC",
-    rating: 4350,
-    avatar: "/images/user/avatar_3507.png"
-  },
-  {
-    id: "tracer-777",
-    name: "트레이서장인",
-    battletag: "tracer#7777",
-    platform: "PC",
-    rating: 4100,
-    avatar: "/images/user/tracer.png"
-  }
-  
+export const userrankLists = [{
+    목록: "01",
+    아이콘: [avatar11],
+    플레이어: "교회는영어로처치",
+    KDA: "2.15",
+    승률: 50,
+    플레이시간: 33,
+    모스트영웅: [heroPortraits.cassidy, heroPortraits.soldier76, heroPortraits.genji],},
+
+    {
+    목록: "02",
+    아이콘: [avatar13],
+    플레이어: "교회는영어로처치",
+    KDA: "3.41",
+    승률: 40,
+    플레이시간: 108,
+    모스트영웅: [heroPortraits.sojourn, heroPortraits.freja, heroPortraits.tracer]},
+
+    {
+    목록: "03",
+    아이콘: [avatar2],
+    플레이어: "교회는영어로처치",
+    KDA: "1.6",
+    승률: 47,
+    플레이시간: 304,
+    모스트영웅: [heroPortraits.junkrat, heroPortraits.reaper, heroPortraits.sombra]},
 ];
