@@ -6,7 +6,7 @@ import AthenaDashboard from "@/components/sections/athena/dashboard/AthenaDashbo
 import CoachingBreadcrumb from "@/components/sections/mentor-menti/CoachingBreadcumb";
 import { headerBannerType, NavLinkProps } from "@/config/types";
 
-// 메인 분기 페이지
+// 아테나 라이브러리 페이지 (로그인/비로그인 구분)
 
 const Page = () => {
 
