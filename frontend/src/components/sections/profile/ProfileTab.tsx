@@ -39,6 +39,10 @@ const Tab = () => {
       title: "Achievements",
       link: `/profile/achievements`,
     },
+    {
+      title: "Bookmarks",
+      link: `/profile/bookmarks`
+    }
   ];
 
   return (
