@@ -33,7 +33,7 @@ export const navMenu = [
             {
                 id : 25,
                 name : "패치노트",
-                link : "/patchnotes"
+                link : "/gameinfo/patchnotes"
             },
             
         ]

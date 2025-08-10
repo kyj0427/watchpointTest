@@ -16,8 +16,7 @@ const Page = () => {
 ];
 
 const headerData: headerBannerType = {
-    title: "Athena",
-    bgImgClasses: "",
+    title: "Athena",    
     navLinks,
 };
 
