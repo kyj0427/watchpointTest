@@ -42,7 +42,12 @@ const Tab = () => {
     {
       title: "Bookmarks",
       link: `/profile/bookmarks`
+    },
+    {
+      title: "activities",
+      link: `/profile/my-activity`
     }
+
   ];
 
   return (
