@@ -7,7 +7,7 @@ import { headerBannerType, NavLinkProps } from "@/config/types";
 const Page = () => {
   const navLinks: NavLinkProps[] = [
     { id: 1, url: "/home", label: "홈" },
-    { id: 2, url: "/userrankList", label: "전적검색" },
+    { id: 2, url: "/userrankList", label: "검색결과" },
   ];
 
   const headerData: headerBannerType = {

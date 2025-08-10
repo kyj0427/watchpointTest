@@ -15,7 +15,6 @@ export type Role = "탱커" | "딜러" | "지원" | "돌격" | "공격";
 export interface PlayerHeaderData {
   uid: string;
   mode: "competitive" | "quick";
-  platform: "pc" | "console";
   backgroundUrl: string;
   portraitUrl: string;
   name: string;
@@ -63,18 +62,17 @@ export interface HeroRowStat {
 export interface SideSummaryItem { label: string; value: string; }
 
 // ---------- Mock Data (원문 HTML을 바탕으로 축약) ----------
-const mockHeader: PlayerHeaderData = {
-  uid: "201249062153129198199098",
-  mode: "competitive",
-  platform: "pc",
-  backgroundUrl:
-    "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltb9e273d8483050b8/631a8aab3ab6f40dd2a90699/1600_Tracer.jpg",
-  portraitUrl:
-    "https://d15f34w2p8l1cc.cloudfront.net/overwatch/71d29660fd426e7b2a78a9b896027c79fcbe03c5c63e19c5937078eb13f8f9a5.png",
-  name: "Fickle",
-  title: "Overwatch Agent",
-  lastUpdatedText: "최근 업데이트 : 32시간 전",
-};
+// const mockHeader: PlayerHeaderData = {
+//   uid: "201249062153129198199098",
+//   mode: "competitive",
+//   backgroundUrl:
+//     "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltb9e273d8483050b8/631a8aab3ab6f40dd2a90699/1600_Tracer.jpg",
+//   portraitUrl:
+//     "https://d15f34w2p8l1cc.cloudfront.net/overwatch/71d29660fd426e7b2a78a9b896027c79fcbe03c5c63e19c5937078eb13f8f9a5.png",
+//   name: "Revolution",
+//   title: "Overwatch Agent",
+//   lastUpdatedText: "최근 업데이트 : 32시간 전",
+// };
 
 const mockRoleTiers: RoleTierSummary[] = [
   {
@@ -205,7 +203,6 @@ function PlayerHeader({ data }: { data: PlayerHeaderData }) {
               className="rounded-xl bg-white/10 p-1"
               unoptimized
             />
-            <div className="mt-2 text-center text-xs text-white/80">{data.platform.toUpperCase()}</div>
           </div>
 
           <div className="text-white">
@@ -392,7 +389,6 @@ function FooterLite() {
 // ---------- Page (Preview) ----------
 export default function GameInfoMainPage() {
   // 실제에선 useEffect+fetch로 교체
-  const header = mockHeader;
   const roleTiers = mockRoleTiers;
   const roleRows = mockRoleRows;
   const heroRows = mockHeroRows;
@@ -405,8 +401,10 @@ export default function GameInfoMainPage() {
 
   return (
     <main className="container mx-auto px-4 md:px-6 py-6 space-y-6">
+    
+    
       {/* 헤더 */}
-      <PlayerHeader data={header} />
+      {/* <PlayerHeader data={header} /> */}
 
       {/* 상단 요약 카드 (승률/KD/플레이시간 등) -> 간단 예시 */}
       <section className="grid md:grid-cols-3 gap-4">
