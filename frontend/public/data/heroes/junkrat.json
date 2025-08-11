@@ -1,0 +1,96 @@
+{
+  "name": "정크랫",
+  "description": "정크랫은 폭발물에 광적으로 집착하며, 세상에 혼돈과 파괴를 불러오기 위해 살아가는 폭파 전문가입니다.",
+  "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/037e3df083624e5480f8996821287479a375f62b470572a22773da0eaf9441d0.png",
+  "role": "damage",
+  "location": "호주, 쓰레기촌(이전 기록)",
+  "age": 27,
+  "birthday": "2월 29일",
+  "hitpoints": {
+    "health": 250,
+    "armor": 0,
+    "shields": 0,
+    "total": 250
+  },
+  "abilities": [
+    {
+      "name": "폭탄 발사기",
+      "description": "튕기는 폭탄을 발사합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/e43d916b0851551d17a2385f92497cdcfcd781ac155663643a1e1ff3500bbf37.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt485872852c208b6b/633905e964fe5a7d4481a07c/JUNKRAT_FRAG_LAUNCHER.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blta0872dd53caba116/633905ee425ea374105b6165/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_JunkratFragLauncher_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltbea6411c457c8be9/6679a19f2cfadc770d0cf3a3/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_JunkratFragLauncher_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "충격 지뢰",
+      "description": "폭발하며 밀쳐내는 지뢰를 던집니다. 직접 격발시켜야 폭발합니다. (던지기: 좌Shift, 격발: 기술 1)",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/1d6135a3089363cf2c59d5157740cf5dc4ad572bc215553672a79812c397dbd2.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt3ee407761d4d55db/633905e9f87c00687e8ef236/JUNKRAT_CONCUSSION_MINE.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blte873111671177925/633905ef3917977bfd9861c1/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_JunkratConcussionMine_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt9efdc6c384cc7b9a/6679a1ad6711607e184337a1/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_JunkratConcussionMine_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "강철 덫",
+      "description": "적의 발을 묶는 덫을 놓습니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/425136ea32c08355f33df230d900a8cc8010ee7a2b27314f6a1e395bd78eb5aa.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt69cdebf6b2c087d5/633905e9ed7dcc6a002803bc/JUNKRAT_STEEL_TRAP.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt71cfa5dcc7b2104b/633905eeec7e18758be51062/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_JunkratSteelTrap_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltef8b7c2d3b18027a/6679a180cb949bfd16fbc77a/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_JunkratSteelTrap_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "죽이는 타이어",
+      "description": "타이어 폭탄을 조종하고 터뜨립니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/d16b5c6c337b1c0ecee3e5bf0760c870927e921fed8f0caed12dcb996b5347ae.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt63f67cf9d4138a49/633905e9ec7e18758be5105e/JUNKRAT_RIPTIRE.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt0f774acdda4bf7c4/633905ee7e84e17596f9c8b4/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_JunkratRipTire_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt4cc2a4b27f732f0a/6679a0872309b56f43e269e5/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_MeiIceWall_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "완전 난장판",
+      "description": "자신의 폭발물에는 피해를 받지 않습니다. 죽을 때 폭탄을 떨어뜨립니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/82e123991088b3c13edb1158d0bc4281f752896f8f3ddb76d4e3407e8f52f88d.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt186c10c3432b192e/633905e93917977bfd9861bd/JUNKRAT_TOTAL_MAYHEM.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blta4a8791f7dbba756/633905ef64fe5a7d4481a080/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_JunkratTotalMayhem_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt39dd8e398857bf41/6679a1738e2bf82d7ab24354/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_JunkratTotalMayhem_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    }
+  ],
+  "story": {
+    "summary": "쓰레기촌 주변의 방사능에 물든 황무지에서 자란 정크랫은 폭발물에 집착하는 나사 풀린 괴짜다. 호주 내륙 지역에 사는 무법자인 \"쓰레기 집단\"에 속한 정크랫과 그의 친구이자 경호원인 로드호그는 범죄와 혼란을 일삼으며 살아간다.",
+    "media": {
+      "type": "video",
+      "link": "https://youtu.be/_q0QGtk_AM0"
+    },
+    "chapters": [
+      {
+        "title": "쓰레기 집단",
+        "content": "호주 옴니움의 핵 융합로 습격 사건 이후, 호주 내륙 지역에서 예전의 풍경은 영영 찾아볼 수 없었다. 폭발 이후, 이 지역은 방사능에 오염되었고, 파괴된 옴니움의 뒤틀린 파편과 잔해로 어질러져 그 무엇도 살 수 없는 황량한 황무지로 변해 버렸다. 하지만 그곳에도 생존자는 있었다. 자칭 쓰레기 집단이라는 그들은 옴니움의 잔해를 뒤지며 어둠 속에서 극악무도한 무법 사회를 형성했다. 그중에는 정크랫도 있었다. 폐허 속에 굴러다니는 부품과 고철을 수집하며 하루하루를 근근이 살아가던 그에게도 다른 이들처럼 시나브로 방사능이 스며들었다. 결국 방사능으로 미쳐 버린 그는 위험한 폭발물을 겁 없이 다루게 되었고, 그 애착은 집착으로 이어졌다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt177223351b58e746/637da179113983111ba8ced2/junkrat-00.jpg"
+      },
+      {
+        "title": "현상 수배자",
+        "content": "정크랫은 옴니움의 폐허에서 매우 값진 비밀을 알아내며 악명을 떨치기 시작했다. 그가 찾아낸 것이 무엇인지 제대로 아는 사람은 거의 없었지만, 그래도 그는 어딜 가든 현상금 사냥꾼, 갱단, 기회주의자들에게 쫓기는 신세가 되었다. 그러던 중 그는 쓰레기 집단의 싸움꾼 로드호그에게 개인 경호원이 되어 달라고 제안했고, 로드호그는 전리품을 50:50으로 나눈다는 조건으로 마지못해 그 제안을 수락했다. 정커퀸을 상대로 연이어 죄를 저지른 끝에, 정크랫과 로드호그는 공식적으로 쓰레기촌에서 추방되었다. 그들은 호주 내륙 지역 밖으로 시선을 돌려 전 세계적 범죄를 저지르기 시작했고, 지나간 길에 대혼란과 아수라장만 남겼다. \"할 일 못할 일 가리지 않고, 큰 돈 작은 돈 가리지 않는다.\" 이들의 머리에는 거액의 현상금이 걸렸지만, 그들은 그런 현상금을 쌓아 올릴 때와 동일한 방식으로 지금껏 체포를 피했다. 바로 폭탄을 아주, 아주 많이 사용하는 것이다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt5b92f99663062448/637da17932db130e11be7e29/junkrat-01.jpg"
+      }
+    ]
+  }
+}

@@ -31,7 +31,7 @@ const AthenaVideoUpload = () => {
 
 
     return (
-        <div className="space-y-4">
+        <div className="flex flex-col items-center justify-center min-h-full space-y-4">
             <FileUpload onFileSelect={(file) => setSelectedFile(file)} accept="video/*" />
             <button
                 onClick={handleSubmit}

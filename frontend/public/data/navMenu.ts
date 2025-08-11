@@ -13,7 +13,7 @@ export const navMenu = [
             {
                 id : 21,
                 name : "영웅정보",
-                link : "/groups-two"
+                link : "/gameinfo/heroes"
             },
             {
                 id : 22,
@@ -33,7 +33,7 @@ export const navMenu = [
             {
                 id : 25,
                 name : "패치노트",
-                link : "/patchnotes"
+                link : "/gameinfo/patchnotes"
             },
             
         ]
@@ -47,25 +47,25 @@ export const navMenu = [
             {
                 id : 31,
                 name : "대회일정",
-                link : "/e-sports/tournaments"
+                link : "/e-sports"
             },
-            {
-                id : 32,
-                name : "승부예측",
-                link : "/e-sports/predictions"
-            },
+            // {
+            //     id : 32,
+            //     name : "승부예측",
+            //     link : "/e-sports/predictions"
+            // },
             // {
             //     id : 33,
             //     name : "예측포인트 랭킹",
             //     link : "/e-sports/predictions-ranks"
             // },
             {
-                id : 33,
+                id : 32,
                 name : "프로랭킹",
                 link : "/e-sports/pro-ranks"
             },
             {
-                id : 34,
+                id : 33,
                 name : "프로선수정보",
                 link : "/e-sports/pro-players"
             }
@@ -78,17 +78,17 @@ export const navMenu = [
         subMenu: [
             {
                 id: 41,
-                name: "코칭AI",
-                link: "/athena"
+                name: "강의/멘토 목록",
+                link: "/coaching"
             },
             {
                 id: 42,
-                name: "멘토/멘티 매칭",
-                link: "/mentor-menti"
+                name: "코칭AI Athena",
+                link: "/coaching/athena/library"
             },
             {
                 id: 43,
-                name: "강사정보/후기",
+                name: "내 강의",
                 link: "/game-details-two" //또는 library-details
             }
         ]
@@ -100,29 +100,29 @@ export const navMenu = [
         subMenu: [
             {
                 id: 51,
-                name: "인기글",
-                link: "/community"
+                name: "공지사항",
+                link: "/community/noticification"
             },
             {
                 id: 52,
-                name: "핫클립",
-                link: "/trending"
+                name: "인기글",
+                link: "/community/postlist?mode=hot"
             },
             {
                 id: 53,
-                name: "공략",
-                link: "/blogs"
+                name: "최신글",
+                link: "/community/postlist?mode=recent"
             },
             {
                 id: 54,
-                name: "팁과 노하우",
-                link: "/blogs"
+                name: "듀오/스쿼드 탐색",
+                link: "/community/SquadOrChat"
             },
-            {
-                id: 55,
-                name: "듀오/스쿼드 조회",
-                link: "/groups"
-            }
+            // {
+            //     id: 54,
+            //     name: "공지사항",
+            //     link: "/noticification"
+            // }
         ]
     },
     {
@@ -156,7 +156,7 @@ export const navMenu = [
         id: 7,
         name: "채팅",
         isSubMenu: false,
-        link : "/chat"
+        link : "/community/chat"
     },
     {
         id: 8,

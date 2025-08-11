@@ -39,6 +39,7 @@ const Tab = () => {
       title: "Achievements",
       link: `/profile/achievements`,
     },
+<<<<<<< HEAD
     {
       title: "Bookmarks",
       link: `/profile/bookmarks`
@@ -47,6 +48,8 @@ const Tab = () => {
       title: "activities",
       link: `/profile/my-activity`
     }
+=======
+>>>>>>> 9a582dfaa3946e0cffc7633c5ae17c2be94ceecb
 
   ];
 

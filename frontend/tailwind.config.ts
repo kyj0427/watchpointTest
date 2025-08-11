@@ -1,8 +1,10 @@
+import typography from "@tailwindcss/typography";
 import type { Config } from 'tailwindcss'
 const plugin = require("tailwindcss/plugin");
 import colors from "tailwindcss/colors";
 
 const config: Config = {
+  
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -246,6 +248,7 @@ const config: Config = {
   },
 
   plugins: [
+   typography,
     plugin(function ({ addComponents }: any) {
       addComponents({
         ".transition-1": {

@@ -1,0 +1,89 @@
+{
+  "name": "소전",
+  "description": "흘러간 시절 속 오버워치의 지도자인 비비안 체이스, 호출명 소전은 새로운 영웅들이 과거의 실수를 반복하는 일이 없도록 하기 위해 최선을 다합니다.",
+  "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/a53bf7ad9d2f33aaf9199a00989f86d4ba1f67c281ba550312c7d96e70fec4ea.png",
+  "role": "damage",
+  "location": "캐나다, 토론토",
+  "age": 51,
+  "birthday": "1월 12일",
+  "hitpoints": {
+    "health": 250,
+    "armor": 0,
+    "shields": 0,
+    "total": 250
+  },
+  "abilities": [
+    {
+      "name": "레일건",
+      "description": "빠르게 연사하며 에너지를 생성할 수 있는 전자포입니다.  저장된 에너지를 소모하여 적을 꿰뚫는 강력한 사격을 가합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/3d7f261e05e3abda155cede4409ec8348490e286805c123d54d7f81fdd50d077.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltb8bc8ed5e44dabde/6333cb97da1d806602f83e50/SOJOURN_RAILGUN.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt15f5b35456cfbb70/6333cb8bec7e18758be50fc0/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_SojoiurnRailgun_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt3e11474d5267dc43/6679e10f8e2bf8300eb2436e/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_SojoiurnRailgun_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    },
+    {
+      "name": "파워 슬라이드",
+      "description": "지면에 미끄러지듯 움직입니다. 중간에 취소하여 높이 뛰어오를 수 있습니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/5e94ae14aee5e5054a6347e25f1c7ddd284b0cb73925dbc716e358970ec94f0d.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt7d1a9cf7fab233f6/6333cb977e84e17596f9c7f8/SOJOURN_POWERSLIDE.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltc0588de8da86e2d1/6333cb8b8537f87bfbcdc34e/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_SojournPowerSlide_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltdc29bbc42e5f96a7/6679e11091d53b5f17dc063f/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_SojournPowerSlide_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    },
+    {
+      "name": "분열 사격",
+      "description": "에너지 파동을 발사하여 범위 내의 적에게 피해를 줍니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/7e903d13474df377216191c5b5c128fc6d20befdc611af9f7baedfdfa3b59295.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltcac61082162bf65b/6333cb97ed7dcc6a00280308/SOJOURN_DISRUPTOR_SHOT.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt98dca631361d8463/6333cb8b425ea374105b60c3/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_SojoiurnDisruptorShot_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt8a5aa99e05e3e5d7/6679e10d2309b5756fe269fd/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_SojoiurnDisruptorShot_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    },
+    {
+      "name": "오버클럭",
+      "description": "짧은 시간 동안 레일건의 에너지가 자동으로 충전됩니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/83bd9d101e779075fadaed194d1964897794c49ce56c59ccc34799753b55efeb.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt5744f622eeb8f20b/6333cb982dc7636608cc708c/SOJOURN_OVERCLOCK.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt8b22c7e57d716ac9/6333cb8bda1d806602f83e4c/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_SojoiurnOverclock_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blta2823450e1cf9cea/6679e10e67116007094337af/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_SojoiurnOverclock_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    }
+  ],
+  "story": {
+    "summary": "군인에서 오버워치 지휘관을 거쳐 퇴역하기까지, 소전은 세계에 만연한 악에 희생당하는 이들을 구하는 데 평생을 바쳤다. 소전은 광범위한 사이보그 신체 강화로 타고난 전략적 능력과 전투 기량을 향상하여, 오버워치 제일의 전술가가 되었다. 이제 그녀는 홀로 새로운 난관... 그리고 새로운 위험에 직면하게 되었다.",
+    "media": {
+      "type": "video",
+      "link": "https://youtu.be/yrOQs_8litU"
+    },
+    "chapters": [
+      {
+        "title": "캐나다 특수 부대",
+        "content": "비비안 체이스는 모두가 돈독한 관계를 유지하는 토론토의 작은 마을에서 군인 출신 부모님의 딸로 성장했다. 희귀 불치병인 자가 면역 질환을 가지고 태어난 탓에 그녀의 육체는 스스로의 장기를 공격했고, 비비안은 어린 시절과 십 대 시절을 대부분 병원을 드나들며 보냈다. 부모님 덕분에 그녀는 어린 시절부터 군사 전략에 흥미를 느꼈고, 여러 차례 수술을 받은 후의 회복 기간에는 책을 읽거나 전략 시뮬레이션을 플레이하며 보냈다.  그녀의 사례는 비비안의 질환을 대상으로 매우 실험적인 치료법을 선도하고 있던 의사 일레인 이샛의 눈길을 끌었다. 치료 과정의 일부로, 비비안은 질환으로 손상된 장기와 사지를 최첨단 인공 신체로 교체했다. 그 치료 덕분에 비비안은 새로운 삶을 얻었다.  비비안은 부모님의 발자취를 따라 캐나다 특수 부대에 장교로 입대했고, 군에서 전술 분야의 에이스로 명성을 얻었다. 옴닉 사태가 시작되자, 그녀는 특수 부대로 차출되었다. 주로 적진 후방 깊은 곳에서 수행되는 그녀의 대담한 전략이 수많은 사람의 생명을 구했고, 부대원들은 그녀에게 \"소전\"이라는 별명을 붙여 주었다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltb0acd4d16796ee01/637da1daf9f61910b423578d/sojourn-00.jpg"
+      },
+      {
+        "title": "오버워치",
+        "content": "캐나다가 가장 심각한 위기에 처했을 때, 비비안의 부대는 초창기 오버워치와 협력 관계를 체결했고, 잭 모리슨, 토르비욘 린드홀름, 미나 랴오 박사와 함께 옴닉 병력을 토론토 밖으로 밀어냈다. 소전과 오버워치의 연합 작전은 옴닉을 캐나다에서 추방한 것뿐 아니라 디트로이트 옴니움을 해체시키는 성과까지 얻어내어, 그야말로 인류에 유의미한 승리를 거두었다고 할 수 있었다.  비비안은 영웅적인 활약과 지도력으로 많은 훈장을 받았지만, 전쟁이 끝난 후에도 그녀는 자신의 임무가 아직 끝나지 않았다는 생각에 사로잡혀 있었다. 그녀는 캐나다 특수 부대 내 대테러 부대로 이동을 요청했고, 그곳에서 반 옴닉 혐오 단체 온타리오 유나이티드에 대한 기습 공격을 지원했다. 소전의 실력과 법치주의에 대한 헌신은 옴닉 사태 이후의 세계에서 오버워치에 꼭 필요한 요소였다. 모리슨은 전 세계에 변화를 일으킬 수 있는 자리를 주겠다며 그녀를 영입했다. 그녀는 이내 인정 많고 냉철한 전술가이자, 자신과 함께 전장에 나서는 부하들을 각별히 아끼는 지휘관이라는 명성을 얻었다. 비비안은 오버워치의 지상군에서도 상당한 시간을 보냈고, 시간이 지날수록 오버워치에서 가장 믿음직스러운 지도 중 한 명으로 인정받았다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt1582595d3bc7019a/637da1da6f080311223b5406/sojourn-01.jpg"
+      },
+      {
+        "title": "오버워치의 몰락",
+        "content": "하지만 비비안이 오버워치와 함께 지내는 시간이 길어질수록, 조직의 정치에 대한 불만은 커져만 갔다. 그는 조직이 정도를 벗어났다고 느꼈다. 국제 연합에서 오버워치에 대한 내부 감사를 시작했을 때에도 그런 뜻을 솔직히 밝혔고, 그 결과 공청회에 여러 차례 출석하기도 했다. 비비안은 자신의 경험에 대해 진솔하게 말했고, 그녀의 증언이 페트라스 법이 제정되어 오버워치를 해체하는 데 결정적인 역할을 했다.  공청회 이후, 비비안은 구조견 머피와 함께 어딘가 불안한 조기 은퇴를 했다. 캐나다를 수많은 위협으로부터 구한 인공 신체의 영웅은 얼마간의 평화를 얻었다. 하지만 비비안 체이스는 영광을 위해 싸우는 사람이 아니었다. 그녀는 언제나 자신이 필요한 곳에서 싸웠고, 또 그런 일이 발생한다면 소전은 당당히 응할 것이다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt97fa68ff5a991d80/637da1da5148880e83ab6fd3/sojourn-02.jpg"
+      }
+    ]
+  }
+}

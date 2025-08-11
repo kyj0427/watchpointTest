@@ -2,31 +2,47 @@
 
 import Image from "next/image";
 import { proplayerData } from "@public/data/proplayerData";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Pagination from "@/components/shared/Pagination";
+import { proteamData } from "@public/data/proteamData";
+import Link from "next/link";
 
 const ProPlayerRank = () => {
   const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage] = useState(10); // 페이지당 보여줄 아이템 수
-    
-    // 전체 페이지 수 계산
-    const totalPages = Math.ceil(proplayerData.length / itemsPerPage);
-    
-    // 현재 페이지에 해당하는 데이터만 추출
-    const indexOfLastItem = currentPage * itemsPerPage;
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentItems = proplayerData.slice(indexOfFirstItem, indexOfLastItem);
-  
-    // 페이지 변경 핸들러
-    const handlePageChange = (pageNumber: number) => {
-      setCurrentPage(pageNumber);
-    };
+  const [itemsPerPage] = useState(10); // 페이지당 보여줄 아이템 수
+
+  //프로선수 정보 / 팀정보 조인
+  const joinedData = useMemo(() => {
+    return proplayerData.map((player) => {
+      const teamInfo = proteamData.find(
+        (team) => team.team_id === player.team_id
+      );
+      return {
+        ...player,
+        team_name: teamInfo?.team_name || "UnKnown",
+        team_logo: teamInfo?.logo,
+      };
+    });
+  }, []);
+
+  // 전체 페이지 수 계산
+  const totalPages = Math.ceil(joinedData.length / itemsPerPage);
+
+  // 현재 페이지에 해당하는 데이터만 추출
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = joinedData.slice(indexOfFirstItem, indexOfLastItem);
+
+  // 페이지 변경 핸들러
+  const handlePageChange = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
 
   return (
     <section className="section-pb pt-10p">
       <div className="container">
         <h2 className="heading-2 text-w-neutral-1 text-split-left mb-3">
-            선수 랭킹
+          선수 랭킹
         </h2>
         <div className="overflow-x-auto scrollbar-sm" data-aos="zoom-in">
           <table className="text-l-medium font-poppins text-w-neutral-1 w-full whitespace-nowrap">
@@ -42,7 +58,9 @@ const ProPlayerRank = () => {
                 </th>
 
                 <th className="text-l-medium px-24p py-3 min-w-25">승률</th>
-                <th className="text-l-medium px-24p py-3 min-w-25">선수포인트</th>
+                <th className="text-l-medium px-24p py-3 min-w-25">
+                  선수포인트
+                </th>
                 <th className="text-l-medium px-24p py-3 min-w-25">소속팀</th>
                 <th className="text-l-medium px-24p py-3 min-w-25">지역</th>
               </tr>
@@ -58,7 +76,9 @@ const ProPlayerRank = () => {
                   </td>
 
                   <td className="px-24p py-3">
-                    <span className="text-l-medium">{item?.player_position}</span>
+                    <span className="text-l-medium">
+                      {item?.player_position}
+                    </span>
                   </td>
 
                   <td className="px-24p py-3">
@@ -68,8 +88,15 @@ const ProPlayerRank = () => {
                       ))}
                     </div>
                   </td>
-                  <td className="px-24p py-3">{item?.player_name}</td>
 
+                  <td className="px-24p py-3">
+                    <Link
+                      href={`pro-players/${item.player_id}`}
+                      className="btn px-16p py-2 btn-outline-secondary group-hover:bg-secondary group-hover:text-b-neutral-4"
+                    >
+                      {item?.player_name}
+                    </Link>
+                  </td>
 
                   <td className="px-24p py-3">{item?.win_rate}%</td>
                   <td className="px-24p py-3">{item?.player_ability}</td>

@@ -1,18 +1,19 @@
-import { HeaderBanner } from "@/components/shared";
+import GameBreadcrumb from "@/components/sections/gameinfo/gameBreadcumb";
 import { NavLinkProps, headerBannerType } from "@/config/types";
-import Wrapper from "@/components/sections/mapDetails/Wrapper";
+import Wrapper from "@/components/sections/gameinfo/mapDetails/Wrapper";
 
-export function generateStaticParams() {
-  return fetch("http://localhost:4000/api/maps")
-    .then((res) => res.json())
-    .then((data) =>
-      data.hits.hits.map((hit: any) => ({
-        mapName: encodeURIComponent(hit._source.name),
-      }))
-    );
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  const res = await fetch("http://192.168.0.31:4000/api/maps");
+  const data = await res.json();
+
+  return data.hits.hits.map((hit: any) => ({
+    mapName: encodeURIComponent(hit._source.name),
+  }));
 }
 
-export default function MapDetailsPage({
+export default async function MapDetailsPage({
   params,
 }: {
   params: { mapName: string };
@@ -33,7 +34,7 @@ export default function MapDetailsPage({
 
   return (
     <main className="min-h-screen">
-      <HeaderBanner breadcrumb={headerData} />
+      <GameBreadcrumb breadcrumb={headerData} />
       <Wrapper mapName={mapName} />
     </main>
   );

@@ -1,0 +1,96 @@
+{
+  "name": "솔저: 76",
+  "description": "솔저: 76이라 불리며 국제 사회의 추적을 받고 있는 이 자경단원은 오버워치 몰락의 배후에 있는 진실을 드러내기 위해 개인적인 전쟁을 선포했습니다.",
+  "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/20b4ef00ed05d6dba75df228241ed528df7b6c9556f04c8070bad1e2f89e0ff5.png",
+  "role": "damage",
+  "location": "알 수 없음",
+  "age": 58,
+  "birthday": "1월 27일",
+  "hitpoints": {
+    "health": 250,
+    "armor": 0,
+    "shields": 0,
+    "total": 250
+  },
+  "abilities": [
+    {
+      "name": "펄스 소총",
+      "description": "전자동 돌격 소총입니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/69eaf669cd646a617439592615f023cfec82c27f4a3e19f48188941b3feaf55f.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt1b07ff0fa9c82c0a/63390893425ea374105b618d/SOLDIER76_Heavy_Pulse_Rifle.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt261970a870f0154b/63390898399a07678557c175/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_Soldier76HeavyPulseRifle_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt7c63bec32b82c060/6679e1118450301363778964/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_Soldier76HeavyPulseRifle_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "질주",
+      "description": "전방을 향해 더 빠르게 뜁니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/8408bacddfb4ac7b971dd14f6d8c9d211459fb159b459c3e6eaf06bc0a38bcb2.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltb7ab357e8d9dca60/633908937e84e17596f9c8dc/SOLDIER76_Sprint.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt8eab5d6609de7c51/63390899f87c00687e8ef264/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_Soldier76Sprint_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt3b4c575cb977be2f/6679e113e333ef5dfeeb71c8/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_Soldier76Sprint_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "생체장",
+      "description": "자신과 아군의 생명력을 회복시키는 장을 생성합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/aaadd3dee89ac8797ecb7a1e647f574a034b1930726296fd17946d343254bdf0.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt186595f5d6bc1dc7/63390893399a07678557c171/SOLDIER76_Biotic_Field.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltf0082b2806a67b1c/633908981ccd046877c0e51d/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_Soldier76BioticField_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltb08a250ab35c1450/6679e110cb949b175dfbc78c/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_Soldier76BioticField_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "나선 로켓",
+      "description": "폭발성 로켓을 발사합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/8fedb348952552227b6e2ec85cf14214106b901afce2a9657267153bb2a8cac3.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt7b433e0fd1053ce2/63390893ec7e18758be5108e/SOLDIER76_Helix_Rockets.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltb4be2f7947112247/633908981a0b5e7d3d1ec5e1/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_Soldier76HelixRockets_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltcb6d4bd1d99354df/6679e1124f84eb230924bbe8/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_Soldier76HelixRockets_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "전술 조준경",
+      "description": "시야에 있는 대상들을 자동으로 조준합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/5e8d4b8fb5cd1271314b8462012e9894c811a7c4857739e73bde53f2431e673d.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt1859d0e873547c6c/63390893da1d806602f83f26/SOLDIER76_Tactical_Visor.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt523a030c6808fc57/6339089964fe5a7d4481a0a8/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_Soldier76TacticalVisor_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt54d3b2e6d32771fc/6679e1145e8b86ccb885d171/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_Soldier76TacticalVisor_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    }
+  ],
+  "story": {
+    "summary": "한때 오버워치의 사령관이었지만 이제는 강화 신체를 가진 자경단원인 잭 모리슨은 세계를 떠돌며 오버워치의 몰락을 부른 자들을 사냥한다. 그가 추구하는 것이 정의인지... 개인적인 복수인지는 알 수 없다.",
+    "media": {
+      "type": "video",
+      "link": "https://youtu.be/cPRRupAM4DI"
+    },
+    "chapters": [
+      {
+        "title": "자경단원",
+        "content": "솔저: 76는 다수의 불법 기업, 금융 기관, 오버워치 보안 시설에 가한 연쇄 습격 사건으로 전 세계를 뒤흔들며 처음 그 모습을 드러냈다. 비록 표면적인 동기는 알 수 없지만, 솔저: 76가 전직 오버워치 요원이며, 조직을 무너뜨린 음모를 파헤치는 데 몰두하고 있다고 주장하는 이들도 있다. 솔저: 76의 정체가 사실은 이전 오버워치 강습 사령관 잭 모리슨이라는 사실을 알고 있는 사람은 거의 없었다. 모리슨은 오버워치의 스위스 본부가 파괴되던 때 목숨을 잃은 것으로 알려져 있었기 때문이다. 하지만 노련한 베테랑은 살아남았다. 아마도 그는 생물학적으로 강화되었고, 옴닉 사태로 인한 최악의 순간에만 모습을 드러낸 미국의 일급비밀 기관 군인 강화 프로그램의 일원으로 훈련을 받았기 때문일 것이다. 그런 이유로 모리슨은 일반 병사를 크게 상회하는 신체 능력을 발휘하고, 그의 신체에는 독보적인 전투원으로 활약할 수 있게 해주는 다양한 신체 증강 기술이 적용되어 있다. 또한 그는 대부분 오버워치 시설을 공격하는 과정에서 훔쳐낸 최첨단 무장을 사용한다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt530523018f1ff248/6388100c6f080311223b5524/soldier-00.jpg"
+      },
+      {
+        "title": "소집",
+        "content": "모리슨이 윈스턴의 오버워치 소집 방송을 감청하긴 했지만, 그는 오직 복수를 위한 사냥에만 맹목적으로 집중했다. 전 사령관은 이집트에서 사냥감에 가까이 접근했고, 그 과정에서 의학 연구 분야의 수장이었던 앙겔라 치글러 박사와 부사령관 아나 아마리 등 전 오버워치 요원들과 조우하기도 했다. 하지만 가장 충격적이었던 건 리퍼가 되어 전 오버워치 요원들을 사냥하고 있는 블랙워치의 전 사령관 가브리엘 레예스와의 만남이었다. 모리슨은 이집트에서 리퍼와 여러 차례 싸웠지만, 망령은 늘 그의 손아귀를 빠져나갔다.  답을 찾는 과정은 계속된다. 다행히도 솔저: 76은 오버워치를 몰락시킨 자들을 찾아내서 심판하는 그날까지 결코 쉬지 않을 것이다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt43566dc9446cf327/6388100c5148880e83ab70cf/soldier-01.jpg"
+      }
+    ]
+  }
+}

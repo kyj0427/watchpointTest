@@ -1,0 +1,101 @@
+{
+  "name": "로드호그",
+  "description": "로드호그는 무분별하고 악의적인 파괴 행위로 악명을 떨치는 강력한 싸움꾼입니다.",
+  "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/72e02e747b66b61fcbc02d35d350770b3ec7cbaabd0a7ca17c0d82743d43a7e8.png",
+  "role": "tank",
+  "location": "호주, 쓰레기촌(이전 기록)",
+  "age": 50,
+  "birthday": "9월 12일",
+  "hitpoints": {
+    "health": 750,
+    "armor": 0,
+    "shields": 0,
+    "total": 750
+  },
+  "abilities": [
+    {
+      "name": "고철총",
+      "description": "근거리에 방사 피해를 주며 중거리 산탄을 발사합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/50b6e388a6693ce31b5a1889e53037970a1b884b8265834f33dd6f7a3dedce44.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt471d77a8a98cfae2/6339084e2dc7636608cc7140/ROADHOG_SCRAPGUN.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt32396a22f6e03d77/6594a7f99ac620830204b44b/OW2_RoadhogUpdate_HRZ_60_ScrapGun.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt04843682f63d8b72/6594a819b4fe9d550d9e7c2c/OW2_RoadhogUpdate_HRZ_60_ScrapGun.webm"
+        }
+      }
+    },
+    {
+      "name": "사슬 갈고리",
+      "description": "적을 자신에게 끌어당깁니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/139deabeb3d62c451b558367bf5e64641583355d99ed90fe42107a5716fdca3b.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltb7e613287c154390/6339084e1a0b5e7d3d1ec5d5/ROADHOG_GRAPPLEHOOK.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt64a3ef7e15942399/6594a7facd72b19d912c1e63/OW2_RoadhogUpdate_HRZ_60_ChainHook.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt6a34055cf0b68eee/6594a819619a8e3aaa5d68b1/OW2_RoadhogUpdate_HRZ_60_ChainHook.webm"
+        }
+      }
+    },
+    {
+      "name": "숨 돌리기",
+      "description": "자신을 치유합니다. 치유하는 동안 받는 피해가 감소합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/9cb8d867671bf917a9ba5d4a28ab6cb6ceeb10de2813567fcad97aca32c58499.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt4f4f04152fd51a7c/6339084eb8dbde69f5279928/ROADHOG_TAKEABREATHER.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltebe82cdccb2a3f83/6594a7fb21f6601fa5478a1d/OW2_RoadhogUpdate_HRZ_60_TakeABreather.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltb7114304aa4b88e0/6594a819b4fe9d69049e7c30/OW2_RoadhogUpdate_HRZ_60_TakeABreather.webm"
+        }
+      }
+    },
+    {
+      "name": "돼지우리",
+      "description": "주위 적들을 느려지게 하고 피해를 주는 덫을 놓습니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/0150c28fe47ff4a7c16138266bf2b4903bd45e4b7770ab40572bb792b647838c.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt3a4429bc3d271b1e/6595dd45cd72b12d4b2c1e7c/Pig_Pen_Poster.png",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt1d44ae16a080d5d5/6594a7fad086845461bc0bcf/OW2_RoadhogUpdate_HRZ_60_PigPen.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltcc4773dc85869413/6594a819ebf6a1502c4caf9d/OW2_RoadhogUpdate_HRZ_60_PigPen.webm"
+        }
+      }
+    },
+    {
+      "name": "돼재앙",
+      "description": "전방의 적들에게 피해를 주며 밀쳐냅니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/78faa90f268424c6e770168ec15f5bb880d0b14e5d10f22c30bfbb64ffe244a8.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt3215e23e3bae1f31/6339084e64fe5a7d4481a0a0/ROADHOG_WHOLEHOG.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltc0a4979550855fbe/6594a7fbbb381a639a8a545a/OW2_RoadhogUpdate_HRZ_60_WholeHog.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt26a7f339b38e6a29/6594a819ebf6a1571e4cafa1/OW2_RoadhogUpdate_HRZ_60_WholeHog.webm"
+        }
+      }
+    }
+  ],
+  "story": {
+    "summary": "마스크를 쓴 무자비한 살인마인 로드호그는 파괴적인 성향으로 악명이 자자하다. 방사능으로 오염되고 여기저기 잔해가 널려 있는 호주 내륙 지역을 떠도는 그가 유일하게 어울리는 사람이 있는데(그 이유를 궁금해하는 사람도 많다), 바로 정크랫이라는 젊은 미치광이 쓰레기촌 범죄자이다.",
+    "media": {
+      "type": "video",
+      "link": "https://youtu.be/_q0QGtk_AM0"
+    },
+    "chapters": [
+      {
+        "title": "호주 해방전선",
+        "content": "마코 러틀리지는 호주 내륙 지역에서 옴니움의 건설 현장으로 자신의 땅을 빼앗긴 여러 거주민 중 하나였다. 하지만 옴닉 사태 이후 정부에서는 논란의 여지가 있는 결정을 내렸다. 장기적인 평화 협정을 수립하기를 희망하며 자국을 거의 파괴할 뻔한 옴닉들에게 이 땅을 선물한 것이다. 이 합의로 인해 마코와 이 지역의 수많은 거주민들, 즉 생존주의자와 태양 농부, 그리고 그저 뿔뿔이 흩어져 홀로 남겨지기만을 원했던 사람들은 영구적으로 집을 잃었다. <고향을 잃었다는 사실에 분노한 마코와 거주민들은 격렬하게 저항했다. 그들은 호주 해방전선을 결성하고 도둑맞은 땅을 되찾기 위해 옴니움과 로봇들을 공격했다. 사태는 점점 더 악화되었고, 호주 해방전선이 옴니움의 융합 핵을 폭파시키면서 절정에 이르렀다. 이로 인해 발생한 폭발은 옴니움을 파괴하고, 주변 지역을 방사능으로 오염시키고, 호주 내륙 지역 사방 몇 킬로미터에 이르는 범위에 뒤틀린 금속과 잔해를 흩뿌렸다. 마코는 자기 고향이 종말 이후의 황무지가 되는 모습을 지켜봐야 했고, 그때 이후 그는 영원히 달라졌다. 그는 주위 환경에 어울리도록 가면을 쓰고 금방이라도 부서질 듯한 오토바이에 올라 호주 내륙 지역의 부서진 고속도로를 달렸다. 조금씩 조금씩 그의 인간성은 잊혀 갔다. 마코의 마지막 흔적은 서서히 사라지고, 잔혹한 살인마 로드호그가 태어났다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blta1267b8aa2078ce1/637da1d146a48b0e063e4a9d/roadhog-00.jpg"
+      },
+      {
+        "title": "쓰레기 집단",
+        "content": "로드호그는 쓰레기촌 외곽에 상점을 열었고, 그곳은 마을의 군주 정커퀸에게 눈엣가시 같은 존재가 되었다. 그는 개의치 않았다. 그에겐 휘발유가 있었고, 다른 사람이 어떻게 되든 아무 상관 없었다. 하지만 사라졌던 전설 속 보물의 50%를 받는다는 조건으로 정크랫과 지속적인 협력 관계를 체결하면서, 사정은 달라졌다. 보물이 여왕에게 가는 것보다는 자기가 차지하는 게 그나마 낫다는 생각이었다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt4565b257dd867cf6/637da1d2d44c1b0e1f0e8bb4/roadhog-01.jpg"
+      },
+      {
+        "title": "현상 수배자",
+        "content": "쓰레기촌에서 추방된 둘은 잠시 호주를 배회하다가 하이드 글로벌의 CEO를 만났고, 회사에서는 그들을 고용하여 옴닉 테러리스트가 점령한 창고를 되찾는 일을 맡겼다. 얼마 지나지 않아 두 사람은 자기들이 보험 사기 사건에 휘말렸음을 깨달았다. 그 일은 엉망으로 끝났지만, 그로 인해 두 사람은 전 세계적 범죄자가 될 수 있는 발판을 마련했다. 로드호그는 결국 쓰레기촌으로 돌아왔고, 그곳에서 정크랫은 자기들을 추방한 여왕에게 복수하겠다는 엄청난 계획을 여기저기 떠들고 다녔다. 하지만 그들의 이야기를 엿들은 문지기 덕분에 계획은 순식간에 실패로 돌아갔다. 이제 두 사람의 수중에는 돈과 쓸모없는 위장, 곧 폭발할 폭탄만 남았다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt2c1b0477d4a1c175/637da1d1f9f61910b4235785/roadhog-02.jpg"
+      }
+    ]
+  }
+}

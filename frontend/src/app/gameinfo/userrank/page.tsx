@@ -1,8 +1,7 @@
-// 화면에 띄워지는 userrank 페이지
+// 화면에 띄워지는 userrank 메인페이지
 
 import GameBreadcrumb from "@/components/sections/gameinfo/gameBreadcumb";
 import UserRankComp from "@/components/sections/gameinfo/userrank/userrankComp";
-import Breadcrumb from "@/components/shared/Breadcumb";
 import { headerBannerType, NavLinkProps } from "@/config/types";
 
 const Page = () => {

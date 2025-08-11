@@ -1,0 +1,101 @@
+{
+  "name": "겐지",
+  "description": "사이보그 시마다 겐지는 한때 거부했던 자신의 로봇 육체를 받아들였으며, 그 과정에서 한 차원 더 높은 인간성을 갖게 되었습니다.",
+  "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/4edf5ea6d58c449a2aeb619a3fda9fff36a069dfbe4da8bc5d8ec1c758ddb8dc.png",
+  "role": "damage",
+  "location": "일본, 하나무라(이전 기록), 네팔, 샴발리 수도원(이전 기록), 감시 기지: 지브롤터",
+  "birthday": "10월 28일",
+  "age": 37,
+  "hitpoints": {
+    "armor": 0,
+    "health": 250,
+    "shields": 0,
+    "total": 250
+  },
+  "abilities": [
+    {
+      "name": "수리검",
+      "description": "투사체 3개를 연달아 던집니다.  투사체 3개를 부채꼴로 던집니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/8d0916035141abd9ab2bf72dbcfd0460b7a0019529e023d259ad4340890b34b3.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt2ffbd1e3f3d91182/633905b7b8dbde69f5279908/GENJI_Shuriken.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltd0e67eec15977faa/633905b22dc7636608cc7126/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_GenjiShuriken_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt35e18530ece4cbe6/6679ab45395c0a021e92c69b/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_GenjiShuriken_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "튕겨내기",
+      "description": "전방에서 날아오는 투사체를 모두 튕겨내고 근접 공격을 막습니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/9e46bda733749ddd6512b61c021b4487b6201338a9ff39c716e4ee06e5d63a58.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltf541e9dda0d39a2f/633905b73922a2677fc88d18/GENJI_Deflect.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltd9e4e8d3515fc62c/633905b23922a2677fc88d14/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_GenjiDeflect_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt54fbff1fe83b5706/6679ab6d5e8b86730d85d169/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_GenjiDeflect_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "질풍참",
+      "description": "전방으로 빠르게 뛰어들어 적들을 벱니다. 적을 처치하면 재사용 대기시간이 초기화됩니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/a6639d5240b77967a734fc5e2af960fd38dccd834430a4a3409add345bb7e21e.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltb3d8a560f70e2fdb/633905b78537f87bfbcdc410/GENJI_Swift_Strike.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltf9ec83bd4fdf4c15/633905b2da1d806602f83efa/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_GenjiSwiftStrike_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt1439d510340336a6/6679ab5291d53bad66dc0621/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_GenjiSwiftStrike_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "용검",
+      "description": "막강한 근접 무기를 뽑습니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/e9c3c82c08ce1a6006dbdf6905591040ed83ddceba81efb2e526c217cd57c931.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt49e2ae40d11634b2/633905b7ec7e18758be51056/GENJI_Dragon_Blade.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt7f884f211708603c/633905b2e3c2a2741688cbb5/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_GenjiDragonStrike_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt09ca4d1905bcc68b/6679ab604f84eb765e24bbcd/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_GenjiDragonStrike_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "사이보그의 날렵함",
+      "description": "벽을 오르고 2번 뛰어오를 수 있습니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/79a39a36482ed7e9b4d4cd1bcd98c40308dc4e8ed512e8db749adbda4ee15c5b.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltd950d931d47255cb/633905b71ccd046877c0e4f3/GENJI_Cyber_Agility.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltcd332e750b2cf892/633905b27e84e17596f9c8ae/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_GenjiCyberAgility_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltee675189c2aae8a2/6679ab7c4f84eb14f724bbcf/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_GenjiCyberAgility_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    }
+  ],
+  "story": {
+    "summary": "닌자 겐지 시마다는 친형에게 죽을 위기를 넘기고 오버워치에 의해 구조되었다. 오버워치는 겐지를 살리기 위해 그의 신체를 사이보그로 업그레이드하여 그를 살아 있는 무기로 만들었다. 오버워치 몰락 이후 자신의 본질과 목적에 대해 고뇌하던 겐지는 옴닉 수도사 젠야타와 수련하며 마음의 평화를 찾았고, 이후 윈스턴의 소집에 응답하게 된다.",
+    "media": {
+      "type": "video",
+      "link": "https://youtu.be/oJ09xdxzIJQ"
+    },
+    "chapters": [
+      {
+        "title": "시마다 일족",
+        "content": "시마다 일족 수장의 막내아들인 겐지는 검술과 함께 성장했다.그는 검성 야마가미 아사 휘하에서 훈련하면서 그녀의 딸 키리코와 친해졌다. 겐지는 탁월한 재능을 보이며 닌자 훈련을 즐겼지만 가문의 불법적인 사업에는 관심이 없었고, 한량 같은 삶을 추구하며 대부분의 시간을 보냈다. 일족의 많은 사람들은 무책임한 겐지가 조직의 위험 요소라며 골칫거리로 여겼고, 아들을 애지중지하며 감싸는 아버지를 못마땅해 했다. 그러던 어느 날 일족의 수장이 갑자기 사망하고, 겐지의 형 한조는 겐지에게 선친의 제국에서 조금 더 적극적인 역할을 맡아 줄 것을 요구했다. 하지만 겐지는 이를 거절했고, 한조는 화를 냈다. 형제 사이에 긴장감이 고조되었고, 결국 격렬한 싸움이 벌어진 결과 겐지는 빈사 상태에 빠지고 말았다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltb983c9c07c5e404e/637da16446a48b0e063e4a95/genji-00.jpg"
+      },
+      {
+        "title": "블랙워치",
+        "content": "한조는 자신의 손으로 동생을 죽였다고 믿었으나, 겐지는 죽기 직전 오버워치 소속의 앙겔라 치글러 박사에게 구조된다. 한때 세계를 지켰던 방위군은 계속되는 시마다 일족과의 전투 작전에서 겐지가 잠재적인 자산이 될 거라고 판단했다. 부상으로 인해 겐지의 목숨은 위태로운 상황이었기 때문에, 오버워치는 그의 육체를 재건해 주는 대가로 그의 협력을 요구했다. 그는 광범위한 사이버화를 거쳤고, 그 덕분에 타고난 속도와 민첩성, 최상급의 닌자 기술이 대폭 강화되었다. 살아 있는 무기로 변한 겐지는 블랙워치에 합류하여 맹목적으로 가문의 범죄 제국을 해체하는 일에 전념했다. 이 임무가 완료되었을 때, 그는 훨씬 더 복잡한 임무를 맡았고, 악명 높은 베네치아 사건에도 관여했다. 이 사건으로 인해 블랙워치의 존재가 세상에 드러났고, 이 팀의 운영이 중단되게 되었다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt9fef564c18fa9a73/637da165bbfd340e8ad2e2fc/genji-01.jpg"
+      },
+      {
+        "title": "오버워치",
+        "content": "하지만 겐지는 오랫동안 은둔하지는 않았다. 오버워치 지도부는 겐지가 더 큰 규모의 오버워치 타격팀에 합류할 수 있도록 요원 훈련을 계속하게 했고, 그는 트레이서 및 윈스턴과 함께 졸업했다. 하바나와 싱가포르에서의 활약 덕분에 겐지와 그의 부대원들은 둠피스트를 체포할 수 있었고, 그 후에도 오버워치의 현상 수배 명단 최상단에 있는 인물들을 차례차례 구속했다. 하지만 오버워치가 몰락했을 때, 겐지는 하나무라에서의 운명의 밤으로부터 오버워치 요원으로 살아가는 지금에 이르기까지 일어났던 모든 일들을 떠올리며 자신과의 전쟁에 빠져들었다. 그러다 결국 두 번째로 이전의 삶을 포기하고 의미를 찾아 세계를 떠돌았다. 그리고 오랫동안 방황한 후, 옴닉 수도사 젠야타를 만났다.시간이 흘러 젠야타는 그의 스승이 되었고, 수도사의 가르침에 따라 겐지는 자신의 경험과 사이보그 신체가 축복이며 자신만이 지닌 능력이라고 생각하기 시작했다. 시마다 형제는 이후 겐지의 기일에 다시 만났다. 이제는 하시모토 일족의  수중에 들어간 시마다 성의 예전 집에서, 겐지는 이전 운명의 전투에서 자신이 살아남았다는 사실을 밝혔다. 겐지는 자기는 이미 형을 용서했지만, 이제 한조도 자기 자신을 용서하는 길을 걸어야 한다고 이야기했다. 이제 자기 운명의 주인이 된 겐지는 한 번 더 오버워치를 돕기로 하고, 옛 동료 및 새롭게 합류한 이들과 함께 위기에 휩싸인 세계를 지원하기 위해 돌아왔다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltc878fc10bd8ab2cb/63880951443fa70e71d4bfc5/genji-02.jpg"
+      }
+    ]
+  }
+}

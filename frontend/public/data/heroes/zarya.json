@@ -1,0 +1,101 @@
+{
+  "name": "자리야",
+  "description": "세계에서 가장 강인한 여성 중 하나인 알렉산드라 자리야노바는 한때 장래가 촉망되던 운동선수였으나, 전쟁이 시작되자 개인의 영달을 버리고 가족과 친구, 조국을 보호하기 위해 나섰습니다.",
+  "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/8819ba85823136640d8eba2af6fd7b19d46b9ee8ab192a4e06f396d1e5231f7a.png",
+  "role": "tank",
+  "location": "크라스노야르스크 최전선(이전 기록), 러시아, 시베리아, 노보안스코예 전진 기지(이전 기록), 감시 기지: 지브롤터",
+  "age": 30,
+  "birthday": "12월 4일",
+  "hitpoints": {
+    "health": 325,
+    "armor": 0,
+    "shields": 225,
+    "total": 550
+  },
+  "abilities": [
+    {
+      "name": "입자포",
+      "description": "근거리에 에너지 광선을 방출합니다.  입자탄을 발사합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/02aebadea29904eca48f514437522f9f3a52ea266e6c2b2688dad39641071bda.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt178fde2fd9c050d0/633909468537f87bfbcdc458/ZARYA_PARTICLECANNON.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt71554b573c7f2fc7/6339094bec7e18758be510a6/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ZaryaParticleCannon_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltc848df9cd4cbbe2f/6679f4b84f84eb0f7e24bbee/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ZaryaParticleCannon_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "입자 방벽",
+      "description": "피해를 흡수하는 방벽을 자신에게 전개합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/2d462e28ae2fc60b3ef9c32702bbc88936885dd7d20746a31dd2e3c51c20f199.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt924907669563adc1/63390946425ea374105b61b5/ZARYA_PARTICLEBARRIER.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt5b884ae54928f9d3/6339094b399a07678557c199/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ZaryaParticleBarrier_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt5b325c68c278ba35/6679f4b7845030d370778968/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ZaryaParticleBarrier_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "방벽 씌우기",
+      "description": "피해를 흡수하는 방벽을 아군에게 씌웁니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/6e42984ee8329a50e9c2460ae2df7670d7be9846a093c336e4576d1eea1fb2f1.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blta32bfb22a9132de6/633909121ccd046877c0e52b/WINSTON_PROJECTEDBARRIER.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt4edb7cb6bfccd8f3/6339094b64fe5a7d4481a0c8/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ZaryaProjectedBarrier_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blte3d6e761cfcb66fd/6679f4b82cfadcf3820cf3b5/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ZaryaProjectedBarrier_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "중력자탄",
+      "description": "적들을 끌어당기는 중력 폭탄을 발사합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/e58e60f939026f3d0ee95cf3a0b5fc8091da3c35a178d34c358700f3720a70d3.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt8d73a5e30b5931d3/633909463922a2677fc88d50/ZARYA_GRAVITONSURGE.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt2e87fc7317b756d1/6339094bf87c00687e8ef270/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ZaryaGravitonSurge_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt15d41f0bf4cfea69/6679f4b62cfadce10e0cf3b3/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ZaryaGravitonSurge_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "에너지",
+      "description": "방벽으로 막은 피해만큼 입자포의 공격력이 증가합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/0df3be06b67b4a1a1788681f3b2e6795f4c76bef3870b9e3ad6eb2787c4fcc2c.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt861cc5beb5d9a6fe/63390946e3c2a2741688cbfd/ZARYA_ENERGY.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt040a5ea898321b4e/6339094bda1d806602f83f34/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ZaryaEnergy_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt029dd9aba45c1a23/6679f4b54f84eb905c24bbec/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ZaryaEnergy_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    }
+  ],
+  "story": {
+    "summary": "옴닉 사태 때 발발한 전쟁으로 쑥대밭이 된 환경에서 자란 자리야는 역도 챔피언이 되어, 자신의 힘과 명성을 조국을 재건하는 데 바쳤다. 이제 그녀는 개인의 영광을 버리고 조국의 안보를 위협하는 기계 적에 맞서기 위해 전쟁의 최전선으로 나선다.",
+    "media": {
+      "type": "comic",
+      "link": "https://overwatch.blizzard.com/media/stories/searching/"
+    },
+    "chapters": [
+      {
+        "title": "어린 시절",
+        "content": "알렉산드라는 옴닉 사태의 최전선에 위치한 시베리아의 외딴 마을에서 태어났다. 러시아 군대가 로봇들을 파괴하고 옴니움을 폐쇄하긴 했지만, 그 지역은 이미 초토화된 후였다. 당시 아이였던 알렉산드라는 전쟁의 상흔을 피부로 느끼며 성장했고, 훗날 자신이 힘을 키워 동포의 재기를 돕겠다고 맹세했다. 역도와 보디빌딩에 열중한 알렉산드라는 국가적인 체육 인재 양성 프로그램의 유망주로 선발되었다. 훈련에 정진한 그녀는 마침내 조국을 대표하는 인재로 성장하였고, 다음 세계 선수권 대회에서는 오래도록 난공불락이었던 세계 기록을 깰 것이라는 기대를 한 몸에 받았다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt61edee8ea0745b02/637da22932db130e11be7e41/zarya-00.jpg"
+      },
+      {
+        "title": "러시아 방위군",
+        "content": "하지만 대회 전날, 오랫동안 휴면 상태였던 시베리아의 옴니움에서 공격이 시작됐고, 그녀의 고향은 다시금 전쟁의 소용돌이에 휘말렸다. 이 소식을 들은 알렉산드라는 즉시 대회를 기권하고 고향의 방위군에 합류했다. 단 하루면 손에 넣었을 모든 부와 명예를 뒤로한 채. 그녀는 단번에 러시아 방위군의 중사이자 동포의 상징, 강인한 힘으로 조국을 수호하는 굳건한 병사가 되었다. 자리야는 볼스카야 인더스트리의 CEO인 카티야 볼스카야에게 실험적 무기를 받았다. 그녀의 입자포는 일반 병사들에게는 너무 무거웠으며, 러시아의 기계화 병력으로는 감당할 수 없는 빠른 기동과 정확도를 필요로 했다. 자리야는 이 무기를 들고 최전선에서 싸우며 수많은 사람들의 목숨을 구했다.  하지만 탈론 요원들의 카티야 볼스카야에 대한 암살 시도가 실패로 돌아간 후, 자리야에게는 새로운 임무가 주어졌다. 탈론과 연관된 해커 솜브라에게 정의의 심판을 내리는 것이었다. 전 세계를 수색하기 위해, 자리야는 어쩔 수 없이 링크스 세븐틴이라는 옴닉과 협력해야 했다. 우연히 탄생한 이 이인조는 도라도에서 솜브라를 찾아냈지만, 그녀는 카티야의 반 옴닉 기술이 옴닉에게서 받은 것이라는 사실을 밝힌 후 그들의 손아귀에서 빠져나갔다. 예상치 못했던 진실의 무게에 시달리고, 링크스 덕분에 옴닉에 감사하는 마음을 품게 된 자리야는 시베리아의 최전선으로 돌아갔다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltf0f8d24eb5c5d03c/637da229a4a28e10bf84d70a/zarya-01.jpg"
+      },
+      {
+        "title": "시베리아 최전선",
+        "content": "새로운 오버워치 요원을 찾아 노보안스코예의 얼어붙은 최전선을 찾아간 캐서디는 흔들리지 않고 조국을 수호하는 자리야의 모습을 보며 오버워치의 적임자를 발견했음을 깨달았다. 두 사람은 시베리아 옴니움으로부터 몰려드는 옴닉 세력을 함께 몰아냈고, 자리야는 재결성된 오버워치의 일원이 되어 자신의 힘을 빌려주며, 전 세계적 규모에서 조국을 수호하기로 했다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blte6e9757272caa5fe/637da229f9f61910b4235799/zarya-02.jpg"
+      }
+    ]
+  }
+}

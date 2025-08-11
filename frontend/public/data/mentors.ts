@@ -8,10 +8,14 @@ export const mentors = [
         price: 50000,
         rating: 4.8,
         reviews: 12,
-        author: {
+        mentorinfo: {
             name: "홍길동",
             image: "/images/blogs/blog2.png",
-            role: "Frontend Developer",
+            position: "딜러",
+            career: [
+                "2024 오버워치 챔피언스 시리즈 준우승",
+                "t1 수석코치(2024~2025)"
+            ]
         },
     },
     {
@@ -23,10 +27,34 @@ export const mentors = [
         price: 60000,
         rating: 4.6,
         reviews: 8,
-        author: {
+        mentorinfo: {
             name: "김영희",
             image: "/images/blogs/blog4.png",
-            role: "Backend Engineer",
+            position: "서포터",
+            career: [
+                "2024 오버워치 챔피언스 시리즈 준우승",
+                "t1 수석코치(2024~2025)"
+            ]
         },
     },
+    {
+        id: 3,
+        title: "멘토링 3",
+        description: "설명 3",
+        category: "backend",
+        image: "/images/blogs/blog3.png",
+        price: 60000,
+        rating: 4.6,
+        reviews: 8,
+        mentorinfo: {
+            name: "김영희",
+            image: "/images/blogs/blog4.png",
+            position: "탱커",
+            career: [
+                "2024 오버워치 챔피언스 시리즈 준우승",
+                "t1 수석코치(2024~2025)"
+            ]
+        },
+    },
+
 ];
