@@ -116,7 +116,7 @@ export const navMenu = [
             {
                 id: 54,
                 name: "스쿼드/채팅방",
-                link: "/SquadOrChat"
+                link: "/community/SquadOrChat"
             },
             {
                 id: 55,

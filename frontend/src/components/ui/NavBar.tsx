@@ -239,7 +239,7 @@ const NavBar = () => {
       className: "flex flex-col gap-2 rounded-full w-fit p-2 shrink-0",
       items: [
         // { href: "/profile", icon: <IconUser stroke={1.5} size={32} /> },
-        { href: "/chat", 
+        { href: "/community/chat", 
           icon: <IconMessages stroke={1.5} size={32} />, 
           name: "채팅"},
         {
