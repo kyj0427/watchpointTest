@@ -4,7 +4,7 @@ import { CreditCard, MoreVertical } from 'lucide-react';
 const BillingInfo: React.FC = () => {
   return (
     <div className="space-y-6">
-      <h2 className="text-xl font-bold">결제 정보</h2>
+      
       
       {/* Payment Methods */}
       <div className="rounded-lg p-6 border border-gray-700" style={{backgroundColor: '#0E1012'}}>
@@ -73,59 +73,8 @@ const BillingInfo: React.FC = () => {
         </div>
       </div>
 
-      {/* Tax Information */}
-      <div className="rounded-lg p-6 border border-gray-700" style={{backgroundColor: '#0E1012'}}>
-        <div className="flex justify-between items-center mb-4">
-          <h3 className="font-semibold">세금 정보</h3>
-          <button className="text-orange-500 hover:text-orange-400 font-medium">
-            편집
-          </button>
-        </div>
-        
-        <div className="text-gray-300">
-          <div className="mb-4">
-            <p className="font-medium mb-1">사업자등록번호</p>
-            <p className="text-gray-400">미등록</p>
-          </div>
-          <p className="text-sm text-gray-400">
-            사업자등록번호를 등록하면 세금계산서를 받을 수 있습니다.
-          </p>
-        </div>
-      </div>
-
-      {/* Invoice Preferences */}
-      <div className="rounded-lg p-6 border border-gray-700" style={{backgroundColor: '#0E1012'}}>
-        <div className="flex justify-between items-center mb-4">
-          <h3 className="font-semibold">영수증 설정</h3>
-          <button className="text-orange-500 hover:text-orange-400 font-medium">
-            편집
-          </button>
-        </div>
-        
-        <div className="space-y-4">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="font-medium">이메일 영수증</p>
-              <p className="text-sm text-gray-400">결제 완료 시 이메일로 영수증을 받습니다</p>
-            </div>
-            <label className="relative inline-flex items-center cursor-pointer">
-              <input type="checkbox" defaultChecked className="sr-only peer" />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-orange-500"></div>
-            </label>
-          </div>
-
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="font-medium">SMS 알림</p>
-              <p className="text-sm text-gray-400">결제 관련 SMS 알림을 받습니다</p>
-            </div>
-            <label className="relative inline-flex items-center cursor-pointer">
-              <input type="checkbox" className="sr-only peer" />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-orange-500"></div>
-            </label>
-          </div>
-        </div>
-      </div>
+     
+     
     </div>
   );
 };

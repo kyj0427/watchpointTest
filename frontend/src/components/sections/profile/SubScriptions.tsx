@@ -10,7 +10,7 @@ const SubScriptions = () => {
   return (
     <section className="container py-8 space-y-8">
       <header className="mb-6">
-        <h1 className="text-3xl font-bold">SubScriptions </h1>
+        <h1 className="text-3xl font-bold">구독 </h1>
         
       </header>
 
