@@ -1,14 +1,25 @@
-// 전적검색 유저검색 - 검색결과 (동명이인 추출)
+// 화면에 띄워지는 userrankList 메인페이지
 
-// app/userrankList/page.tsx 라우트
-import Link from "next/link";
+import UserrankListBreadcrumb from "@/components/sections/userrankList/userrankListBreadcumb";
+import UserrankListComp from "@/components/sections/userrankList/userrankListComp";
+import { headerBannerType, NavLinkProps } from "@/config/types";
 
-import UsrrankListComp from "@/components/sections/userrankList/userrankListComp";
+const Page = () => {
+  const navLinks: NavLinkProps[] = [
+    { id: 1, url: "/home", label: "홈" },
+    { id: 2, url: "/userrankList", label: "검색결과" },
+  ];
 
-export default function Page() {
+  const headerData: headerBannerType = {
+    title: "전적검색",
+    navLinks,
+  };
+
   return (
-    <main className="container mx-auto px-4 py-6">
-      <UsrrankListComp />
+    <main>
+      <UserrankListBreadcrumb breadcrumb={headerData} />
+      <UserrankListComp />
     </main>
   );
-}
+};
+export default Page;
