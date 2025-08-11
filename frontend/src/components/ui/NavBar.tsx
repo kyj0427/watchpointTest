@@ -222,7 +222,7 @@ const NavBar = () => {
           icon: <IconTrophy stroke={1.5} size={32} />,
           name: "E-스포츠"
         },
-        { href: "/coaching/athena", 
+        { href: "/athena", 
           icon: <IconSword stroke={1.5} size={32} /> , 
           name: "게임강의"},
         {

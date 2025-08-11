@@ -13,32 +13,17 @@ const CoachingTab = () => {
     },
     {
       title: "Athena",
-      link: `/coaching/athena/library`,
+      link: `/athena/library`,
     },
-    {
-      title: "강의 등록",
-      link: `/coaching/mentor-menti/courseRegister`,
-    },
+    // {
+    //   title: "강의 등록",
+    //   link: `/coaching/mentor-menti/courseRegister`,
+    // },
     {
       title: "내 강의",
       link: `/profile/teams`,
     },
-    {
-      title: "Groups",
-      link: `/profile/groups`,
-    },
-    {
-      title: "Forum",
-      link: `/profile/forums`,
-    },
-    {
-      title: "Videos",
-      link: `/profile/videos`,
-    },
-    {
-      title: "Achievements",
-      link: `/profile/achievements`,
-    },
+    
   ];
 
   return (
