@@ -224,7 +224,16 @@ const Footer = () => {
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
                   <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
-                    href="/community"
+                    href="/community/noticification"
+                    className="text-m-regular text-w-neutral-3"
+                  >
+                    공지사항
+                  </Link>
+                </li>
+                <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
+                  <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
+                  <Link
+                    href="//community/postlist?mode=hot"
                     className="text-m-regular text-w-neutral-3"
                   >
                     인기글
@@ -233,28 +242,19 @@ const Footer = () => {
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
                   <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
-                    href="/trending"
+                    href="/community/postlist?mode=recent"
                     className="text-m-regular text-w-neutral-3"
                   >
-                    핫클립
+                    최신글
                   </Link>
                 </li>
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
                   <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
-                    href="/blogs"
+                    href="/community/SquadOrChat"
                     className="text-m-regular text-w-neutral-3"
                   >
-                    공략
-                  </Link>
-                </li>
-                <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
-                  <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
-                  <Link
-                    href="/groups"
-                    className="text-m-regular text-w-neutral-3"
-                  >
-                    듀오/스쿼드 조회
+                    듀오/스쿼드 탐색
                   </Link>
                 </li>
               </ul>
