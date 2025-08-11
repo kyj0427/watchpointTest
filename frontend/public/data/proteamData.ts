@@ -45,7 +45,7 @@ export const proteamData = [
     win_rate: 60,
   },
   {
-    team_id: 3,
+    team_id: 4,
     logo: zeta,
     rank: "04",
     region: "한국",
@@ -54,7 +54,7 @@ export const proteamData = [
     win_rate: 60,
   },
   {
-    team_id: 4,
+    team_id: 5,
     logo: pokerface,
     rank: "05",
     region: "한국",
@@ -63,7 +63,7 @@ export const proteamData = [
     win_rate: 60,
   },
   {
-    team_id: 5,
+    team_id: 6,
     logo: agg,
     rank: "06",
     region: "한국",
@@ -72,7 +72,7 @@ export const proteamData = [
     win_rate: 60,
   },
   {
-    team_id: 6,
+    team_id: 7,
     logo: vec,
     rank: "07",
     region: "한국",
@@ -81,7 +81,7 @@ export const proteamData = [
     win_rate: 60,
   },
   {
-    team_id: 7,
+    team_id: 8,
     logo: oldocean,
     rank: "08",
     region: "한국",
@@ -90,7 +90,7 @@ export const proteamData = [
     win_rate: 60,
   },
   {
-    team_id: 8,
+    team_id: 9,
     logo: onside,
     rank: "09",
     region: "한국",
@@ -99,7 +99,7 @@ export const proteamData = [
     win_rate: 60,
   },
   {
-    team_id: 9,
+    team_id: 10,
     logo: geng,
     rank: "10",
     region: "한국",

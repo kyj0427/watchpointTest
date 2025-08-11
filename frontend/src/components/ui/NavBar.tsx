@@ -222,7 +222,7 @@ const NavBar = () => {
           icon: <IconTrophy stroke={1.5} size={32} />,
           name: "E-스포츠"
         },
-        { href: "/athena", 
+        { href: "/coaching/athena", 
           icon: <IconSword stroke={1.5} size={32} /> , 
           name: "게임강의"},
         {
@@ -239,7 +239,7 @@ const NavBar = () => {
       className: "flex flex-col gap-2 rounded-full w-fit p-2 shrink-0",
       items: [
         // { href: "/profile", icon: <IconUser stroke={1.5} size={32} /> },
-        { href: "/chat", 
+        { href: "/community/chat", 
           icon: <IconMessages stroke={1.5} size={32} />, 
           name: "채팅"},
         {
@@ -308,7 +308,7 @@ const NavBar = () => {
                   </Link>
                   {/* 알림 */}
                   <div className="flex items-center lg:gap-x-40p gap-x-2">
-                    <div className="hidden lg:flex items-center gap-1 shrink-0 mr-4">
+                    <div className="lg:flex items-center gap-1 shrink-0 mr-4">
                       {/* <Link
                         href="/shopping-cart"
                         className="btn-c btn-c-xxl btn-c-dark-outline"
@@ -427,23 +427,25 @@ const NavBar = () => {
                       )}
                     </div>
                     ) : (
-                      // 로그아웃 상태
-                      <div className="hidden lg:flex items-center gap-3">
-                        <Link href="/login" className="btn btn-sm btn-c-dark-outline text-base rounded-12">
-                          로그인
-                        </Link>
-                        <Link href="/sign-up" className="btn btn-sm btn-primary text-base rounded-12">
-                          회원가입
-                        </Link>
-                      </div>
-                    )}                 
-                    
-                    <button
-                      onClick={() => setHamburgerToggle((prev) => !prev)}
-                      className="lg:hidden btn-c btn-c-xxl btn-c-dark-outline nav-toggole shrink-0"
-                    >
-                      <IconMenu2 stroke={1.5} size={32} />
-                    </button>
+                      // 로그아웃 상태                      
+                        <div className="hidden lg:flex items-center gap-3">
+                          <Link href="/login" className="btn btn-sm btn-c-dark-outline text-base rounded-12">
+                            로그인
+                          </Link>
+                          <Link href="/sign-up" className="btn btn-sm btn-primary text-base rounded-12">
+                            회원가입
+                          </Link>
+                        </div>                                            
+                    )}         
+
+                    {/* 모바일창 네비게이션바 */}
+                    <div className="flex lg:hidden items-center gap-2">
+                      <button
+                        onClick={() => setHamburgerToggle((prev) => !prev)}
+                        className="lg:hidden btn-c btn-c-xxl btn-c-dark-outline nav-toggole shrink-0">
+                        <IconMenu2 stroke={1.5} size={32} />
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -467,7 +469,7 @@ const NavBar = () => {
                           width={142}
                           className="w-[142px] h-auto"
                           src={logo}
-                          alt="GameCo"
+                          alt="WatchPoint"
                         />
                       </Link>
                       <button
@@ -594,6 +596,56 @@ const NavBar = () => {
                             <p className="text-base text-w-neutral-3 mb-32p">
                               오버워치 게임의 모든 것을 Watchpoint에서.
                             </p>
+                            
+                            {/* 모바일 로그인/로그아웃 버튼 */}
+                            <div className="mb-32p">
+                              {!mounted || loading ? null : user ? (
+                                <div className="flex flex-col gap-2">
+                                  <div className="flex items-center gap-3 mb-2">
+                                    <Image
+                                      className="size-40p rounded-full shrink-0"
+                                      src={user.image? user.image : defaultAvater}
+                                      alt="profile"
+                                      width={40}
+                                      height={40}
+                                    />
+                                    <span className="text-left">
+                                      <span className="text-sm text-w-neutral-1 block">
+                                        {user.name}
+                                      </span>
+                                      <span className="text-xs text-w-neutral-4 block">
+                                        {user.blizardId}# {user.battleTag} 
+                                      </span>
+                                    </span>
+                                  </div>
+                                  <button 
+                                    onClick={()=>{
+                                      logout();
+                                      router.push('/login');
+                                      setHamburgerToggle(false);
+                                    }}
+                                    className="btn btn-sm btn-c-dark-outline text-sm rounded-12 w-full">
+                                    로그아웃
+                                  </button>
+                                </div>
+                              ) : (
+                                <div className="flex flex-col gap-2">
+                                  <Link 
+                                    href="/login" 
+                                    onClick={() => setHamburgerToggle(false)}
+                                    className="btn btn-sm btn-c-dark-outline text-sm rounded-12">
+                                    로그인
+                                  </Link>
+                                  <Link 
+                                    href="/sign-up" 
+                                    onClick={() => setHamburgerToggle(false)}
+                                    className="btn btn-sm btn-primary text-sm rounded-12">
+                                    회원가입
+                                  </Link>
+                                </div>
+                              )}
+                            </div>
+                            
                             <div className="flex items-center flex-wrap gap-3">
                               <Link href="#" className="btn-socal-primary">
                                 <IconBrandFacebook />
@@ -612,7 +664,7 @@ const NavBar = () => {
                               </Link>
                             </div>
                           </div>
-                        </div>
+                        </div>                        
                       </div>
                     </div>
                   </div>

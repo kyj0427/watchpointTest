@@ -17,10 +17,11 @@ type Mentor = {
     price: number;
     rating: number;
     reviews: number;
-    author: {
+    mentorinfo: {
         name: string;
         image: string;
-        role: string;
+        position: string;
+        career: string[];
     };
 };
 
@@ -43,7 +44,7 @@ const Mentors = ({ data, type }: { data: Mentor[]; type: string }) => {
 
     return (
         <div>
-        <h2>멘토 목록</h2>
+        <h2 className="heading-2 text-w-neutral-1 mb-40p mt-10">멘토 목록</h2>
         {/* 필터 바 */}
         <div className="flex items-center justify-between flex-wrap gap-24p pb-30p border-b border-shap">
             <Listbox
@@ -89,7 +90,7 @@ const Mentors = ({ data, type }: { data: Mentor[]; type: string }) => {
                 />
                 </div>
                 <div className="p-28p">
-                <Link href={`/mentoring-lists/${type}/${item.id}`} className="heading-3 link-1 mb-2 line-clamp-1">
+                <Link href={`/coaching/mentor-menti/mentoring-lists/${type}/${item.id}`} className="heading-3 link-1 mb-2 line-clamp-1">
                     {item.title}
                 </Link>
                 <p className="text-l-regular text-w-neutral-2">
@@ -102,13 +103,13 @@ const Mentors = ({ data, type }: { data: Mentor[]; type: string }) => {
                     </p>
                 </div>
                 <div className="flex-y flex-wrap gap-3">
-                    <Image className="size-60p rounded-full shrink-0" src={item.author.image} width={20} height={20} alt={item.author.name} />
+                    <Image className="size-60p rounded-full shrink-0" src={item.mentorinfo.image} width={20} height={20} alt={item.mentorinfo.name} />
                     <div>
-                    <Link href="/profile" className="flex-y gap-2 text-l-medium link-1 text-w-neutral-1 mb-1">
-                        <span>{item.author.name}</span>
+                    <Link href="/profile" >
+                        <span>{item.mentorinfo.name}</span>
                         <IconCircleCheckFilled size={24} className="text-secondary" />
                     </Link>
-                    <span className="text-s-medium text-w-neutral-3">{item.author.role}</span>
+                    <span className="text-s-medium text-w-neutral-3">{item.mentorinfo.position}</span>
                     </div>
                 </div>
                 </div>

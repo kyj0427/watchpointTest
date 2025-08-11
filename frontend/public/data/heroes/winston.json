@@ -1,0 +1,89 @@
+{
+  "name": "윈스턴",
+  "description": "윈스턴은 극도로 지적인 유전자 조작 고릴라입니다. 훌륭한 과학자이자 인류가 지닌 잠재력의 강력한 옹호자이기도 합니다.",
+  "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/bd9c8e634d89488459dfc1aeb21b602fa5c39aa05601a4167682f3a3fed4e0ee.png",
+  "role": "tank",
+  "location": "호라이즌 달 기지(이전 기록), 감시 기지: 지브롤터",
+  "age": 31,
+  "birthday": "6월 6일",
+  "hitpoints": {
+    "health": 375,
+    "armor": 250,
+    "shields": 0,
+    "total": 625
+  },
+  "abilities": [
+    {
+      "name": "테슬라 캐논",
+      "description": "전방에 원뿔 형태로 전기를 방출합니다.  눌러서 충전하고, 떼서 충전된 전류를 발사합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/050de92c7ce31e42368c796d9c246210a40bb1bd4a5273b2d64d8a980e1f9f9a.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt44b8db388a800702/63390912425ea374105b61a9/WINSTON_TESLACANNON.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt1778afbdeda3212c/63390916399a07678557c18d/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_WinstonTeslaCannon_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt701234daffecdb02/6679f4a92309b5c894e26a09/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_WinstonTeslaCannon_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "점프 팩",
+      "description": "전방으로 크게 뛰어오릅니다. 착지할 때 주위 적에게 피해를 줍니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/dbad1fe535da5b932ad706a0ca06373d530f1210cbbb095ef1bc8b3a7cc64172.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt9421ca4b9d01a8e5/6339091264fe5a7d4481a0c2/WINSTON_JUMPPACK.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt38c61b8d6278933f/63390916425ea374105b61ad/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_WinstonJumpPack_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt26a8f328b920865d/6679f4a7cb949b1c62fbc792/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_WinstonJumpPack_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "방벽 생성기",
+      "description": "반구형의 에너지 벽을 생성합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/469c290ded9fd33ce4ed927fc2da12c97483711e155f73bd7eaa05a399d5dbff.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blta32bfb22a9132de6/633909121ccd046877c0e52b/WINSTON_PROJECTEDBARRIER.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltdd317c5c6e708da7/633909173917977bfd9861fb/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_WinstonBarrierProjector_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltea367a7bb81d9b63/6679f4a75e8b86170a85d179/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_WinstonBarrierProjector_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "원시의 분노",
+      "description": "생명력이 대폭 증가하지만, 점프 팩으로 뛰어오르거나 주먹 공격만 할 수 있습니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/685608721cb914e0412a090eb1e89c0f5d10edfb3dbc34218ba3acd35611c990.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt3904084c286f0d76/633909123917977bfd9861f7/WINSTON_PRIMALRAGE.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blteb7e41ad4b9f58ce/633909161ccd046877c0e52f/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_WinstonPrimalRage_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltb13bdf74c4d8ecc5/6679f4a82309b52b74e26a07/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_WinstonPrimalRage_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    }
+  ],
+  "story": {
+    "summary": "극도로 지적이고 온화한 유전자 조작 고릴라인 윈스턴은 훌륭한 과학자이자 막강한 투사이다. 윈스턴은 호라이즌 달 기지를 탈출하여 오버워치에 자리를 잡았고, 영웅이 되고 싶다는 꿈을 이루었다... 그러나 오버워치는 몰락하고 말았다. 널 섹터가 세계의 안보를 위협하자, 윈스턴은 이에 대응하고자 그의 친구들과 예전 동료들 중 일부를 다시 소집했다. 새로운 오버워치가 탄생한 것이다.",
+    "media": {
+      "type": "video",
+      "link": "https://youtu.be/sB5zlHMsM7k"
+    },
+    "chapters": [
+      {
+        "title": "호라이즌 달 기지",
+        "content": "호라이즌 달 기지는 인류가 우주 탐험 재개의 첫걸음으로 건설한 시설이었다. 기지에는 유전자 강화 동물들도 함께 있었는데, 이는 우주에서 오래 생활한 생명체에게 어떤 현상이 나타나는지 알아보기 위함이었다. 해롤드 윈스턴 박사의 감독 아래 유전자 요법을 받던 고릴라 하나가 엄청난 두뇌 발달을 보였다. 박사는 그에게 과학을 가르치고, 인간의 천재성을 보여 주는 이야기들로 그를 자극했다. 어린 고릴라는 매일 같이 과학자들의 실험을 돕고 자기 서식처 창문 너머 멀리 보이는 푸른 행성을 바라보면서, 그곳에서 자신을 기다리는 무한한 가능성을 꿈꿨다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltf8825f802db2868b/638810d7e5d09810cdaff69b/winston-00.jpg"
+      },
+      {
+        "title": "오버워치",
+        "content": "하지만 다른 고릴라들이 폭동을 일으켜 과학자들을 죽이고 기지를 점령하면서 그의 삶은 갑자기 혼돈에 빠져들었다. 그는 깊이 사랑하고 따르던 보호자인 윈스턴의 이름을 이어 받고 로켓을 급조해 지구로 탈출했다. 하지만 그가 모르는 사이,실험체 8호이자 윈스턴과는 친구 사이였던 햄스터 해먼드가 그의 로켓에 매달려 함께 지구로 향했다. 해먼드는 호주에 착륙하여 쓰레기 집단에 자리를 잡았지만, 윈스턴은 자신이 경탄하던 인류의 모든 가치를 대변하는 조직, 오버워치를 만나 그 안에서 새로운 자리를 찾았다. 마음속 깊이 스며든 영웅적인 이상에 따른 삶을 비로소 살 수 있게 된 것이다. 오버워치에서 윈스턴은 트레이서를 현실에 묶어 주는 시간 가속기 기술을 개발했다. 그와 트레이서, 겐지는 요원 훈련을 졸업한 후 함께 막시밀리앙을 체포하는 걸 지원하고, 이후 탈론의 지도자 둠피스트까지 확보하는 데 성공했다. 오버워치가 몰락한 후 윈스턴은 괴로워하며 은둔 생활을 시작했고, 영웅의 전성시대가 돌아오기만을 갈망했다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt53bb24e59108b179/638810d7f9f61910b4235897/winston-01.jpg"
+      },
+      {
+        "title": "소집",
+        "content": "머지않아, 그는 그런 갈망을 행동으로 옮겼다. 리퍼가 전 오버워치 요원들의 명단을 찾아 감시 기지: 지브롤터에 침입하자, 윈스턴은 탈론 요원들을 몰아내고 전 세계의 오버워치 요원들에게 다시 활동을 시작하라는 소집 명령을 송출했다. 트레이서가 가장 먼저 응답해 왔고, 윈스턴은 그녀와 함께 왕의 길로 가서 널 섹터 요원으로 의심받는 대상을 처리하고, 현지 옴닉들에게 필수적인 기반 시설 그리드를 수리했다.  런던에서의 활약에 고무된 윈스턴은 다른 전 오버워치 요원들도 곧 소집 명령에 응할 거라고 기대했다. 그와 트레이서는 옛 동료들을 기다리며 연이어 임무를 수행했고, 뉴욕의 오버워치 박물관에서 세간의 이목을 끈 위도우메이커와 리퍼의 공격을 막아내기도 했다. 하지만 소집 명령 이후 일 년이 지나도록 감시 기지: 지브롤터에 합류한 동료는 메이뿐이었다. 윈스턴은 널 섹터가 파리를 공격한다는 소식을 알아냈을 때, 그게 오버워치의 마지막 전투가 될 수 있음을 깨달았다. 하지만 윈스턴의 인내심과 믿음은 헛된 것이 아니었고, 파리에서 겐지와 메르시, 에코, 브리기테, 라인하르트가 전투에 합류했다. 기존 오버워치 요원들과 새로운 피가 부름에 응답하여 앞으로 나서는 사이, 윈스턴은 쟁취할 가치가 있는 미래를 위해 싸우는 굳건한 봉화로 남아 있다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt4df2b92421b1ea3f/638810d75148880e83ab70d7/winston-02.jpg"
+      }
+    ]
+  }
+}

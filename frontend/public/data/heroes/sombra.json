@@ -1,0 +1,96 @@
+{
+  "name": "솜브라",
+  "description": "세계에서 가장 악명 높은 해커로 손꼽히는 솜브라는 정보를 이용해 권력자들을 조종합니다.",
+  "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/bca8532688f01b071806063b9472f1c0f9fc9c7948e6b59e210006e69cec9022.png",
+  "role": "damage",
+  "location": "멕시코, 도라도",
+  "age": 32,
+  "birthday": "12월 31일",
+  "hitpoints": {
+    "health": 250,
+    "armor": 0,
+    "shields": 0,
+    "total": 250
+  },
+  "abilities": [
+    {
+      "name": "기관권총",
+      "description": "근거리를 공격하는 자동 기관 권총입니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/2d43bad47f3061481c4df81d6f66ceaf8fe28a8b49f66dd60d831ff81396e8a4.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt4b2a2ed1bdae253a/6333cbbe64fe5a7d44819fa8/SOMBRA_MACHINE_PISTOL.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt8b74781f1f6c2bf8/6333cbb58537f87bfbcdc356/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_SombraMachinePistol_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltbdaba609b8d6c127/6679f4922309b51b10e26a01/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_SombraMachinePistol_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    },
+    {
+      "name": "해킹",
+      "description": "누르고 있으면 해킹합니다. 해킹된 적은 기술을 사용할 수 없으며, 벽 너머에서도 감지됩니다. 해킹된 생명력 팩은 적이 사용할 수 없으며 더 빨리 재생성됩니다. 피해를 받으면 해킹 시도가 취소됩니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/3ebcefc44a278d93afa8339e7e8758e6d471566fdd122d20d9b8ab7269a12017.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt2c6f334127c1ca0b/6333cbbeb8dbde69f5279868/SOMBRA_HACK.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt861f9cd6d5425c1e/6333cbb41ccd046877c0e449/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_SombraHack-Enemies_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt99fff21ca444c608/6679f48c8ec4a4eab43734b0/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_SombraHack-Enemies_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "위치변환기",
+      "description": "위치변환기를 던진 뒤 해당 위치로 순간이동합니다. 순간이동 후 짧은 시간 동안 은신 상태가 됩니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/e81f286184e24512c724af16a960a1faca6ade164238b025d19da64226f05f4d.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltdd7dcb5aabef6beb/6333cbbe2dc7636608cc7094/SOMBRA_TRANSLOCATOR.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt772ed8b5a3ea133e/6333cbb5e3c2a2741688cafd/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_SombraTranslocator_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt35d9c3f26239a763/6679f4965e8b86774485d175/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_SombraTranslocator_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "바이러스",
+      "description": "지속 피해를 주는 투사체로 적을 감염시킵니다. 바이러스는 해킹된 적에게 더 빠른 속도로 피해를 줍니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/156dfc48d0e7a046692e27ea9f417ee3afbf9d918d92a909fe03d2b705dd3bdd.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt995ab3030236881e/65b94e85af7bc9cccac943e3/Sombra_Virus.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt636db86303cba4d3/65b94a81529b713cb44a13cd/0119_Sombra_Virus_AA_01.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltf66dca508bfc0ae9/6679fc6e9d84e7755fe03bc5/0119_Sombra_Virus_AA_01.webm"
+        }
+      }
+    },
+    {
+      "name": "EMP",
+      "description": "주위 모든 적에게 현재 생명력 비율에 해당하는 피해를 주고 해킹하며, 자신 주변의 방벽을 파괴합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/6104a559ac558db8f7356a10b419d1330e98758ba9f8099666d694c088c64265.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt1683335edc9e6d8a/6333cbbe1a0b5e7d3d1ec4ef/SOMBRA_EMP.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt121cf30640f319f8/6333cbb41a0b5e7d3d1ec4eb/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_SombraEMP_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltd18bd3397d36348e/6679f2c64f84eb5b3d24bbea/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_SombraEMP_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    }
+  ],
+  "story": {
+    "summary": "세계에서 가장 악명 높은 해커로 손꼽히는 솜브라는 정보를 이용해 권력자들을 조종한다. 솜브라는 세계적인 음모에 감춰진 진실을 파헤치는 과정에서, 조직의 자원을 활용하여 자신의 목적을 이루고자 탈론에 합류했다.",
+    "media": {
+      "type": "video",
+      "link": "https://youtu.be/vHHjdKMH7_w"
+    },
+    "chapters": [
+      {
+        "title": "어린 시절",
+        "content": "솜브라라는 별명을 쓰기 오래 전, 올리비아 콜로마르는 옴닉 사태의 여파로 고아가 된 수백만 명의 아이들 중 하나였다. 멕시코의 기반 시설이 대부분 파괴된 상황에서, 그녀는 해킹과 컴퓨터에 대한 타고난 재능을 활용해 살아남았다. 올리비아는 멕시코의 로스 무에르토스 폭력단에 영입된 후로, 이 조직의 자칭 ‘반정부 혁명’을 지원했다. 로스 무에르토스는 멕시코의 재건이 돈과 힘을 가진 자들에게만 이익을 주고, 도움이 정말 필요한 사람들은 외면했다고 주장했다. 수많은 업적을 이룬 올리비아는 자기 실력에 엄청난 자신이 있었다. 하지만 전 세계적인 음모에 대한 정보망을 우연히 발견했을 때, 그만 허를 찔려 정보망에 자신의 존재를 들키고 말았다. 보안에 위협을 느낀 올리비아는 자신의 신원을 드러내는 흔적을 모조리 삭제하고 몸을 숨길 수밖에 없었다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blta5830262a146aab0/638810315148880e83ab70d3/sombra-00.jpg"
+      },
+      {
+        "title": "탈론",
+        "content": "그녀는 나중에 솜브라로 다시 나타났다. 한층 업그레이드되고, 자신이 발견한 음모의 배후에 숨은 진실을 밝히겠노라 단단히 마음을 먹은 채였다. 솜브라는 더욱 대담하게 해킹을 계속했다. 그런 솜브라를 주시하던 세력 중에 다름 아닌 탈론이 있었다. 솜브라는 탈론에 합류하여 리퍼가 시브런 더 카위퍼르 박사를 납치하는 데 협력했으며, 정부와 유착 관계에 있는 여러 기업에 대해 탈론이 벌이고 있는 대대적인 사이버 공격에 참여하고 있는 것으로 판단된다. 그녀는 이런 활동을 통해 멕시코에서 루메리코에 대한 민중 혁명을 책동하기도 했고, 러시아의 옴닉 방어 전선에서 생산 분야를 담당하고 있는 볼스카야 인더스트리의 보안 체계를 뚫기도 했다.  볼스카야 임무에서 솜브라의 미심쩍은 본심이 특히 잘 드러났다. 솜브라는 볼스카야 CEO 암살이라는 목표를 무시하고, 그 대신 그녀를 협박했다. 그리고 카티야 볼스카야는 이에 대응하여, 자신의 강력한 아군인 자리야를 보내 해커를 쫓게 했다. 자리야는 솜브라를 찾아냈지만, 솜브라는 카티야가 옴닉들과 비밀리에 손을 잡고 있다는 사실을 폭로하고 빠져나갔다.  둠피스트가 탈옥하여 탈론의 핵심 인사 구조를 개편했을 때 솜브라는 새로워진 조직에서 중요한 역할을 했고, 이를 통해 자기만의 목적에 조금 더 가까워졌다. 올리비아는 디지털 테러 활동을 이끌며, 둠피스트가 로마와 눔바니 등의 고가치 지역에서 임무를 완수하는 것을 직접적으로 지원했다. 솜브라가 탈론을 위해 무슨 활동을 하든, 그녀에게는 자기만의 목적이 있는 것이 분명하다. 하지만 최소한 솜브라가 사냥감을 쫓는 동안에는, 돈으로 살 수 없는 최고의 해커가 탈론 편에 있는 것만은 확실하다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltee6e0a3f3af38eb2/638810313b13b1106f74ec60/sombra-01.jpg"
+      }
+    ]
+  }
+}

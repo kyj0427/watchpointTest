@@ -1,0 +1,108 @@
+{
+  "name": "메르시",
+  "description": "수호천사와도 같이 사람을 보살피는 앙겔라 치글러 박사는 발군의 치유사이자 뛰어난 과학자, 열성적인 평화주의자입니다.",
+  "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/2508ddd39a178d5f6ae993ab43eeb3e7961e5a54a9507e6ae347381193f28943.png",
+  "role": "support",
+  "location": "스위스, 취리히(이전 기록), 감시 기지: 지브롤터",
+  "age": 39,
+  "birthday": "5월 13일",
+  "hitpoints": {
+    "health": 250,
+    "armor": 0,
+    "shields": 0,
+    "total": 250
+  },
+  "abilities": [
+    {
+      "name": "카두세우스 지팡이",
+      "description": "누르고 있으면 아군을 치유합니다.  누르고 있으면 아군의 공격력을 증가시킵니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/d1a18f702a0e30d58608da51a0b8eeeab72a04faf0de3579ce625066caa8389e.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt691c91d2837ca9a5/633906ad399a07678557c163/MERCY_CADCEUSSTAFF.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt685f2ac42336c059/633906b2e3c2a2741688cbc9/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_MercyCaduceusStaff_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt22f7741a623ba2e9/66799d51e333ef3695eb7193/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_MercyCaduceusStaff_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "카두세우스 블라스터",
+      "description": "자동 권총입니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/9d3118f2f0a262678fb1b11ffbaa3f5e929e453cb4d7c819e69ff137cde918e1.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt013bfa18497716c7/633906ad2dc7636608cc7134/MERCY_CADCEUSBLASTER.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt262b2d3dd32a99f3/633906b28537f87bfbcdc428/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_MercyCaduceusBlaster_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blte6cb581ff09f1b39/66799d64845030f8a9778950/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_MercyCaduceusBlaster_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "수호천사",
+      "description": "아군을 향해 날아갑니다. 날아가는 도중에 점프 키를 누르면 전방으로, 웅크리기 키를 누르면 위로 빠르게 이동합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/e6d6f1f8288bb9a61fcfb85db90a49d3228277d18ac190898567bed4e7799ddc.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt81c699fcaeb9c7a8/633906ac7e84e17596f9c8c4/MERCY_GUARDIANANGEL.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltb9424a0c1c11a1af/633906b2ec7e18758be51072/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_MercyGuardianAngel_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt50bbbe7878b50caa/66799d10671160841943379b/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_MercyGuardianAngel_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "부활",
+      "description": "쓰러진 아군을 부활시킵니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/d26768cf459611eedc4fdcc9096ad3b196e8b2babb0782cf24d56f108325e3bb.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt04796884c8aa0f4f/633906adda1d806602f83f0e/MERCY_RESSURECT.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltfeb95d1eea0d6edc/633906b2da1d806602f83f12/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_MercyResurrect_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blta89b3626e78a2a0d/6679b03b5e8b861bd885d16b/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_MercyResurrect_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "천사 강림",
+      "description": "매우 천천히 낙하합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/d53b51360a83f35c450211d4a38859c839ad5720379d2e275a4f5826f3fe9967.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt8bf0bcb9ea8defeb/633906ad1ccd046877c0e505/MERCY_ANGELICDESCENT.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt27ed6b923a1776c3/633906b2399a07678557c167/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_MercyAngelicDescent_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt2bd58b745bccc643/6679a0755e8b866e8885d165/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_MercyAngelicDescent_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "발키리",
+      "description": "비행할 수 있게 되고 기술들이 강화됩니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/0f5455a8a464e85370365bc954dc6c1cca11f4f5c09e7e6eee7a3dde29170c9e.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blte7f6f43143fc689f/633906ad425ea374105b6173/MERCY_VALKYRIE.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt1b7c40dbdd353330/633906b38537f87bfbcdc42c/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_MercyValkyrie_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blta7cadf46bbb8ae9b/6679b0448450304245778958/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_MercyValkyrie_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    }
+  ],
+  "story": {
+    "summary": "옴닉 사태 때 부모를 잃은 고아이자 천부적인 재능을 지닌 나노기술의 선구자 앙겔라 치글러는 오버워치 최고의 전투 의무관이자 열성적인 세계 평화주의자이다. 오버워치의 몰락 후 새로운 전쟁이 발발하자, 메르시는 자신이 죽기 전에 평화가 오긴 할지 의문을 품고 있다.",
+    "media": {
+      "type": "short-story",
+      "link": "https://overwatch.blizzard.com/media/stories/valkyrie"
+    },
+    "chapters": [
+      {
+        "title": "오버워치",
+        "content": "토르비욘 린드홀름 가족의 오랜 친구인 치글러는 젊은 시절 응용 나노생물학에서 혁신을 선도했다. 이 기술은 생명을 위협하는 질병과 부상의 치료 과정을 근본적으로 개선했다. 이러한 전문성이 오버워치의 관심을 끌었다. 전쟁으로 부모를 잃은 치글러는 군사력으로 세계 평화를 유지한다는 오버워치의 방침에 반발하였다. 그러나 결국 오버워치가 크게 보면 더욱 많은 생명을 구할 기회를 준다는 사실을 깨닫게 되었다. 오버워치의 의학 연구 책임자로서, 앙겔라는 최전선 위기 상황에서의 치료 기술을 향상시키는 연구에 박차를 가했다. 그 결과 탄생한 것이 발키리 신속 대응 슈트로, 치글러 스스로 이것을 숱한 오버워치 임무에서 시험한 바 있다. 치글러는 오버워치에서 중책을 맡고 있음에도 조직의 상급자 및 핵심 목표와 충돌하곤 했다. 자신의 지능을 동료들을 치유하는 일에 사용하면서도, 치글러는 블랙워치의 활동에 관해, 특히 레예스 사령관과 그의 지속 의료 지원 담당인 모이라 오디오런에 대해 심각하게 우려하고 있다. 오버워치가 해체되었을 때, 치글러는 이 조직과 거리를 두며 전쟁으로 상처 입은 사람들을 돕는 일에 다시 헌신하여, 전 세계 위기 지역에서 다치고 집을 잃은 사람들을 보살폈다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt12c536b770bfdcd4/63880edf443fa70e71d4bfcd/mercy-00.jpg"
+      },
+      {
+        "title": "오버워치 이후",
+        "content": "오버워치 소집 이후, 그녀가 죽은 줄로만 알았던 동료 부대원 두 명이 그녀를 찾아왔다. 잭 모리슨과 아나 아마리였다. 오버워치가 불명예스럽게 몰락한 일에 복수하려는 모리슨의 집착을 보며, 조직의 복귀에 대한 치글러의 감정은 더욱더 복잡해졌다. 하지만 탈론 세력이 카이로에 나타나자, 메르시는 주저하지 않고 전장에 뛰어들어 이 도시의 민간인들과 옛 팀원들을 지켰다.  그때 이후 그녀와 솔저: 76, 아나 아마리는 각자의 길을 갔지만, 카이로에서의 사건은 치글러가 오래전 잊었다고 생각했던 영웅심에 불을 지폈다. 널 섹터가 파리를 공격하면서, 평화를 위협하는 세력으로부터 전 세계를 지키려면 다시 오버워치가 필요하다는 사실이 명백해졌다. 전투가 아직 끝나지 않았음을 깨달은 메르시는 다시 오버워치로 돌아왔고, 무고한 사람들의 목숨이 위험해지는 상황이 되면 언제든 발키리 슈트를 착용할 것이다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt9d92a71c1b2111fc/63880edf3b13b1106f74ec5c/mercy-01.jpg"
+      }
+    ]
+  }
+}

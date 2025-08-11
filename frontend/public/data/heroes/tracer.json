@@ -1,0 +1,94 @@
+{
+  "name": "트레이서",
+  "description": "전직 오버워치 요원인 트레이서는 시간을 넘나드는 활기찬 모험가입니다.",
+  "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/a66413200e934da19540afac965cfe8a2de4ada593d9a52d53108bb28e8bbc9c.png",
+  "role": "damage",
+  "location": "영국, 런던, 감시 기지: 지브롤터",
+  "age": 28,
+  "birthday": "2월 17일",
+  "hitpoints": {
+    "health": 175,
+    "armor": 0,
+    "shields": 0,
+    "total": 175
+  },
+  "abilities": [
+    {
+      "name": "펄스 쌍권총",
+      "description": "근거리를 공격하는 자동 권총입니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/82520ccd791a5befa5ac74a6b5263471de44b0674abb07fbf1568c149c88a91a.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt7b18b8b552cc68fa/633908e3b8dbde69f5279940/TRACER_PISTOLS.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt3d9f62312a65af08/633908e77e84e17596f9c8ec/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_TracerPulsePistols_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt1e350c6547bc1c69/6679f4a1e333ef6521eb71cc/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_TracerPulsePistols_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "점멸",
+      "description": "이동 중인 방향으로 순간이동합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/f0dcf74b87793e8b56fc56c62974846a769b2d62cb5dc69bdc92cc7ee3a1d025.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt56badc72c9e867ba/633908e37e84e17596f9c8e8/TRACER_BLINK.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt03e0c217f57dfbf9/633908e7425ea374105b619f/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_TracerBlink_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltc4938f07903549e3/6679f4a0cb949b1232fbc790/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_TracerBlink_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "시간 역행",
+      "description": "시간을 역행하여 예전의 생명력 및 위치로 되돌아갑니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/30939502a8576da1fdcad8c7d21881e32066fb28847fc7df874b1436689e3425.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blta8bd64af6cbf8c06/633908e3399a07678557c185/TRACER_RECALL.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt90c2d86712cbac66/633908e7ed7dcc6a002803ec/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_TracerRecall_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt7cf38b0ed5faebd5/6679f4a22cfadc600a0cf3af/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_TracerRecall_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "펄스 폭탄",
+      "description": "적에게 부착되는 강력한 폭탄을 던집니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/383e9b039efb93da77bb91fbeb3654ef50724e0cea0de76b2cc1c4db43de9a6d.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt39cb8c264fd8dee4/633908e31a0b5e7d3d1ec5f3/TRACER_PULSEBOMB.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt9f44ddeeae8e80c8/633908e7b8dbde69f5279944/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_TracerPulseBomb_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt5cd66f5b834aee96/6679f4a067116002b94337c2/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_TracerPulseBomb_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    }
+  ],
+  "story": {
+    "summary": "트레이서는 시간을 넘나드는 활기찬 모험가이다. 시간 가속기로 자신의 시간을 조종하는 트레이서는 오버워치 최고의 요원 중 하나였으며, 언제 어디서든지 세계를 더 나은 곳으로 만들기 위해 노력을 멈추지 않는다. 트레이서는 탁월한 기량과 긍정적인 태도로 새로워진 오버워치가 세계를 지키는 데 일조한다.",
+    "media": {
+      "type": "comic",
+      "link": "https://overwatch.blizzard.com/media/stories/tracer-london-calling-1/"
+    },
+    "chapters": [
+      {
+        "title": "시간 속에서의 실종",
+        "content": "레나 옥스턴(호출명: \"트레이서\")은 오버워치의 실험 비행 프로그램에 투입된 최연소 참가자였다. 과감한 비행 기술로 명성을 떨친 그녀는 프로토타입 순간 이동 전투기 슬립스트림의 실험 대상으로 선발되었다. 하지만 첫 비행에서 전투기는 순간 이동 매트릭스의 오작동에 의해 사라져 버렸고, 레나는 사망한 것으로 여겨졌다. 레나는 수개월 후 다시 나타났으나, 이 비극은 그녀를 송두리째 바꿔버렸다. 레나의 변형된 분자 구조는 시간의 흐름을 따라가지 못했다. \"시간 분리증\"에 시달리는 그녀는 살아 있는 유령이 되어 몇 시간, 심지어 며칠 동안 사라지곤 했다. 잠시나마 현재에 존재할 때에도 물리적인 형태를 유지할 수 없었다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt6fb4cc2ef15f8c6b/6388105b113983111ba8cfbd/tracer-00.jpg"
+      },
+      {
+        "title": "오버워치",
+        "content": "오버워치의 의료진과 과학자들도 당황할 수밖에 없었다. 트레이서의 절망적인 상황은 윈스턴이 트레이서를 현재에 묶어 주는 시간 가속기를 개발하는 데 성공하면서 달라졌다. 게다가 시간 가속기 덕분에 트레이서는 자신의 시간을 조종해 마음대로 속도를 높이거나 줄일 수도 있게 되었다. 새롭게 얻은 이 능력과 함께, 트레이서는 오버워치의 핵심 요원 중 하나로 거듭났다. 트레이서의 첫 번째 임무는 런던에서 시작되었다. 그녀는 팀과 함께 왕의 길에서 일어난 옴닉의 반란에서 널 섹터 병력을 저지하는 데 성공했다. 그것이 경이로운 활약의 시작이었다. 트레이서는 하바나에서 탈론의 중요 연락책인 막시밀리앙까지 체포했다. 그리고 막시밀리앙이 제공한 단서를 토대로, 트레이서의 타격팀은 탈론의 지도자 둠피스트를 철창 안에 가뒀다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blte4d5570ae276d3f4/6388105b273de01068bb280e/tracer-01.jpg"
+      },
+      {
+        "title": "오버워치 이후",
+        "content": "오버워치의 해체 이후, 트레이서는 영웅적인 활약을 그만두고 영국 공군 사무직으로 책상 앞에만 머물러야 했으며, 그런 조용한 삶에 불만이 많았다. 군대를 떠난 직후, 마음이 맞는 옴닉 이기와의 만남이 트레이서를 지하 세계로 이끌었고, 그곳에서 그녀는 런던에 거주하는 옴닉들의 가혹한 생활 환경을 두 눈으로 확인했다. 지하 세계의 그리드 수리를 도와주던 그녀는 샴발리의 지도자 테카르타 몬다타를 만날 기회를 얻었지만, 조만간 예상 못한 재앙이 뒤따랐다. 위도우메이커의 총구가 몬다타에게 향했을 때, 인간과 옴닉 사이의 긴장감이 최고조에 달했다. 당시 트레이서는 사건 현장에서 저격수와 싸웠지만, 암살을 저지하는 데는 실패했다. 그로 인한 반응은 폭발적이고 즉각적이었다. 평화를 부르짖은 몬다타의 메시지는 고통과 빼앗긴 희망의 물살에 휩쓸리고 말았다. 널 섹터와 관련 있는 옴닉이 앞으로 나서 지하 세계의 옴닉들을 결집시키고 인간에 대한 전면적인 혁명을 시작했을 때, 트레이서와 윈스턴, 이기가 힘을 합쳐 노력한 덕분에 그 이상의 부상자는 발생하지 않을 수 있었다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blte9360f1cb69cf0de/6388105b443fa70e71d4bfd1/tracer-02.jpg"
+      },
+      {
+        "title": "소집",
+        "content": "그 과정에서 트레이서는 심각한 부상을 입었지만, 그녀는 언제나 다시 일어나는 사람이었다. 윈스턴과 파트너 에밀리의 도움을 받아 트레이서는 온전히 회복됐고, 오버워치 소집 명령에 응답하며 윈스턴 곁으로 돌아왔다. 그녀는 런던에서 위도우메이커를 저지하는 데는 실패했지만, 이 저격수가 뉴욕에서 둠피스트의 건틀릿을 회수하려 하는 건 막아낼 수 있었다. 또한 파리에서 트레이서는 널 섹터를 격퇴하고, 재결성된 오버워치를 도와 평화를 위협하는 적을 막아냈다.  억제할 수 없는 에너지와 한계를 모르는 이상주의로, 트레이서는 팀 전체와 그녀를 아는 모든 사람들에게 더 나은 미래를 위해 싸울 수 있는 힘을 준다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blte63fa66f1c632a0f/6388105b6f080311223b5528/tracer-03.jpg"
+      }
+    ]
+  }
+}

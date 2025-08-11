@@ -1,6 +1,5 @@
 import MapList from "@/components/sections/gameinfo/maps/MapList";
 import GameBreadcrumb from "@/components/sections/gameinfo/gameBreadcumb";
-import { HeaderBanner } from "@/components/shared";
 import { NavLinkProps, headerBannerType } from "@/config/types";
 
 const MapsPage = () => {

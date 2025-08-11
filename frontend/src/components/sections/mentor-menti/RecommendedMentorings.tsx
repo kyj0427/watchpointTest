@@ -1,29 +1,30 @@
 "use client";
 
 import RatingStars from "@/components/ui/RatingStars";
-import { useToggle } from "@/hooks";
-import { Listbox } from "@headlessui/react";
-import { marketplace } from "@public/data/marketplace";
-import { IconChevronDown, IconCircleCheckFilled } from "@tabler/icons-react";
+import { mentorings } from "@public/data/mentorings";
+import { IconCircleCheckFilled } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import { Autoplay, Navigation, Scrollbar } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-const  RecommendedMentorings= () => {
-    const filterTypes = ["Popular", "Action", "Adventure", "Sports"];
-    //드롭다운 필터
+type Mentoring = {
+    id: number;
+    title: string;
+    description: string;
+    category: string;
+    image: string;
+    price: number;
+    rating: number;
+    reviews: number;
+    mentorinfo: {
+        name: string;
+        image: string;
+        position: string;
+    };
+};
 
-    const [selectedFilter, setSelectedFilter] = useState(filterTypes[0]);
-    //필터 조건 없을 시 filterTypes[0] popular순으로 정렬
-
-    const {
-        open: filterOpen,
-        handleToggle: filterToggle,
-        ref: filterRef,
-    } = useToggle(); //toggle기능
-
+const  RecommendedMentorings= ({ type }:{ type:string }) => {
     return (
         <section className="section-pt">
         <div className="container">
@@ -32,7 +33,7 @@ const  RecommendedMentorings= () => {
             <div className="flex items-center justify-between flex-wrap gap-24p">
                 <h2 className="heading-2">나를 위한 맞춤 강의</h2>
                 <Link
-                    href="/mentoring-lists/mentoring"
+                    href="/coaching/mentor-menti/mentoring-lists/mentoring"
                     className="btn-primary flex-wrap items-center"
                 >더보기</Link>
             </div>
@@ -91,7 +92,7 @@ const  RecommendedMentorings= () => {
                 }}
                 modules={[Autoplay, Navigation, Scrollbar]}
             >
-                {marketplace?.map((item, idx) => (
+                {mentorings?.map((item, idx) => (
                 // data from marketplace.ts => replace data from our db
                 <SwiperSlide key={idx} className="swiper-slide">
                     <div
@@ -115,7 +116,7 @@ const  RecommendedMentorings= () => {
                     </div>
                     <div className="p-28p">
                         <Link
-                        href={`/marketplace/${item?.id}`}
+                        href={`/coaching/mentor-menti/mentoring-lists/${type}/${item?.id}`}
                         className="heading-3 link-1 mb-2 line-clamp-1"
                         >
                         {item?.title}
@@ -132,7 +133,7 @@ const  RecommendedMentorings= () => {
                         <div className="flex-y flex-wrap gap-3">
                         <Image
                             className="size-60p rounded-full shrink-0"
-                            src={item?.author?.image}
+                            src={item?.mentorinfo?.image}
                             width={60}
                             height={60}
                             alt="David Liu"
@@ -142,14 +143,14 @@ const  RecommendedMentorings= () => {
                             href="#"
                             className="flex-y gap-2 text-l-medium link-1 text-w-neutral-1 mb-1"
                             >
-                            <span>{item?.author?.name}</span>
+                            <span>{item?.mentorinfo?.name}</span>
                             <IconCircleCheckFilled
                                 size={24}
                                 className="text-secondary"
                             />
                             </Link>
                             <span className="text-s-medium text-w-neutral-3">
-                            {item?.author?.role}
+                            {item?.mentorinfo?.position}
                             </span>
                         </div>
                         </div>

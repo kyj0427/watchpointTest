@@ -1,0 +1,101 @@
+{
+  "name": "젠야타",
+  "description": "젠야타는 정신적 깨달음을 위해 온 세계를 방랑하는 옴닉 수도사입니다. 젠야타와 만나는 사람은 모두 전혀 다른 존재로 다시 태어난다는 말이 있습니다.",
+  "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/71cabc939c577581f66b952f9c70891db779251e8e70f29de3c7bf494edacfe4.png",
+  "role": "support",
+  "location": "네팔, 샴발리 수도원(이전 기록)",
+  "age": 33,
+  "birthday": "7월 14일",
+  "hitpoints": {
+    "health": 75,
+    "armor": 0,
+    "shields": 175,
+    "total": 250
+  },
+  "abilities": [
+    {
+      "name": "파괴의 구슬",
+      "description": "에너지 투사체를 던집니다.  누르고 있다가 떼면 더 많은 투사체를 던집니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/5740abd7e5f0de513ebcb32b073f27ba8f5625804598d5762cefd0c7331c1437.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltce0cddf1da9e9016/6339095c8537f87bfbcdc460/ZENYATTA_ORBSOFDESTURUCTION.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltd9227ef525908348/63390962e3c2a2741688cc05/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ZenyattaOrbOfDestruction_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltf4ca4e78a1202a5c/6679f4b9e7bbdbc74cc0cfc3/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ZenyattaOrbOfDestruction_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "부조화의 구슬",
+      "description": "적에게 구슬을 부착해 받는 피해를 증가시킵니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/f416ae3c602c4f920551057176a3618441f943a0faea5e3cf77dc5db0e5128a5.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltf496d2b0c02b181a/6339095c399a07678557c19d/ZENYATTA_ORBOFDISCORD.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt04e856f721532601/633909613922a2677fc88d54/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ZenyattaOrbOfDiscord_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blte6b8146876ad4dcc/6679f4ba395c0a8f2992c6af/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ZenyattaOrbOfDiscord_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "조화의 구슬",
+      "description": "아군에게 구슬을 부착해 치유합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/999f5d34dd3c8dfb045bc69129d1b6aac547b98e252b68f2599b878d15d841cb.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt3f1cb50ae5da0445/6339095ce3c2a2741688cc01/ZENYATTA_ORBOFHARMONY.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt4204709d5485ca5e/63390961da1d806602f83f3a/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ZenyattaOrbOfHarmony_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltf546ab77ca486589/6679f4bbe7bbdb7ff1c0cfc5/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ZenyattaOrbOfHarmony_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "초월",
+      "description": "모든 피해에 면역이 되고, 더 빠르게 이동하며 주위 아군을 치유합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/6ac5d4f08023cafc9f5412e45141cddecfdb2cb43ecf8415c12d1d161cce4678.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt460b2cf3b8d5ee90/6339095c7e84e17596f9c8fe/ZENYATTA_TRANSENDENCE.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt38b590dbe88afd4f/63390961f87c00687e8ef274/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ZenyattaTranscendence_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt075de741930a7d1c/6679f4bc395c0a205892c6b1/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ZenyattaTranscendence_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    },
+    {
+      "name": "밀어차기",
+      "description": "빠른 근접 공격의 공격력이 50% 증가하고, 뒤로 밀쳐내는 효과가 대폭 증가합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/43fbd6de39a636c92c9f17ee4638216fd5cd7dd517c94125e24fa64cddd7845e.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltf2a00f9288331c00/6339095c64fe5a7d4481a0cc/ZENYATTA_SNAPKICK.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blte2a3d01087405967/6339096164fe5a7d4481a0d0/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ZenyattaSnapKick_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blte9a71d8b553eb877/6679f4bb5e8b869c6285d17b/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ZenyattaSnapKick_WEB_16x9_1920x1080p30_WEBM.webm"
+        }
+      }
+    }
+  ],
+  "story": {
+    "summary": "젠야타는 정신적 깨달음을 위해 온 세계를 방랑하는 옴닉 수도사로, 만나는 사람들이 개인적인 고민을 극복하고 내면의 평화를 찾도록 돕고 있다. 그러나 필요하다면 젠야타는 그게 옴닉이건 인간이건 상관하지 않고 무고한 이를 지키기 위해 싸운다. 젠야타와 만나는 사람은 모두 전혀 다른 존재로 다시 태어난다는 말이 있다.",
+    "media": {
+      "type": "short-story",
+      "link": "https://overwatch.blizzard.com/media/stories/stone-by-stone/"
+    },
+    "chapters": [
+      {
+        "title": "샴발리",
+        "content": "수년 전, 옴닉 사태 직후 '샴발리 수도사'라 불리는 한 무리의 추방된 옴닉 로봇들이 사전에 프로그램된 삶을 버리고 히말라야 산 깊은 곳에 수도원을 건설하여 공동 생활을 시작했다. 존재의 본질에 대해 오랫동안 명상한 후, 이들은 스스로가 인공지능 이상의 존재이며, 자신들도 인간과 마찬가지로 영혼의 정수를 지니고 있다는 믿음을 갖게 되었다. 인간과 영적으로 동일한 존재라는 믿음을 갖게 된 후, 수도사들은 테카르타 몬다타의 지도하에 한 세대 전의 옴닉 사태가 남긴 상처를 치유하고 인간과 로봇이 조화를 이루는 사회를 만들기 위한 활동을 시작했다. 수백만 명의 사람들이 이들의 메시지를 받아들였고, 이들은 전 세계에 걸쳐 유명 인사가 되었다. 젠야타 역시 옴닉 평등을 위한 시위에서 수도사 라마트라를 만난 후 그런 메시지를 받아들인 방황하는 영혼이었다. 라마트라는 젠야타에게서 크나큰 영적 잠재력을 보았고, 둘은 형제나 다름없는 사이가 되었다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt12cfd3197d39f885/637eff7d3cbefd1110811111/zenyatta-00.jpg"
+      },
+      {
+        "title": "수도원",
+        "content": "네팔에 있는 샴발리 수도원에서 시간을 보낸 후, 젠야타는 제자가 마음의 평화를 찾는 것을 도와주었다. 바로 전 오버워치 요원인 시마다 겐지였다. 겐지는 형과의 끔찍했던 결투, 블랙워치에서 수행하는 미심쩍은 임무들, 오버워치의 몰락 등으로 받은 수많은 상처들을 치유하고자 했다. 젠야타의 가르침을 통해, 제자인 겐지는 점차 자신의 사이보그 신체가 자신만의 강점이라고 생각하기 시작했다. 그러나 겐지가 떠난 후에, 젠야타는 샴발리라는 길의 한계를 깨닫기 시작했다. 그는 인간과 옴닉 사이의 갈등을 해소할 길은 교조적인 가르침에 있는 것이 아니라, 개체와 개체 사이의 교감과 어울림에 있다고 믿었다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltce40669f6d5f2470/637eff7d8b3bbe1129cea499/zenyatta-01.jpg"
+      },
+      {
+        "title": "방랑하는 수도사",
+        "content": "결국 젠야타는 자기만의 길을 걷기 시작했다. 그는 수도원을 떠나 온 세계를 방랑하며, 만나는 사람들이 개인적인 고민을 극복하고 내면의 평화를 찾도록 돕기로 했다.  그는 그러던 중 수라바사에서 우연히 한 사람을 만나게 된다. 샴발리의 가르침에서 중추적인 인물인 오로라의 석상이 비슈카르 코퍼레이션의 공격적인 건설 사업 때문에 파손된 것이었다. 젠야타는 비슈카르에서 사태를 수습하려고 파견한 사티아 바스와니, 즉 시메트라를 만나 오로라의 이야기를 들려주고 불완전함의 아름다움에 눈을 뜨게 해 준다. 사티아는 젠야타가 수라바사의 사원에 와서 왕의 길에서 암살당한 스승, 테카르타 몬다타의 죽음을 애도하고 명상을 하리라고는 생각지도 못했다. 그녀가 사원 사람들에게 준 선물은 젠야타는 물론, 그곳에 기거하던 모든 순례자들에게 큰 의미가 있었다.  젠야타는 여전히 세계를 떠돌며 사람들과 교감하고 지식을 나누어 주며, 필요하다면 그게 옴닉이건 인간이건 상관하지 않고 무고한 이를 지키기 위해 싸운다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt61729ea3cf0fa3c6/637eff7da4a28e10bf84d77a/zenyatta-02.jpg"
+      }
+    ]
+  }
+}

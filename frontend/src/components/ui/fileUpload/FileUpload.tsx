@@ -39,11 +39,11 @@ const FileUpload: React.FC<FileUploaderProps> = ({ onFileSelect, accept }) => {
     };
 
     return (
-        <div className="space-y-2 mb-10">
-            <label className="block text-sm font-medium">파일 업로드</label>
+        <div className="space-y-4 mb-8">
+            <label className="block text-base font-semibold text-white mb-3">영상 업로드</label>
 
             <div
-            className="upload-area h-[200px] rounded flex flex-col items-center justify-center cursor-pointer border border-dashed border-gray-400 relative overflow-hidden"
+            className="upload-area h-[200px] rounded-lg flex flex-col items-center justify-center cursor-pointer border-2 border-dashed border-gray-500 hover:border-orange-400 relative overflow-hidden transition-all duration-300 bg-gray-800/50 hover:bg-gray-700/50"
             onClick={handleClick}
             onDrop={(e) => {
                 e.preventDefault();
@@ -65,9 +65,9 @@ const FileUpload: React.FC<FileUploaderProps> = ({ onFileSelect, accept }) => {
             />
 
                 {!fileName ? (
-                    <div className="flex flex-col items-center justify-center text-gray-500 py-8">
+                    <div className="flex flex-col items-center justify-center text-gray-300 px-6 w-full max-w-md mx-auto">
                         {/* 아이콘 */}
-                        <div className="w-16 h-16 mb-3 text-gray-400">
+                        <div className="w-12 h-12 mb-4 text-orange-400">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
@@ -85,13 +85,29 @@ const FileUpload: React.FC<FileUploaderProps> = ({ onFileSelect, accept }) => {
                         </div>
 
                         {/* 안내 텍스트 */}
-                        <p className="text-sm text-gray-600">파일을 드래그하거나 클릭하여 업로드</p>
-                        <p className="text-xs text-gray-400 mt-1">최대 5MB · 모든 파일 형식 지원</p>
+                        <p className="text-sm text-gray-300 mb-1 text-center break-words leading-relaxed">파일을 드래그하거나 클릭하여 업로드</p>
+                        <p className="text-xs text-gray-400 text-center break-words leading-relaxed">최대 5MB · 모든 파일 형식 지원</p>
                     </div>
                 ) : (
-                    <div className="text-center px-4 py-6">
-                        <p className="text-sm text-gray-700 truncate">
-                            선택한 파일: <strong>{fileName}</strong>
+                    <div className="text-center px-6 w-full max-w-md mx-auto">
+                        <div className="w-8 h-8 mb-3 mx-auto text-green-400">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                className="w-full h-full"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M5 13l4 4L19 7"
+                                />
+                            </svg>
+                        </div>
+                        <p className="text-sm text-gray-300 break-words leading-relaxed">
+                            선택한 파일: <strong className="text-white">{fileName}</strong>
                         </p>
                     </div>
                 )}

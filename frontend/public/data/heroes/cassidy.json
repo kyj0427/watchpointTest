@@ -1,0 +1,72 @@
+{
+  "name": "캐서디",
+  "description": "피스키퍼 리볼버로 무장한 무법자 콜 캐서디는 자신만의 방침에 따라 정의를 실현합니다.",
+  "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/6cfb48b5597b657c2eafb1277dc5eef4a07eae90c265fcd37ed798189619f0a5.png",
+  "role": "damage",
+  "location": "미국, 뉴멕시코, 산타페(이전 기록), 감시 기지: 지브롤터",
+  "birthday": "7월 31일",
+  "age": 39,
+  "hitpoints": {
+    "armor": 0,
+    "health": 275,
+    "shields": 0,
+    "total": 275
+  },
+  "abilities": [
+    {
+      "name": "피스키퍼",
+      "description": "강력하고 정확도 높은 리볼버입니다.  남은 총알을 빠르게 난사합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/afb27d71eeb6f3635ac1ff236c7b3f9e3c6d017360ce022d5d384288ff95bce7.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltad592207b277a59f/6333c97e64fe5a7d44819f80/CASSIDY_PEACEKEEPER.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt71688da0f7834fed/6333c9882dc7636608cc7078/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_CassidyPeacekeeper_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltcff86b9875852be9/667991f4671160f147433799/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_CassidyPeacekeeper_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    },
+    {
+      "name": "구르기",
+      "description": "이동 중인 방향으로 구르며 받는 피해가 감소하고 재장전합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/24a3f2f619859812bba6b6374513fa971b6b19ccb34950c02118b41cc4f93142.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt08db01a1d84b0c3b/6333c97e3922a2677fc88c3c/CASSIDY_COMBAT_ROLL.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltcb332b1f5f88e253/6333c987f87c00687e8ef17a/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_CassidyCombatRoll_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt494207e32218a728/667991ed4f84ebed5224bbc3/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_CassidyCombatRoll_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    },
+    {
+      "name": "황야의 무법자",
+      "description": "적들과 정면승부합니다. (조준: Q, 발사: Q 또는 기술 3)",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/346cb576a19f978a7b2c52859c5639423f076d66ca740658da0d46955ab2c97d.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltd408205e877eff06/6333c97e425ea374105b60a7/CASSIDY_DEADEYE.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blteae98b44ea71a51f/6333c987da1d806602f83e2c/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_CassidyDeadeye_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt22e1c46d23134283/667991f091d53ba368dc0619/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_CassidyDeadeye_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    }
+  ],
+  "story": {
+    "summary": "악명 높은 데드락 저항단의 창립에 일조한 캐서디는 결국 체포되어 강제로 오버워치의 비밀 작전 부서인 블랙워치에 합류했다. 시간이 지남에 따라 그는 세상의 부조리를 바로잡음으로써 과거의 죄를 씻을 수 있다는 믿음을 갖게 되었다. 그러나 오버워치가 무너지자 캐서디는 자취를 감췄고, 이후에 스스로 정의라고 판단하는 대의만을 위해 싸우는 총잡이 용병으로 다시 모습을 드러냈다.",
+    "media": {
+      "type": "video",
+      "link": "https://youtu.be/PKYVvPNhRR0"
+    },
+    "chapters": [
+      {
+        "title": "블랙워치",
+        "content": "캐서디는 악명 높은 데드락 저항단의 일원으로 이름을 날리다 오버워치의 함정 수사에 걸려 체포되었다.  그러나 뛰어난 사격술과 지략을 인정받은 캐서디는 철통 경비 속의 구치소에서 평생을 보내거나 오버워치 내의 비밀 조직, 블랙워치에 합류하라는 제안을 받고 후자를 택했다. 비록 처음에는 회의적이었지만, 시간이 지남에 따라 캐서디는 세상의 부조리를 바로잡음으로써 과거의 죄를 씻을 수 있다고 믿게 되었다. 캐서디는 관료주의와 불필요한 요식 행위에 연연하지 않고 비밀리에 활동하는 블랙워치의 유연한 운영 방식이 마음에 들었다. 하지만 오버워치의 영향력이 축소되면서, 블랙워치 내의 불순분자들이 오버워치를 전복시키고 자기들의 사리사욕을 채우려 했다. 오버워치의 스위스 본부가 파괴된 후, 내분에 휘말리기를 원치 않았던 캐서디는 홀로 떠나 자취를 감췄다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt2577d7ee0aca83a7/638808d03b13b1106f74ec54/cassidy-00.jpg"
+      },
+      {
+        "title": "오버워치 이후",
+        "content": "몇 년이 지나고, 그는 스스로 정의라고 판단하는 대의만을 위해 싸우는 총잡이 용병으로 다시 모습을 드러냈다. 하지만 과거의 무법자들은 가만히 있어도 말썽에 휘말리기 쉬운 법이고, 특히 캐서디에게는 적이 워낙 많았다. 그는 텍사스의 초고속열차에 올라타 탈론과 싸웠고, 뉴 멕시코에서는 화물을 강탈하려던 데드록 저항단의 옛 동료를 체포했다. 이때 그는 세상을 떠난 친구 미나 랴오 박사가 평생에 걸쳐 개발해 온 에코를 풀어주기도 했다. 캐서디는 오버워치에 다시 합류하라는 연락을 받은 후, 아나 아마리와 재회하며 추억에 젖은 후 미래에 대해 진지하게 고민하기 시작했다. 전 세계적으로 안보의 위협이 커지고 새로운 팀의 필요성이 커지는 사이, 캐서디는 전 세계에서 다양한 적의 침공을 통해 벼려진 영웅들을 영입하는 임무를 수행하러 떠났다. 새로운 얼굴들이 합류하고, 캐서디와 신병들은 전 세계적으로 오버워치의 존재감을 강화하기 위해 최선을 다하고 있다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt1683656b69bedff7/638808d0273de01068bb2806/cassidy-01.jpg"
+      }
+    ]
+  }
+}
