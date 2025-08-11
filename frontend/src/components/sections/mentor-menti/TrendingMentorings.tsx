@@ -113,7 +113,7 @@ const TrendingMentorings = ({ type }:{ type:string }) => {
                         <div className="flex-y flex-wrap gap-3">
                         <Image
                             className="size-60p rounded-full shrink-0"
-                            src={item?.author?.image}
+                            src={item?.mentorinfo?.image}
                             width={60}
                             height={60}
                             alt="David Liu"
@@ -123,14 +123,14 @@ const TrendingMentorings = ({ type }:{ type:string }) => {
                             href="#"
                             className="flex-y gap-2 text-l-medium link-1 text-w-neutral-1 mb-1"
                             >
-                            <span>{item?.author?.name}</span>
+                            <span>{item?.mentorinfo?.name}</span>
                             <IconCircleCheckFilled
                                 size={24}
                                 className="text-secondary"
                             />
                             </Link>
                             <span className="text-s-medium text-w-neutral-3">
-                            {item?.author?.role}
+                            {item?.mentorinfo?.position}
                             </span>
                         </div>
                         </div>
