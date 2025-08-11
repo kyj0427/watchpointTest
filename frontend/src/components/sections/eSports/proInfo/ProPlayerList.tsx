@@ -6,7 +6,7 @@ import { IconCheck, IconUserPlus } from "@tabler/icons-react";
 import { proteamData } from "@public/data/proteamData";
 import { proplayerData } from "@public/data/proplayerData";
 import ProPlayerFilter from "./ProPlayerFilter";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Pagination from "@/components/shared/Pagination";
 
 const ProPlayerList = () => {
@@ -15,13 +15,26 @@ const ProPlayerList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(8); // 페이지당 보여줄 아이템 수
 
+  const joinedData = useMemo(() => {
+    return proplayerData.map((player) => {
+      const teamInfo = proteamData.find(
+        (team) => team.team_id === player.team_id
+      );
+      return {
+        ...player,
+        team_name: teamInfo?.team_name || "UnKnown",
+        team_logo: teamInfo?.logo,
+      };
+    });
+  }, []);
+
   // 전체 페이지 수 계산
-  const totalPages = Math.ceil(proplayerData.length / itemsPerPage);
+  const totalPages = Math.ceil(joinedData.length / itemsPerPage);
 
   // 현재 페이지에 해당하는 데이터만 추출
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = proplayerData.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = joinedData.slice(indexOfFirstItem, indexOfLastItem);
 
   // 페이지 변경 핸들러
   const handlePageChange = (pageNumber: number) => {
@@ -54,7 +67,7 @@ const ProPlayerList = () => {
                   />
                   <div>
                     <Link
-                      href="#"
+                      href={`pro-players/${item.player_id}`}
                       className="text-xl-medium text-w-neutral-1 link-1"
                     >
                       {item?.player_name}
@@ -83,7 +96,7 @@ const ProPlayerList = () => {
                     소속팀
                   </span>
                   <div className="text-l-medium text-w-neutral-1 truncate">
-                    {item?.team_id}
+                    {item?.team_name}
                   </div>
                 </div>
                 {/* <div>
@@ -99,15 +112,13 @@ const ProPlayerList = () => {
               <div className="flex-y flex-wrap justify-between gap-24p pt-32p border-t border-t-shap">
                 {/* 이미지들을 담을 flex 컨테이너 */}
                 <div className="flex items-center">
-                  {/* signature_hero 배열을 map()으로 순회합니다. */}
                   {item?.signature_hero?.map((heroImage, index) => (
-                    // 각 이미지(heroImage)에 대해 <Image> 컴포넌트를 하나씩 생성합니다.
                     <Image
-                      key={index} // map 안에서는 고유한 key가 필요합니다.
-                      className="avatar size-10 border border-white -ml-3" // avatar 스타일 적용
+                      key={index}
+                      className="avatar size-10 border border-white -ml-3"
                       src={heroImage}
                       alt={`${item.player_name}'s hero ${index + 1}`}
-                      width={40} // 너비와 높이를 지정해주는 것이 좋습니다.
+                      width={40}
                       height={40}
                     />
                   ))}
@@ -117,7 +128,7 @@ const ProPlayerList = () => {
                   </span> */}
                 </div>
                 <Link
-                  href="/team-home"
+                  href={`pro-players/${item.player_id}`}
                   className="btn px-16p py-2 btn-outline-secondary group-hover:bg-secondary group-hover:text-b-neutral-4"
                 >
                   View Player

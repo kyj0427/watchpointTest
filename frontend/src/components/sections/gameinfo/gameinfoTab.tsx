@@ -13,6 +13,7 @@ const GameInfoTab = () => {
     },
     {
       title: "영웅정보",
+
       link: `/gameinfo/heroes`,
     },
     {

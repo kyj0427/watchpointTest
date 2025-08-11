@@ -7,15 +7,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-const heroCategory = ["all", "tank", "damage", , "support"];
-const filterTypes = ["Popular", "tank", "damage", , "support"];
+const heroCategory = ["all", "tank", "damage", "support"];
+const filterTypes = ["Popular", "tank", "damage", "support"];
+
 const HeroDetailsAside = () => {
   const [category, setCategory] = useState<string | unknown>("all");
   const [selectedFilter, setSelectedFilter] = useState(filterTypes[0]);
 
-  const filteredhero = heroes?.filter(
-    (item) => category === "all" || item?.role === category
-  );
+  // const filteredhero = heroes?.filter(
+  //   (item) => category === "all" || item?.role === category
+  // );
 
   const {
     open: filterOpen,
@@ -23,8 +24,16 @@ const HeroDetailsAside = () => {
     ref: filterRef,
   } = useToggle();
 
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredhero = heroes?.filter(
+    (item) =>      
+      (category === "all" || item?.role === category) &&
+      item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
-    <section className="section-pb pt-60p">
+    <section className="section-pb">
       <div className="container">
         {/* <h2 className="heading-2 text-w-neutral-1 mb-40p">
           Browse Heroes
@@ -64,7 +73,15 @@ const HeroDetailsAside = () => {
              <div>
                 <div className="hidden lg:flex items-center sm:gap-3 gap-2 min-w-[300px] max-w-[670px] w-full px-20p py-16p bg-b-neutral-2 rounded-full">
                   <span className="flex-c icon-20 text-white"><i className="ti ti-search"></i></span>
-                  <input className="bg-transparent w-full" type="text" id="searchHero" placeholder="영웅 검색..." name="search" />
+                  <input
+                    className="bg-transparent w-full"
+                    type="text"
+                    id="searchHero"
+                    placeholder="영웅 검색..."
+                    name="search"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                  />
                 </div>
               </div>
             <div className="flex items-center max-sm:justify-center overflow-x-auto scrollbar-0 max-w-[680px] ">

@@ -13,7 +13,7 @@ export const navMenu = [
             {
                 id : 21,
                 name : "영웅정보",
-                link : "/groups-two"
+                link : "/gameinfo/heroes"
             },
             {
                 id : 22,
@@ -33,7 +33,7 @@ export const navMenu = [
             {
                 id : 25,
                 name : "패치노트",
-                link : "/patchnotes"
+                link : "/gameinfo/patchnotes"
             },
             
         ]
@@ -78,17 +78,17 @@ export const navMenu = [
         subMenu: [
             {
                 id: 41,
-                name: "코칭AI",
-                link: "/athena"
+                name: "강의/멘토 목록",
+                link: "/coaching"
             },
             {
                 id: 42,
-                name: "멘토/멘티 매칭",
-                link: "/mentor-menti"
+                name: "코칭AI Athena",
+                link: "/coaching/athena/library"
             },
             {
                 id: 43,
-                name: "강사정보/후기",
+                name: "내 강의",
                 link: "/game-details-two" //또는 library-details
             }
         ]
@@ -100,29 +100,29 @@ export const navMenu = [
         subMenu: [
             {
                 id: 51,
-                name: "메인페이지",
-                link: "/community"
+                name: "공지사항",
+                link: "/community/noticification"
             },
             {
                 id: 52,
                 name: "인기글",
-                link: "/postlist?mode=hot"
+                link: "/community/postlist?mode=hot"
             },
             {
                 id: 53,
                 name: "최신글",
-                link: "/postlist?mode=recent"
+                link: "/community/postlist?mode=recent"
             },
             {
                 id: 54,
-                name: "스쿼드/채팅방",
-                link: "/SquadOrChat"
+                name: "듀오/스쿼드 탐색",
+                link: "/community/SquadOrChat"
             },
-            {
-                id: 55,
-                name: "공지사항",
-                link: "/noticification"
-            }
+            // {
+            //     id: 54,
+            //     name: "공지사항",
+            //     link: "/noticification"
+            // }
         ]
     },
     {

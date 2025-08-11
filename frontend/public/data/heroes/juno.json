@@ -1,0 +1,118 @@
+{
+  "name": "주노",
+  "description": "화성에서 태어난 최초의 인류, 주노는 우주 시대의 기술을 사용하여 자신의 궤도를 침범하는 문제를 해결합니다. 주노는 언젠가 고향 행성을 구원하려는 결의에 차 있습니다.",
+  "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/585b2d60cbd3c271b6ad5ad0922537af0c6836fab6c89cb9979077f7bb0832b5.png",
+  "role": "support",
+  "location": "붉은 약속 기지, 화성(이전), 감시 기지: 지브롤터",
+  "age": 19,
+  "birthday": "3월 22일",
+  "hitpoints": {
+    "health": 250,
+    "armor": 0,
+    "shields": 0,
+    "total": 250
+  },
+  "abilities": [
+    {
+      "name": "메디블라스터",
+      "description": "아군은 치유하고 적에게는 피해를 주는 점사 무기입니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/91e68a469402e1cf835dab2659d21ae451f7fdbaa98e0806dc4f316317c9cc10.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt231070003d976045/668d81991e272f9846381564/Juno_Primary_Fire.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltfce97035c980a93c/668d8123b4b9eb25c0f7c5f8/0627_JUNOWeb_PrimaryFire_1P_GH_01.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt9f5d66670930c131/668d812fce31f7abe47d0edf/0627_JUNOWeb_PrimaryFire_1P_GH_01.webm"
+        }
+      }
+    },
+    {
+      "name": "펄사 어뢰",
+      "description": "키로 대상을 포착한 뒤 보조 발사 키로 유도 투사체를 발사하여 아군은 일정 시간 동안 치유하고 적에게는 피해를 줍니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/c6e69da73c54499d83c1832d45b357a08652b99f659091e44eb7aa3021973a94.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltf31d7e0e1695b4bd/66a3ef28e79fa5a9b1bd706c/Juno_Pulsar.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltd13dda36a3612bd5/66a2cdd2b68e88a355f7e04b/0627_JUNOWeb_PulsarTorpedoes_1P_GH_02.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blta9f494e54f8eb0b9/66a2cde21eb57e03d5e0d9c3/0627_JUNOWeb_PulsarTorpedoes_1P_GH_02.webm"
+        }
+      }
+    },
+    {
+      "name": "궤도 광선",
+      "description": "전방으로 움직이는 광선을 호출해 아군을 치유하고 공격력을 증가시킵니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/b4215620deb362a0ad6a7784275d43b518868392b0f7e77228adabe32a489e77.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt1de62a85e37e85fc/668d83342cc7b039de13540f/Juno_Ultimate.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt82c2c5bbd8f05398/668d833f2cc7b07365135413/0627_JUNOWeb_Ultimate_1P_GH_01.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt31b249c71946745e/668d834bc528953d97610454/0627_JUNOWeb_Ultimate_1P_GH_01.webm"
+        }
+      }
+    },
+    {
+      "name": "하이퍼 링",
+      "description": "통과하는 아군의 이동 속도를 증가시키는 고리를 배치합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/63e0682b2a186681455f4313d1e78f99612e89c323fe7f490856a3da800d5a19.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blte4052cd8191d79d2/668d83f4ce31f7448d7d0eed/Juno_Hyper_Ring.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltf0d1d0aafe65454f/668d83bee6bd3b3943df25ff/0627_JUNOWeb_HyperRing_1P_GH_01.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltb25f2567186facf7/668d83e7839db25708d36573/0627_JUNOWeb_HyperRing_1P_GH_01.webm"
+        }
+      }
+    },
+    {
+      "name": "글라이드 부스터",
+      "description": "수평으로 미끄러지듯 빠르게 이동합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/7643a1e470169918368e110b762816cc7d2c9980fafaf81242896d1abd216ea5.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltb309dba2af1eb7f1/668d8446e6bd3b8512df2603/Juno_Glide_Boost.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt52e0e82349609097/668d84522cc7b0fd58135417/0627_JUNOWeb_GlideBoost_1P_GH_01.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltceb0d892ff61dd33/668d845f826d2acbddd58263/0627_JUNOWeb_GlideBoost_1P_GH_01.webm"
+        }
+      }
+    },
+    {
+      "name": "화성식 오버부츠",
+      "description": "공중에서 스페이스 바 키를 누르면 2단 점프를 하고, 스페이스 바 키를 길게 누르면 천천히 하강합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/f2358b5af1688f7aefba9947f5b919f628252e1c1ba7ad3de506fb5faf0f9e89.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt531575ccda3720af/66a2db1742eacbad42a24c30/Juno_Martian.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltcdbcace87ca439e1/66a2daad6978d0586305d02e/0627_JUNOWeb_GlideBoost_3P_GH_01.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt4fd619928c93095e/66a2dabc1eb57eac72e0d9c7/0627_JUNOWeb_GlideBoost_3P_GH_01.webm"
+        }
+      }
+    }
+  ],
+  "story": {
+    "summary": "주노 테오 민은 화성을 테라포밍하려는 루청 인터스텔라의 비밀 다단계 계획, 붉은 약속 프로젝트가 진행되던 중 화성에서 태어났다. 먼지 폭풍이 행성을 휩쓸기 시작하자, 붉은 약속 기지와 루청 사이의 연락이 끊기면서 프로젝트의 미래도 위태로워졌다. 붉은 약속 팀은 주노를 지키기 위해 안전하게 살 수 있는 지구로 보냈다. 이제 주노는 너무 늦기 전에 고향과 가족을 구할 방법을 찾고자 굳게 결의하고 있다.",
+    "media": {
+      "type": "video",
+      "link": "https://youtu.be/9M4dU7cd1KM"
+    },
+    "chapters": [
+      {
+        "title": "붉은 약속 프로젝트",
+        "content": "호라이즌 달 기지를 성공적으로 건설한 루청 인터스텔라는 새로운 행성, 화성으로 눈을 돌렸다. UN은 프로젝트 최초 제안을 거부했지만, 루청은 계획을 멈추지 않고 비밀리에 과학자와 엔지니어 그룹을 조직했다. 이 소규모 그룹의 임무는 화성에서 다단계 테라포밍 계획을 실행하는 것이었다. \"붉은 약속 프로젝트\"라는 코드네임 하에, 이 용감한 무리는 인류의 새로운 고향이 될 신세계를 개척할 터였다. 프로젝트의 첫 단계는 순조롭게 진행되었고 붉은 약속 팀은 몇 달도 채 지나지 않아 첫 화성 기지를 성공적으로 건설했다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt63636a99fbb886d0/66a3ccde518bb27c65883c5c/Juno_Red_Promise.jpg"
+      },
+      {
+        "title": "주노의 어린 시절",
+        "content": "아기 주노의 탄생은 팀의 그 누구도 예상치 못했다. 지아이 테오 박사와 키엠 반 민 박사의 딸 주노는 화성에서 태어난 첫 인류이자 최초의 화성인이었다. 붉은 약속 팀의 모든 구성원은 프로젝트의 희망을 상징하는 주노를 친자식처럼 사랑했다. \n과학자들은 기지에서 각자 임무로 바쁜 와중에도 주노가 어린 시절을 즐겁고 행복하게 보낼 수 있도록 최선을 다했다. 그렇지만 주노는 과학자들의 호기심에 물든 것처럼, 계속해서 기지 밖 탐사에 따라가겠다고 졸랐다. 주노가 충분히 나이를 먹자, 어머니는 주노에게 화성의 대기에서도 안전하게 활동할 수 있도록 개조된 루청 우주복을 선물했다. 바깥을 자유롭게 활보할 수 있게 된 주노는 단순한 즐거움 그 이상을 추구했다. 모두를 돕는 것이 주노의 염원이었다. 시간이 흐르며, 주노는 초롱초롱한 별을 닮은 눈을 가진 아이에서 기지에서도 가장 능숙한 탐험가로 성장했다. 붉은 약속 팀의 진정한 일원이 된 것이다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltc088a27b40f68310/66b17580668896e60c84eebe/Juno_Childhood_v2.jpg"
+      },
+      {
+        "title": "거세지는 폭풍",
+        "content": "붉은 약속 팀은 화성을 테라포밍하는 임무를 진행하며 예상치 못한 결과를 맞닥뜨렸다. 행성의 표면을 바꾸려는 시도로 인해 토양과 잔해가 대기 중으로 퍼져, 해가 갈수록 먼지 폭풍이 더욱 거세졌다. 폭풍은 너무도 강력해졌고 팀은 기지에서의 삶을 지속할 수 있을지 의문을 품게 되었다. 엎친 데 덮친 격으로, 루청 인터스텔라와의 연락을 시도했지만 아무런 응답도 받지 못했고 붉은 약속 프로젝트의 추가 인원이나 물자도 도착하지 않았다. 지구에서 지원이 언제 올지, 과연 오기는 할지도 알 수 없었다. 과학자들은 진실을 인정할 수밖에 없었다. 기지에서의 나날에 끝이 다가오고 있었고, 그들의 앞날도 마찬가지였다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blteb30ab5b512c777a/66a3ccf9ae8f3469780386b9/Juno_Rising_Storms.jpg"
+      },
+      {
+        "title": "지구를 향한 여정",
+        "content": "화성에서 수년간 생활하고 나니 붉은 약속 팀에게는 단 한 명만 지구로 안전히 보낼 수 있을 정도의 자원만 남아 있었다. 누구를 보낼지에 대해서는 이견이 없었다. 유일한 여행자는 주노였다. 주노는 부모님께 자신을 보내지 말라고 간청했지만, 부모님의 결심은 확고했다. 결국 그들에겐 주노야말로 인류의 미래에 대한 희망이나 마찬가지였으니까. 주노가 그들과 같은 운명을 맞게 할 수는 없었다. \n그러나 주노는 유일하게 알고 있는 고향과 가족을 포기할 수 없었다. 화성을 떠나는 것을 주노는 피난이라 생각하지 않았다. 오히려 지구에서 가족들을 도울 방법을 찾는 임무라 여겼다. 엄숙한 작별 인사를 나누며, 주노는 눈물이 그렁그렁한 채 고향 행성의 위험을 떠났다. 어쩌면 다시는 가족을 보지 못할 수도 있다는 걸 알고 있었지만, 너무 늦기 전에 모두를 구할 수 있는 방법을 알아내는 걸 도울 사람을 찾으리라 다짐했다. \n어린 시절 어머니는 주노에게 지구에서 살며 겪었던 많은 이야기를 들려 주었다. 그중에는 어머니의 옛 친구인 기후학자 저우메이링에 관한 이야기도 있었다. 지구에서 다른 연줄이 없는 상황에서, 고향에 지원을 보낼 방법을 알아내기 위해 주노는 가장 먼저 저우 박사를 찾기로 한다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltdf99b97ca91b9dad/66b1758d518bb277d7883dd3/Juno_Journey_v2.jpg"
+      }
+    ]
+  }
+}

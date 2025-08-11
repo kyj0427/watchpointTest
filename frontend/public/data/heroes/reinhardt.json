@@ -1,0 +1,101 @@
+{
+  "name": "라인하르트",
+  "description": "라인하르트 빌헬름은 용맹, 정의, 용기라는 기사도의 미덕을 따르는 흘러간 시대의 옛 용사입니다.",
+  "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/490d2f79f8547d6e364306af60c8184fb8024b8e55809e4cc501126109981a65.png",
+  "role": "tank",
+  "location": "독일, 슈투트가르트(이전 기록), 감시 기지: 지브롤터",
+  "age": 63,
+  "birthday": "6월 26일",
+  "hitpoints": {
+    "health": 400,
+    "armor": 300,
+    "shields": 0,
+    "total": 700
+  },
+  "abilities": [
+    {
+      "name": "로켓 해머",
+      "description": "막강한 근접 무기입니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/f116232be8cdbfd5e5ebd7ac13731f928e3b56e72fa0337e5ede414cc5944b08.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt98187374c16f7b33/6333cb5f1ccd046877c0e445/REINHARDT_ROCKET_HAMMER.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltb055ffa5a18aa2cc/6333cb548537f87bfbcdc34a/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ReinhardtRocketHammer_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltfbdf43fc20a3ea4c/6679e0fe2309b51350e269fb/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ReinhardtRocketHammer_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    },
+    {
+      "name": "돌진",
+      "description": "전방으로 돌진하여 적을 벽에 꽂아버립니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/40c9f1c060033e58120c9ec174008b8f5d833412923f7f351a32e5df47fe8166.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltbd7b9ce27cbfccd3/6333cb5fe3c2a2741688caf9/REINHARDT_CHARGE.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt7e08fb0ce39e8303/6333cb533917977bfd986119/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ReinhardtCharge_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltff009e27f454b0dd/6679e0ef8e2bf811e0b24368/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ReinhardtCharge_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    },
+    {
+      "name": "화염 강타",
+      "description": "불타는 투사체를 날립니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/568a5f49875557f735af36dce68474a923f7e8582a7be20fb68b6ee66ac077e6.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt3acd13c282146202/6333cb5fed7dcc6a00280300/REINHARDT_FIRE_STRIKE.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltacec5282bf8079ca/6333cb54f87c00687e8ef186/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ReinhardtFireStrike_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt50792e67d1fb678d/6679e0fc395c0a81da92c6a9/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ReinhardtFireStrike_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    },
+    {
+      "name": "방벽 방패",
+      "description": "를 누르고 있으면 전방에 에너지 방벽을 전개합니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/121f13903665417446ee4673d9740080a3bc117e285cf3dcf6547861a0bc7d43.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt065ef6f056c618e3/6333cb5f7e84e17596f9c7f2/REINHARDT_BARRIER_FIELD.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltb23fb17003a56cba/6333cb53b8dbde69f527985c/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ReinhardtBarrierField_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt5695e9b05ef9ce53/6679e0e72cfadcc1a10cf3ab/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ReinhardtBarrierField_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    },
+    {
+      "name": "대지분쇄",
+      "description": "전방의 모든 적을 넘어뜨립니다.",
+      "icon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/a63041a68d81c202a47a95035878edcfa75d5aa3f72414a7e84e1b1a68594bed.png",
+      "video": {
+        "thumbnail": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt835d0694f91f76b4/6333cb5f1a0b5e7d3d1ec4e5/REINHARDT_EARTHSHATTER.jpg",
+        "link": {
+          "mp4": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt15ec31c0fa6f3843/6333cb54da1d806602f83e48/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ReinhardtEarthshatter_WEB_16x9_1920x1080p30_H264.mp4",
+          "webm": "https://assets.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blte056d921fd67ae1b/6679e0f92cfadc28230cf3ad/OVERWATCH_WEBSITE_CHARACTER_CAPTURE_ReinhardtEarthshatter_WEB_16x9_1920x1080p30_H264.webm"
+        }
+      }
+    }
+  ],
+  "story": {
+    "summary": "라인하르트 빌헬름은 용맹, 정의, 용기라는 기사도의 미덕을 따른다. 오버워치 창립 멤버였던 그는 수십 년 동안 전 세계에서 선을 추구하는 활동을 했다. 오버워치의 몰락 이후 라인하르트는 옛날의 기사처럼 유럽을 누비며 종자 브리기테와 함께 무고한 이들을 보호했고, 그 후에 윈스턴의 소집에 응해 오버워치의 품으로 돌아갔다.",
+    "media": {
+      "type": "video",
+      "link": "https://youtu.be/sQfk5HykiEk"
+    },
+    "chapters": [
+      {
+        "title": "오버워치",
+        "content": "숱한 훈장을 자랑하는 독일 군인 라인하르트는 크루세이더 부대의 일원으로, 거대한 갑주를 착용하고 독특한 능력을 사용하며 전장에서 잔뼈가 굵어진 전사이다. 원래 오버워치에서 지명한 전사는 그의 스승인 발데리히 폰 아들러였지만, 아이헨발데 전투에서 폰 아들러가 사망한 후 라인하르트가 영입되었다. 라인하르트는 오버워치 타격팀의 원년 구성원이 되어 옴닉 사태를 종결시켰다. 사태 종식 후, 오버워치는 전 세계적 기관으로 성장하여 전쟁의 상흔에 시달리는 세계의 평화를 지켰다.  라인하르트는 특유의 도덕성과 기개로 동료는 물론 상관의 존경을 한 몸에 받았다. 늘 주저 없이 자신의 뜻을 밝히는 그는 오버워치를 강력히 옹호하는 한편 필요하다면 엄격히 비판하기도 하면서 오버워치가 선을 추구하는 세력임을 끊임없이 주지시켰다. 50대 후반까지 오버워치에 복무한 라인하르트는 실전 임무에서 물러날 수밖에 없었다. 현역에서 은퇴한 라인하르트는 사명과 영광을 따르던 나날이 끝이 났다고 생각하여 낙담했다. 시대가 암울해지면서 오버워치는 부패에 빠져 대중을 선동한다는 의혹을 받기에 이르렀지만, 라인하르트는 자신이 평생을 바쳐 지킨 대의가 불명예에 물드는 것을 그저 지켜볼 수밖에 없었다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltf0f4690e670265cd/63880faf8b3bbe1129cea610/reinhardt-00.jpg"
+      },
+      {
+        "title": "오버워치 이후",
+        "content": "오버워치는 끝내 해체되었으나, 라인하르트는 세계가 무질서 상태에 빠지는 것을 가만히 보고 있을 수만은 없었다. 그는 다시 크루세이더 갑주를 걸치고 유럽을 누비며 그 옛날의 기사도와 같이 정의를 위해 싸우기를 맹세했고, 무고한 이들을 보호하며 더 밝은 미래에 대한 꿈을 심어 주고 있다. 이 임무에는 그의 종자이자 라인하르트의 친구인 토르비욘의 딸이이기도 한 브리기테 린드홀름이 함께했다. 자칭 드래곤즈라는 갱단에게 아슬아슬한 순간을 경험한 후, 브리기테는 자기만의 도리깨를 들고 스승의 곁에서 함께 싸웠다.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltd01aa64f8857d54e/637da1bd6663180e7cbbce59/reinhardt-01.jpg"
+      },
+      {
+        "title": "소집",
+        "content": "윈스턴이 오버워치의 소집을 요청한 후, 늙은 기사는 아이헨발데를 찾아갔다. 브리기테는 그 요청에 대해 신중하게 생각해 보라며, 지도부가 라인하르트를 조직에서 어떻게 쫓아냈는지 상기시키고, 그가 오랜 세월 동안 오버워치에 얼마나 크게 기여했는지 거듭 말했다. 라인하르트는 흔들리지 않았다. 사명이 그를 불렀고, 크루세이더는 언제나 부름에 응하는 법이니까.",
+        "picture": "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt4c409b02f49f1d4f/63880faf6f080311223b5520/reinhardt-02.jpg"
+      }
+    ]
+  }
+}
