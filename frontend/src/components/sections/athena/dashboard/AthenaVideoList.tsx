@@ -33,7 +33,7 @@ const AthenaVideoList = () => {
 
   const handleVideoClick = (videoId: string) => {
     if (user) {
-      router.push(`/coaching/athena/library/${videoId}`);
+      router.push(`/athena/library/${videoId}`);
     } else {
       // 비로그인 유저는 로그인 페이지로 이동
       router.push('/login');
