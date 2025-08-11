@@ -272,16 +272,16 @@ const Footer = () => {
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
                   <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
-                    href="/profile"
+                    href="/profile/my-activity"
                     className="text-m-regular text-w-neutral-3"
                   >
-                    내 프로필
+                    내 활동정보
                   </Link>
                 </li>
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
                   <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
-                    href="/saved"
+                    href="/profile/bookmarks"
                     className="text-m-regular text-w-neutral-3"
                   >
                     북마크
@@ -290,7 +290,7 @@ const Footer = () => {
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
                   <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
-                    href="/pricing-plan"
+                    href="/profile/subscriptions"
                     className="text-m-regular text-w-neutral-3"
                   >
                     구독/결제
@@ -299,10 +299,10 @@ const Footer = () => {
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
                   <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
-                    href="/chat"
+                    href="/community/chat"
                     className="text-m-regular text-w-neutral-3"
                   >
-                    채팅방
+                    채팅
                   </Link>
                 </li>
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
