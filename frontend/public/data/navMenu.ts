@@ -89,7 +89,7 @@ export const navMenu = [
             {
                 id: 43,
                 name: "내 강의",
-                link: "/game-details-two" //또는 library-details
+                link: "/coaching/mypage" //또는 library-details
             }
         ]
     },
