@@ -1,6 +1,11 @@
+# (권장) version 줄은 삭제해도 됩니다 (Compose v2)
 networks:
   elastic:
     external: true
+
+volumes:
+  esdata:
+  kibana_data:
 
 services:
   elasticsearch:
@@ -9,34 +14,28 @@ services:
     restart: always
     environment:
       - discovery.type=single-node
-      - ELASTIC_PASSWORD=watchpoint1234!
       - xpack.security.enabled=false
     ports:
       - "9200:9200"
     volumes:
-      - esdata:/usr/share/elasticsearch/data 
-    networks:
-      - elastic
+      - esdata:/usr/share/elasticsearch/data
+    networks: [elastic]
 
   kibana:
     image: docker.elastic.co/kibana/kibana:8.13.4
     container_name: kibana
     restart: always
-    ports:
-      - "5601:5601"
+    ports: ["5601:5601"]
     volumes:
       - ./kibana.yml:/usr/share/kibana/config/kibana.yml
       - kibana_data:/usr/share/kibana/data
-    depends_on:
-      - elasticsearch
-    networks:
-      - elastic
+    depends_on: [elasticsearch]
+    networks: [elastic]
 
   backend:
     build: ./backend
     container_name: backend
-    ports:
-      - "8080:8080"
+    ports: ["8080:8080"]
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mysql://34.64.176.209:3306/watchpoint?serverTimezone=UTC&characterEncoding=UTF-8
       - SPRING_DATASOURCE_USERNAME=watchpoint
@@ -47,23 +46,37 @@ services:
       - SPRING_JPA_PROPERTIES_HIBERNATE_FORMAT_SQL=true
       - SPRING_JPA_DATABASE_PLATFORM=org.hibernate.dialect.MySQL8Dialect
       - SPRING_DATA_ELASTICSEARCH_URIS=http://elasticsearch:9200
-      - SPRING_DATA_ELASTICSEARCH_USERNAME=elastic
-      - SPRING_DATA_ELASTICSEARCH_PASSWORD=watchpoint1234!
-    depends_on:
-      - elasticsearch
-    networks:
-      - elastic
+    depends_on: [elasticsearch]
+    networks: [elastic]
 
   frontend:
     build: ./frontend
     container_name: frontend
-    ports:
-      - "3000:3000"
-    depends_on:
-      - backend
-    networks:
-      - elastic
+    ports: ["3000:3000"]
+    depends_on: [backend]
+    networks: [elastic]
 
-volumes:
-  esdata:
-  kibana_data:
+  proxy:
+    image: node:18
+    container_name: proxy
+    working_dir: /app
+    # 패키지 설치 후 서버 실행 (package.json 없으면 직접 설치)
+    command: >
+      sh -c "test -f package.json || npm init -y &&
+             npm i express cors axios &&
+             node /server.js"
+    environment:
+      - NODE_ENV=production
+      - PORT=4000
+      - OVERFAST_BASE=https://overfast-api.tekrop.fr   
+      - ELASTIC_HOST=http://elasticsearch:9200        
+      - ELASTIC_USER=elastic
+      - ELASTIC_PASS=watchpoint1234!
+    volumes:
+      - ./server.js:/server.js:ro
+      # package.json/lock이 이미 있다면 주석 해제
+      # - ./package.json:/app/package.json:ro
+      # - ./package-lock.json:/app/package-lock.json:ro
+    ports: ["4000:4000"]
+    depends_on: [elasticsearch]
+    networks: [elastic]
