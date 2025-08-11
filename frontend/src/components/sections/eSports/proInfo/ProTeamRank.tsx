@@ -1,17 +1,18 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 import { proteamData } from "@public/data/proteamData";
 import Pagination from "@/components/shared/Pagination";
 import { useState } from "react";
+import Link from "next/link";
 
 const ProTeamRank = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(5); // 페이지당 보여줄 아이템 수
-  
+
   // 전체 페이지 수 계산
   const totalPages = Math.ceil(proteamData.length / itemsPerPage);
-  
+
   // 현재 페이지에 해당하는 데이터만 추출
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -24,9 +25,9 @@ const ProTeamRank = () => {
 
   return (
     <section className="section-title">
-      <div className="container" >
+      <div className="container">
         <h2 className="heading-2 text-w-neutral-1 text-split-left mb-3">
-            팀 랭킹
+          팀 랭킹
         </h2>
         <div className="overflow-x-auto scrollbar-sm" data-aos="zoom-in">
           <table className="text-l-medium font-poppins text-w-neutral-1 w-full whitespace-nowrap">
@@ -72,10 +73,14 @@ const ProTeamRank = () => {
                         width={40}
                         height={40}
                       />
-                      <span>{item.team_name}</span>
+                      <Link
+                        href={`pro-teams/${item.team_id}`}
+                        className="btn px-16p py-2 btn-outline-secondary group-hover:bg-secondary group-hover:text-b-neutral-4"
+                      >
+                        <span>{item.team_name}</span>
+                      </Link>
                     </div>
                   </td>
-
 
                   <td className="px-24p py-3">{item?.win_rate}%</td>
                 </tr>

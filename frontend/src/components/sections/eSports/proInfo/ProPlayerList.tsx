@@ -67,7 +67,7 @@ const ProPlayerList = () => {
                   />
                   <div>
                     <Link
-                      href="#"
+                      href={`pro-players/${item.player_id}`}
                       className="text-xl-medium text-w-neutral-1 link-1"
                     >
                       {item?.player_name}

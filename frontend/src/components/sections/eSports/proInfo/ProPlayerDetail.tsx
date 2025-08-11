@@ -4,13 +4,45 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
-// 2. 데이터 소스를 import 합니다.
 import { proplayerData } from "@public/data/proplayerData";
-import { proteamData } from "@public/data/proteamData"; // 팀 데이터도 import 해야 합니다.
-import ESportsMatchesPast from "../ESportsMatchesPast";
+import { proteamData } from "@public/data/proteamData";
+import { esportsmatchespast } from "@public/data/esportsmatchespast";
+import { Line, Bar } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
 
-// 3. 데이터 타입을 명확하게 정의합니다. (any 대신)
-//    (별도의 types/player.ts 파일로 분리하는 것이 가장 좋습니다.)
+// Chart.js에 BarElement를 추가로 등록
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
+// Chart.js에 필요한 모듈 등록
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
 interface PlayerData {
   player_id: number;
   player_rank: string;
@@ -34,58 +66,46 @@ interface TeamData {
   win_rate: number;
 }
 
-// 4. 컴포넌트가 받을 props 타입을 정의합니다.
 interface PlayerDetailViewProps {
-  player_id: string; // URL 파라미터는 보통 string 타입입니다.
+  player_id: string;
 }
 
 const ProPlayerDetail = ({ player_id }: PlayerDetailViewProps) => {
-  // 5. state의 타입을 명확하게 지정합니다.
   const [player, setPlayer] = useState<PlayerData | null>(null);
   const [team, setTeam] = useState<TeamData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // 6. useEffect를 사용하여 데이터를 가져옵니다.
   useEffect(() => {
-    // --- 여기가 핵심 수정 부분 ---
-    console.log(
-      `[디버그] useEffect가 playerId: '${player_id}' 값으로 실행되었습니다.`
-    );
+    console.log(`useEffect가 '${player_id}' 값으로 실행되었습니다.`);
 
     if (!player_id) {
-      console.log("[디버그] playerId가 없으므로 데이터 fetching을 중단합니다.");
-      setIsLoading(false); // playerId가 없어도 로딩은 끝내야 함
+      setIsLoading(false);
       return;
     }
 
     const fetchData = () => {
-      // async/await를 제거하여 흐름을 더 명확하게 만듭니다. (이 경우엔 비동기 작업이 없음)
       try {
-        console.log("[디버그] 데이터 검색을 시작합니다...");
         setIsLoading(true);
         setError(null);
 
         const numericId = parseInt(player_id, 10);
 
-        // 1. 선수를 찾습니다.
         const foundPlayer = proplayerData.find(
           (p) => p.player_id === numericId
         );
         console.log("[디버그] 선수 검색 결과:", foundPlayer);
 
-        // 2. 선수를 찾지 못했다면, 에러를 발생시킵니다.
         if (!foundPlayer) {
           throw new Error(
             `ID '${player_id}'에 해당하는 선수 정보를 찾을 수 없습니다.`
           );
         }
 
-        // 3. 팀을 찾습니다.
-        const foundTeam = proteamData[foundPlayer.team_id];
-        console.log("[디버그] 팀 검색 결과:", foundTeam);
+        const foundTeam = proteamData.find(
+          (t) => t.team_id === foundPlayer.team_id
+        );
 
-        // 4. 팀을 찾지 못했다면, 에러를 발생시킵니다.
         if (!foundTeam) {
           throw new Error(
             `Team ID '${foundPlayer.team_id}'에 해당하는 팀 정보를 찾을 수 없습니다.`
@@ -94,16 +114,14 @@ const ProPlayerDetail = ({ player_id }: PlayerDetailViewProps) => {
 
         setPlayer(foundPlayer);
         setTeam(foundTeam);
-        console.log("[디버그] 선수와 팀 state가 성공적으로 설정되었습니다.");
       } catch (err) {
-        console.error("[에러 발생]", err); // 에러를 콘솔에 출력
+        console.error("[에러 발생]", err);
         if (err instanceof Error) {
           setError(err.message);
         } else {
           setError("알 수 없는 오류가 발생했습니다.");
         }
       } finally {
-        console.log("[디버그] finally 블록 실행됨. 로딩을 종료합니다.");
         setIsLoading(false);
       }
     };
@@ -111,7 +129,6 @@ const ProPlayerDetail = ({ player_id }: PlayerDetailViewProps) => {
     fetchData();
   }, [player_id]); // playerId가 바뀔 때마다 이 useEffect는 다시 실행됩니다.
 
-  // 8. 로딩 및 에러 상태에 따른 UI를 렌더링합니다.
   if (isLoading) {
     return (
       <div className="container py-20 text-center">
@@ -136,13 +153,49 @@ const ProPlayerDetail = ({ player_id }: PlayerDetailViewProps) => {
     );
   }
 
+  const playerMatches = esportsmatchespast
+    .filter(
+      (match) =>
+        match.leftPlayer.name === team.team_name ||
+        match.rightPlayer.name === team.team_name
+    )
+    .slice(0, 5); // 최근 5경기만
+
+  const abilityLineChartData = {
+    labels: ["January", "February", "March", "April", "May", "June"],
+    datasets: [
+      {
+        label: "선수 능력치 변화",
+        data: [65, 59, 80, 81, 56, player.player_ability],
+        fill: false,
+        borderColor: "#F99E1A",
+        tension: 0.1,
+      },
+    ],
+  };
+
+  const heroWinRateBarChartData = {
+    labels: ["겐지", "애쉬", "트레이서", "에코", "솜브라"],
+    datasets: [
+      {
+        label: "주요 영웅 승률 (%)",
+        data: [72, 68, 65, 62, 58],
+        backgroundColor: "rgba(249, 158, 26, 0.6)",
+        borderColor: "#F99E1A",
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const youtubeVideoIds = ["RxTKvLyB17w", "jlan5VO2-fY", "3zgYNsawGfU"];
+
   return (
     <section className="container py-10 md:py-20">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* --- 왼쪽 사이드바 (선수 프로필) --- */}
         <aside className="lg:col-span-4 xl:col-span-3">
           <div className="space-y-6">
-            {/* 1. 선수 기본 정보 카드 */}
+            {/* 선수 기본 정보 카드 */}
             <div className="bg-b-neutral-3 p-6 rounded-lg text-center border border-shap">
               <Image
                 src={player.player_img_url}
@@ -157,13 +210,13 @@ const ProPlayerDetail = ({ player_id }: PlayerDetailViewProps) => {
               <p className="text-gray-400 mt-1">{player.region}</p>
             </div>
 
-            {/* 2. 팀, 역할, 소셜 링크 */}
+            {/* 팀, 역할, 소셜 링크 */}
             <div className="bg-b-neutral-3 p-6 rounded-lg border border-shap">
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
                   <span className="text-gray-400">Team</span>
                   <Link
-                    href={`/teams/${player.team_id}`}
+                    href={`/e-sports/pro-teams/${team.team_id}`}
                     className="font-semibold text-white link-1 flex items-center gap-2"
                   >
                     <Image
@@ -196,7 +249,7 @@ const ProPlayerDetail = ({ player_id }: PlayerDetailViewProps) => {
               </div>
             </div>
 
-            {/* 3. 플레이 영웅 */}
+            {/* 플레이 영웅 */}
             <div className="bg-b-neutral-3 p-6 rounded-lg border border-shap">
               <h3 className="text-xl font-bold text-white mb-4">
                 주요 플레이 영웅
@@ -252,17 +305,71 @@ const ProPlayerDetail = ({ player_id }: PlayerDetailViewProps) => {
               <h2 className="text-2xl font-bold text-white mb-4">
                 지난 경기 결과
               </h2>
-              <p className="text-gray-400">지난 경기 결과 표시</p>
+              {/* 필터링된 경기 결과 렌더링 */}
+              {playerMatches.length > 0 ? (
+                <div className="space-y-4">
+                  {playerMatches.map((match) => (
+                    <div
+                      key={match.id}
+                      className="flex justify-between items-center bg-b-neutral-2 p-3 rounded-md text-white"
+                    >
+                      <span className="w-1/3 text-right">
+                        {match.leftPlayer.name}
+                      </span>
+                      <span className="font-bold">
+                        {match.leftScore} : {match.rightScore}
+                      </span>
+                      <span className="w-1/3 text-left">
+                        {match.rightPlayer.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-gray-400">지난 경기 결과가 없습니다.</p>
+              )}
             </div>
             {/* --- 오른쪽 메인 콘텐츠 통계 --- */}
             <div className="bg-b-neutral-3 p-6 rounded-lg border border-shap">
               <h2 className="text-2xl font-bold text-white mb-4">통계</h2>
-              <p className="text-gray-400">통게 차트 표시</p>
+
+              <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+                {/* --- 왼쪽 차트 영역 --- */}
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-300 mb-2 text-center">
+                    능력치 변화 추이
+                  </h3>
+                  <Line data={abilityLineChartData} />
+                </div>
+
+                {/* --- 오른쪽 차트 영역 --- */}
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-300 mb-2 text-center">
+                    주요 영웅 승률
+                  </h3>
+                  <Bar data={heroWinRateBarChartData} />
+                </div>
+              </div>
             </div>
+
             {/* --- 오른쪽 메인 콘텐츠 영상 --- */}
             <div className="bg-b-neutral-3 p-6 rounded-lg border border-shap">
-              <h2 className="text-2xl font-bold text-white mb-4">영상</h2>
-              <p className="text-gray-400">플레이 영상 및 링크 표시</p>
+              <h2 className="text-2xl font-bold text-white mb-4">주요 영상</h2>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {youtubeVideoIds.map((videoId) => (
+                  <div key={videoId} className="aspect-w-16 aspect-h-7">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${videoId}`}
+                      title={`Player Highlight Video ${videoId}`}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full rounded-lg"
+                    ></iframe>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </main>

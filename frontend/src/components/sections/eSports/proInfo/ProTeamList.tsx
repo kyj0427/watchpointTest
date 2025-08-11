@@ -56,7 +56,7 @@ const ProTeamList = () => {
                   />
                   <div>
                     <Link
-                      href="/team-home"
+                      href={`pro-teams/${item.team_id}`}
                       className="text-xl-medium text-w-neutral-1 link-1"
                     >
                       {item?.team_name}
@@ -115,7 +115,7 @@ const ProTeamList = () => {
                   </span> */}
                 </div>
                 <Link
-                  href="/team-home"
+                  href={`pro-teams/${item.team_id}`}
                   className="btn px-16p py-2 btn-outline-secondary group-hover:bg-secondary group-hover:text-b-neutral-4"
                 >
                   View Team
