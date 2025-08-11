@@ -106,13 +106,13 @@ export const mentorings = [
             "둠피스트",
             "탱커"
         ],
-        image: "/images/blog/recentBlog2.png",
+        image: "/images/blogs/recentBlog2.png",
         price: 58000,
         rating: 4.6,
         reviews: 9,
         mentorinfo: {
         name: "한준호",
-        image: "/images/blog/blogDetails1.1.png",
+        image: "/images/blogs/blogDetails1.1.png",
         position: "Backend Architect",
         },
     },
