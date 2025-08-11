@@ -8,48 +8,48 @@ const Tab = () => {
 
   const tabs = [
     {
-      title: "Home",
+      title: "홈",
       link: `/profile`,
     },
     {
-      title: "Game Stats",
+      title: "내 전적",
       link: `/profile/game-stats`,
     },
-    {
-      title: "About",
-      link: `/profile/about`,
-    },
-    {
-      title: "Teams",
-      link: `/profile/teams`,
-    },
-    {
-      title: "Groups",
-      link: `/profile/groups`,
-    },
-    {
-      title: "Forum",
-      link: `/profile/forums`,
-    },
-    {
-      title: "Videos",
-      link: `/profile/videos`,
-    },
-    {
-      title: "Achievements",
-      link: `/profile/achievements`,
-    },
+    // {
+    //   title: "About",
+    //   link: `/profile/about`,
+    // },
+    // {
+    //   title: "Teams",
+    //   link: `/profile/teams`,
+    // },
+    // {
+    //   title: "Groups",
+    //   link: `/profile/groups`,
+    // },
+    // {
+    //   title: "Forum",
+    //   link: `/profile/forums`,
+    // },
+    // {
+    //   title: "Videos",
+    //   link: `/profile/videos`,
+    // },
+    // {
+    //   title: "Achievements",
+    //   link: `/profile/achievements`,
+    // },
 
     {
-      title: "Bookmarks",
+      title: "북마크",
       link: `/profile/bookmarks`
     },
     {
-      title: "activities",
+      title: "게시물/댓글",
       link: `/profile/my-activity`
     },
     {
-      title: "SubScriptions",
+      title: "구독/결제",
       link: '/profile/subscriptions',
     }
 
