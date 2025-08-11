@@ -3,7 +3,7 @@
 import SubScriptions from "@/components/sections/profile/SubScriptions";
 
 const Page = () => {
-  return <SubScriptions/>;
+    return <SubScriptions/>;
 };
 
 export default Page;
