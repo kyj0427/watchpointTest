@@ -82,7 +82,7 @@ const AthenaChatRoom = () => {
             {video ? video.title : "동영상을 찾을 수 없습니다"}
           </h4>
           <Link 
-            href="/coaching/athena/library" 
+            href="/athena/library" 
             className="btn btn-md btn-outline-primary rounded-12 flex items-center gap-2 hover:bg-primary hover:text-b-neutral-4 transition-colors"
           >
             <i className="ti ti-arrow-left icon-20"></i>
