@@ -2,14 +2,14 @@
 
 import { useToggle } from "@/hooks";
 import { Listbox } from "@headlessui/react";
-import { IconChevronDown, IconPlayerPlayFilled } from "@tabler/icons-react";
+import { IconChevronDown, IconPlayerPlayFilled, IconPlayerPauseFilled } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import FeaturedVideosSlider from "../FeaturedVideosSlider";
 
 
-
+// 임시 비디오 데이터 : Youtube API 연동 후 삭제 예정
 const featuredVideosData = [
   {
     id: 1,
@@ -77,6 +77,8 @@ const YoutubeVideos = () => {
   const filterTypes = ["Popular", "Action", "Adventure", "Sports"];
 
   const [selectedFilter, setSelectedFilter] = useState(filterTypes[0]);
+  const [playingVideoId, setPlayingVideoId] = useState<number | null>(null);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   const {
     open: filterOpen,
@@ -92,6 +94,33 @@ const YoutubeVideos = () => {
     if (selectedFilter === "Sports") return video.category === "Support";
     return true;
   });
+
+  // 비디오 재생/일시정지 함수
+  const playVideo = (videoId: number) => {
+    const videoElement = videoRefs.current[videoId];
+    
+    if (!videoElement) return;
+
+    // 다른 비디오 정지
+    if (playingVideoId !== null && playingVideoId !== videoId) {
+      const prevVideo = videoRefs.current[playingVideoId];
+      if (prevVideo) {
+        prevVideo.pause();
+      }
+    }
+
+    // 현재 비디오 재생
+    videoElement.play();
+    setPlayingVideoId(videoId);
+  };
+
+  const pauseVideo = (videoId: number) => {
+    const videoElement = videoRefs.current[videoId];
+    if (videoElement) {
+      videoElement.pause();
+      setPlayingVideoId(null);
+    }
+  };
 
   return (
     <section className="pt-8">
@@ -139,27 +168,56 @@ const YoutubeVideos = () => {
                   className="p-20p bg-b-neutral-3 rounded-24 group"
                   data-aos="zoom-in"
                 >
-                  <div className="relative w-full h-[220px] overflow-hidden rounded-20 mb-4">
-                    <video
-                      className="w-full h-full object-cover group-hover:scale-110 transition-1"
-                      poster={item?.thumbnail}
-                      src={item?.videoSrc}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                    />
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                      <Link
-                        href={item?.videoSrc}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-c btn-c-xxl bg-primary text-b-neutral-4 hover:bg-primary/80 transition-colors"
-                      >
+                <div className="relative w-full h-[220px] overflow-hidden rounded-20 mb-4">
+                  {/* 썸네일 */}
+                  <Image
+                    src={item?.thumbnail}
+                    alt={item?.title}
+                    width={400}
+                    height={240}
+                    className={`w-full h-full object-cover group-hover:scale-110 transition-1 ${
+                      playingVideoId === item.id ? 'opacity-0' : 'opacity-100'
+                    }`}
+                  />
+                  
+                  {/* 비디오 (항상 렌더링하되 숨김) */}
+                  <video
+                    ref={(el) => {
+                      videoRefs.current[item.id] = el;
+                    }}
+                    className={`absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-1 ${
+                      playingVideoId === item.id ? 'opacity-100' : 'opacity-0'
+                    }`}
+                    poster={item?.thumbnail}
+                    src={item?.videoSrc}
+                    autoPlay={false}
+                    muted
+                    loop
+                    playsInline
+                    preload="none"
+                    onEnded={() => setPlayingVideoId(null)}
+                  />
+                  
+                  {/* 재생/일시정지 버튼 */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <button
+                      onClick={() => {
+                        if (playingVideoId === item.id) {
+                          pauseVideo(item.id);
+                        } else {
+                          playVideo(item.id);
+                        }
+                      }}
+                      className="btn-c btn-c-xxl bg-primary text-b-neutral-4 hover:bg-primary/80 transition-colors"
+                    >
+                      {playingVideoId === item.id ? (
+                        <IconPlayerPauseFilled />
+                      ) : (
                         <IconPlayerPlayFilled />
-                      </Link>
-                    </div>
+                      )}
+                    </button>
                   </div>
+                </div>
                   <div>
                     <span className="badge badge-lg badge-primary mb-24p">
                       {item?.viewers} Viewers
