@@ -33,7 +33,7 @@ export const navMenu = [
             {
                 id : 25,
                 name : "패치노트",
-                link : "/patchnotes"
+                link : "/gameinfo/patchnotes"
             },
             
         ]
@@ -84,7 +84,7 @@ export const navMenu = [
             {
                 id: 42,
                 name: "코칭AI Athena",
-                link: "/coaching/athena"
+                link: "/coaching/athena/library"
             },
             {
                 id: 43,
@@ -116,7 +116,7 @@ export const navMenu = [
             {
                 id: 54,
                 name: "스쿼드/채팅방",
-                link: "/SquadOrChat"
+                link: "/community/SquadOrChat"
             },
             {
                 id: 55,

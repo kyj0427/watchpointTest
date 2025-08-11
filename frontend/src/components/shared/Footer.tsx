@@ -128,7 +128,7 @@ const Footer = () => {
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
                   <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
-                    href="/patchnotes"
+                    href="/gameinfo/patchnotes"
                     className="text-m-regular text-w-neutral-3"
                   >
                     패치노트
@@ -174,7 +174,7 @@ const Footer = () => {
             <div className="lg:col-span-1">
               <div className="flex items-center gap-24p mb-24p">
                 <h4 className="heading-4 text-w-neutral-1 whitespace-nowrap">
-                  <Link href="/coaching">강의</Link>
+                  <Link href="/coaching/athena">강의</Link>
                 </h4>
                 <span className="flex-1 h-0.5 bg-w-neutral-1 max-w-[80px] lg:max-w-[100px]"></span>
               </div>
@@ -191,7 +191,7 @@ const Footer = () => {
                 <li className="group hover:translate-x-2 -translate-x-2 inline-flex items-center gap-1 hover:text-primary transition-1 max-w-fit">
                   <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1"></i>
                   <Link
-                    href="/coaching/athena"
+                    href="/coaching/athena/library"
                     className="text-m-regular text-w-neutral-3"
                   >
                     코칭AI Athena

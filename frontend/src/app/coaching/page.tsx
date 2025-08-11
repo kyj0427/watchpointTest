@@ -12,7 +12,6 @@ const Page = () => {
 
     const headerData: headerBannerType = {
         title: "강의",
-        bgImgClasses: "",
         navLinks,
     };
 

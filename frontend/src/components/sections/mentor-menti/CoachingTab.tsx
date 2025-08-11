@@ -12,8 +12,8 @@ const CoachingTab = () => {
       link: `/coaching`,
     },
     {
-      title: "코칭AI Athena",
-      link: `/coaching/athena`,
+      title: "Athena",
+      link: `/coaching/athena/library`,
     },
     {
       title: "강의 등록",
