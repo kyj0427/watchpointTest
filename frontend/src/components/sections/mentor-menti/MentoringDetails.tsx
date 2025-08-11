@@ -11,17 +11,33 @@ interface MentoringData {
     id: number;
     title: string;
     description: string;
-    category: string;
+    category: string[];
     image: string;
     price: number;
     rating: number;
     reviews: number;
-    author: {
+    mentorinfo: {
         name: string;
         image: string;
-        role: string;
+        position: string;
     };
 }
+
+// {
+//     id: number;
+//     title: string;
+//     mentor: {
+//         nickname: string;
+//         battletag: number;
+//         image: string;
+//         career: string;
+//     }
+//     description: string;
+//     curriculum: string;
+//     tag: string;
+//     position: string;
+//     heroes: string;
+// }
 
 interface MentoringDetailsProps {
     data: MentoringData;
@@ -81,7 +97,7 @@ const MentoringDetails = ({ data }: MentoringDetailsProps) => {
                                     </div>
                                     <div>
                                         <span className="text-m-medium text-primary mb-1">포지션</span>
-                                        <p className="text-sm text-w-neutral-4">Vlad D2003</p>
+                                        <p className="text-sm text-w-neutral-4">{mentoringDetails?.mentorinfo?.position}</p>
                                     </div>
                                 </div>
 
@@ -91,7 +107,7 @@ const MentoringDetails = ({ data }: MentoringDetailsProps) => {
                                     <div className="flex items-center gap-3 py-3">
                                         <Image
                                             className="avatar size-60p"
-                                            src={mentoringDetails?.author?.image}
+                                            src={mentoringDetails?.mentorinfo?.image}
                                             width={300}
                                             height={220}
                                             alt="user"
@@ -101,10 +117,10 @@ const MentoringDetails = ({ data }: MentoringDetailsProps) => {
                                                 href="/profile"
                                                 className="text-l-medium text-w-neutral-1 mb-1"
                                             >
-                                                {mentoringDetails?.author?.name}
+                                                {mentoringDetails?.mentorinfo?.name}
                                             </Link>
                                             <span className="text-sm text-w-neutral-4">
-                                                {mentoringDetails?.author?.role}
+                                                {mentoringDetails?.mentorinfo?.position}
                                             </span>
                                         </div>
                                     </div>
@@ -126,9 +142,14 @@ const MentoringDetails = ({ data }: MentoringDetailsProps) => {
                         <div className="xxl:sticky xxl:top-30">
                             <div className="bg-b-neutral-3 rounded-20 p-30p">
                                 {/* 카테고리 뱃지 */}
-                                <span className="badge badge-bage badge-outline-shap text-s-regular bg-b-neutral-3 mb-16p">
-                                    Graphics & Design
-                                </span>
+                                {data.category?.map((item, index) => (
+                                <div
+                                    key={index}
+                                    className="badge badge-bage badge-outline-shap text-s-regular bg-b-neutral-3 mb-20p"
+                                >
+                                    {item}
+                                </div>
+                                ))}
 
                                 {/* 제목 및 설명 */}
                                 <h4 className="heading-4 text-w-neutral-1">

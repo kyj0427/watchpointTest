@@ -5,8 +5,6 @@ import { mentorings } from "@public/data/mentorings";
 import { IconCircleCheckFilled } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Autoplay, Navigation, Scrollbar } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
 
 type Mentoring = {
     id: number;
@@ -17,84 +15,29 @@ type Mentoring = {
     price: number;
     rating: number;
     reviews: number;
+    tags: string[];
     mentorinfo: {
         name: string;
         image: string;
-        position: string;
+        role: string;
     };
 };
 
-const  RecommendedMentorings= ({ type }:{ type:string }) => {
+const  MentoringForMentors= ({ type }:{ type:string }) => {
     return (
         <section className="section-pt">
         <div className="container">
 
             {/* selecting filter dropdown */}
             <div className="flex items-center justify-between flex-wrap gap-24p">
-                <h2 className="heading-2">나를 위한 맞춤 강의</h2>
-                <Link
-                    href="/coaching/mentor-menti/mentoring-lists/mentoring"
-                    className="btn-primary flex-wrap items-center"
-                >더보기</Link>
+                <h2 className="heading-2">강의 목록</h2>
             </div>
 
             {/* swiper = slider */}
             <div className="mt-40p">
-            <Swiper
-                loop={true}
-                slidesPerView={4}
-                speed={500}
-                autoplay={{
-                delay: 1000,
-                disableOnInteraction: true,
-                pauseOnMouseEnter: false,
-                reverseDirection: true,
-                }}
-                spaceBetween={24}
-                centeredSlides={false}
-                breakpoints={{
-                0: {
-                    slidesPerView: 1,
-                    spaceBetween: 14,
-                },
-                576: {
-                    slidesPerView: 2,
-                    spaceBetween: 16,
-                },
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 16,
-                },
-                1200: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
-                },
-                1400: {
-                    slidesPerView: 3,
-                    spaceBetween: 24,
-                },
-                1600: {
-                    slidesPerView: 4,
-                    spaceBetween: 30,
-                },
-                }}
-                navigation={{
-                nextEl: ".btn-next",
-                prevEl: ".btn-prev",
-                }}
-                pagination={{
-                clickable: true,
-                el: ".swiper-pagination",
-                }}
-                scrollbar={{
-                el: ".swiper-scrollbar",
-                draggable: true,
-                }}
-                modules={[Autoplay, Navigation, Scrollbar]}
-            >
                 {mentorings?.map((item, idx) => (
                 // data from marketplace.ts => replace data from our db
-                <SwiperSlide key={idx} className="swiper-slide">
+                <div key={idx} className="swiper-slide">
                     <div
                     className="relative bg-b-neutral-3 rounded-24 group overflow-hidden w-full h-full "
                     data-aos="zoom-in"
@@ -156,24 +99,15 @@ const  RecommendedMentorings= ({ type }:{ type:string }) => {
                         </div>
                     </div>
                     </div>
-                </SwiperSlide>
+                    </div>
                 ))}
                 <div className="flex items-center gap-28p pt-60p">
-                <div className="swiper-navigation swp-navigation-one">
-                    <button type="button" className="navigation-btn-one btn-prev">
-                    <i className="ti ti-chevron-left"></i>
-                    </button>
-                    <button type="button" className="navigation-btn-one btn-next">
-                    <i className="ti ti-chevron-right"></i>
-                    </button>
-                </div>
                 <div className="swiper-scrollbar swiper-scrollbar-1"></div>
                 </div>
-            </Swiper>
             </div>
         </div>
         </section>
     );
 };
 
-export default RecommendedMentorings;
+export default MentoringForMentors;

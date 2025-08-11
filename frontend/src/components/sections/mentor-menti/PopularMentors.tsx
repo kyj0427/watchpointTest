@@ -103,7 +103,7 @@ const PopularMentors = ({ className, type }: { className?: string; type: string 
                         <div className="flex-y flex-wrap gap-3">
                         <Image
                             className="size-60p rounded-full shrink-0"
-                            src={item?.author.image}
+                            src={item?.mentorinfo.image}
                             alt="user"
                             width={20} height={20}
                         />
@@ -112,14 +112,14 @@ const PopularMentors = ({ className, type }: { className?: string; type: string 
                             href="/profile"
                             className="text-l-medium flex-y gap-2 link-1 text-w-neutral-1"
                             >
-                            {item?.author?.name}
+                            {item?.mentorinfo?.name}
                             <IconCircleCheckFilled
                                 size={24}
                                 className="text-secondary"
                             />
                             </Link>
                             <span className="text-s-medium text-w-neutral-4">
-                            {item?.author?.role}
+                            {item?.mentorinfo?.position}
                             </span>
                         </div>
                         </div>
