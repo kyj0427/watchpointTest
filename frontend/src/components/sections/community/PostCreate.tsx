@@ -1,14 +1,24 @@
 // components/RedditCreateBox.tsx
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useForm, useFieldArray } from "react-hook-form";
 import {
   IconHash, IconX, IconPhoto, IconVideo, IconBrandYoutubeFilled,
-  IconLink, IconUpload
+  IconLink, IconUpload,
+  IconTrendingUp, IconSwords, IconBulb
 } from "@tabler/icons-react";
 
 type Tab = "text" | "media" | "link" | "poll";
+
+// 게시판 키/라벨/아이콘
+type BoardKey = "popular" | "keywords" | "guides" | "tips";
+const BOARDS: { key: BoardKey; label: string; icon: JSX.Element }[] = [
+  { key: "popular",  label: "인기글",      icon: <IconTrendingUp size={16} /> },
+  { key: "keywords", label: "자유 게시판", icon: <IconHash size={16} /> },
+  { key: "guides",   label: "공략",        icon: <IconSwords size={16} /> },
+  { key: "tips",     label: "팁과 노하우", icon: <IconBulb size={16} /> },
+];
 
 type Form = {
   tab: Tab;
@@ -22,6 +32,7 @@ type Form = {
   allowMultiple: boolean;
   durationDays: number;
   tagInput?: string;
+  board?: BoardKey; // 선택 커뮤니티
 };
 
 function parseVideoLink(u?: string) {
@@ -37,6 +48,8 @@ function parseVideoLink(u?: string) {
 
 export default function RedditCreateBox() {
   const [tags, setTags] = useState<string[]>([]);
+  const [boardOpen, setBoardOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   const { register, setValue, watch, handleSubmit, control, reset, setError, clearErrors } =
     useForm<Form>({
@@ -47,6 +60,7 @@ export default function RedditCreateBox() {
         pollOptions: [{ value: "" }, { value: "" }],
         allowMultiple: false,
         durationDays: 3,
+        board: undefined, // 기본 미선택
       },
     });
 
@@ -59,8 +73,9 @@ export default function RedditCreateBox() {
   const media = watch("media");
   const vfile = watch("videoFile");
   const vurl = watch("videoUrl");
+  const selectedBoard = watch("board");
 
-  // === THEME: Watchpoint (dark) ===================================================
+  // === THEME: Watchpoint =========================================================
   const containerCls = "mx-auto max-w-3xl";
   const cardCls = "bg-b-neutral-3 text-w-neutral-1 rounded-12 border border-b-neutral-2 p-5 shadow-xl";
   const labelCls = "text-sm text-w-neutral-3";
@@ -73,7 +88,7 @@ export default function RedditCreateBox() {
   const subtleText = "text-xxs text-w-neutral-4";
   const chipBtn =
     "px-3 py-1.5 rounded-full text-sm transition";
-  // ===============================================================================
+  // ==============================================================================
 
   // 미리보기
   const previews = useMemo(() => {
@@ -81,9 +96,27 @@ export default function RedditCreateBox() {
     return Array.from(media).map((f) => URL.createObjectURL(f));
   }, [media]);
 
-  // Post 가능 조건 (레딧 규칙)
+  // 바깥 클릭/ESC로 드롭다운 닫기
+  useEffect(() => {
+    function onDocClick(e: MouseEvent) {
+      if (!dropdownRef.current) return;
+      if (!dropdownRef.current.contains(e.target as Node)) setBoardOpen(false);
+    }
+    function onEsc(e: KeyboardEvent) {
+      if (e.key === "Escape") setBoardOpen(false);
+    }
+    document.addEventListener("mousedown", onDocClick);
+    document.addEventListener("keydown", onEsc);
+    return () => {
+      document.removeEventListener("mousedown", onDocClick);
+      document.removeEventListener("keydown", onEsc);
+    };
+  }, []);
+
+  // Post 가능 조건
   const canPost = useMemo(() => {
     if (!title) return false;
+    if (!selectedBoard) return false; // 게시판 미선택 시 비활성
     if (tab === "text") return true;
     if (tab === "media") {
       const hasImg = (media?.length ?? 0) > 0;
@@ -98,11 +131,11 @@ export default function RedditCreateBox() {
       return opts.length >= 2 && d >= 1 && d <= 7;
     }
     return false;
-  }, [title, tab, media, vfile, vurl, linkUrl, fields, watch]);
+  }, [title, tab, media, vfile, vurl, linkUrl, fields, watch, selectedBoard]);
 
   const onPost = handleSubmit(() => {
     if (!canPost) return;
-    // TODO: 서버 전송
+    // TODO: 서버 전송 (selectedBoard 포함)
     reset(); setTags([]);
   });
 
@@ -128,12 +161,52 @@ export default function RedditCreateBox() {
         <span className="text-sm text-w-neutral-4">Drafts</span>
       </div>
 
-      {/* 커뮤니티 선택 (더미) */}
-      <div className="mb-3">
-        <button className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-b-neutral-2 text-w-neutral-2 hover:text-w-neutral-1 hover:bg-b-neutral-3 text-sm border border-b-neutral-2">
+      {/* ▼ 커뮤니티 선택 (드롭다운) */}
+      <div className="mb-3 relative" ref={dropdownRef}>
+        <button
+          type="button"
+          onClick={() => setBoardOpen((v) => !v)}
+          className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-b-neutral-2 text-w-neutral-2 hover:text-w-neutral-1 hover:bg-b-neutral-3 text-sm border border-b-neutral-2"
+          aria-haspopup="listbox"
+          aria-expanded={boardOpen}
+        >
           <span className="inline-block w-5 h-5 rounded-full bg-black text-white text-[10px] grid place-items-center">r/</span>
-          Select a community
+          <span className={selectedBoard ? "text-w-neutral-1" : ""}>
+            {selectedBoard
+              ? BOARDS.find(b => b.key === selectedBoard)?.label
+              : "Select a community"}
+          </span>
         </button>
+
+        {boardOpen && (
+          <ul
+            role="listbox"
+            className="absolute z-50 mt-2 w-64 rounded-12 border border-b-neutral-2 bg-b-neutral-3 shadow-xl overflow-hidden"
+          >
+            {BOARDS.map((b) => {
+              const active = selectedBoard === b.key;
+              return (
+                <li key={b.key}>
+                  <button
+                    type="button"
+                    role="option"
+                    aria-selected={active}
+                    onClick={() => { setValue("board", b.key); setBoardOpen(false); }}
+                    className={[
+                      "w-full px-3 py-2 text-left flex items-center gap-2",
+                      active
+                        ? "bg-b-neutral-2 text-w-neutral-1"
+                        : "text-w-neutral-2 hover:bg-b-neutral-2/70 hover:text-w-neutral-1"
+                    ].join(" ")}
+                  >
+                    <span className="shrink-0">{b.icon}</span>
+                    <span className="text-sm">{b.label}</span>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </div>
 
       {/* 탭 */}

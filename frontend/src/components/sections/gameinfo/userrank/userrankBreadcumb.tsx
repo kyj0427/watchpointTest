@@ -1,67 +1,70 @@
-// 유저랭킹 메인상단 컴포넌트
-
-import { StaticImageData } from "next/image";
+// src/components/sections/userrankList/UserrankListComp.tsx
+"use client";
+import Image from "next/image";
 import Link from "next/link";
-import { twMerge } from "tailwind-merge";
+import { useEffect, useState } from "react";
 
-export type BreadcrumbType = {
-  title: string;
-  className?: string | null;
-  image?: string | StaticImageData | null;
-  navLinks?: ItemsProps[];
-  details?: string | null;
-  description?: string | null;
-};
+type PlayerRow = { player_id: string; name: string; avatar?: string; last_updated_at?: number };
 
-export type ItemsProps = {
-  id: string | number;
-  label: string;
-  url?: string;
-};
+export default function UserrankListComp({ initialQuery }: { initialQuery?: string }) {
+  const q = (initialQuery || "").trim();
+  const [loading, setLoading] = useState(false);
+  const [rows, setRows] = useState<PlayerRow[]>([]);
 
-const UserrankBreadcrumb = ({ breadcrumb }: { breadcrumb: BreadcrumbType }) => {
+  useEffect(() => {
+    if (!q) return;
+    setLoading(true);
+    fetch(`http://192.168.0.31:4000/api/players?name=${encodeURIComponent(q)}`)
+      .then(r => r.json())
+      .then(d => setRows(d?.results ?? []))
+      .catch(() => setRows([]))
+      .finally(() => setLoading(false));
+  }, [q]);
+
+  if (!q) return <div className="py-6 text-center text-w-neutral-4">검색어가 비었습니다.</div>;
+  if (loading) return <div className="py-6 text-center text-w-neutral-4">검색 중…</div>;
+  if (rows.length === 0) return <div className="py-6 text-center text-w-neutral-4">결과가 없습니다: {q}</div>;
+
   return (
-    <section className={twMerge("pt-30p", breadcrumb?.className)}>
-      <div className="section-pt">
-        <div className="relative bg-[url('/images/game_news/game1.png')] bg-cover bg-no-repeat rounded-24 overflow-hidden">
-          <div className="container">
-            <div className="grid grid-cols-12 gap-30p relative xl:py-[130px] md:py-30 sm:py-25 py-20 z-[2]">
-              <div className="lg:col-start-2 lg:col-end-12 col-span-12">
-                <h2 className="heading-2 text-w-neutral-1 mb-3">
-                  {breadcrumb?.title}
-                </h2>
-                <ul className="breadcrumb">
-                  {breadcrumb?.navLinks?.map((item, idx) => (
-                    <li key={idx} className="breadcrumb-item">
-                      {item?.url ? (
-                        <Link
-                          href={item?.url || "#"}
-                          className="breadcrumb-link"
-                        >
-                          {item?.label}
-                        </Link>
-                      ) : (
-                        <span className="breadcrumb-current">
-                          {item?.label}
-                        </span>
-                      )}
-                      {breadcrumb.navLinks &&
-                        idx !== breadcrumb.navLinks?.length - 1 && (
-                          <span className="breadcrumb-icon">
-                            <i className="ti ti-chevrons-right"></i>
-                          </span>
-                        )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className="overlay-11"></div>
+    <section className="section-pb pt-60p">
+      <div className="container">
+        <div className="overflow-x-auto scrollbar-sm">
+          <table className="w-full text-l-medium">
+            <thead>
+              <tr className="bg-shap">
+                <th className="px-24p py-3">#</th>
+                <th className="px-24p py-3">아이콘</th>
+                <th className="px-24p py-3">플레이어</th>
+                <th className="px-24p py-3">최근 업데이트</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-solid divide-shap bg-b-neutral-3">
+              {rows.map((p, i) => (
+                <tr key={p.player_id}>
+                  <td className="px-24p py-3">{i + 1}</td>
+                  <td className="px-24p py-3">
+                    {p.avatar
+                      ? <Image src={p.avatar} alt={p.name} width={40} height={40} className="rounded-full" />
+                      : <div className="w-10 h-10 bg-zinc-700 rounded-full" />}
+                  </td>
+                  <td className="px-24p py-3">
+                    {/* 반드시 uid 붙여서 상세로 이동 */}
+                    <Link
+                      href={`/userrankList/user?q=${encodeURIComponent(p.name)}&uid=${encodeURIComponent(p.player_id)}`}
+                      className="text-primary hover:underline"
+                    >
+                      {p.name}
+                    </Link>
+                  </td>
+                  <td className="px-24p py-3">
+                    {p.last_updated_at ? new Date(p.last_updated_at * 1000).toLocaleString() : "-"}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
   );
-};
-
-export default UserrankBreadcrumb;
+}
