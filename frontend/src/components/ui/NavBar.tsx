@@ -298,7 +298,7 @@ const NavBar = () => {
                 <div className="3xl:col-span-6 xl:col-span-7 flex items-center xl:justify-between justify-end w-full">
                  {/* 뉴스 */}
                   <Link
-                    href="/blogs"
+                    href="/community/notification"
                     className="hidden xl:inline-flex items-center gap-3 pl-1 py-1 pr-6  rounded-full bg-[rgba(242,150,32,0.10)] text-w-neutral-1 text-base"
                   >
                     <span className="size-48p flex-c bg-primary text-b-neutral-4 rounded-full">
