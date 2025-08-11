@@ -83,11 +83,11 @@ return (
                 )}
               </div>
                   {/* 내용 */}
-                  <div className="p-20p">
+                  <div className="p-15p">
                     <Link href={post.href} className="block">
-                      <h4 className="text-xl font-borda text-w-neutral-1 line-clamp-2">
-                        {post.title}
-                      </h4>
+                    <h4 className="text-xl font-borda text-w-neutral-1 line-clamp-2 mt-8p">
+                      {post.title}
+                    </h4>
                     </Link>
 
                     <div className="flex items-center gap-12p text-sm text-w-neutral-4 mt-12p">
@@ -95,7 +95,7 @@ return (
                       {post.date && <span>· {post.date}</span>}
                     </div>
                     {/* 자세히 보기 클릭시 해당 게시물 상세보기로 이동 */}
-                    <div className="flex items-center justify-between mt-16p">
+                    <div className="mt-auto flex items-center justify-between pt-16p">
                       <Link href={post.href} className="underline">
                         자세히 보기
                       </Link>

@@ -13,7 +13,7 @@ export default function MyActivity() {
           {/* 내가 쓴 게시물 */}
           <div className="4xl:col-start-2 4xl:col-end-8 xl:col-span-7 col-span-12">
             <h3 className="heading-3 text-w-neutral-1 text-split-left mb-16p">
-              내가 쓴 게시물
+              내가 작성한 게시글
             </h3>
             <ul className="grid grid-cols-1 gap-20p">
               {myPostsData.map((post) => (
@@ -27,7 +27,7 @@ export default function MyActivity() {
           {/* 내가 쓴 댓글 */}
           <div className="4xl:col-start-8 4xl:col-end-12 xl:col-span-5 col-span-12">
             <h3 className="heading-3 text-w-neutral-1 text-split-left mb-16p">
-              내가 쓴 댓글
+              내가 작성한 댓글
             </h3>
             <div className="xl:sticky xl:top-30">
               <MyComments comments={myCommentsData} />
