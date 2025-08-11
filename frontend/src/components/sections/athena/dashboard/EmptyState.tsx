@@ -9,7 +9,7 @@ import Link from "next/link";
 const EmptyState = () => {
   const { user } = useAuth();
   const [openModal, setOpenModal] = useState<null | boolean>(null);
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [selectedFile, setSelectedFile] = useState<File | { type: 'url', url: string, platform: string } | null>(null);
 
   const handleSubmit = async () => {
     if (!selectedFile) {
@@ -18,7 +18,15 @@ const EmptyState = () => {
     }
 
     const formData = new FormData();
-    formData.append("file", selectedFile);
+    
+    // 파일인지 URL인지 확인
+    if (selectedFile instanceof File) {
+      formData.append("file", selectedFile);
+    } else if (selectedFile.type === 'url') {
+      // URL인 경우
+      formData.append("url", selectedFile.url);
+      formData.append("platform", selectedFile.platform);
+    }
 
     try {
       const response = await fetch("/api/ai-process-video", {

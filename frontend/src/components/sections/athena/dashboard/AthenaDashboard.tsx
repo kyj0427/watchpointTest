@@ -36,7 +36,7 @@ const AthenaDashboard = ({ isGuest = false, userId = null }) => {
     const { user } = useAuth(); //유저정보불러오기
     const [userVideos, setUserVideos] = useState<Video[]>([]); // 유저 비디오 임시데이터
     const [openModal, setOpenModal] = useState<null | boolean>(null);
-    const [selectedFile, setSelectedFile] = useState<File | null>(null);
+    const [selectedFile, setSelectedFile] = useState<File | { type: 'url', url: string, platform: string } | null>(null);
     
     // props로 받은 값이 없으면 현재 유저 정보 사용
     const currentUserId = userId || user?.id;
@@ -65,12 +65,19 @@ const AthenaDashboard = ({ isGuest = false, userId = null }) => {
             return;
         }
 
-        //썸네일 추출
-        // const thumbnail = await generateThumbnail(selectedFile);
-
         const formData = new FormData();
-        formData.append("file", selectedFile);
-        // formData.append("thumbnail", thumbnail); //썸네일도 함께 전송
+        
+        // 파일인지 URL인지 확인
+        if (selectedFile instanceof File) {
+            //썸네일 추출
+            // const thumbnail = await generateThumbnail(selectedFile);
+            formData.append("file", selectedFile);
+            // formData.append("thumbnail", thumbnail); //썸네일도 함께 전송
+        } else if (selectedFile.type === 'url') {
+            // URL인 경우
+            formData.append("url", selectedFile.url);
+            formData.append("platform", selectedFile.platform);
+        }
 
         try {
             const response = await fetch("/api/ai-process-video", {

@@ -2,7 +2,7 @@
 export const dynamic = "force-dynamic";
 
 import React from "react";
-import { GenericUpdates, HeroUpdates } from "@/components/sections/patchnotesDetails";
+import { GenericUpdates, HeroUpdates } from "@/components/sections/gameinfo/patchnotesDetails";
 
 interface Patchnote {
   anchor_id: string;
