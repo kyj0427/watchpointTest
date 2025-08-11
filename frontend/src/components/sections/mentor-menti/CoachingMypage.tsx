@@ -17,6 +17,7 @@ type Mentoring = {
         name: string;
         image: string;
         position: string;
+        career: string[];
     };
 };
 

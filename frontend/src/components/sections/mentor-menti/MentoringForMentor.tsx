@@ -19,7 +19,8 @@ type Mentoring = {
     mentorinfo: {
         name: string;
         image: string;
-        role: string;
+        position: string;
+        career: string[];
     };
 };
 
@@ -59,7 +60,7 @@ const  MentoringForMentors= ({ type }:{ type:string }) => {
                     </div>
                     <div className="p-28p">
                         <Link
-                        href={`/coaching/mentor-menti/mentoring-lists/${type}/${item?.id}`}
+                        href={`/coaching/mentoring-lists/${type}/${item?.id}`}
                         className="heading-3 link-1 mb-2 line-clamp-1"
                         >
                         {item?.title}

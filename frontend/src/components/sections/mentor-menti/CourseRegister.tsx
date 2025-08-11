@@ -1,15 +1,9 @@
 "use client";
 
-import { useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { IconBrandKakoTalk, IconChevronDown } from "@tabler/icons-react";
-import Link from "next/link";
 import { useState } from "react";
-import AnimateHeight from "react-animate-height";
-import {useRef,ChangeEvent}from "react";
+import { useRef }from "react";
 import Head from "next/head";
 import ImageUploader from "@/components/ui/fileUpload/ImageUpload";
-import { Modal } from "@/components/ui";
 
 const CourseRegister = () => {
   // 이미지 업로드 관련 state
@@ -53,6 +47,27 @@ const CourseRegister = () => {
   //시간/분 옵션 배열
   const hours = Array.from({ length: 12 }, (_, i) => String(i + 1).padStart(2, "0"));
   const minutes = ["00", "05", "10", "15", "20", "25", "30"];
+
+  // 가격 설정
+  function formatPriceWithComma(value: string): string {
+  // 숫자만 추출 (숫자가 아니면 제거)
+  const numericValue = value.replace(/[^0-9]/g, "");
+  if (!numericValue) return "0";
+
+  // 숫자를 정수로 변환 후 다시 문자열로 만들어 천단위마다 쉼표 넣기
+  return parseInt(numericValue, 10).toLocaleString();
+  }
+
+
+  const [price, setPrice] = useState("0");
+
+  const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPrice(e.target.value.replace(/[^0-9]/g, "")); // 숫자만 저장
+    };
+  
+  const handlePriceBlur = () => {
+  setPrice((prev) => formatPriceWithComma(prev));
+  };
 
 
 
@@ -98,6 +113,18 @@ const CourseRegister = () => {
                   </div>
 
           {/*  여기에 나중에 다른 강의 등록 input 폼 추가 가능 */}
+          {/* 가격 입력 */}
+          <div className="mb-7">
+            <h4 className="block text-sm font-bold mb-2">수강비</h4>
+            <input
+            type="text"
+            value={price}
+            onChange={handlePriceChange}
+            onBlur={handlePriceBlur}
+            placeholder="가격 입력"
+            className="w-[200px] border border-gray-300 rounded-lg px-4 py-2 bg-white text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
 
           <div className="mb-8">
                   {/* 라벨 구성 */}
@@ -145,6 +172,7 @@ const CourseRegister = () => {
         </label>
       ))}
     </div>
+
 
     {/* 시간 선택 */}
     <div className="flex items-center gap-2 text-sm">
@@ -247,11 +275,9 @@ const CourseRegister = () => {
     </div>
   )}
 
-              
-
-        </div>
-      </section>
       </div>
+    </section>
+    </div>
   );
 };
 

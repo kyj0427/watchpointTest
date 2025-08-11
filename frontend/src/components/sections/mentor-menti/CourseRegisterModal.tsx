@@ -18,7 +18,7 @@ const CourseRegisterModal = () => {
                     className="rounded-md bg-gradient-to-r from-orange-500 to-amber-500 px-4 py-2 text-lg font-semibold 
                     text-white shadow-lg hover:from-orange-400 hover:to-amber-400 focus-visible:outline-orange-500 transition-all duration-300 transform hover:scale-105"
                 >
-                    시작하기
+                    강의 등록하기
                 </button>
             </div>
         </div>
@@ -36,7 +36,7 @@ const CourseRegisterModal = () => {
             </button>
             <div className="overflow-y-auto scrollbar-sm flex-1 pr-2 pt-5">
                 <h3 className="heading-3 text-white mb-3 text-center">강의 등록</h3>
-                <form className="flex flex-col h-full">
+                <form className="flex flex-col h-full" method="post">
                 <CourseRegister />
                 <div className="flex justify-center mt-auto py-4">
                     <button type="submit" className="btn btn-md btn-primary rounded-12">

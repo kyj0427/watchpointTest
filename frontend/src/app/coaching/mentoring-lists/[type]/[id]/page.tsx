@@ -1,7 +1,6 @@
 import CoachingBreadcrumb from "@/components/sections/mentor-menti/CoachingBreadcumb";
 import MentorDetails from "@/components/sections/mentor-menti/MentorDetails";
 import MentoringDetails from "@/components/sections/mentor-menti/MentoringDetails";
-import Breadcrumb from "@/components/shared/Breadcumb";
 import { headerBannerType, NavLinkProps } from "@/config/types";
 import { mentorings } from "@public/data/mentorings";
 import { mentors } from "@public/data/mentors";
@@ -31,7 +30,6 @@ export async function generateStaticParams() {
 }
 
 const Details = async ({ params }: PageProps) => {
-    console.log("params:", params);
     const { type, id } = params;
 
     const labelMap: Record<string, string> = {
@@ -44,8 +42,8 @@ const Details = async ({ params }: PageProps) => {
     const navLinks: NavLinkProps[] = [
         { id: 1, url: "/coaching", label: "강의" },
         { id: 2, url: "", label: "멘토/멘티 찾기" },
-        { id: 3, url: `/coaching/mentor-menti/mentoring-lists/${type}`, label: title },
-        { id: 4, url: `/coaching/mentor-menti/mentoring-lists/${type}/${id}`, label: title },
+        { id: 3, url: `/coaching/mentoring-lists/${type}`, label: title },
+        { id: 4, url: `/coaching/mentoring-lists/${type}/${id}`, label: title },
     ];
 
     const headerData: headerBannerType = {
@@ -54,25 +52,31 @@ const Details = async ({ params }: PageProps) => {
         navLinks,
     };
 
-    const dataList = type === "mentoring" ? mentorings : mentors;
-    const singleItem = dataList.find((item) => item.id.toString() === id);
-
     return (
         <main>
-        <CoachingBreadcrumb breadcrumb={headerData} />
-        {singleItem ? (
-            type === "mentoring" ? (
-            <MentoringDetails data={singleItem} />
+            <CoachingBreadcrumb breadcrumb={headerData} />
+
+            {type === "mentoring" ? (
+                (() => {
+                    const singleItem = mentorings.find((item) => item.id.toString() === id);
+                    return singleItem ? (
+                        <MentoringDetails data={singleItem} />
+                    ) : (
+                        <p className="text-base text-w-neutral-1 mt-32p">해당 항목을 찾을 수 없습니다.</p>
+                    );
+                })()
             ) : (
-            <MentorDetails data={singleItem} />
-            )
-        ) : (
-            <p className="text-base text-w-neutral-1 mt-32p">
-            해당 항목을 찾을 수 없습니다.
-            </p>
-        )}
+                (() => {
+                    const singleItem = mentors.find((item) => item.id.toString() === id);
+                    return singleItem ? (
+                        <MentorDetails data={singleItem} type={type} />
+                    ) : (
+                        <p className="text-base text-w-neutral-1 mt-32p">해당 항목을 찾을 수 없습니다.</p>
+                    );
+                })()
+            )}
         </main>
     );
 };
 
-export default Details;
+export default Details
