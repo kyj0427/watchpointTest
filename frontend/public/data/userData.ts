@@ -69,11 +69,10 @@ const mockHeader: PlayerHeaderData = {
   uid: "201249062153129198199098",
   mode: "competitive",
   backgroundUrl:
-    "https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltb9e273d8483050b8/631a8aab3ab6f40dd2a90699/1600_Tracer.jpg",
+    "/images/game_hero/hero_portrait_bg/Tracer_heroImage_3.jpg",
   portraitUrl:
-    "https://d15f34w2p8l1cc.cloudfront.net/overwatch/71d29660fd426e7b2a78a9b896027c79fcbe03c5c63e19c5937078eb13f8f9a5.png",
+    "/images/users/player_icon1.png",
   name: "Revolution",
-  title: "Overwatch Agent",
   lastUpdatedText: "최근 업데이트 : 32시간 전",
 };
 

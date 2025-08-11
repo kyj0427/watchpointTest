@@ -1,6 +1,6 @@
 // 주영웅 이미지파일 images>game_hero_hero_portrait 임포트
 import heroPortraits from "@public/images/game_hero/hero_portrait";
-import avatar1 from "@public/images/users/avatar1.png"
+import avatar1 from "@public/images/users/player_icon1.png"
 import avatar2 from "@public/images/users/avatar2.png"
 import avatar3 from "@public/images/users/avatar3.png"
 
