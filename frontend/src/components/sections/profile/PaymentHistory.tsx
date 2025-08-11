@@ -100,8 +100,7 @@ const PaymentHistory: React.FC = () => {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h2 className="text-xl font-bold">결제 내역</h2>
-        <div className="flex gap-2">
+         <div className="flex gap-2">
           <select className="border border-gray-600 rounded-lg px-3 py-2 text-sm" style={{backgroundColor: '#0E1012'}}>
             <option>전체 기간</option>
             <option>최근 3개월</option>
