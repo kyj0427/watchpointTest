@@ -12,7 +12,7 @@ const Page = () => {
 
     const navLinks: NavLinkProps[] = [
         { id: 1, url: "/coaching", label: "강의" },
-        { id: 2, url: "/coaching/mentor-menti/mypage", label: "강의 마이페이지" },
+        { id: 2, url: "/coaching/mypage", label: "강의 마이페이지" },
     ]
 
     const headerData = {

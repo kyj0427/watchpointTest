@@ -40,8 +40,6 @@ const FileUpload: React.FC<FileUploaderProps> = ({ onFileSelect, accept }) => {
 
     return (
         <div className="space-y-4 mb-8">
-            <label className="block text-base font-semibold text-white mb-3">영상 업로드</label>
-
             <div
             className="upload-area h-[200px] rounded-lg flex flex-col items-center justify-center cursor-pointer border-2 border-dashed border-gray-500 hover:border-orange-400 relative overflow-hidden transition-all duration-300 bg-gray-800/50 hover:bg-gray-700/50"
             onClick={handleClick}
