@@ -6,6 +6,7 @@ import { NavLinkProps } from "@/config/types";
 import { mentorings } from "@public/data/mentorings";
 import { mentors } from "@public/data/mentors";
 import CoachingBreadcrumb from "@/components/sections/mentor-menti/CoachingBreadcumb";
+import MentoringList from "@/components/sections/mentor-menti/MentoringLists";
 
 type PageProps = {
   params: { type: string };
@@ -54,7 +55,7 @@ export default async function PostPage(props: PageProps) {
       <CoachingBreadcrumb breadcrumb={headerData} />
         <div className="mb-20">
         {type === "mentoring" ? (
-          <Mentoring data={data} type={type}/>
+          <MentoringList data={data} type={type}/>
         ) : type === "mentor" ? (
           <Mentors data={data} type={type}/>
         ) : (
