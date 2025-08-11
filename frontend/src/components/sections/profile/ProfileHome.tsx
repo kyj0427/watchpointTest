@@ -1,6 +1,6 @@
 import ProfileHomeRightAside from "./ProfileHomeRightAside";
 import PostCreateCard from "./PostCreateCard";
-import ProfilePosts from "./ProfilePosts_hw";
+import ProfilePosts from "./ProfilePosts";
 
 const ProfileHome = () => {
   return (
