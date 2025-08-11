@@ -40,6 +40,20 @@ const Tab = () => {
       link: `/profile/achievements`,
     },
 
+    {
+      title: "Bookmarks",
+      link: `/profile/bookmarks`
+    },
+    {
+      title: "activities",
+      link: `/profile/my-activity`
+    },
+    {
+      title: "SubScriptions",
+      link: '/profile/subscriptions',
+    }
+
+
   ];
 
   return (

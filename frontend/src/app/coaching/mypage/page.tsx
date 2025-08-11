@@ -12,12 +12,11 @@ const Page = () => {
 
     const navLinks: NavLinkProps[] = [
         { id: 1, url: "/coaching", label: "강의" },
-        { id: 2, url: "/coaching/mypage", label: "강의 마이페이지" },
+        { id: 2, url: "", label: "내 강의" },
     ]
 
     const headerData = {
-        title: "강의 마이페이지",
-        bgImgClasses: "",
+        title: "내 강의",
         navLinks,
     };
 

@@ -89,7 +89,7 @@ export const navMenu = [
             {
                 id: 43,
                 name: "내 강의",
-                link: "/game-details-two" //또는 library-details
+                link: "/coaching/mypage" //또는 library-details
             }
         ]
     },
@@ -137,19 +137,20 @@ export const navMenu = [
             },
             {
                 id: 62,
-                name: "북마크",
-                link: "/saved"
+                name: "내 활동정보",
+                link: "/profile/my-activity"
             },
             {
                 id: 63,
-                name: "구독/결제",
-                link: "/pricing-plan"
+                name: "북마크",
+                link: "/profile/bookmarks"
             },
             {
                 id: 64,
-                name: "내 활동정보",
-                link: "/profile/forums"
-            }
+                name: "구독/결제",
+                link: "/profile/dubscriptions"
+            },
+            
         ]
     },
     {
