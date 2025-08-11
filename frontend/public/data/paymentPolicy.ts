@@ -1,0 +1,35 @@
+export const paymentPolicy = [
+    {
+        id: "1",
+        question: "이용약관",
+        answer: `
+        We require payment to be made in advance to secure any service. This ensures that both 
+        the service provider and client are committed to the agreement. Rest assured that all 
+        payments are processed through a secure payment system to protect your financial 
+        information. Once your payment is complete, you’ll receive a confirmation receipt as 
+        proof of the transaction.
+        `,
+    },
+    {
+        id: "2",
+        question: "취소 및 환불정책",
+        answer: `
+        1. 서비스 취소
+        서비스 시작 전에는 언제든지 무료로 취소하실 수 있습니다.
+        서비스 시작 이후에는 취소가 불가능하며, 이미 결제된 금액은 환불되지 않습니다.
+
+        2. 환불 조건
+        서비스 제공자가 약속한 서비스를 제공하지 못한 경우, 전액 환불이 가능합니다.
+        부당한 사유 없이 서비스가 중단되거나, 고객이 정당한 사유를 증명할 경우 환불 요청이 가능합니다.
+        환불 요청은 서비스 종료 후 7일 이내에 제출해야 합니다.
+
+        3. 환불 절차 및 기간
+        환불 요청 접수 후 검토를 거쳐 승인 시 환불이 진행됩니다.
+        환불은 보통 승인일로부터 5~7 영업일 내에 처리되며, 결제 수단에 따라 다소 차이가 있을 수 있습니다.
+
+        4. 기타 사항
+        환불이 승인되지 않는 경우, 별도의 안내를 드립니다.
+        기타 환불 관련 문의는 고객센터를 통해 연락해주시기 바랍니다.
+        `,
+    },
+];

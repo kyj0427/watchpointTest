@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from "@headlessui/react";
 import { useToggle } from "@/hooks";
 import { IconChevronDown } from "@tabler/icons-react";
+import CourseRegisterModal from "./CourseRegisterModal";
 
 
 
@@ -22,6 +23,7 @@ type Mentoring = {
         name: string;
         image: string;
         position: string;
+        career: string[];
     };
 };
 
@@ -59,7 +61,10 @@ const MentoringList = ({ data, type }: MentoringListProps) => {
 
     return(
         <div>
-        <h2 className="heading-2 text-w-neutral-1 mb-40p mt-10">강의 목록</h2>
+        <div className="flex flex-wrap items-center justify-between gap-4 mt-10 mb-40p">
+        <h2 className="heading-2 text-w-neutral-1">강의 목록</h2>
+        <CourseRegisterModal />
+        </div>
         {/* 필터 바 */}
         <div className="flex items-center justify-between flex-wrap gap-24p pb-30p border-b border-shap">
             <Listbox

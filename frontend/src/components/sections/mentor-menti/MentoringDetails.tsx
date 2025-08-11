@@ -1,7 +1,9 @@
 "use client";
 
 import AccordionOne from "@/components/ui/AccordionOne";
-import { faqItemsTwo } from "@public/data/faqItems";
+import RatingStars from "@/components/ui/RatingStars";
+import RatingStarsInput from "@/components/ui/RatingStarsInput";
+import { paymentPolicy } from "@public/data/paymentPolicy";
 import { mentorings } from "@public/data/mentorings";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,8 +22,10 @@ interface MentoringData {
         name: string;
         image: string;
         position: string;
+        career: string[];
     };
 }
+
 
 // {
 //     id: number;
@@ -46,6 +50,31 @@ interface MentoringDetailsProps {
 const MentoringDetails = ({ data }: MentoringDetailsProps) => {
     const mentoringDetails = mentorings[0]; // 임시 하드코딩 (향후 data prop 사용 권장)
     const [isChecked, setIsChecked] = useState(true);
+
+    const [hasPurchased, setHasPurchased] = useState(false); //결제여부(DB연동) => setHasPurchased로
+
+    const [reviews, setReviews] = useState<
+    { author: { name: string; avatar?: string }; content: string; rating: number }[]
+    >([
+    { author: { name: "테스트 유저", avatar: "" }, content: "좋은 강의였습니다!", rating: 4.5 },
+    ]);
+
+    const [newReview, setNewReview] = useState("");
+    const [newRating, setNewRating] = useState(5);
+
+    const handleAddReview = () => {
+    if (!newReview.trim() || newRating === 0) return; // 별점 필수
+
+    const newReviewData = {
+        author: { name: "현재 로그인 유저", avatar: "" },
+        content: newReview,
+        rating: newRating,
+    };
+
+    setReviews((prev) => [...prev, newReviewData]);
+    setNewReview("");
+    setNewRating(0);
+    };
 
     return (
         <section className="section-pb pt-60p overflow-visible">
@@ -131,13 +160,15 @@ const MentoringDetails = ({ data }: MentoringDetailsProps) => {
 
                                 {/* FAQ 아코디언 영역 */}
                                 <div className="grid grid-cols-1 border-y border-shap divide-y divide-shap">
-                                    <AccordionOne faqItems={faqItemsTwo} />
+                                    <AccordionOne faqItems={paymentPolicy} />
                                 </div>
                             </div>
                         </div>
                     </div>
 
+
                     {/* 오른쪽: 구매 박스 */}
+                    {!hasPurchased && (
                     <div className="3xl:col-span-4 xxl:col-span-5 col-span-12 relative">
                         <div className="xxl:sticky xxl:top-30">
                             <div className="bg-b-neutral-3 rounded-20 p-30p">
@@ -255,8 +286,47 @@ const MentoringDetails = ({ data }: MentoringDetailsProps) => {
                             </div>
                         </div>
                     </div>
-
+                    )}
                 </div>
+                {/* 후기 목록 */}
+                <div className="space-y-4 mt-6">
+                <h3 className="text-lg font-semibold text-white">후기</h3>
+                {reviews.map((review, idx) => (
+                    <div key={idx} className="flex items-start gap-3">
+                    <Image
+                        src={review.author.avatar || "/images/default-avatar.png"}
+                        width={40}
+                        height={40}
+                        className="rounded-full"
+                        alt="avatar"
+                    />
+                    <div>
+                        <p className="text-sm text-w-neutral-1 font-semibold mb-2">{review.author.name}</p>
+                        <RatingStars rating={review.rating} />
+                        <p className="text-sm text-w-neutral-3 mt-3">{review.content}</p>
+                    </div>
+                    </div>
+                ))}
+                </div>
+
+                {/* 후기 입력창 */}
+                {hasPurchased && ( //hasPurchased로 인해 구매 시에만 보임
+                <div className="relative w-1/2 mt-4 flex flex-col gap-3">
+                    <RatingStarsInput rating={newRating} setRating={setNewRating} />
+                    <textarea
+                    value={newReview}
+                    onChange={(e) => setNewReview(e.target.value)}
+                    className="flex h-32 bg-b-neutral-2 text-white px-6 py-2 rounded-3xl placeholder:text-w-neutral-4 outline-none mb-15"
+                    placeholder="후기를 입력하세요..."
+                    />
+                    <button
+                    onClick={handleAddReview}
+                    className="btn btn-primary w-1/6 py-2 px-4 rounded-full absolute right-2 bottom-2"
+                    >
+                    등록
+                    </button>
+                </div>
+                )}
             </div>
         </section>
     );
