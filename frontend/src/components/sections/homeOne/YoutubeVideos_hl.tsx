@@ -5,7 +5,7 @@ import { Listbox } from "@headlessui/react";
 import { IconChevronDown, IconPlayerPlayFilled } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import FeaturedVideosSlider from "../FeaturedVideosSlider";
 
 
@@ -77,6 +77,7 @@ const YoutubeVideos = () => {
   const filterTypes = ["Popular", "Action", "Adventure", "Sports"];
 
   const [selectedFilter, setSelectedFilter] = useState(filterTypes[0]);
+ 
 
   const {
     open: filterOpen,
@@ -144,10 +145,11 @@ const YoutubeVideos = () => {
                       className="w-full h-full object-cover group-hover:scale-110 transition-1"
                       poster={item?.thumbnail}
                       src={item?.videoSrc}
-                      autoPlay
+                      autoPlay={false}
                       muted
                       loop
                       playsInline
+                      preload="none"
                     />
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                       <Link
