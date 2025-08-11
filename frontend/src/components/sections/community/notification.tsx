@@ -1,7 +1,7 @@
 import { Accordion } from "@/components/ui";
 import { faqItemsOne } from "@public/data/faqItems";
 
-const Noticification = () => {
+const Notification = () => {
   return (
     <section className="section-py">
       <div className="container">
@@ -17,4 +17,4 @@ const Noticification = () => {
   );
 };
 
-export default Noticification;
+export default Notification;

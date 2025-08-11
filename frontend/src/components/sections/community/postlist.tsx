@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
-import AllBlogs from "@/components/sections/blogs/AllBlogs";
+import Postcard from "@/components/sections/community/postcard";
 import { HeaderBanner } from "@/components/shared";
 
 const PostListPage = () => {
@@ -60,7 +60,7 @@ const PostListPage = () => {
       </div>
 
       {/* 📄 블로그 카드 목록 */}
-      <AllBlogs mode={mode || "hot"} search={search} filter={filter} />
+      <Postcard mode={mode || "hot"} search={search} filter={filter} />
     </main>
   );
 };

@@ -124,7 +124,7 @@ export default function PatchnoteListPage() {
             </div>
 
             <Link
-              href={`/patchnotes/${patch.anchor_id}`}
+              href={`/gameinfo/patchnotes/${patch.anchor_id}`}
               className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded"
             >
               상세 보기
