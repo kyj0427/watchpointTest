@@ -100,29 +100,29 @@ export const navMenu = [
         subMenu: [
             {
                 id: 51,
-                name: "메인페이지",
-                link: "/community"
+                name: "공지사항",
+                link: "/community/noticification"
             },
             {
                 id: 52,
                 name: "인기글",
-                link: "/postlist?mode=hot"
+                link: "/community/postlist?mode=hot"
             },
             {
                 id: 53,
                 name: "최신글",
-                link: "/postlist?mode=recent"
+                link: "/community/postlist?mode=recent"
             },
             {
                 id: 54,
-                name: "스쿼드/채팅방",
+                name: "듀오/스쿼드 탐색",
                 link: "/community/SquadOrChat"
             },
-            {
-                id: 55,
-                name: "공지사항",
-                link: "/noticification"
-            }
+            // {
+            //     id: 54,
+            //     name: "공지사항",
+            //     link: "/noticification"
+            // }
         ]
     },
     {
