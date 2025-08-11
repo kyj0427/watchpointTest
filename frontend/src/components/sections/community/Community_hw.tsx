@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import ProfilePosts, { NewPost as PostType } from "../profile/ProfilePosts_hw";
+import ProfilePosts, { NewPost as PostType } from "./ProfilePosts_hw";
 import { blogPosts } from "@public/data/blogPosts";
 import { timelineItems as seedItems } from "@public/data/timelinePosts";
 import { useSearchParams } from "next/navigation";
