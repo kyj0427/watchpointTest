@@ -1,7 +1,7 @@
 // 화면에 띄워지는 게임정보>영웅별통계 페이지
 
 import GameBreadcrumb from "@/components/sections/gameinfo/gameBreadcumb";
-import HeroUserStatComp from "@/components/sections/gameinfo/herouserstat/herouserstatComp";
+import HeroUserStatAll from "@/components/sections/gameinfo/heroUserStat/HeroUserStatAll";
 import { headerBannerType, NavLinkProps } from "@/config/types";
 
 const Page = () => {
@@ -18,7 +18,7 @@ const Page = () => {
   return (
     <main>
       <GameBreadcrumb breadcrumb={headerData} />
-      <HeroUserStatComp />
+      <HeroUserStatAll />
     </main>
   );
 };
