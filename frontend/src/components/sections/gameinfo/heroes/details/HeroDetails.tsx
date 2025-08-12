@@ -8,6 +8,12 @@ import Link from "next/link";
 // import { heroSkills } from "@public/data/heroSkills";
 import HeroDetailsAside from "./HeroDetailsAside";
 
+const roleLabels: Record<string, string> = {
+  tank: "탱커",
+  damage: "공격",
+  support: "힐러",
+};
+
 interface Hitpoints {
   health: number;
   armor: number;
@@ -61,6 +67,8 @@ interface HeroData {
   story?: Story;
   image?: string;
 }
+
+
 
 const HeroDetails = () => {
   const params = useParams();
@@ -176,8 +184,11 @@ const HeroDetails = () => {
 
                   <div>
                     <div className="flex gap-6 flex-wrap">
-                      <span className="text-m-medium text-primary mb-1 block">role</span>
-                      <p className="text-sm">{heroDetails.role}</p>
+                      <span className="text-m-medium text-primary mb-1 block">포지션</span>
+                      <p className="text-sm">
+                         {roleLabels[heroDetails.role] || heroDetails.role}
+                        {/* {heroDetails.role} */}
+                      </p>
                     </div>  
                     <div className="flex gap-6 flex-wrap">
                       <span className="text-m-medium text-primary mb-1 block">티어리스트</span>
@@ -191,18 +202,18 @@ const HeroDetails = () => {
                   {/* 상세 정보 */}
                   <div className="gap-6 text-w-neutral-4 mb-24p">                   
                      <div className="flex gap-6">
-                      <span className="text-m-medium text-primary mb-1 block">Location</span>
+                      <span className="text-m-medium text-primary mb-1 block">거점</span>
                       <p className="text-sm">{heroDetails.location}</p>
                     </div>
                     {heroDetails.age !== undefined && (
                       <div className="flex gap-6">
-                        <span className="text-m-medium text-primary mb-1 block">Age</span>
+                        <span className="text-m-medium text-primary mb-1 block">나이</span>
                         <p className="text-sm">{heroDetails.age}</p>
                       </div>
                     )}
                     {heroDetails.birthday && (
                       <div className="flex gap-6">
-                        <span className="text-m-medium text-primary mb-1 block">Birthday</span>
+                        <span className="text-m-medium text-primary mb-1 block">생일</span>
                         <p className="text-sm">{heroDetails.birthday}</p>
                       </div>
                     )}

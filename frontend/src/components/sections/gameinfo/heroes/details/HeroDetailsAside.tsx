@@ -9,14 +9,17 @@ import { useState } from "react";
 
 const heroCategory = ["all", "tank", "damage", "support"];
 const filterTypes = ["Popular", "tank", "damage", "support"];
+const categoryLabels: Record<string, string> = {
+  all: "전체",
+  tank: "탱커",
+  damage: "딜러",
+  support: "써포터",
+};
 
 const HeroDetailsAside = () => {
   const [category, setCategory] = useState<string | unknown>("all");
   const [selectedFilter, setSelectedFilter] = useState(filterTypes[0]);
 
-  // const filteredhero = heroes?.filter(
-  //   (item) => category === "all" || item?.role === category
-  // );
 
   const {
     open: filterOpen,
@@ -30,7 +33,7 @@ const HeroDetailsAside = () => {
     (item) =>      
       (category === "all" || item?.role === category) &&
       item.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  );  
 
   return (
     <section className="section-pb">
@@ -77,7 +80,7 @@ const HeroDetailsAside = () => {
                     className="bg-transparent w-full"
                     type="text"
                     id="searchHero"
-                    placeholder="영웅 검색..."
+                    placeholder="영웅 검색"
                     name="search"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
@@ -95,7 +98,7 @@ const HeroDetailsAside = () => {
                       category === item ? "bg-b-neutral-2" : "bg-b-neutral-3"
                     } capitalize`}
                   >
-                    {item}
+                    {categoryLabels[item] || item} {/* 한글 이름 표시 */}
                   </button>
                 ))}
               </div>

@@ -6,57 +6,57 @@ import { Listbox } from "@headlessui/react";
 const heroData = [
   {
     id: 1,
-    name: "Genji",
-    role: "DPS",
+    name: "겐지",
+    role: "딜러",
     image: "/images/game_hero/hero_portrait_bg/Genji_heroImage_2.jpg",
     description: "사이버 닌자로 빠르고 민첩한 공격을 구사합니다.",
   },
   {
     id: 2,
-    name: "Mercy",
-    role: "Support",
+    name: "메르시",
+    role: "서포터",
     image: "/images/game_hero/hero_portrait_bg/Mercy_heroImage_2.jpg",
     description: "천사로 팀을 치유하고 부활시킵니다.",
   },
   {
     id: 3,
-    name: "Reinhardt",
-    role: "Tank",
+    name: "라인하르트",
+    role: "탱커",
     image: "/images/game_hero/hero_portrait_bg/Reinhardt_heroImage_2.jpg",
     description: "방패의 기사로 팀을 보호합니다.",
   },
   {
     id: 4,
     name: "D.Va",
-    role: "Tank",
+    role: "탱커",
     image: "/images/game_hero/hero_portrait_bg/D_Va_heroImage_2.jpg",
     description: "메카 파일럿으로 공격과 방어를 모두 수행합니다.",
   },
   {
     id: 5,
-    name: "Reaper",
-    role: "DPS",
+    name: "리퍼",
+    role: "딜러",
     image: "/images/game_hero/hero_portrait_bg/Reaper_heroImage_2.jpg",
     description: "그림자 사신으로 근접 전투에 특화되어 있습니다.",
   },
   {
     id: 6,
-    name: "Moira",
-    role: "Support",
+    name: "모이라",
+    role: "서포터",
     image: "/images/game_hero/hero_portrait_bg/Moira_heroImage_2.jpg",
     description: "생명의 과학자로 힐링과 데미지를 조절합니다.",
   },
   {
     id: 7,
-    name: "Bastion",
-    role: "DPS",
+    name: "바스티온",
+    role: "딜러",
     image: "/images/game_hero/hero_portrait_bg/Bastion_heroImage_2.jpg",
     description: "자동화된 전투 로봇으로 강력한 화력을 제공합니다.",
   },
   {
     id: 8,
-    name: "Baptiste",
-    role: "Support",
+    name: "바티스트",
+    role: "서포터",
     image: "/images/game_hero/hero_portrait_bg/Baptiste_heroImage_2.jpg",
     description: "전직 탈론 요원으로 치유와 보호 능력을 갖고 있습니다.",
   },
@@ -101,7 +101,7 @@ const RecommendedHeroes = () => {
           <h2 className="heading-2 text-w-neutral-1 text-split-left">
             추천 영웅
           </h2>
-          <Listbox
+          {/* <Listbox
             ref={filterRef}
             value={selectedFilter}
             onChange={setSelectedFilter}
@@ -130,7 +130,7 @@ const RecommendedHeroes = () => {
                 </Listbox.Option>
               ))}
             </Listbox.Options>
-          </Listbox>
+          </Listbox> */}
         </div>
         <div className="mt-40p overflow-visible" data-aos="fade-up">
           <Swiper

@@ -131,7 +131,7 @@ const ProPlayerList = () => {
                   href={`pro-players/${item.player_id}`}
                   className="btn px-16p py-2 btn-outline-secondary group-hover:bg-secondary group-hover:text-b-neutral-4"
                 >
-                  View Player
+                  선수 상세 정보
                 </Link>
               </div>
             </div>
