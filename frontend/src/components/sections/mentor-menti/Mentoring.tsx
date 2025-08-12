@@ -57,7 +57,7 @@ const Mentorings = ({ data, type }: { data: Mentoring[]; type: string }) => {
                     {item.title}
                 </Link>
                 <p className="text-l-regular text-w-neutral-2">
-                    Starting at $ <span className="span">{item.price}</span>
+                    요금 : <span className="span">{item.price}</span>원
                 </p>
                 <div className="flex-y gap-2 my-24p">
                     <RatingStars className="text-primary" rating={item.rating} />
