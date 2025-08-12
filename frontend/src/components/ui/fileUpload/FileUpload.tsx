@@ -40,7 +40,6 @@ const FileUpload: React.FC<FileUploaderProps> = ({ onFileSelect, accept }) => {
 
     return (
         <div className="space-y-4 mb-8">
-            <label className="block text-base font-semibold text-white mb-3">영상 업로드</label>
 
             {/* 영상 업로드 영역 */}
             <div
@@ -87,7 +86,6 @@ const FileUpload: React.FC<FileUploaderProps> = ({ onFileSelect, accept }) => {
 
                         {/* 안내 텍스트 */}
                         <p className="text-sm text-gray-300 mb-1 text-center break-words leading-relaxed">파일을 드래그하거나 클릭하여 업로드</p>
-                        <p className="text-xs text-gray-400 text-center break-words leading-relaxed">최대 5MB · 모든 파일 형식 지원</p>
                     </div>
                 ) : (
                     <div className="text-center px-6 w-full max-w-md mx-auto">

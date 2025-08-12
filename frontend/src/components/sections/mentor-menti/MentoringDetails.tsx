@@ -168,16 +168,15 @@ const MentoringDetails = ({ data }: MentoringDetailsProps) => {
 
 
                     {/* 오른쪽: 구매 박스 */}
-                    {!hasPurchased && (
                     <div className="3xl:col-span-4 xxl:col-span-5 col-span-12 relative">
                         <div className="xxl:sticky xxl:top-30">
                             <div className="bg-b-neutral-3 rounded-20 p-30p">
                                 {/* 카테고리 뱃지 */}
                                 {data.category?.map((item, index) => (
-                                <div
+                                    <div
                                     key={index}
                                     className="badge badge-bage badge-outline-shap text-s-regular bg-b-neutral-3 mb-20p"
-                                >
+                                    >
                                     {item}
                                 </div>
                                 ))}
@@ -204,7 +203,7 @@ const MentoringDetails = ({ data }: MentoringDetailsProps) => {
                                 {/* 가격 */}
                                 <h4 className="heading-4 text-w-neutral-1 mb-24p">Price: €45.00</h4>
 
-                                {/* 옵션 선택 체크박스 */}
+                                {!hasPurchased && (
                                 <div className="grid xxl:grid-cols-1 xl:grid-cols-2 grid-cols-1 gap-16p *:flex-y *:max-sm:flex-wrap *:gap-24p *:border *:border-shap *:py-32p *:px-20p *:rounded-12 mb-30p">
                                     {/* 옵션 1 */}
                                     <div>
@@ -223,70 +222,43 @@ const MentoringDetails = ({ data }: MentoringDetailsProps) => {
                                         </div>
                                         <div>
                                             <h5 className="heading-5 text-w-neutral-1 mb-2.5">
-                                                One game review
+                                                실시간 코칭
                                             </h5>
                                             <p className="text-base text-w-neutral-4">
-                                                I will analyze in details one game of your choice, tell
-                                                you what you should work on and what you could do
-                                                better.
+                                                멘토가 세세한 부분부터 전체적인 흐름까지 실시간으로 피드백을 제공하여, 어떤 강점이 있고 어떤 실수가 있었는지, 그리고 이를 어떻게 보완할 수 있는지 알려드립니다.
                                             </p>
                                         </div>
                                         <h4 className="heading-4 text-w-neutral-1">€6.00</h4>
                                     </div>
-
-                                    {/* 옵션 2 */}
-                                    <div>
-                                        <div className="checkbox-container shrink-0">
-                                            <input
-                                                type="checkbox"
-                                                id="live-coaching"
-                                                className="border-corners-checkbox"
-                                                checked={isChecked}
-                                                onChange={(e) => setIsChecked(e.target.checked)}
-                                            />
-                                            <label
-                                                htmlFor="live-coaching"
-                                                className="border-corners-checkbox-label"
-                                            >
-                                                <i className="ti icon-32 text-secondary"></i>
-                                            </label>
-                                        </div>
-                                        <div>
-                                            <h5 className="heading-5 text-w-neutral-1 mb-2.5">
-                                                Live coaching
-                                            </h5>
-                                            <p className="text-base text-w-neutral-4">
-                                                We will do live coaching, I will explain in details what
-                                                could you do better, what are your mistakes and how to
-                                                work on it. We will work on your micro gameplay, macro
-                                                gameplay
-                                            </p>
-                                        </div>
-                                        <h4 className="heading-4 text-w-neutral-1">€6.00</h4>
-                                    </div>
-                                </div>
 
                                 {/* 결제 버튼 */}
                                 <Link
                                     href="/checkout"
-                                    className="btn btn-md btn-primary w-full mb-32p"
+                                    className="btn btn-md btn-primary w-full mb-32p h-14"
                                 >
-                                    Buy
+                                    구매하기
                                 </Link>
 
                                 {/* 결제 안내 문구 */}
                                 <div className="pt-24p border-t border-shap flex-y justify-between gap-24p">
                                     <p className="text-sm text-w-neutral-4">
-                                        For your own protection and for Challengermode to assist in
-                                        any potential disputes, it&lsquo;s important that you never
-                                        make any payments outside of the platform.
+                                        고객님의 안전과 Watchpoint가 잠재적인 분쟁에 도움을 드리기 위해, 반드시 플랫폼 외부에서는 결제를 하지 않으셔야 합니다.
                                     </p>
                                     <i className="ti ti-shield-check text-primary icon-32"></i>
                                 </div>
                             </div>
+                            )}
+                            {hasPurchased && ( 
+                            <div>
+                                <Link
+                                    href="/coachingroom"
+                                    className="btn btn-md btn-primary w-full mb-32p h-14"
+                                > 강의방 입장
+                                </Link>
+                            </div>
+                            )}
                         </div>
                     </div>
-                    )}
                 </div>
                 {/* 후기 목록 */}
                 <div className="space-y-4 mt-6">
@@ -327,6 +299,7 @@ const MentoringDetails = ({ data }: MentoringDetailsProps) => {
                     </button>
                 </div>
                 )}
+            </div>
             </div>
         </section>
     );

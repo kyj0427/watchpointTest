@@ -6,14 +6,11 @@ import Head from "next/head";
 import ImageUploader from "@/components/ui/fileUpload/ImageUpload";
 
 const CourseRegister = () => {
-  // 이미지 업로드 관련 state
-  const [imagePreview, setImagePreview] = useState<string | null>(null);
-  const fileInputRef = useRef<HTMLInputElement | null>(null);
-  
-
     //선호 포지션 선택
   const allPositions = ["탱커", "딜러", "힐러"];
   const [selectedPositions, setSelectedPositions] = useState<string[]>([]);
+  const [tags, setTags] = useState<string[]>([]);
+  const [tagInput, setTagInput] = useState("");
 
   //포지션 토글 핸들러
   const handlePositionToggle = (position: string) => {
@@ -28,6 +25,20 @@ const CourseRegister = () => {
     console.log("선택된 파일:", file);
     // 여기서 DB 저장용 상태 설정 또는 form 연결
   }
+
+    const handleAddTag = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && tagInput.trim() !== "") {
+      e.preventDefault(); // 폼 submit 방지
+      if (!tags.includes(tagInput.trim())) {
+        setTags((prev) => [...prev, tagInput.trim()]);
+      }
+      setTagInput(""); // 입력창 비우기
+    }
+  };
+
+  const handleDeleteTag = (tag: string) => {
+    setTags((prev) => prev.filter((t) => t !== tag));
+  };
 
 
 //시간대 설정 상태변수
@@ -274,6 +285,39 @@ const CourseRegister = () => {
       ))}
     </div>
   )}
+    <div className="mb-8">
+      {/* 입력창 */}
+      <label className="block text-sm font-bold mb-2">태그 입력</label>
+      <input
+        type="text"
+        value={tagInput}
+        onChange={(e) => setTagInput(e.target.value)}
+        onKeyDown={handleAddTag}
+        placeholder="태그 입력 후 Enter"
+        className="border border-gray-300 rounded px-3 py-1 w-full text-black"
+      />
+
+      {/* 태그 목록 */}
+      {tags.length > 0 && (
+        <div className="mt-4 flex flex-wrap gap-2 text-sm font-semibold">
+          {tags.map((tag) => (
+            <div
+              key={tag}
+              className="flex items-center bg-black border border-[#f29620] rounded-full px-3 py-1 text-[#f29620] font-semibold shadow-md"
+            >
+              {tag}
+              <button
+                type="button"
+                onClick={() => handleDeleteTag(tag)}
+                className="ml-2 hover:text-white hover:bg-[#f29620] rounded-full px-1 transition"
+              >
+                &times;
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
 
       </div>
     </section>

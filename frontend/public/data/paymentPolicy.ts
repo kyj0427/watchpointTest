@@ -3,11 +3,9 @@ export const paymentPolicy = [
         id: "1",
         question: "이용약관",
         answer: `
-        We require payment to be made in advance to secure any service. This ensures that both 
-        the service provider and client are committed to the agreement. Rest assured that all 
-        payments are processed through a secure payment system to protect your financial 
-        information. Once your payment is complete, you’ll receive a confirmation receipt as 
-        proof of the transaction.
+        서비스를 안전하게 예약하기 위해 사전 결제를 요구합니다. 
+        이는 서비스 제공자와 고객 모두가 약속을 준수하도록 하기 위함입니다. 
+        모든 결제는 귀하의 금융 정보를 보호하기 위해 안전한 결제 시스템을 통해 처리됩니다. 
         `,
     },
     {

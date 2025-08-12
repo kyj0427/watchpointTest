@@ -18,9 +18,10 @@ const PopularMentors = ({ className, type }: { className?: string; type: string 
             </h2>
                 <Link
                     href="/coaching/mentoring-lists/mentor"
-                    className="btn-primary flex-wrap items-center"
+                    className="flex flex-col items-center gap-2 text-base font-semibold text-gray-200 hover:text-orange-400 transition-colors duration-300 mt-20 group"
                 >더보기</Link>
             </div>
+
             <div className="mt-40p" data-aos="fade-up">
             <Swiper
                 loop={true}

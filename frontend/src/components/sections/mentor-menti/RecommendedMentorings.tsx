@@ -34,7 +34,7 @@ const  RecommendedMentorings= ({ type }:{ type:string }) => {
                 <h2 className="heading-2">나를 위한 맞춤 강의</h2>
                 <Link
                     href="/coaching/mentoring-lists/mentoring"
-                    className="btn-primary flex-wrap items-center"
+                    className="flex flex-col items-center gap-2 text-base font-semibold text-gray-200 hover:text-orange-400 transition-colors duration-300 mt-20 group"
                 >더보기</Link>
             </div>
 
@@ -122,7 +122,7 @@ const  RecommendedMentorings= ({ type }:{ type:string }) => {
                         {item?.title}
                         </Link>
                         <p className="text-l-regular text-w-neutral-2">
-                        Starting at $ <span className="span">{item?.price}</span>
+                        요금 : <span className="span">{item?.price}</span>원
                         </p>
                         <div className="flex-y gap-2 my-24p">
                         <RatingStars rating={item?.rating} />
