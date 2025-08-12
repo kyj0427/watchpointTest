@@ -1,3 +1,12 @@
+/*
+미구현: 비밀번호 재설정 버튼 누를시 로그인 페이지로 이동
+
+
+*/
+
+
+
+
 "use client";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
@@ -10,7 +19,7 @@ import AnimateHeight from "react-animate-height";
 interface FormData {
   email: string;
   password: string;
-  
+  confirmPassword: string; // 비밀번호 확인
 }
 
 
@@ -95,9 +104,11 @@ useEffect(() => {
                       minLength: {
                         value: 8,
                         message: "비밀번호는 최소 8자 이상이어야 합니다.",
+                       
+                     
                     },
                     pattern: {
-                      value: /^(?=.[A-Za-z])(?=.\d)[A-Za-z\d!@#$%^&]{8,}$/,
+                     value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*~]{8,20}$/,
                       message: "영문과 숫자를 포함한 8자 이상의 비밀번호를 입력해주세요.",
                     },
                     })}
@@ -142,15 +153,18 @@ useEffect(() => {
                   >
                     비밀번호 확인
                   </label>
-
-                  <div className ="relative">
-                  <input
-                    className="border-input-1 w-full"
-                     type={showConfirmPassword ? "text" : "password"}
-                    {...register("email", { required: "유효한 이메일 주소로 입력해 주세요." })}
-                    id="userEmail"
-                    placeholder="비밀번호를 다시 입력하세요"
-                  />
+                  <div className="relative">
+                    <input
+                      className="border-input-1 w-full"
+                      type={showConfirmPassword ? "text" : "password"}
+                      {...register("confirmPassword", {
+                        required: "비밀번호를 다시 입력해주세요.",
+                        validate: (value) =>
+                          value === watch("password") || "비밀번호가 일치하지 않습니다.",
+                      })}
+                      id="confirmPassword"
+                      placeholder="비밀번호를 다시 입력하세요"
+                    />
                     
                      {/* 비밀번호 보기 버튼 */}
                         <button
@@ -164,9 +178,9 @@ useEffect(() => {
 
                     </div>
 
-                  {errors.email?.message && (
+                  {errors.confirmPassword?.message && (
                     <p className="text-red-500 text-sm">
-                      {String(errors.email.message)}
+                      {String(errors.confirmPassword.message)}
                     </p>
                   )}
 

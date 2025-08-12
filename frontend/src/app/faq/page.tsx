@@ -5,12 +5,12 @@ import { headerBannerType, NavLinkProps } from "@/config/types";
 import Link from "next/link";
 const Page = () => {
   const navLinks: NavLinkProps[] = [
-    { id: 1, url: "/", label: "Home" },
-    { id: 2, url: "", label: "Faq" },
+    { id: 1, url: "/", label: "홈" },
+    { id: 2, url: "", label: "QnA" },
   ];
 
   const headerData: headerBannerType = {
-    title: "Faq",
+    title: "QnA",
     navLinks,
   };
 
@@ -30,7 +30,7 @@ const Page = () => {
         href="/faq-details"
         className="inline-block px-8 py-3 bg-primary text-white rounded-xl text-lg hover:bg-primary-dark transition"
       >
-        1:1 QnA 바로가기
+        1:1 문의 바로가기
       </Link>
     </div>
   </section>

@@ -106,12 +106,7 @@ const NavBar = () => {
     return path === menu.link;
   };
 
-  const loggedUser = {
-    name: "John Doe",
-    email: "dWZ2l@example.com",
-    image: userImage,
-    followers: 270,
-  };
+
 
   const iconGroups = [
     {

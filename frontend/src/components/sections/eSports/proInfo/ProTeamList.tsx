@@ -118,7 +118,7 @@ const ProTeamList = () => {
                   href={`pro-teams/${item.team_id}`}
                   className="btn px-16p py-2 btn-outline-secondary group-hover:bg-secondary group-hover:text-b-neutral-4"
                 >
-                  View Team
+                  팀 상세 정보
                 </Link>
               </div>
             </div>

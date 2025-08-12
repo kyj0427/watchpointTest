@@ -1,87 +1,85 @@
 export const faqItemsOne = [
   {
     id: 1,
-    question: "What are the community guidelines?",
-    answer: "The community guidelines are designed to foster a positive and inclusive environment for all players. Members are expected to treat others with respect, avoid offensive language or behavior, and refrain from any form of harassment or discrimination. Guidelines also emphasize the importance of fair play, prohibiting cheating, exploitation, or use of unauthorized third-party software. Members are encouraged to report any violations to ensure the community remains a welcoming space for everyone."
+    question: "커뮤니티 이용 수칙은 무엇인가요?",
+    answer:
+      "커뮤니티 이용 수칙은 모든 이용자가 즐겁고 안전하게 소통할 수 있도록 마련된 규칙입니다. 회원 간에는 서로 존중하며, 욕설·비방·차별·괴롭힘 등의 행위는 금지됩니다. 또한 공정한 이용을 위해 부정 행위, 허위 정보 유포, 불법 프로그램 사용 등도 금지됩니다. 규칙 위반 시 운영진의 경고 또는 제재가 이루어질 수 있으며, 위반 사항은 신고를 통해 알려주시면 건전한 커뮤니티 환경 유지에 도움이 됩니다.",
   },
   {
     id: 2,
-    question: "Are there prizes for winners of community tournaments?",
-    answer: "Yes, winners of community tournaments are rewarded with exciting prizes. These prizes may include in-game rewards such as rare skins, exclusive items, or bonus currency. Additionally, some tournaments offer physical merchandise, gift cards, or recognition in the form of leaderboard features and shoutouts in the community. The prizes aim to incentivize fair competition and celebrate the achievements of skilled players."
+    question: "활동에 따른 보상이 있나요?",
+    answer:
+      "커뮤니티에서 진행하는 다양한 이벤트나 활동에 참여하면 소정의 보상을 받을 수 있습니다. 예를 들어, 활동 점수, 배지, 기념품, 기프트 카드, 게시판 내 특별 표기 등이 있을 수 있습니다. 보상은 참여를 장려하고, 적극적으로 활동한 회원의 노고를 기리기 위한 목적입니다.",
   },
   {
     id: 3,
-    question: "What types of games are featured in community events?",
-    answer: "Community events feature a wide variety of games catering to different interests and skill levels. These include role-playing games (RPGs), strategy games, first-person shooters (FPS), cooperative multiplayer adventures, and casual party games. The events are curated to ensure diverse participation and often rotate themes to keep things fresh. For example, one month may focus on battle royale games, while another highlights cooperative storytelling experiences."
+    question: "커뮤니티 이벤트에는 어떤 내용이 포함되나요?",
+    answer:
+      "커뮤니티 이벤트는 다양한 관심사와 수준의 회원이 참여할 수 있도록 기획됩니다. 예를 들어, 정보 공유, 퀴즈, 사진/영상 공모전, 토론 주제 참여, 실시간 채팅 이벤트 등이 있습니다. 매 이벤트는 주제를 바꿔 진행하며, 신규 참여자와 기존 회원 모두 즐길 수 있도록 구성됩니다.",
   },
   {
     id: 4,
-    question: "Are there opportunities to contribute content to the community?",
-    answer: "Yes, the community encourages members to contribute content in various ways. Players can share fan art, create custom mods, write guides, or participate in creative contests. Some events specifically invite players to design in-game assets, propose story ideas, or create tutorials for newer members. These contributions not only enrich the community but also allow players to leave a lasting impact on the platform."
+    question: "회원이 직접 콘텐츠를 올릴 수 있나요?",
+    answer:
+      "네, 커뮤니티는 회원의 다양한 콘텐츠 업로드를 장려합니다. 게시글, 사진, 영상, 노하우 공유, 가이드 작성, 공모전 참여 등 다양한 형태로 기여할 수 있습니다. 이러한 활동은 커뮤니티를 풍성하게 만들고, 회원이 자신의 흔적을 남길 좋은 기회가 됩니다.",
   },
   {
     id: 5,
-    question: "What measures are in place to prevent hacking or data breaches?",
-    answer: "The platform employs robust measures to protect user data and ensure a secure gaming experience. This includes end-to-end encryption, regular server audits, and multi-factor authentication for accounts. Additionally, anti-cheat systems are in place to detect and block unauthorized tools or hacks. Community members are encouraged to report suspicious activity, and the platform’s team works diligently to address any vulnerabilities to maintain trust."
+    question: "보안과 개인정보 보호는 어떻게 이루어지나요?",
+    answer:
+      "커뮤니티는 안전한 이용 환경을 위해 암호화, 서버 점검, 2단계 인증 등 다양한 보안 장치를 사용합니다. 또한 불법 접근 및 악성 활동을 방지하기 위한 모니터링 시스템을 운영하고 있습니다. 의심스러운 활동을 발견하면 즉시 신고할 수 있으며, 운영팀이 신속하게 대응합니다.",
   },
   {
     id: 6,
-    question: "What benefits do premium members receive?",
-    answer: "Premium membership offers numerous exclusive perks designed to enhance the gaming experience. Benefits may include early access to new features or events, rare in-game items, faster progression systems, and bonus rewards. Premium members often enjoy a more personalized experience with priority support services, access to premium-only forums, and exclusive discounts on in-game purchases. These benefits ensure that premium members feel valued and have access to content that stands out."
+    question: "프리미엄 회원 혜택이 있나요?",
+    answer:
+      "프리미엄 회원에게는 다양한 전용 혜택이 제공됩니다. 예를 들어, 신규 기능 사전 이용, 전용 게시판 이용, 한정 아이템, 활동 가속 혜택, 전용 뱃지, 기프트 카드, 커뮤니티 할인 혜택 등이 포함될 수 있습니다.",
   },
   {
     id: 7,
-    question: "Are there plans to expand the community to other platforms or games?",
-    answer: "Yes, the community is always looking for opportunities to grow and provide members with new experiences. Future expansions may include partnerships with additional gaming platforms, support for cross-platform play, and collaborations with new game developers. The goal is to create a larger, interconnected community where players can engage in diverse experiences while maintaining the core values of fairness and inclusivity."
-  }
+    question: "다른 플랫폼이나 서비스로 확장 계획이 있나요?",
+    answer:
+      "네, 커뮤니티는 지속적으로 확장을 검토하고 있습니다. 향후에는 추가 플랫폼 지원, 다른 서비스와의 연동, 새로운 콘텐츠 분야로의 확장이 이루어질 수 있습니다. 다만, 모든 확장은 커뮤니티의 기본 가치인 공정성과 포용성을 유지하는 선에서 진행됩니다.",
+  },
 ];
 
 export const faqItemsTwo = [
   {
     id: "1",
-    question: "Things to keep in mind",
+    question: "서비스 이용 시 유의사항",
     answer: `
-      When using our services, it’s essential to be well-informed to ensure a smooth experience. 
-      Start by reviewing the terms and conditions associated with the service you are purchasing. 
-      This helps avoid any misunderstandings or unexpected surprises. Communication with the 
-      service provider is crucial; it ensures clarity on details like timelines, expectations, 
-      and deliverables. Additionally, be mindful of deadlines or any time-sensitive aspects of 
-      the service, as delays can sometimes affect the outcome. It’s always a good idea to 
-      double-check all details before proceeding to ensure everything aligns with your needs.
+      서비스를 이용하기 전 이용약관과 정책을 반드시 확인해주세요.
+      이를 통해 불필요한 오해나 문제를 예방할 수 있습니다.
+      진행 일정, 기대 사항, 전달물 등은 사전에 운영진과 충분히 소통하시기 바랍니다.
+      마감 기한이 있는 경우, 지연이 발생하지 않도록 유의해 주시고,
+      모든 내용을 최종 확인한 뒤 진행하는 것이 안전합니다.
     `,
   },
   {
     id: "2",
-    question: "Payment Policy",
+    question: "결제 안내",
     answer: `
-      We require payment to be made in advance to secure any service. This ensures that both 
-      the service provider and client are committed to the agreement. Rest assured that all 
-      payments are processed through a secure payment system to protect your financial 
-      information. Once your payment is complete, you’ll receive a confirmation receipt as 
-      proof of the transaction.
+      유료 서비스의 경우, 사전 결제를 원칙으로 합니다.
+      모든 결제는 안전한 결제 시스템을 통해 처리되며, 결제 완료 후 확인 영수증이 발급됩니다.
+      이를 통해 회원과 운영진 간의 약속을 확실히 하고 서비스 제공이 원활하게 진행됩니다.
     `,
   },
   {
     id: "3",
-    question: "Cancellation Policy",
+    question: "취소 규정",
     answer: `
-      We understand that plans can change, so we offer a flexible cancellation policy. If you 
-      need to cancel a service, it’s best to do so before the service starts or before 
-      significant progress has been made. For cancellations made within the appropriate notice 
-      period, you may be eligible for a full refund. However, cancellations made at the last 
-      minute or after substantial resources have been allocated may incur a cancellation fee.
+      계획 변경이 발생할 수 있음을 이해하며, 유연한 취소 정책을 운영합니다.
+      서비스 시작 전 또는 주요 진행 전 단계에서 취소할 경우 전액 환불이 가능합니다.
+      그러나 진행이 상당 부분 이루어진 이후의 취소는 취소 수수료가 부과될 수 있습니다.
     `,
   },
   {
     id: "4",
-    question: "Refund Policy",
+    question: "환불 규정",
     answer: `
-      Your satisfaction is important to us, which is why we offer a fair and transparent refund 
-      policy. If the service provider is unable to deliver the agreed-upon service or if a 
-      justified cancellation is made, you will be eligible for a refund. Refunds are typically 
-      processed within 5–7 business days after approval, though this timeline may vary slightly 
-      depending on your payment method.
+      서비스 제공이 불가능하거나 정당한 사유로 취소된 경우 환불이 가능합니다.
+      환불은 승인 후 5~7영업일 내 처리되며, 결제 수단에 따라 처리 기간이 달라질 수 있습니다.
+      투명하고 공정한 환불 절차를 통해 회원의 신뢰를 지키겠습니다.
     `,
   },
 ];
-
