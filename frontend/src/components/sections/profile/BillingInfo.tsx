@@ -1,3 +1,34 @@
+
+/**
+ * 구독 관리 메인 컴포넌트
+ * 
+ * 기능:
+ * - 현재 결제 정보
+ * -
+ * 
+ *  미구현:결제 수단 취소 및 추가 기능 
+ *       
+ *       
+ * 
+ * 
+ * 백엔드 연동 포인트:
+ * 1. currentSubscription 데이터를 API에서 가져오기
+ * 
+ * 모달 컴포넌트:
+ * - PlanChangeModal: ./PlanChangeModal.tsx
+ * - CancelSubscriptionModal: ./CancelSubscriptionModal.tsx
+ */
+
+
+
+
+
+
+
+
+
+
+
 import React from 'react';
 import { CreditCard, MoreVertical } from 'lucide-react';
 

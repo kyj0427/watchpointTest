@@ -1,3 +1,24 @@
+/**
+ * 구독 취소 모달 컴포넌트 (3단계 프로세스)
+ * 
+ * 단계별 기능:
+ * 1. 취소 사유 선택 - 고객 피드백 수집
+ * 2. 혜택 유지 제안 - 할인 혜택 및 무료 플랜 제안
+ * 3. 최종 확인 - 취소 조건 안내 및 최종 확인
+ * 
+ * Props:
+ * - isOpen: 모달 표시 여부
+ * - onClose: 모달 닫기 콜백
+ * - currentSubscription: 현재 구독 정보 (혜택 표시용)
+ * - onConfirmCancel: 취소 확정 시 호출되는 콜백 함수
+ * 
+ * 백엔드 연동 포인트:
+ * 1. 취소 사유 수집 및 분석용 데이터 저장
+ * 2. 할인 혜택 적용 API
+ * 3. 무료 플랜 변경 API
+ * 4. 최종 구독 취소 API
+ */
+
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
 
@@ -7,12 +28,17 @@ interface CancelSubscriptionModalProps {
   currentSubscription: {
     features: string[];
   };
+  onConfirmCancel?: () => void;
 }
 
-const CancelSubscriptionModal: React.FC<CancelSubscriptionModalProps> = ({ isOpen, onClose, currentSubscription }) => {
+const CancelSubscriptionModal: React.FC<CancelSubscriptionModalProps> = ({ isOpen, onClose, currentSubscription, onConfirmCancel }) => {
+  // 취소 단계 관리 (1: 사유선택, 2: 혜택제안, 3: 최종확인)
   const [cancelStep, setCancelStep] = useState(1);
+  // 선택된 취소 사유
   const [selectedReason, setSelectedReason] = useState('');
 
+  // 백엔드 TODO: 취소 사유는 분석용으로 데이터베이스에 저장
+  // POST /api/analytics/cancel-reasons
   const cancelReasons = [
     "너무 비싸요",
     "충분히 사용하지 않아요",
@@ -127,7 +153,16 @@ const CancelSubscriptionModal: React.FC<CancelSubscriptionModalProps> = ({ isOpe
                   <div className="text-2xl font-bold text-white">₩4,950<span className="text-sm text-gray-400">/월</span></div>
                   <div className="text-sm text-gray-400 line-through">₩9,900/월</div>
                 </div>
-                <button className="w-full bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 rounded-lg transition-colors">
+                <button 
+                  className="w-full bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 rounded-lg transition-colors"
+                  // 백엔드 TODO: 할인 혜택 적용
+                  // onClick={() => applySpecialDiscount()}
+                  // POST /api/subscription/retention-offer
+                  // Body: { 
+                  //   offerId: 'discount_50_3months', 
+                  //   originalCancelReason: selectedReason 
+                  // }
+                >
                   할인 혜택 받기
                 </button>
               </div>
@@ -143,7 +178,13 @@ const CancelSubscriptionModal: React.FC<CancelSubscriptionModalProps> = ({ isOpe
                   <div>• 표준 화질</div>
                   <div>• 1개 기기 동시 시청</div>
                 </div>
-                <button className="w-full border border-gray-600 text-gray-300 hover:bg-gray-800 font-medium py-3 rounded-lg transition-colors">
+                <button 
+                  className="w-full border border-gray-600 text-gray-300 hover:bg-gray-800 font-medium py-3 rounded-lg transition-colors"
+                  // 백엔드 TODO: 무료 플랜으로 다운그레이드
+                  // onClick={() => downgradeToFree()}
+                  // POST /api/subscription/downgrade-to-free
+                  // Body: { reason: selectedReason }
+                >
                   무료 플랜으로 변경
                 </button>
               </div>
@@ -206,9 +247,28 @@ const CancelSubscriptionModal: React.FC<CancelSubscriptionModalProps> = ({ isOpe
               </button>
               <button 
                 onClick={() => {
-                  // 실제 취소 로직 구현
-                  alert('구독이 취소되었습니다.');
-                  closeCancelModal();
+                  // 백엔드 TODO: 최종 구독 취소 처리
+                  // POST /api/subscription/cancel
+                  // Body: {
+                  //   reason: selectedReason,
+                  //   cancelImmediate: false, // 현재 기간 종료까지 서비스 제공
+                  //   feedback: string, // 추가 피드백
+                  //   retentionOffersDeclined: ['discount_50_3months', 'free_plan']
+                  // }
+                  // Response: {
+                  //   success: boolean,
+                  //   cancellationDate: string, // 실제 서비스 종료일
+                  //   refundAmount?: number, // 환불 금액 (있는 경우)
+                  //   accessUntil: string // 서비스 이용 가능 기간
+                  // }
+                  
+                  // TODO: 성공/실패에 따른 적절한 UI 피드백 제공
+                  if (onConfirmCancel) {
+                    onConfirmCancel();
+                  } else {
+                    alert('구독이 취소되었습니다.');
+                    closeCancelModal();
+                  }
                 }}
                 className="flex-1 bg-red-500 hover:bg-red-600 text-white font-medium py-3 rounded-lg transition-colors"
               >
