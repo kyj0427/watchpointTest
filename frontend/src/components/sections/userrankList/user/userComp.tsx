@@ -21,7 +21,7 @@ type Left = {
     support: { division: string; tier?: number | null } | null;
   };
   assets?: {
-    roleIcons: { tank: string; damage: string; support: string };
+    roleIcons: { tank: string; damage: string; support: string }; // 무시(로컬만 사용)
   };
 };
 
@@ -34,7 +34,7 @@ type HeroRow = {
   kd: string; // "x.xx : 1" or "-"
   objective_avg_10m: number | null;
   playtime: number; // seconds
-  icon?: string | null;
+  icon?: string | null; // 무시(로컬만 사용)
   role?: "tank" | "damage" | "support" | null;
   roleIcon?: string | null;
 };
@@ -88,8 +88,12 @@ type SideSummaryItem = { label: string; value: string };
 type Mode = "competitive" | "quickplay";
 
 /* ----------------------------- const ----------------------------- */
-const API = process.env.NEXT_PUBLIC_API_BASE || "http://localhost:4000";
+const API = process.env.NEXT_PUBLIC_API_BASE || "http://192.168.0.31:4000";
 const DEFAULT_PLATFORM = "pc";
+
+/* 로컬 자산 경로(스샷 기준) */
+const ROLE_BASE = "/images/game_hero/hero_role_logo";
+const PORTRAIT_BASE = "/images/game_hero/hero_portrait";
 
 /* -------------------------- helpers -------------------------- */
 const fmtDate = (sec?: number) => (sec ? new Date(sec * 1000).toLocaleString() : "-");
@@ -103,25 +107,57 @@ const secToHMM = (sec?: number) => {
   return h > 0 ? `${h}시간 ${m}분` : `${m}분`;
 };
 
-/** 역할 아이콘 로컬 폴백 (public/images/roles/ 아래 파일 존재해야 함) */
-const ROLE_ICON_LOCAL: Record<"tank" | "damage" | "support", string> = {
-  tank: "/images/roles/tank.svg",
-  damage: "/images/roles/damage.svg",
-  support: "/images/roles/support.svg",
+/** 역할 아이콘: 무조건 로컬 고정 */
+const roleIconFromLeft = (_left: Left | null | undefined, role: "tank" | "damage" | "support") => {
+  const map: Record<"tank" | "damage" | "support", string> = {
+    tank: `${ROLE_BASE}/Tank.svg`,
+    damage: `${ROLE_BASE}/Damage.svg`,
+    support: `${ROLE_BASE}/Support.svg`,
+  };
+  return map[role];
 };
 
-/** 서버 제공 > 로컬 폴백 순서로 역할 아이콘 반환 */
-const roleIconFromLeft = (
-  left: Left | null | undefined,
-  role: "tank" | "damage" | "support"
-) => {
-  const fromApi = left?.assets?.roleIcons?.[role];
-  return fromApi || ROLE_ICON_LOCAL[role];
+/** 티어 아이콘: 안전 매핑 ("master 2" -> "master.png", 없으면 NoTierYet) */
+const TIER_FILE_MAP: Record<string, string> = {
+  bronze: "bronze.png",
+  silver: "silver.png",
+  gold: "gold.png",
+  platinum: "platinum.png",
+  diamond: "diamond.png",
+  master: "master.png",
+  grandmaster: "grandmaster.png",
+  unranked: "NoTierYet.png",
 };
-
 const getRankIconUrl = (division?: string) => {
-  const key = (division || "unranked").toLowerCase();
-  return `/images/game_tier/${key}.png`;
+  const key = (division || "unranked").toLowerCase().split(/\s+/)[0];
+  const file = TIER_FILE_MAP[key] || TIER_FILE_MAP.unranked;
+  return `/images/game_tier/${file}`;
+};
+
+/** 영웅명 → 파일명 규칙/예외 */
+const HERO_FILE_OVERRIDES: Record<string, string> = {
+  mccree: "cassidy",
+  "soldier: 76": "soldier-76",
+  "d.va": "dva",
+  "torbjörn": "torbjorn",
+  "lúcio": "lucio",
+  "wrecking ball": "wrecking_ball",
+};
+const toHeroFilename = (raw: string) => {
+  const lower = (raw || "").toLowerCase().trim();
+  if (HERO_FILE_OVERRIDES[lower]) return HERO_FILE_OVERRIDES[lower];
+  return lower
+    .replace(/[’'"]/g, "")
+    .replace(/[.:]/g, "")
+    .replace(/\s+/g, "_")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+};
+/** 영웅 초상: 무조건 로컬 고정 */
+const heroPortraitUrl = (heroName?: string) => {
+  if (!heroName) return "/images/heroes/_placeholder.png";
+  const file = toHeroFilename(heroName);
+  return `${PORTRAIT_BASE}/${file}.png`;
 };
 
 /* ------------------------------ sub UIs ------------------------------ */
@@ -429,8 +465,8 @@ export default function UserComp({ q, uid: uidProp }: { q?: string; uid?: string
     ];
     return roles.map(([key, v]) => ({
       roleKey: key,
-      roleIconUrl: roleIconFromLeft(left, key),
-      rankIconUrl: getRankIconUrl(v?.division),
+      roleIconUrl: roleIconFromLeft(left, key),       
+      rankIconUrl: getRankIconUrl(v?.division),       
       placementPending: mode === "competitive" ? !v?.division : true,
       tierText:
         mode === "competitive" && v?.division
@@ -466,7 +502,6 @@ export default function UserComp({ q, uid: uidProp }: { q?: string; uid?: string
       const s = k.toLowerCase();
       if (s === "mccree") return "cassidy";
       if (s === "soldier: 76") return "soldier-76";
-      if (s === "torbjörn") return "torbjorn";
       return s;
     };
 
@@ -484,7 +519,7 @@ export default function UserComp({ q, uid: uidProp }: { q?: string; uid?: string
           games: (prev.games ?? 0) + (h.games ?? 0),
           playtime: (prev.playtime ?? 0) + (h.playtime ?? 0),
           kd: h.playtime > (prev.playtime ?? 0) ? h.kd : prev.kd,
-          icon: prev.icon || h.icon,
+          icon: prev.icon || h.icon, // 무시되지만 유지
           role: prev.role || h.role,
         });
       }
@@ -496,7 +531,7 @@ export default function UserComp({ q, uid: uidProp }: { q?: string; uid?: string
 
     return merged.map((h) => ({
       heroName: h.hero,
-      heroImageUrl: h.icon || "/images/heroes/_placeholder.png",
+      heroImageUrl: heroPortraitUrl(h.hero),  
       gradeText: "-",
       win: h.wins,
       lose: h.losses,
@@ -531,13 +566,17 @@ export default function UserComp({ q, uid: uidProp }: { q?: string; uid?: string
         <div className="rounded-xl border border-shap p-1 bg-b-neutral-3">
           <button
             onClick={() => setMode("competitive")}
-            className={`px-3 py-1.5 rounded-lg text-sm ${mode === "competitive" ? "bg-primary text-white" : "text-w-neutral-1"}`}
+            className={`px-3 py-1.5 rounded-lg text-sm ${
+              mode === "competitive" ? "bg-primary text-white" : "text-w-neutral-1"
+            }`}
           >
             경쟁전
           </button>
           <button
             onClick={() => setMode("quickplay")}
-            className={`px-3 py-1.5 rounded-lg text-sm ${mode === "quickplay" ? "bg-primary text-white" : "text-w-neutral-1"}`}
+            className={`px-3 py-1.5 rounded-lg text-sm ${
+              mode === "quickplay" ? "bg-primary text-white" : "text-w-neutral-1"
+            }`}
           >
             일반전
           </button>
