@@ -6,7 +6,7 @@ import { IconChevronDown } from "@tabler/icons-react";
 import { useState } from "react";
 
 const ProTeamsFilter = () => {
-  const filterTypes = ["Last Active", "New Teams", "Best Teams"];
+  const filterTypes = ["랭킹순", "이름순", "최신순"];
 
   const [selectedFilter, setSelectedFilter] = useState(filterTypes[0]);
 
@@ -25,16 +25,14 @@ const ProTeamsFilter = () => {
           type="text"
           name="search"
           id="search"
-          placeholder="Search..."
+          placeholder="팀 이름 검색..."
         />
         <button type="submit" className="flex-c icon-24 text-w-neutral-4">
           <i className="ti ti-search"></i>
         </button>
       </div>
       <div className="sm:w-full w-fit select-2 flex items-center gap-28p">
-        <span className="text-m-medium text-w-neutral-1 shrink-0">
-          Order By:
-        </span>
+        <span className="text-m-medium text-w-neutral-1 shrink-0">필터 :</span>
         <Listbox
           ref={filterRef}
           value={selectedFilter}

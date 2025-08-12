@@ -50,7 +50,7 @@ const Maches = () => {
                     type="text"
                     name="search"
                     id="search"
-                    placeholder="Search..."
+                    placeholder="팀 이름 검색..."
                   />
                 </form>
               </div>
