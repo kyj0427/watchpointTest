@@ -32,10 +32,10 @@ export default function PatchnoteListPage() {
   // breadcrumb 데이터 정의
   const headerData = useMemo(
     () => ({
-      title: "PATCH NOTES",
+      title: "패치노트",
       navLinks: [
-        { id: 1, url: "/", label: "Home" },
-        { id: 2, url: "/gameinfo/patchnotes", label: "Patch Notes" },
+        { id: 1, url: "/gameinfo", label: "게임정보" },
+        { id: 2, url: "", label: "패치노트" },
       ],
     }),
     []

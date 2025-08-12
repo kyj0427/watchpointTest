@@ -5,7 +5,7 @@ import { NavLinkProps, headerBannerType } from "@/config/types";
 const MapsPage = () => {
   const navLinks: NavLinkProps[] = [
     { id: 1, url: "/gameinfo", label: "게임정보" },
-    { id: 2, url: "/gameinfo/maps", label: "맵정보" },
+    { id: 2, url: "", label: "맵정보" },
   ];
 
   const headerData: headerBannerType = {
