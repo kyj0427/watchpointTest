@@ -62,7 +62,7 @@ function normalizeSeed(items: any[]): PostType[] {
       score: it?.score ?? Math.floor(Math.random() * 100),
       userVote: 0,
       saved: false,
-      title: it?.title ?? "Untitled",
+      title: it?.title ?? "제목 없음",
       content: {
         postText: it?.content?.postText,
         image: it?.content?.image,
@@ -80,7 +80,6 @@ export default function Community() {
   const sp = useSearchParams();
   const pathname = usePathname();
 
-  // 현재 보드 계산: 전용 라우트 우선 → 쿼리 파라미터 보조
   const currentBoard: BoardKey = useMemo(() => {
     if (pathname?.endsWith("/community/notification")) return "notify";
     if (pathname?.endsWith("/community/SquadOrChat"))  return "duos-list";
@@ -88,7 +87,6 @@ export default function Community() {
     return (sp.get("board") as BoardKey) ?? "all";
   }, [pathname, sp]);
 
-  // 메뉴별 이동 경로
   const getBoardHref = (key: BoardKey) => {
     switch (key) {
       case "notify":     return "/community/notification";
@@ -104,7 +102,6 @@ export default function Community() {
 
   useMemo(() => blogPosts.slice(0, 5), []);
 
-  // 보드 필터
   const boardFiltered = useMemo(() => {
     if (currentBoard === "popular") {
       return posts.slice().sort((a, b) => (b.score ?? 0) - (a.score ?? 0));
@@ -112,7 +109,6 @@ export default function Community() {
     return posts;
   }, [posts, currentBoard]);
 
-  // 기간 필터
   const withRangeFiltered = useMemo(() => {
     const now = Date.now();
     const day = 86400000;
@@ -125,7 +121,6 @@ export default function Community() {
     return boardFiltered.filter((p) => inRange(safeParse(p.publish) || 0));
   }, [boardFiltered, timeRange]);
 
-  // 탭 정렬
   const visiblePosts = useMemo(() => {
     const now = Date.now();
     const decay = (ts: number) => Math.pow((now - ts) / 36e5 + 2, 1.3);
@@ -153,7 +148,6 @@ export default function Community() {
   return (
     <main className={`min-h-screen bg-black ${PAGE_PADDING_TOP}`}>
       <div className="mx-auto max-w-[1320px] px-6 pb-14">
-        {/* 좌(사이드바 300px) / 우(피드) */}
         <div className="grid gap-8 grid-cols-1 md:grid-cols-[300px_minmax(0,1fr)]">
           {/* LEFT */}
           <aside className={`md:sticky md:self-start ${HEADER_OFFSET}`}>
@@ -162,7 +156,7 @@ export default function Community() {
                 href="/community/post"
                 className="btn btn-sm btn-primary w-full rounded-10 mb-4"
               >
-                Create Post
+                글 작성
               </Link>
 
               <nav className="flex flex-col gap-2">
@@ -193,10 +187,10 @@ export default function Community() {
           <section className="min-w-0">
             <div className="mx-auto w-full max-w-[1000px]">
 
-              {/* ▶ 게시물 리스트 (먼저) */}
+              {/* ▶ 게시물 리스트 */}
               <ProfilePosts posts={visiblePosts} />
 
-              {/* ▶ 배너/필터바 (아래로 이동) */}
+              {/* ▶ 필터바 */}
               <div className="mt-6">
                 <div className="bg-b-neutral-3 rounded-12 px-6 py-5 border border-w-neutral-4/20 shadow-md">
                   <div className="flex flex-wrap items-center gap-3">
@@ -204,32 +198,32 @@ export default function Community() {
                       className={`btn btn-sm ${activeTab === "most" ? "btn-primary" : ""}`}
                       onClick={() => setActiveTab("most")}
                     >
-                      Most
+                      인기순
                     </button>
                     <button
                       className={`btn btn-sm ${activeTab === "new" ? "btn-primary" : ""}`}
                       onClick={() => setActiveTab("new")}
                     >
-                      New
+                      최신순
                     </button>
                     <button
                       className={`btn btn-sm ${activeTab === "top" ? "btn-primary" : ""}`}
                       onClick={() => setActiveTab("top")}
                     >
-                      Top ▾
+                      추천순 ▾
                     </button>
 
                     <div className="ml-auto flex items-center gap-3">
-                      <span className="text-xs text-w-neutral-4">Time range</span>
+                      <span className="text-xs text-w-neutral-4">기간</span>
                       <select
                         className="select select-sm bg-b-neutral-2 rounded-8 min-w-[132px]"
                         value={timeRange}
                         onChange={(e) => setTimeRange(e.target.value as RangeKey)}
                       >
-                        <option value="today">Today</option>
-                        <option value="week">This week</option>
-                        <option value="month">This month</option>
-                        <option value="all">All time</option>
+                        <option value="today">오늘</option>
+                        <option value="week">이번 주</option>
+                        <option value="month">이번 달</option>
+                        <option value="all">전체 기간</option>
                       </select>
                     </div>
                   </div>

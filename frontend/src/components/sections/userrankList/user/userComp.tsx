@@ -35,7 +35,7 @@ type HeroRow = {
   objective_avg_10m: number | null;
   playtime: number; // seconds
   icon?: string | null; // 무시(로컬만 사용)
-  role?: "tank" | "damage" | "support" | null;
+  role?: "tank" | "damage" | "support" | string | null; // 원본에 다양한 값이 들어올 수 있어 string 허용
   roleIcon?: string | null;
 };
 
@@ -158,6 +158,111 @@ const heroPortraitUrl = (heroName?: string) => {
   if (!heroName) return "/images/heroes/_placeholder.png";
   const file = toHeroFilename(heroName);
   return `${PORTRAIT_BASE}/${file}.png`;
+};
+
+/** 영웅 영어파일키 → 한글명 매핑 (파일 키 기준: toHeroFilename 결과와 동일) */
+const HERO_NAME_KR: Record<string, string> = {
+  // 탱크
+  rein: "라인하르트",
+  reinhardt: "라인하르트",
+  zarya: "자리야",
+  winston: "윌스턴", // 오타시 교정 -> 필요시 "윈스턴"으로
+  orisa: "오리사",
+  sigma: "시그마",
+  dva: "D.Va",
+  ramattra: "라마트라",
+  junker_queen: "정커퀸",
+  roadhog: "로드호그",
+  wrecking_ball: "레킹볼",
+  mauga: "마우가",
+  // 데미지
+  genji: "겐지",
+  hanzo: "한조",
+  ashe: "애쉬",
+  bastion: "바스티온",
+  cassidy: "캐서디",
+  echo: "에코",
+  junkrat: "정크랫",
+  mei: "메이",
+  pharah: "파라",
+  reaper: "리퍼",
+  sojourn: "소전",
+  "soldier-76": "솔저: 76",
+  sombra: "솜브라",
+  symmetra: "시메트라",
+  torbjorn: "토르비욘",
+  tracer: "트레이서",
+  widowmaker: "위도우메이커",
+  venture: "벤처",
+  // 지원
+  ana: "아나",
+  baptiste: "바티스트",
+  brigitte: "브리기테",
+  kiriko: "키리코",
+  lifeweaver: "라이프위버",
+  lucio: "루시우",
+  mercy: "메르시",
+  moira: "모이라",
+  zenyatta: "젠야타",
+  illari: "일라리",
+};
+
+/* ----------------------- role aggregation helpers ----------------------- */
+type RoleKey = "tank" | "damage" | "support";
+type RoleAgg = { wins: number; losses: number; games: number; playtime: number; winrate: number; kd: string };
+
+// 역할 문자열 정규화
+const normalizeRole = (raw?: string | null): RoleKey | undefined => {
+  if (!raw) return undefined;
+  const s = String(raw).toLowerCase().trim();
+  if (s === "tank" || s === "tanker") return "tank";
+  if (s === "damage" || s === "dps" || s === "offense" || s === "attack") return "damage";
+  if (s === "support" || s === "healer") return "support";
+  return undefined; // 모르면 스킵
+};
+
+const emptyAgg = (): RoleAgg => ({ wins: 0, losses: 0, games: 0, playtime: 0, winrate: 0, kd: "-" });
+
+const computeRoleAgg = (list: HeroRow[] | undefined | null): Record<RoleKey, RoleAgg> => {
+  const acc: Record<RoleKey, RoleAgg & { _maxPt?: number }> = {
+    tank: { ...emptyAgg() },
+    damage: { ...emptyAgg() },
+    support: { ...emptyAgg() },
+  };
+  if (!list?.length) {
+    return { tank: emptyAgg(), damage: emptyAgg(), support: emptyAgg() };
+  }
+
+  for (const h of list) {
+    if (!h) continue;
+    const r = normalizeRole(h.role as any);
+    if (!r) continue; // 알 수 없는 역할은 제외
+    const m = acc[r];
+    m.wins += h.wins ?? 0;
+    m.losses += h.losses ?? 0;
+    m.games += h.games ?? 0;
+    m.playtime += h.playtime ?? 0;
+
+    // KD 대표값: 해당 역할에서 가장 많이 플레이한 영웅의 KD
+    const pt = h.playtime ?? 0;
+    if (pt > (m._maxPt ?? -1)) {
+      m.kd = h.kd ?? "-";
+      m._maxPt = pt;
+    }
+  }
+
+  (["tank", "damage", "support"] as RoleKey[]).forEach((k) => {
+    const m = acc[k];
+    const total = m.wins + m.losses;
+    m.winrate = total > 0 ? (m.wins / total) * 100 : 0;
+    delete (m as any)._maxPt;
+  });
+
+  return {
+    tank: acc.tank,
+    damage: acc.damage,
+    support: acc.support,
+  };
 };
 
 /* ------------------------------ sub UIs ------------------------------ */
@@ -455,49 +560,9 @@ export default function UserComp({ q, uid: uidProp }: { q?: string; uid?: string
     };
   }, [left, q, mode]);
 
-  const roleTierItems = useMemo<RoleTierSummary[]>(() => {
-    const winRateText = fmtPercent(left?.totals.winrate ?? 0);
-    const winLoseText = `${left?.totals.wins ?? 0}승 ${left?.totals.losses ?? 0}패`;
-    const roles: Array<["tank" | "damage" | "support", Left["roles"]["tank"] | null]> = [
-      ["tank", left?.roles.tank ?? null],
-      ["damage", left?.roles.damage ?? null],
-      ["support", left?.roles.support ?? null],
-    ];
-    return roles.map(([key, v]) => ({
-      roleKey: key,
-      roleIconUrl: roleIconFromLeft(left, key),       
-      rankIconUrl: getRankIconUrl(v?.division),       
-      placementPending: mode === "competitive" ? !v?.division : true,
-      tierText:
-        mode === "competitive" && v?.division
-          ? `${v.division}${typeof v.tier === "number" ? ` ${v.tier}` : ""}`
-          : undefined,
-      scoreText: undefined,
-      winRateText,
-      winLoseText,
-      kdText: "K/D",
-      kdDetailText: undefined,
-    }));
-  }, [left, mode]);
-
-  const roleRows = useMemo<RoleRowStat[]>(() => {
-    const base = {
-      playTime: "-",
-      winRatio: fmtPercent(left?.totals.winrate ?? 0),
-      win: left?.totals.wins ?? 0,
-      lose: left?.totals.losses ?? 0,
-      kd: "-",
-      kdDetail: undefined as string | undefined,
-    };
-    return [
-      { roleLabel: "돌격", roleIconUrl: roleIconFromLeft(left, "tank"), ...base },
-      { roleLabel: "공격", roleIconUrl: roleIconFromLeft(left, "damage"), ...base },
-      { roleLabel: "지원", roleIconUrl: roleIconFromLeft(left, "support"), ...base },
-    ];
-  }, [left]);
-
-  // --- 영웅 중복/0판 제거 + 정렬 (클라이언트 안전망)
-  const heroRows = useMemo<HeroRowStat[]>(() => {
+  /* ---------- 역할별 집계 ---------- */
+  // 1) 원본 heroes를 병합할 때도 역할 정규화 적용
+  const mergedHeroes = useMemo<HeroRow[]>(() => {
     const alias = (k: string) => {
       const s = k.toLowerCase();
       if (s === "mccree") return "cassidy";
@@ -509,39 +574,93 @@ export default function UserComp({ q, uid: uidProp }: { q?: string; uid?: string
     for (const h of heroes ?? []) {
       if (!h?.hero) continue;
       const key = alias(h.hero);
+      const normRole = normalizeRole(h.role as any);
       const prev = acc.get(key);
-      if (!prev) acc.set(key, { ...h, hero: key });
-      else {
+      if (!prev) {
+        acc.set(key, { ...h, hero: key, role: normRole || undefined });
+      } else {
         acc.set(key, {
           ...prev,
           wins: (prev.wins ?? 0) + (h.wins ?? 0),
           losses: (prev.losses ?? 0) + (h.losses ?? 0),
           games: (prev.games ?? 0) + (h.games ?? 0),
           playtime: (prev.playtime ?? 0) + (h.playtime ?? 0),
-          kd: h.playtime > (prev.playtime ?? 0) ? h.kd : prev.kd,
-          icon: prev.icon || h.icon, // 무시되지만 유지
-          role: prev.role || h.role,
+          kd: (h.playtime ?? 0) > (prev.playtime ?? 0) ? h.kd : prev.kd,
+          icon: prev.icon || h.icon,
+          role: prev.role || normRole || undefined,
         });
       }
     }
+    return Array.from(acc.values());
+  }, [heroes]);
 
-    const merged = Array.from(acc.values())
+  const roleAgg = useMemo(() => computeRoleAgg(mergedHeroes), [mergedHeroes]);
+
+  const roleTierItems = useMemo<RoleTierSummary[]>(() => {
+    const roles: RoleKey[] = ["tank", "damage", "support"];
+    return roles.map((key) => {
+      const v = (left?.roles as any)?.[key] ?? null;
+      const a = roleAgg[key];
+      return {
+        roleKey: key,
+        roleIconUrl: roleIconFromLeft(left, key),
+        rankIconUrl: getRankIconUrl(v?.division),
+        placementPending: mode === "competitive" ? !v?.division : true,
+        tierText:
+          mode === "competitive" && v?.division
+            ? `${v.division}${typeof v.tier === "number" ? ` ${v.tier}` : ""}`
+            : undefined,
+        scoreText: undefined,
+        winRateText: fmtPercent(Math.round(a.winrate)),
+        winLoseText: `${a.wins}승 ${a.losses}패`,
+        kdText: "K/D",
+        kdDetailText: fmtKD(a.kd),
+      };
+    });
+  }, [left, mode, roleAgg]);
+
+  const roleRows = useMemo<RoleRowStat[]>(() => {
+    const defs = [
+      { label: "돌격", key: "tank" as RoleKey },
+      { label: "공격", key: "damage" as RoleKey },
+      { label: "지원", key: "support" as RoleKey },
+    ];
+    return defs.map(({ label, key }) => {
+      const a = roleAgg[key];
+      return {
+        roleLabel: label,
+        roleIconUrl: roleIconFromLeft(left, key),
+        playTime: secToHMM(a.playtime),
+        winRatio: fmtPercent(Math.round(a.winrate)),
+        win: a.wins,
+        lose: a.losses,
+        kd: fmtKD(a.kd),
+      };
+    });
+  }, [left, roleAgg]);
+
+  // --- 영웅 테이블용 가공 (정렬/표시 전용)
+  const heroRows = useMemo<HeroRowStat[]>(() => {
+    const merged = mergedHeroes
       .filter((h) => (h.games ?? 0) > 0)
       .sort((a, b) => (b.playtime ?? 0) - (a.playtime ?? 0));
 
-    return merged.map((h) => ({
-      heroName: h.hero,
-      heroImageUrl: heroPortraitUrl(h.hero),  
-      gradeText: "-",
-      win: h.wins,
-      lose: h.losses,
-      winRatio: fmtPercent(h.winrate),
-      kd: fmtKD(h.kd),
-      kdDetail: undefined,
-      avgObjective: h.objective_avg_10m != null ? `${h.objective_avg_10m}` : "-",
-      playTime: secToHMM(h.playtime),
-    }));
-  }, [heroes]);
+    return merged.map((h) => {
+      const fileKey = toHeroFilename(h.hero);
+      return {
+        heroName: HERO_NAME_KR[fileKey] || h.hero,
+        heroImageUrl: heroPortraitUrl(h.hero),
+        gradeText: "-",
+        win: h.wins,
+        lose: h.losses,
+        winRatio: fmtPercent(h.winrate),
+        kd: fmtKD(h.kd),
+        kdDetail: undefined,
+        avgObjective: h.objective_avg_10m != null ? `${h.objective_avg_10m}` : "-",
+        playTime: secToHMM(h.playtime),
+      };
+    });
+  }, [mergedHeroes]);
 
   const sideSummary = useMemo<SideSummaryItem[]>(() => {
     return [
@@ -596,21 +715,34 @@ export default function UserComp({ q, uid: uidProp }: { q?: string; uid?: string
       <PlayerHeader data={headerData} />
 
       <section className="grid md:grid-cols-3 gap-4">
-        <div className="rounded-xl border border-shap bg-b-neutral-3 p-4">
-          <h3 className="text-lg font-semibold">경쟁전 실력 평점</h3>
-          <div className="mt-2 text-w-neutral-2">승률, K/D, 플레이 시간 요약</div>
-          <div className="mt-1 text-w-neutral-1">{winLose}</div>
-        </div>
-        <div className="rounded-xl border border-shap bg-b-neutral-3 p-4">
-          <h3 className="text-lg font-semibold">역할별 티어</h3>
-          <div className="mt-2 text-w-neutral-2">현재 시즌 배치/점수</div>
-        </div>
-        <div className="rounded-xl border border-shap bg-b-neutral-3 p-4">
-          <h3 className="text-lg font-semibold">플레이 시간 평점</h3>
-          <div className="mt-2 text-w-neutral-2">플레이 시간/일 평균 플레이 시간</div>
-          <div className="mt-1 text-w-neutral-1">-</div>
-        </div>
-      </section>
+  <div className="rounded-xl border border-shap bg-b-neutral-3 p-4">
+    <h3 className="text-lg font-semibold">
+      {mode === "competitive" ? "경쟁전 실력 평점" : "일반전 플레이 평점"}
+    </h3>
+    <div className="mt-2 text-w-neutral-2">
+      {mode === "competitive"
+        ? "승률, K/D, 플레이 시간 요약"
+        : "승률, K/D, 플레이 시간 요약 (일반전)"}
+    </div>
+    <div className="mt-1 text-w-neutral-1">{winLose}</div>
+  </div>
+  <div className="rounded-xl border border-shap bg-b-neutral-3 p-4">
+    <h3 className="text-lg font-semibold">역할별 티어</h3>
+    <div className="mt-2 text-w-neutral-2">
+      {mode === "competitive" ? "현재 시즌 배치/점수" : "일반전 역할별 통계"}
+    </div>
+  </div>
+  <div className="rounded-xl border border-shap bg-b-neutral-3 p-4">
+    <h3 className="text-lg font-semibold">
+      {mode === "competitive" ? "플레이 시간 평점" : "일반전 플레이 시간"}
+    </h3>
+    <div className="mt-2 text-w-neutral-2">
+      {mode === "competitive" ? "플레이 시간/일 평균 플레이 시간" : "일반전 플레이 시간 요약"}
+    </div>
+    <div className="mt-1 text-w-neutral-1">-</div>
+  </div>
+</section>
+
 
       <RoleTierGrid items={roleTierItems} />
 
