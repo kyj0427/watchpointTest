@@ -162,11 +162,11 @@ const heroPortraitUrl = (heroName?: string) => {
 
 /** 영웅 영어파일키 → 한글명 매핑 (파일 키 기준: toHeroFilename 결과와 동일) */
 const HERO_NAME_KR: Record<string, string> = {
-  // 탱크
+  // 🛡 탱커
   rein: "라인하르트",
   reinhardt: "라인하르트",
   zarya: "자리야",
-  winston: "윌스턴", // 오타시 교정 -> 필요시 "윈스턴"으로
+  winston: "윈스턴",
   orisa: "오리사",
   sigma: "시그마",
   dva: "D.Va",
@@ -175,7 +175,9 @@ const HERO_NAME_KR: Record<string, string> = {
   roadhog: "로드호그",
   wrecking_ball: "레킹볼",
   mauga: "마우가",
-  // 데미지
+  doomfist: "둠피스트",
+
+  // 🎯 공격
   genji: "겐지",
   hanzo: "한조",
   ashe: "애쉬",
@@ -194,7 +196,10 @@ const HERO_NAME_KR: Record<string, string> = {
   tracer: "트레이서",
   widowmaker: "위도우메이커",
   venture: "벤처",
-  // 지원
+  hazard: "해저드",      // 신규
+  freja: "프레야",       // 신규
+
+  // 💉 지원
   ana: "아나",
   baptiste: "바티스트",
   brigitte: "브리기테",
