@@ -11,10 +11,10 @@ const Tab = () => {
       title: "홈",
       link: `/profile`,
     },
-    {
-      title: "내 전적",
-      link: `/profile/game-stats`,
-    },
+    // {
+    //   title: "내 전적",
+    //   link: `/profile/game-stats`,
+    // },
     // {
     //   title: "About",
     //   link: `/profile/about`,

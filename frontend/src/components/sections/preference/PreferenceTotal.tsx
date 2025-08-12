@@ -73,7 +73,17 @@ const PreferenceTotal = ({
   };
 
   const Content = (
-    <div className="bg-b-neutral-3 rounded-12 w-full max-w-[900px] p-6 text-w-neutral-1">
+    <div className="bg-b-neutral-3 rounded-12 w-full max-w-[900px] p-6 text-w-neutral-1 relative">
+      {/* 닫기 버튼 (마이페이지용) */}
+      {onClose && (
+        <button
+          type="button"
+          onClick={onClose}
+          className="absolute top-4 right-20 text-white hover:text-red-400 text-4xl"
+        >
+          &times;
+        </button>
+      )}
       {showProgress && step > 0 && step <= 2 && (
         <ProgressBar currentStep={step} totalSteps={2} />
       )}
