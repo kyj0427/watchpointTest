@@ -4,12 +4,12 @@ import { headerBannerType, NavLinkProps } from "@/config/types";
 
 const Page = () => {
   const navLinks: NavLinkProps[] = [
-    { id: 1, url: "/", label: "Home" },
-    { id: 2, url: "", label: "Login" },
+    { id: 1, url: "/", label: "홈" },
+    { id: 2, url: "", label: "로그인" },
   ];
 
   const headerData: headerBannerType = {
-    title: "Login",
+    title: "로그인",
     navLinks,
   };
 
