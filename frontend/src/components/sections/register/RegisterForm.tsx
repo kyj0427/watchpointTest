@@ -13,10 +13,47 @@ interface FormData {
   password: string;
   remember?: boolean;
 }
+// 백엔드 API 호출용 인터페이스
+interface RegisterRequest {
+  name: string;
+  email: string;
+  originalPassword: string;
+}
+interface RegisterResponse {
+  id: number;
+  name: string;
+  email: string;
+}
+interface ErrorResponse {
+  code: string;
+  message: string;
+}
+
+// API 호출 함수
+const registerUser = async (userData: RegisterRequest): Promise<RegisterResponse> => {
+  const API_BASE_URL = 'http://localhost:8080';
+  
+  const response = await fetch(`${API_BASE_URL}/api/auth/register`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(userData),
+  });
+
+  if (!response.ok) {
+    const errorData: ErrorResponse = await response.json();
+    throw new Error(errorData.message || '회원가입에 실패했습니다.');
+  }
+
+  return response.json();
+};
+
+
+// ------------------
 
 const RegisterForm = () => {
-  //더미데이터 (나중에 삭제 해야합니다)
-  const [dummyCode, setDummyCode] = useState("");
+  
   // 소셜 로그인 
   const [showMore, setShowMore] = useState<boolean>(false);
   // 마케팅 동의 여부
@@ -101,17 +138,33 @@ const RegisterForm = () => {
   } = useForm<FormData>();
 
   //제출시 동작
-  const onSubmit = (data: FormData) => {
+  const onSubmit = async(data: FormData) => {
     if (!remember){
       setSubmitAttempted(true);
       alert("약관에 동의하셔야 회원가입이 가능합니다")
+      return;
     }  
     // 실제 회원가입 API 호출
-    // await signup(data);
+    try{
+      // interface RegisterRequest 데이터 매핑, 백엔드로 보낼 데이터로 변환 (실제 전달 객체)
+      const registerData: RegisterRequest = {
+        name: data.name,
+        email: data.email,
+        originalPassword: data.password,
+      };
+      
+      //회원가입 API 호출
+      const response = await registerUser(registerData);
 
-    // 가입 성공했다고 임시 설정 => 성향 모달 오픈
-    setPreferenceModal(true);
-  };
+      console.log("성공",response);
+
+      setPreferenceModal(true);
+
+    }catch (err: any) {
+    console.error("회원가입 실패:", err);
+    alert(err.message || "회원가입 중 오류가 발생했습니다.");
+  }
+};
 
   return (
     <section className="section-py">
