@@ -15,7 +15,7 @@ const ProgressBar = ({currentStep , totalSteps}: ProgressBarProps)=>{
     <div className="flex justify-center mb-6 w-full">       
     
         <div className="w-full h-1 bg-gray-200 rounded-full overflow-hidden mb-6"
-             style={{ width: "180px" }}>
+            style={{ width: "180px" }}>
         
         {/* 진행률 바는 width에 따라 채워짐 */}
         <div

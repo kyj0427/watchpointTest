@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Mentorings from "./Mentoring";
+import CourseRegisterModal from "./CourseRegisterModal";
 
 type Mentoring = {
     id: number;
@@ -16,6 +17,7 @@ type Mentoring = {
         name: string;
         image: string;
         position: string;
+        career: string[];
     };
 };
 
@@ -36,8 +38,12 @@ const MyMentoringList = ({ data, type }: MyMentoringListProps) => {
     // }, [data, userId]);
 
     return (
+        
         <div>
-        <h2 className="heading-2 text-w-neutral-1 mb-40p mt-10">내 강의 목록</h2>
+            <div className="flex items-center justify-between mb-40p mt-10">
+            <h2 className="heading-2 text-w-neutral-1">내 강의 목록</h2>
+            <CourseRegisterModal/>
+            </div>
         <Mentorings data={data} type={type} />
         </div>
     );

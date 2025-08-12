@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 
 const AthenaMain: FC = () => {
     const [openModal, setOpenModal] = useState<null | boolean>(null);
-    const [selectedFile, setSelectedFile] = useState<File | null>(null);
+    const [selectedFile, setSelectedFile] = useState<File | { type: 'url', url: string, platform: string } | null>(null);
     const router = useRouter();
 
         const handleSubmit = async () => {
@@ -18,7 +18,15 @@ const AthenaMain: FC = () => {
         }
 
         const formData = new FormData();
-        formData.append("file", selectedFile);
+        
+        // 파일인지 URL인지 확인
+        if (selectedFile instanceof File) {
+            formData.append("file", selectedFile);
+        } else if (selectedFile.type === 'url') {
+            // URL인 경우
+            formData.append("url", selectedFile.url);
+            formData.append("platform", selectedFile.platform);
+        }
 
         try {
             const response = await fetch("/api/ai-process-video", { // 요청값 ai 구동시 완성

@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import myPostsData from "@public/data/myPostData";
+import myCommentsData from "@public/data/myCommentData";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import {
   IconBrandDiscord,
@@ -16,8 +18,12 @@ import profileCover1 from "@public/images/photos/profileCover1.png";
 import user32 from "@public/images/users/user32.png";
 import { useToggle } from "@/hooks";
 import ProfileTab from "./ProfileTab";
+import { useState } from "react";
+import Mypreference from "./Mypreference";
 
 const ProfileHeader = () => {
+  //모달 상태창 
+  const [prefOpen, setPrefOpen] = useState(false); 
   const {
     handleToggle: handleSearchToggle,
     open: searchOpen,
@@ -50,21 +56,25 @@ const ProfileHeader = () => {
             <div className="relative flex 3xl:items-end max-3xl:items-center 3xl:justify-between max-3xl:flex-col gap-30p 3xl:mt-[70px] xl:-mt-52 lg:-mt-44 md:-mt-36 sm:-mt-30 -mt-20 4xl:mb-[70px] mb-60p">
               <div className="3xl:order-1 order-2 flex text-center divide-x divide-shap">
                 <div className="pr-6">
-                  <h2 className="heading-40 text-w-neutral-1 mb-1">75</h2>
+                  <h2 className="heading-40 text-w-neutral-1 mb-1">
+                    {myCommentsData.length}
+                  </h2>
                   <span className="text-m-medium text-w-neutral-4/70">
-                    Friends
+                    내가 작성한 댓글
                   </span>
                 </div>
                 <div className="px-24p">
-                  <h2 className="heading-40 text-w-neutral-1 mb-1">140</h2>
+                  <h2 className="heading-40 text-w-neutral-1 mb-1">
+                    {myPostsData.length}
+                  </h2>
                   <span className="text-m-medium text-w-neutral-4/70">
-                    Winning
+                    내가 작성한 게시글
                   </span>
                 </div>
                 <div className="pl-6">
-                  <h2 className="heading-40 text-w-neutral-1 mb-1">241</h2>
+                  <h2 className="heading-40 text-w-neutral-1 mb-1">-</h2>
                   <span className="text-m-medium text-w-neutral-4/70">
-                    Tournaments
+                    나의 구독 상태
                   </span>
                 </div>
               </div>
@@ -76,15 +86,16 @@ const ProfileHeader = () => {
                 />
                 <div className="text-center mt-30p">
                   <h3 className="heading-3 text-w-neutral-1 mb-3 text-split-top">
-                    Josephine Williams
+                    Liam West
                   </h3>
+                  {/* 배틀태그 연동시 출력문구 */}
                   <p className="text-m-medium text-w-neutral-4">
-                    I will destroy all enemies
+                    overwatch#1234
                   </p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <Link href="#" className="btn-socal-primary">
+                {/* <Link href="#" className="btn-socal-primary">
                   <IconBrandFacebook />
                 </Link>
                 <Link href="#" className="btn-socal-primary">
@@ -98,22 +109,22 @@ const ProfileHeader = () => {
                 </Link>
                 <Link href="#" className="btn-socal-primary">
                   <IconBrandYoutube />
-                </Link>
+                </Link> */}
               </div>
               <div className="order-4 3xl:absolute 3xl:right-0 3xl:-top-25 flex items-center justify-center flex-wrap gap-20p z-[3]">
-                <button
-                  type="button"
-                  className="btn btn-lg btn-primary rounded-12"
-                >
-                  Add Friend
-                  <i className="ti ti-plus"></i>
-                </button>
                 <Link
-                  href="/chat"
+                  href="/settings"
                   className="btn btn-lg btn-neutral-2 rounded-12"
                 >
-                  Send Message
+                  개인정보 변경
                 </Link>
+              <button
+                type="button"
+                onClick={() => setPrefOpen(true)} // 클릭 시 모달 열기
+                className="btn btn-lg btn-neutral-2 rounded-12"
+              >
+                나의 관심사 수정
+              </button>
               </div>
             </div>
             <div>
@@ -170,6 +181,7 @@ const ProfileHeader = () => {
             </div>
           </div>
         </div>
+        <Mypreference open={prefOpen} onClose={() => setPrefOpen(false)} />
       </div>
     </section>
   );

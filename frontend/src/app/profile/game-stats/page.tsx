@@ -1,7 +1,15 @@
-import GameStats from "@/components/sections/profile/GameStats";
+// import GameStats from "@/components/sections/profile/GameStats";
+
+// const Page = () => {
+//   return <GameStats />;
+// };
+
+// export default Page;
+
+import UserComp from "@/components/sections/userrankList/user/userComp";
 
 const Page = () => {
-  return <GameStats />;
+  return <UserComp />;
 };
 
 export default Page;

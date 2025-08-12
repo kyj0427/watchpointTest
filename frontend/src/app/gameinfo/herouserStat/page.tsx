@@ -7,7 +7,7 @@ import { headerBannerType, NavLinkProps } from "@/config/types";
 const Page = () => {
   const navLinks: NavLinkProps[] = [
     { id: 1, url: "/gameinfo", label: "게임정보" },
-    { id: 2, url: "/gameinfo/herouserstat", label: "영웅별통계" },
+    { id: 2, url: "", label: "영웅별통계" },
   ];
 
   const headerData: headerBannerType = {

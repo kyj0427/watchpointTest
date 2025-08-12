@@ -1,7 +1,5 @@
 // src/app/mentoring-lists/[type]/page.tsx
 import Mentors from "@/components/sections/mentor-menti/Mentors";
-import Mentoring from "@/components/sections/mentor-menti/Mentoring";
-import Breadcrumb from "@/components/shared/Breadcumb";
 import { NavLinkProps } from "@/config/types";
 import { mentorings } from "@public/data/mentorings";
 import { mentors } from "@public/data/mentors";
@@ -32,8 +30,8 @@ export default async function PostPage(props: PageProps) {
 
   const navLinks: NavLinkProps[] = [
     { id: 1, url: "/coaching", label: "강의" },
-    { id: 2, url: "/coaching/mentor-menti/mentoring-lists", label: "멘토/멘티 매칭" },
-    { id: 3, url: `/coaching/mentor-menti/mentoring-lists/${type}`, label: title },
+    { id: 2, url: "/coaching/mentoring-lists", label: "멘토/멘티 매칭" },
+    { id: 3, url: `/coaching/mentoring-lists/${type}`, label: title },
   ]
 
   let data: any[] = [];

@@ -42,13 +42,13 @@ export const mentors = [
         title: "멘토링 3",
         description: "설명 3",
         category: "backend",
-        image: "/images/blogs/blog3.png",
+        image: "/images/blogs/blog5.png",
         price: 60000,
         rating: 4.6,
         reviews: 8,
         mentorinfo: {
             name: "김영희",
-            image: "/images/blogs/blog4.png",
+            image: "/images/blogs/blog6.png",
             position: "탱커",
             career: [
                 "2024 오버워치 챔피언스 시리즈 준우승",

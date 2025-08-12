@@ -16,7 +16,7 @@ const TrendingMentorings = ({ type }:{ type:string }) => {
             <div className="flex items-center justify-between flex-wrap gap-24p">
                 <h2 className="heading-2">가장 인기 있는 강의</h2>
                 <Link
-                    href="/coaching/mentor-menti/mentoring-lists/mentoring"
+                    href="/coaching/mentoring-lists/mentoring"
                     className="btn-primary flex-wrap items-center"
                 >더보기</Link>
             </div>
@@ -96,7 +96,7 @@ const TrendingMentorings = ({ type }:{ type:string }) => {
                     </div>
                     <div className="p-28p">
                         <Link
-                        href={`/coaching/mentor-menti/mentoring-lists/${type}/${item?.id}`}
+                        href={`/coaching/mentoring-lists/${type}/${item?.id}`}
                         className="heading-3 link-1 mb-2 line-clamp-1"
                         >
                         {item?.title}

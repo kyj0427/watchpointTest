@@ -2,7 +2,6 @@
 
 import CoachingBreadcrumb from "@/components/sections/mentor-menti/CoachingBreadcumb";
 import CourseRegister from "@/components/sections/mentor-menti/CourseRegister";
-import Breadcrumb from "@/components/shared/Breadcumb";
 import { headerBannerType, NavLinkProps } from "@/config/types";
 
 const Page = () => {

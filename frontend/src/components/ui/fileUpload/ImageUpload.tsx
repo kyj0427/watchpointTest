@@ -40,11 +40,11 @@ const ImageUploader = ({ onFileChange }: Props) => {
 
     return (
         <div className="space-y-2 mb-10">
-        <label className="block text-sm font-medium text-gray-700">이미지 업로드</label>
+        <label className="block text-sm font-medium text-gray-700 mb-10">이미지 업로드</label>
 
         {!imagePreview ? (
             <div
-            className="upload-area h-[200px] rounded flex flex-col items-center justify-center cursor-pointer border border-dashed border-gray-400 relative overflow-hidden"
+            className="upload-area h-[200px] rounded flex flex-col items-center justify-center cursor-pointer relative overflow-visible"
             >
             {/* FileUpload 버튼으로 트리거 */}
             <FileUpload onFileSelect={handleFileSelect} accept="image/jpeg, image/png, image/gif" />
@@ -60,7 +60,7 @@ const ImageUploader = ({ onFileChange }: Props) => {
             <button
                 type="button"
                 onClick={handleRemove}
-                className="absolute top-2 right-2 bg-white rounded-full p-1 shadow-md"
+                className="absolute top-2 right-2 bg-white rounded-full p-1 shadow-md hover:bg-gray-100"
             >
                 <i className="ri-close-line text-gray-600 text-lg"></i>
             </button>
