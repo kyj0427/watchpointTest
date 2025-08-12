@@ -200,7 +200,7 @@ const HeroDetails = () => {
                   </div>               
 
                   {/* 상세 정보 */}
-                  <div className="gap-6 text-w-neutral-4 mb-24p">                   
+                  <div className="gap-6 text-w-neutral-4 mt-24p mb-24p">                   
                      <div className="flex gap-6">
                       <span className="text-m-medium text-primary mb-1 block">거점</span>
                       <p className="text-sm">{heroDetails.location}</p>
