@@ -1,3 +1,4 @@
+// src/components/sections/userrankList/UserrankListComp.tsx
 "use client";
 
 import Image from "next/image";
@@ -56,38 +57,20 @@ export default function UserrankListComp({ initialQuery }: { initialQuery?: stri
     sec ? new Date(sec * 1000).toLocaleString() : "-";
 
   return (
-    <section className="section-pt section-pb ">
+     <section className="section-pb pt-0" style={{ paddingTop: 0, marginTop: 0 }}>
       <div className="container">
-        {/* 헤더 라인: 브레드크럼 톤 맞춤 */}
-        <div className="flex items-end justify-between mb-30p">
-          <div className="mt-20">
-            <h3 className="heading-4 text-w-neutral-1">
-              플레이어 검색 결과
-            </h3>
-            <p className="text-w-neutral-3 mt-1">
-              {hasQuery ? (
-                <>
-                  <b className="text-w-neutral-1">"{q}"</b> 에 대한 결과입니다.
-                </>
-              ) : (
-                "상세보기를 원하는 유저를 선택해 주세요."
-              )}
-            </p>
-          </div>
-        </div>
-
         {/* 상태 UI */}
         {hasQuery && loading && (
           <div className="py-10 text-center text-w-neutral-4">검색 중…</div>
         )}
+
         {showEmpty && (
           <div className="py-10 text-center text-w-neutral-4">
             검색결과가 없습니다{q ? `: ${q}` : ""}.
           </div>
         )}
-        {err && (
-          <div className="py-10 text-center text-red-400">에러: {err}</div>
-        )}
+
+        {err && <div className="py-10 text-center text-red-400">에러: {err}</div>}
 
         {/* 결과 테이블 */}
         {!loading && rows.length > 0 && (

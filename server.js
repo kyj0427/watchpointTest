@@ -7,6 +7,7 @@
 // - 플랫폼 (?platform=pc|xbl|psn)
 // - 레이트리밋 재시도/로깅 + 디버그 패스스루
 // - 영웅 메타(이미지/역할) ES 병합 + 중복 정규화/집계
+// - 맵: 한글 이름 → 영문 슬러그 alias + screenshots 배열 보장
 // -------------------------------------------------------------
 
 "use strict";
@@ -56,6 +57,100 @@ function heroSlug(s = "") {
     .replace(/[^a-z0-9-]/g, "");
 }
 const CANON = (name = "") => HERO_ALIASES[heroSlug(name)] || heroSlug(name);
+
+// -------------------------------------------------------------
+// 맵 이름 → 영문 슬러그 alias (필요한 만큼 등록, 없으면 폴백이 처리)
+// -------------------------------------------------------------
+const MAP_ALIASES = {
+  "하나무라": "hanamura",
+  "호라이즌 루나 콜로니": "horizon",
+  "파리": "paris",
+  "아누비스 신전": "anubis",
+  "볼스카야 인더스트리": "volskaya",
+  "아유타야": "ayutthaya",
+  "부산": "busan",
+  "네팔": "nepal",
+  "일리오스": "ilios",
+  "오아시스": "oasis",
+  "리장 타워": "lijiang",
+  "샤토 기야르": "chateau_guillard",
+  "카네자카": "kanezaka",
+  "말레벤토": "malevento",
+  "페트라": "petra",
+  "검은 숲": "black_forest",
+  "카스티요": "castillo",
+  "에코포인트: 남극": "ecopoint_antarctica",
+  "네크로폴리스": "necropolis",
+  "서킷 로얄": "circuit_royal",
+  "도라도": "dorado",
+  "루트 66": "route_66",
+  "정크타운": "junkertown",
+  "리알토": "rialto",
+  "아바나": "havana",
+  "감시기지: 지브롤터": "gibraltar",
+  "샴발리 수도원": "shambali",
+  "블리자드 월드": "blizzard_world",
+  "눔바니": "numbani",
+  "할리우드": "hollywood",
+  "아이헨발데": "eichenwalde",
+  "킹스 로우": "kings_row",
+  "미드타운": "midtown",
+  "파라이소": "paraiso",
+  "콜로세오": "colosseo",
+  "에스페란사": "esperanca",
+  "뉴 퀸 스트리트": "new_queen_street",
+  "남극 반도": "antarctic_peninsula",
+  "뉴 정크 시티": "new_junk_city",
+  "수라바사": "suravasa",
+  "사모아": "samoa",
+  "루나사피": "runasapi",
+  "하나오카": "hanaoka",
+  "아누비스의 왕좌": "throne_of_anubis",
+  "고가도로": "gogadoro",
+  "플라스 라크루아": "place_lacroix",
+  "레드우드 댐": "redwood_dam",
+  "아레나 빅토리아": "arena_victoriae",
+  "연습장": "practice_range",
+  "워크숍 챔버": "workshop_chamber",
+  "워크숍 익스팬스": "workshop_expanse",
+  "워크숍 그린 스크린": "workshop_green_screen",
+  "워크숍 아일랜드": "workshop_island",
+  "아틀리스": "aatlis",
+};
+
+// 스크린샷 URL에서 파일명(확장자 제외) 추출 → 폴백 슬러그
+function slugFromScreenshot(url = "") {
+  try {
+    const u = new URL(url);
+    const base = u.pathname.split("/").pop() || "";
+    return base.replace(/\.[^.]+$/, ""); // ex) hanaoka.jpg -> hanaoka
+  } catch {
+    const base = String(url).split("/").pop() || "";
+    return base.replace(/\.[^.]+$/, "");
+  }
+}
+
+// 맵 도큐먼트 정규화 + slug 부여(단수 → 배열, alias 처리)
+function normalizeMapDocWithAlias(src = {}) {
+  const screenshots = Array.isArray(src.screenshots)
+    ? src.screenshots
+    : (src.screenshot ? [src.screenshot] : []);
+
+  // 1순위: 한글 이름 alias, 2순위: 스크린샷 파일명, 3순위: 영문 슬러그 규칙
+  const alias = MAP_ALIASES[src.name];
+  const fallback = slugFromScreenshot(screenshots[0] || "");
+  const slug = alias || fallback || heroSlug(src.name || "");
+
+  return {
+    name: src.name,
+    slug,                          // 🔸 프론트에서 로컬 자원 경로 키로 사용
+    screenshots,                   // 🔸 항상 배열 보장
+    gamemodes: src.gamemodes || [],
+    location: src.location || "",
+    country_code: src.country_code ?? null,
+    description: src.description || "", // 없으면 빈 문자열
+  };
+}
 
 // -------------------------------------------------------------
 // 로깅 & 헬스체크
@@ -176,7 +271,7 @@ function normalizeSummary(summary, platform = "pc") {
 }
 
 // -------------------------------------------------------------
-// 영웅 메타(이름/역할/이미지) 로딩 + 캐시
+// 영웅 메타(이름/역할) 로딩 + 캐시
 // -------------------------------------------------------------
 const HERO_CACHE_TTL_MS = 5 * 60 * 1000; // 5분
 let HERO_CACHE = { at: 0, map: {} };
@@ -271,31 +366,94 @@ app.get("/api/_debug/stats", debugStatsHandler);
 app.get("/api/_debug/stats/:playerId", debugStatsHandler);
 
 // -------------------------------------------------------------
-// 플레이어 검색 → player_id 목록
+// 플레이어 검색 → 이름/배틀태그/태그만 분기
 // -------------------------------------------------------------
+// server.js 안 /api/players 라우트 교체
 app.get("/api/players", async (req, res) => {
-  const name = String(req.query.name || "").trim();
-  if (!name) return res.json({ total: 0, results: [] });
+  let raw = String(req.query.name || "").trim();
+  const platform = String(req.query.platform || "pc").trim();
+
+  if (!raw) return res.json({ total: 0, results: [], debug: { modeUsed: "empty" } });
+
+  const replaced = raw.replace(/#/g, "-"); // # -> - (전역)
+  const full = replaced.match(/^([\s\S]+)-(\d{3,6})$/); // 이름-태그
+  const digitsOnly = replaced.match(/^\d{3,6}$/);       // 태그만
+
+  const shape = (x) => ({
+    player_id: String(x.player_id),
+    name: String(x.name),
+    avatar: x.avatar ?? null,
+    last_updated_at: x.last_updated_at ?? null,
+  });
 
   try {
-    const data = await getWithRetry(`${OVERFAST}/players`, { name });
-    res.json({
-      total: data?.total || 0,
-      results: (data?.results || []).map((r) => ({
-        player_id: r.player_id,
-        name: r.name,
-        avatar: r.avatar,
-        last_updated_at: r.last_updated_at,
-      })),
-    });
+    // 1) 이름+배틀태그 => 정확히 1명
+    if (full) {
+      const username = full[1].trim();
+      const tag = full[2];
+      const btag = `${username}-${tag}`;
+
+      try {
+        const { data: d, status } = await axios.get(
+          `${OVERFAST}/players/${encodeURIComponent(btag)}/summary`,
+          { params: { platform }, validateStatus: () => true, timeout: 15000 }
+        );
+        if (status >= 200 && status < 300) {
+          return res.json({
+            total: 1,
+            results: [{ player_id: btag, name: d?.username || username, avatar: d?.avatar ?? null, last_updated_at: d?.last_updated_at ?? null }],
+            debug: { modeUsed: "full(summary)", raw, replaced, btag, status }
+          });
+        }
+      } catch (_) {}
+
+      try {
+        const list = await axios.get(`${OVERFAST}/players`, { params: { name: username, platform }, timeout: 15000 });
+        const btagLower = btag.toLowerCase();
+        const exact = (list?.data?.results || []).find(
+           (x) => String(x?.player_id || "").toLowerCase() === btagLower
+        );
+        return res.json({
+          total: exact ? 1 : 0,
+          results: exact ? [shape(exact)] : [],
+          debug: { modeUsed: "full(list-exact)", raw, replaced, btag }
+        });
+      } catch (e) {
+        return res.json({ total: 0, results: [], debug: { modeUsed: "full(list-failed)", raw, replaced, error: e?.message } });
+      }
+    }
+
+    // 2) 태그만(숫자)
+    if (digitsOnly) {
+      const tag = digitsOnly[0];
+      try {
+        const r = await axios.get(`${OVERFAST}/players`, { params: { name: tag, platform }, timeout: 15000 });
+        const filtered = (r?.data?.results || [])
+          .filter((x) => typeof x?.player_id === "string" && x.player_id.endsWith(`-${tag}`))
+          .map(shape);
+        return res.json({ total: filtered.length, results: filtered, debug: { modeUsed: "tagOnly", raw, replaced, tag } });
+      } catch (e) {
+        return res.json({ total: 0, results: [], debug: { modeUsed: "tagOnly(failed)", raw, replaced, error: e?.message } });
+      }
+    }
+
+    // 3) 이름만
+    try {
+      const r = await axios.get(`${OVERFAST}/players`, { params: { name: replaced, platform }, timeout: 15000 });
+      const results = (r?.data?.results || []).map(shape);
+      return res.json({ total: results.length, results, debug: { modeUsed: "nameOnly", raw, replaced } });
+    } catch (e) {
+      return res.json({ total: 0, results: [], debug: { modeUsed: "nameOnly(failed)", raw, replaced, error: e?.message } });
+    }
   } catch (e) {
-    console.error("players search error:", e.message);
-    res.status(500).json({ error: e.toString() });
+    return res.status(500).json({ total: 0, results: [], debug: { modeUsed: "crash", raw, replaced, error: e?.message } });
   }
 });
 
+
+
 // -------------------------------------------------------------
-// 풀 프로필 (요약 + 모드별 통계)  ★ 영웅 메타 병합 + 중복 정규화/집계
+// 풀 프로필 (요약 + 모드별 통계)  ★ 영웅 메타 병합 + 정규화/집계
 // -------------------------------------------------------------
 app.get("/api/profile/:playerId/full", async (req, res) => {
   const id = readPlayerId(req);
@@ -374,7 +532,7 @@ app.get("/api/profile/:playerId/full", async (req, res) => {
     };
 
     // ---- 영웅 표(중복 정규화/집계)
-    const acc = new Map(); // key=canon hero, val={wins,losses,games,kills,deaths,playtime,objSum,objCnt}
+    const acc = new Map();
     if (stats && typeof stats === "object") {
       for (const [rawKey, arr] of Object.entries(stats)) {
         if (rawKey === "all-heroes" || !Array.isArray(arr)) continue;
@@ -415,7 +573,7 @@ app.get("/api/profile/:playerId/full", async (req, res) => {
 
     const heroRows = [];
     for (const [k, o] of acc.entries()) {
-      if (o.games <= 0) continue; // 0판 제거
+      if (o.games <= 0) continue;
       const meta = metaOf(k);
       const kd = o.deaths ? `${(o.kills / o.deaths).toFixed(2)} : 1` : "-";
       const winrt = o.games ? Math.round((o.wins * 100) / o.games) : 0;
@@ -521,7 +679,7 @@ app.get("/api/patch/:id", async (req, res) => {
 });
 
 // -------------------------------------------------------------
-// 맵 (기존)
+// 맵 (★ 수정: alias + screenshots 배열 보장해서 반환)
 // -------------------------------------------------------------
 app.get("/api/maps", async (_req, res) => {
   try {
@@ -530,7 +688,7 @@ app.get("/api/maps", async (_req, res) => {
       {
         query: { match_all: {} },
         sort: [{ "name.keyword": "asc" }],
-        size: 100,
+        size: 200,
       },
       {
         auth: ELASTIC_AUTH,
@@ -538,7 +696,10 @@ app.get("/api/maps", async (_req, res) => {
         timeout: 15000,
       }
     );
-    res.json(esRes.data);
+
+    const hits = esRes?.data?.hits?.hits || [];
+    const items = hits.map(h => normalizeMapDocWithAlias(h?._source || {}));
+    res.json(items); // ← 목록도 정규화된 배열로 바로 반환
   } catch (e) {
     console.error("맵 API 에러:", e.message);
     res.status(500).json({ error: e.toString() });
@@ -557,11 +718,12 @@ app.get("/api/maps/:name", async (req, res) => {
         timeout: 15000,
       }
     );
-    const mapData = esRes?.data?.hits?.hits?.[0]?._source;
-    if (!mapData) {
+    const src = esRes?.data?.hits?.hits?.[0]?._source;
+    if (!src) {
       return res.status(404).json({ error: "맵을 찾을 수 없습니다." });
     }
-    res.json(mapData);
+    // 🔸 정규화 + slug 포함해서 단일 맵 반환
+    res.json(normalizeMapDocWithAlias(src));
   } catch (e) {
     console.error("개별 맵 API 에러:", e.message);
     res.status(500).json({ error: e.toString() });

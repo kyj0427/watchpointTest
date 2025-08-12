@@ -621,9 +621,9 @@ export default function UserComp({ q, uid: uidProp }: { q?: string; uid?: string
 
   const roleRows = useMemo<RoleRowStat[]>(() => {
     const defs = [
-      { label: "돌격", key: "tank" as RoleKey },
-      { label: "공격", key: "damage" as RoleKey },
-      { label: "지원", key: "support" as RoleKey },
+      { label: "탱커", key: "tank" as RoleKey },
+      { label: "딜러", key: "damage" as RoleKey },
+      { label: "서포터", key: "support" as RoleKey },
     ];
     return defs.map(({ label, key }) => {
       const a = roleAgg[key];
