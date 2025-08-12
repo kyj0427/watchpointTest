@@ -1,4 +1,3 @@
-// src/components/sections/userrankList/UserrankListComp.tsx
 "use client";
 
 import Image from "next/image";
@@ -12,19 +11,18 @@ type PlayerRow = {
   last_updated_at?: number | null;
 };
 
-const API = process.env.NEXT_PUBLIC_API_BASE || "http://localhost:4000";
+const API = process.env.NEXT_PUBLIC_API_BASE || "http://192.168.0.31:4000";
 
 export default function UserrankListComp({ initialQuery }: { initialQuery?: string }) {
   const q = useMemo(() => (initialQuery ?? "").trim(), [initialQuery]);
   const hasQuery = q.length > 0;
 
-  const [loading, setLoading] = useState<boolean>(hasQuery); // ✅ 초기부터 로딩으로
+  const [loading, setLoading] = useState<boolean>(hasQuery);
   const [rows, setRows] = useState<PlayerRow[]>([]);
   const [err, setErr] = useState<string | null>(null);
 
   useEffect(() => {
     const ac = new AbortController();
-
     if (!hasQuery) {
       setLoading(false);
       setRows([]);
@@ -40,9 +38,9 @@ export default function UserrankListComp({ initialQuery }: { initialQuery?: stri
       cache: "no-store",
       signal: ac.signal,
     })
-      .then(r => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
-      .then(d => setRows(d?.results ?? []))
-      .catch(e => {
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+      .then((d) => setRows(d?.results ?? []))
+      .catch((e) => {
         if (!ac.signal.aborted) setErr(e.message || "불러오기 실패");
       })
       .finally(() => {
@@ -54,56 +52,86 @@ export default function UserrankListComp({ initialQuery }: { initialQuery?: stri
 
   const showEmpty = hasQuery && !loading && rows.length === 0 && !err;
 
+  const fmtTime = (sec?: number | null) =>
+    sec ? new Date(sec * 1000).toLocaleString() : "-";
+
   return (
-    <section className="section-pb pt-60p">
+    <section className="section-pt section-pb ">
       <div className="container">
+        {/* 헤더 라인: 브레드크럼 톤 맞춤 */}
+        <div className="flex items-end justify-between mb-30p">
+          <div className="mt-20">
+            <h3 className="heading-4 text-w-neutral-1">
+              플레이어 검색 결과
+            </h3>
+            <p className="text-w-neutral-3 mt-1">
+              {hasQuery ? (
+                <>
+                  <b className="text-w-neutral-1">"{q}"</b> 에 대한 결과입니다.
+                </>
+              ) : (
+                "상세보기를 원하는 유저를 선택해 주세요."
+              )}
+            </p>
+          </div>
+        </div>
+
+        {/* 상태 UI */}
         {hasQuery && loading && (
           <div className="py-10 text-center text-w-neutral-4">검색 중…</div>
         )}
-
         {showEmpty && (
           <div className="py-10 text-center text-w-neutral-4">
             검색결과가 없습니다{q ? `: ${q}` : ""}.
           </div>
         )}
-
         {err && (
           <div className="py-10 text-center text-red-400">에러: {err}</div>
         )}
 
+        {/* 결과 테이블 */}
         {!loading && rows.length > 0 && (
-          <div className="overflow-x-auto scrollbar-sm">
-            <table className="text-l-medium font-poppins text-w-neutral-1 w-full whitespace-nowrap">
-              <thead className="text-left">
-                <tr className="bg-shap rounded-t-12">
+          <div className="overflow-x-auto scrollbar-sm rounded-12 border border-shap bg-b-neutral-3">
+            <table className="w-full text-l-medium font-poppins text-w-neutral-1 whitespace-nowrap">
+              <thead className="text-left bg-shap">
+                <tr>
                   <th className="px-24p py-3 min-w-[80px]">#</th>
                   <th className="px-24p py-3 min-w-[120px]">아이콘</th>
                   <th className="px-24p py-3 min-w-[280px]">플레이어</th>
                   <th className="px-24p py-3 min-w-[220px]">최근 업데이트</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-solid divide-shap border-b border-shap bg-b-neutral-3">
+              <tbody className="divide-y divide-solid divide-shap">
                 {rows.map((p, idx) => (
-                  <tr key={p.player_id}>
+                  <tr key={p.player_id} className="hover:bg-white/5 transition">
                     <td className="px-24p py-3">{idx + 1}</td>
                     <td className="px-24p py-3">
                       {p.avatar ? (
-                        <Image src={p.avatar} alt={p.name} width={40} height={40} className="rounded-full" />
+                        <Image
+                          src={p.avatar}
+                          alt={p.name}
+                          width={40}
+                          height={40}
+                          className="rounded-full"
+                          style={{ height: "auto" }}
+                          referrerPolicy="no-referrer"
+                          unoptimized
+                        />
                       ) : (
                         <div className="w-10 h-10 rounded-full bg-zinc-700" />
                       )}
                     </td>
                     <td className="px-24p py-3">
                       <Link
-                        href={`/userrankList/user?q=${encodeURIComponent(p.name)}&uid=${encodeURIComponent(p.player_id)}`}
+                        href={`/userrankList/user?q=${encodeURIComponent(p.name)}&uid=${encodeURIComponent(
+                          p.player_id
+                        )}`}
                         className="text-primary hover:underline"
                       >
                         {p.name}
                       </Link>
                     </td>
-                    <td className="px-24p py-3">
-                      {p.last_updated_at ? new Date(p.last_updated_at * 1000).toLocaleString() : "-"}
-                    </td>
+                    <td className="px-24p py-3">{fmtTime(p.last_updated_at)}</td>
                   </tr>
                 ))}
               </tbody>

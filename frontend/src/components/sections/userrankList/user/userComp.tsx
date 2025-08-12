@@ -1,4 +1,3 @@
-// src/components/sections/userrankList/user/UserComp.tsx
 "use client";
 
 import Image from "next/image";
@@ -21,9 +20,8 @@ type Left = {
     damage: { division: string; tier?: number | null } | null;
     support: { division: string; tier?: number | null } | null;
   };
-  // ▼ 서버에서 내려주는 정적/아이콘 자산(옵션)
   assets?: {
-    roleIcons: { tank: string; damage: string; support: string };
+    roleIcons: { tank: string; damage: string; support: string }; // 무시(로컬만 사용)
   };
 };
 
@@ -35,9 +33,8 @@ type HeroRow = {
   winrate: number; // %
   kd: string; // "x.xx : 1" or "-"
   objective_avg_10m: number | null;
-  playtime: number; // 초 기준
-  // ▼ 추가 필드 (서버에서 내려옴)
-  icon?: string | null;
+  playtime: number; // seconds
+  icon?: string | null; // 무시(로컬만 사용)
   role?: "tank" | "damage" | "support" | null;
   roleIcon?: string | null;
 };
@@ -67,7 +64,7 @@ type RoleRowStat = {
   roleLabel: string;
   roleIconUrl: string;
   playTime: string;
-  winRatio: string; // "54%"
+  winRatio: string;
   win: number;
   lose: number;
   kd: string;
@@ -91,8 +88,12 @@ type SideSummaryItem = { label: string; value: string };
 type Mode = "competitive" | "quickplay";
 
 /* ----------------------------- const ----------------------------- */
-const API = process.env.NEXT_PUBLIC_API_BASE || "http://localhost:4000";
+const API = process.env.NEXT_PUBLIC_API_BASE || "http://192.168.0.31:4000";
 const DEFAULT_PLATFORM = "pc";
+
+/* 로컬 자산 경로(스샷 기준) */
+const ROLE_BASE = "/images/game_hero/hero_role_logo";
+const PORTRAIT_BASE = "/images/game_hero/hero_portrait";
 
 /* -------------------------- helpers -------------------------- */
 const fmtDate = (sec?: number) => (sec ? new Date(sec * 1000).toLocaleString() : "-");
@@ -106,14 +107,57 @@ const secToHMM = (sec?: number) => {
   return h > 0 ? `${h}시간 ${m}분` : `${m}분`;
 };
 
-// 역할 아이콘: 서버가 내려준 URL 우선 사용 (없으면 플레이스홀더)
-const roleIconFromLeft = (left: Left | null | undefined, role: "tank" | "damage" | "support") =>
-  left?.assets?.roleIcons?.[role] || "/images/heroes/_placeholder.png";
+/** 역할 아이콘: 무조건 로컬 고정 */
+const roleIconFromLeft = (_left: Left | null | undefined, role: "tank" | "damage" | "support") => {
+  const map: Record<"tank" | "damage" | "support", string> = {
+    tank: `${ROLE_BASE}/Tank.svg`,
+    damage: `${ROLE_BASE}/Damage.svg`,
+    support: `${ROLE_BASE}/Support.svg`,
+  };
+  return map[role];
+};
 
-// 랭크 아이콘: 로컬을 쓰되, 없다면 언랭크로 폴백 (원하면 CDN로 바꿔도 됨)
+/** 티어 아이콘: 안전 매핑 ("master 2" -> "master.png", 없으면 NoTierYet) */
+const TIER_FILE_MAP: Record<string, string> = {
+  bronze: "bronze.png",
+  silver: "silver.png",
+  gold: "gold.png",
+  platinum: "platinum.png",
+  diamond: "diamond.png",
+  master: "master.png",
+  grandmaster: "grandmaster.png",
+  unranked: "NoTierYet.png",
+};
 const getRankIconUrl = (division?: string) => {
-  const key = (division || "unranked").toLowerCase();
-  return `/images/game_tier/${key}.png`;
+  const key = (division || "unranked").toLowerCase().split(/\s+/)[0];
+  const file = TIER_FILE_MAP[key] || TIER_FILE_MAP.unranked;
+  return `/images/game_tier/${file}`;
+};
+
+/** 영웅명 → 파일명 규칙/예외 */
+const HERO_FILE_OVERRIDES: Record<string, string> = {
+  mccree: "cassidy",
+  "soldier: 76": "soldier-76",
+  "d.va": "dva",
+  "torbjörn": "torbjorn",
+  "lúcio": "lucio",
+  "wrecking ball": "wrecking_ball",
+};
+const toHeroFilename = (raw: string) => {
+  const lower = (raw || "").toLowerCase().trim();
+  if (HERO_FILE_OVERRIDES[lower]) return HERO_FILE_OVERRIDES[lower];
+  return lower
+    .replace(/[’'"]/g, "")
+    .replace(/[.:]/g, "")
+    .replace(/\s+/g, "_")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+};
+/** 영웅 초상: 무조건 로컬 고정 */
+const heroPortraitUrl = (heroName?: string) => {
+  if (!heroName) return "/images/heroes/_placeholder.png";
+  const file = toHeroFilename(heroName);
+  return `${PORTRAIT_BASE}/${file}.png`;
 };
 
 /* ------------------------------ sub UIs ------------------------------ */
@@ -361,7 +405,6 @@ export default function UserComp({ q, uid: uidProp }: { q?: string; uid?: string
   const sp = useSearchParams();
   const uid = uidProp || (sp.get("uid") ?? undefined);
 
-  // 쿼리로 초기 모드/플랫폼 받기 (없으면 competitive/pc)
   const modeParam = (sp.get("mode") as Mode) || "competitive";
   const platformParam = sp.get("platform") || DEFAULT_PLATFORM;
 
@@ -398,10 +441,9 @@ export default function UserComp({ q, uid: uidProp }: { q?: string; uid?: string
     return () => ac.abort();
   }, [uid, mode, platform]);
 
-  /* ----------- Hook들은 항상 최상단에서 호출(early return 위) ----------- */
   const headerData = useMemo(() => {
     const name = q || left?.profile.username || "Player";
-    const title = mode === "quickplay" ? "Quickplay" : (left?.rank || "");
+    const title = mode === "quickplay" ? "Quickplay" : left?.rank || "";
     return {
       name,
       portraitUrl: left?.profile.avatar || "/images/users/player_icon1.png",
@@ -423,8 +465,8 @@ export default function UserComp({ q, uid: uidProp }: { q?: string; uid?: string
     ];
     return roles.map(([key, v]) => ({
       roleKey: key,
-      roleIconUrl: roleIconFromLeft(left, key),         // ← 서버 제공 아이콘 사용
-      rankIconUrl: getRankIconUrl(v?.division),
+      roleIconUrl: roleIconFromLeft(left, key),       
+      rankIconUrl: getRankIconUrl(v?.division),       
       placementPending: mode === "competitive" ? !v?.division : true,
       tierText:
         mode === "competitive" && v?.division
@@ -454,12 +496,43 @@ export default function UserComp({ q, uid: uidProp }: { q?: string; uid?: string
     ];
   }, [left]);
 
+  // --- 영웅 중복/0판 제거 + 정렬 (클라이언트 안전망)
   const heroRows = useMemo<HeroRowStat[]>(() => {
-    return (heroes ?? []).map((h) => ({
+    const alias = (k: string) => {
+      const s = k.toLowerCase();
+      if (s === "mccree") return "cassidy";
+      if (s === "soldier: 76") return "soldier-76";
+      return s;
+    };
+
+    const acc = new Map<string, HeroRow>();
+    for (const h of heroes ?? []) {
+      if (!h?.hero) continue;
+      const key = alias(h.hero);
+      const prev = acc.get(key);
+      if (!prev) acc.set(key, { ...h, hero: key });
+      else {
+        acc.set(key, {
+          ...prev,
+          wins: (prev.wins ?? 0) + (h.wins ?? 0),
+          losses: (prev.losses ?? 0) + (h.losses ?? 0),
+          games: (prev.games ?? 0) + (h.games ?? 0),
+          playtime: (prev.playtime ?? 0) + (h.playtime ?? 0),
+          kd: h.playtime > (prev.playtime ?? 0) ? h.kd : prev.kd,
+          icon: prev.icon || h.icon, // 무시되지만 유지
+          role: prev.role || h.role,
+        });
+      }
+    }
+
+    const merged = Array.from(acc.values())
+      .filter((h) => (h.games ?? 0) > 0)
+      .sort((a, b) => (b.playtime ?? 0) - (a.playtime ?? 0));
+
+    return merged.map((h) => ({
       heroName: h.hero,
-      // ← 서버에서 내려준 h.icon 사용 (없으면 플레이스홀더)
-      heroImageUrl: h.icon || "/images/heroes/_placeholder.png",
-      gradeText: "-", // 필요 시 등급 매핑
+      heroImageUrl: heroPortraitUrl(h.hero),  
+      gradeText: "-",
       win: h.wins,
       lose: h.losses,
       winRatio: fmtPercent(h.winrate),
@@ -482,33 +555,33 @@ export default function UserComp({ q, uid: uidProp }: { q?: string; uid?: string
   const winLose = sideSummary.find((s) => s.label === "승패")?.value ?? "-";
   const noHeroes = !loading && (heroes?.length ?? 0) === 0;
 
-  /* ----------------------- early return (렌더 차단) ----------------------- */
   if (!uid) return <div className="text-w-neutral-4">uid가 없습니다.</div>;
   if (loading) return <div className="text-w-neutral-4">불러오는 중…</div>;
   if (err) return <div className="text-red-400">{err}</div>;
   if (!left) return null;
 
-  /* ---------------------------- render ---------------------------- */
   return (
     <main className="container mx-auto px-4 md:px-6 py-6 space-y-6 mt-20">
       <div className="flex items-center gap-2">
-        {/* 모드 토글 */}
         <div className="rounded-xl border border-shap p-1 bg-b-neutral-3">
           <button
             onClick={() => setMode("competitive")}
-            className={`px-3 py-1.5 rounded-lg text-sm ${mode === "competitive" ? "bg-primary text-white" : "text-w-neutral-1"}`}
+            className={`px-3 py-1.5 rounded-lg text-sm ${
+              mode === "competitive" ? "bg-primary text-white" : "text-w-neutral-1"
+            }`}
           >
             경쟁전
           </button>
           <button
             onClick={() => setMode("quickplay")}
-            className={`px-3 py-1.5 rounded-lg text-sm ${mode === "quickplay" ? "bg-primary text-white" : "text-w-neutral-1"}`}
+            className={`px-3 py-1.5 rounded-lg text-sm ${
+              mode === "quickplay" ? "bg-primary text-white" : "text-w-neutral-1"
+            }`}
           >
             일반전
           </button>
         </div>
 
-        {/* 플랫폼 셀렉터(간단 버전) */}
         <select
           value={platform}
           onChange={(e) => setPlatform(e.target.value)}
@@ -522,7 +595,6 @@ export default function UserComp({ q, uid: uidProp }: { q?: string; uid?: string
 
       <PlayerHeader data={headerData} />
 
-      {/* 상단 요약 카드 */}
       <section className="grid md:grid-cols-3 gap-4">
         <div className="rounded-xl border border-shap bg-b-neutral-3 p-4">
           <h3 className="text-lg font-semibold">경쟁전 실력 평점</h3>
@@ -540,10 +612,8 @@ export default function UserComp({ q, uid: uidProp }: { q?: string; uid?: string
         </div>
       </section>
 
-      {/* 역할 티어 그리드 */}
       <RoleTierGrid items={roleTierItems} />
 
-      {/* 영웅/요약 */}
       <section className="grid lg:grid-cols-12 gap-6">
         <div className="lg:col-span-8 space-y-6">
           {noHeroes ? (
