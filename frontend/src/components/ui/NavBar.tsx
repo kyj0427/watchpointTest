@@ -575,13 +575,13 @@ const NavBar = () => {
                       </div>
                       <div className="xl:col-span-4 md:col-span-5 col-span-12">
                         <div className="flex flex-col items-baseline justify-between h-full">
-                          {/* 검색바 */}
+                          {/* 네비게이션 검색바 */}
                           <form className="w-full flex items-center justify-between px-16p py-2 pr-1 border border-w-neutral-4/60 rounded-full">
                             <input
                               className="placeholder:text-w-neutral-4 bg-transparent w-full"
                               type="text"
                               name="search-media"
-                              placeholder="Search Media"
+                              placeholder="컨텐츠 검색..."
                               id="search-media"
                             />
                             <button
@@ -594,7 +594,7 @@ const NavBar = () => {
                           <div className="mt-40p">
                             <Image className="mb-16p" src={logo} alt="logo" />
                             <p className="text-base text-w-neutral-3 mb-32p">
-                              오버워치 게임의 모든 것을 Watchpoint에서.
+                              {/* 오버워치 게임의 모든 것을 Watchpoint에서. */}
                             </p>
                             
                             {/* 모바일 로그인/로그아웃 버튼 */}
