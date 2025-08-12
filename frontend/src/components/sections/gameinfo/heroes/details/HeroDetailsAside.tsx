@@ -19,21 +19,21 @@ const categoryLabels: Record<string, string> = {
 const HeroDetailsAside = () => {
   const [category, setCategory] = useState<string | unknown>("all");
   const [selectedFilter, setSelectedFilter] = useState(filterTypes[0]);
-
+  const [searchTerm, setSearchTerm] = useState("");
+  const filteredhero = heroes?.filter(
+    (item) => {
+      const matchesCategory = category === "all" || item?.role === category;
+      const searchTarget = `${item.name} ${categoryLabels[item.role]}`;
+      const matchesSearch = searchTarget.toLowerCase().includes(searchTerm.toLowerCase());
+      return matchesCategory && matchesSearch;
+    }
+  );
 
   const {
     open: filterOpen,
     handleToggle: filterToggle,
     ref: filterRef,
   } = useToggle();
-
-  const [searchTerm, setSearchTerm] = useState("");
-
-  const filteredhero = heroes?.filter(
-    (item) =>      
-      (category === "all" || item?.role === category) &&
-      item.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );  
 
   return (
     <section className="section-pb">
@@ -75,15 +75,17 @@ const HeroDetailsAside = () => {
             </Listbox> */}
              <div>
                 <div className="hidden lg:flex items-center sm:gap-3 gap-2 min-w-[300px] max-w-[670px] w-full px-20p py-16p bg-b-neutral-2 rounded-full">
-                  <span className="flex-c icon-20 text-white"><i className="ti ti-search"></i></span>
+                  <span className="flex-c icon-20 text-white">
+                    <i className="ti ti-search"></i>
+                  </span>
                   <input
                     className="bg-transparent w-full"
                     type="text"
                     id="searchHero"
                     placeholder="영웅 검색"
                     name="search"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
+                    value={searchTerm} // ✅ 상태와 연결
+                    onChange={(e) => setSearchTerm(e.target.value)} // ✅ 입력 시 상태 변경
                   />
                 </div>
               </div>
