@@ -25,22 +25,26 @@ const HeroPage = async ({ params }: PageProps) => {
   const resolvedParams = await params;
   const id = resolvedParams.id;
   
-  const navLinks: NavLinkProps[] = [
-    { id: 1, url: "/", label: "Home" },
-    { id: 2, url: "", label: "Hero Details" },
-  ];
-
-  const headerData: headerBannerType = {
-    title: "Hero Details",
-    bgImgClasses: "",
-    navLinks,
-  };
-
+  
+  
   // 해당 키와 일치하는 영웅 찾기
   const singleHero = hero.find(
     (item) => item.key.toString() === id
     //(item) => item.key === id
   );
+
+  const navLinks: NavLinkProps[] = [
+    { id: 1, url: "/gameinfo/heroes", label: "영웅정보" },
+    { id: 2, url: "", label: `${singleHero?.name || id} 상세정보` },
+  ];
+
+  const headerData: headerBannerType = {
+    title: singleHero?.name || id,
+    bgImgClasses: "",
+    navLinks,
+  };
+
+  
 
   return (
     <main>
