@@ -150,7 +150,7 @@ const ProfileHeader = () => {
                             type="text"
                             name="search"
                             id="search"
-                            placeholder="Search..."
+                            placeholder="검색..."
                           />
                         </form>
                       </div>
@@ -163,17 +163,14 @@ const ProfileHeader = () => {
                     </MenuButton>
                     <MenuItems className="dropdown-content">
                       <Link href="/settings" className="dropdown-item">
-                        Settings
+                        설정
                       </Link>
                       <MenuItem as="button" className="dropdown-item">
-                        Follow Profile
+                        사용자 신고
                       </MenuItem>
-                      <MenuItem as="button" className="dropdown-item">
-                        Report Profile
-                      </MenuItem>
-                      <MenuItem as="button" className="dropdown-item">
+                      {/* <MenuItem as="button" className="dropdown-item">
                         Block User
-                      </MenuItem>
+                      </MenuItem> */}
                     </MenuItems>
                   </Menu>
                 </div>

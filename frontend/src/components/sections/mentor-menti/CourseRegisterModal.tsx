@@ -15,8 +15,7 @@ const CourseRegisterModal = () => {
             <div className="mt-30 flex flex-col items-center justify-center gap-y-4">
                 <button
                     onClick={() => setOpenModal(true)}
-                    className="rounded-md bg-gradient-to-r from-orange-500 to-amber-500 px-4 py-2 text-lg font-semibold 
-                    text-white shadow-lg hover:from-orange-400 hover:to-amber-400 focus-visible:outline-orange-500 transition-all duration-300 transform hover:scale-105"
+                    className="btn btn-md btn-primary rounded-12 flex items-center gap-2 hover:bg-primary/80 transition-colors"
                 >
                     강의 등록하기
                 </button>

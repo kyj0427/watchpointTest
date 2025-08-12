@@ -16,7 +16,7 @@ const Page = () => {
   return (
     <main>
       <Breadcrumb breadcrumb={headerData} />
-      <Packages />
+      <Packages/>
     </main>
   );
 };

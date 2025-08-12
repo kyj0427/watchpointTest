@@ -9,28 +9,31 @@ import { useState } from "react";
 
 const heroCategory = ["all", "tank", "damage", "support"];
 const filterTypes = ["Popular", "tank", "damage", "support"];
+const categoryLabels: Record<string, string> = {
+  all: "전체",
+  tank: "탱커",
+  damage: "딜러",
+  support: "서포터",
+};
 
 const HeroDetailsAside = () => {
   const [category, setCategory] = useState<string | unknown>("all");
   const [selectedFilter, setSelectedFilter] = useState(filterTypes[0]);
-
-  // const filteredhero = heroes?.filter(
-  //   (item) => category === "all" || item?.role === category
-  // );
+  const [searchTerm, setSearchTerm] = useState("");
+  const filteredhero = heroes?.filter(
+    (item) => {
+      const matchesCategory = category === "all" || item?.role === category;
+      const searchTarget = `${item.name} ${categoryLabels[item.role]}`;
+      const matchesSearch = searchTarget.toLowerCase().includes(searchTerm.toLowerCase());
+      return matchesCategory && matchesSearch;
+    }
+  );
 
   const {
     open: filterOpen,
     handleToggle: filterToggle,
     ref: filterRef,
   } = useToggle();
-
-  const [searchTerm, setSearchTerm] = useState("");
-
-  const filteredhero = heroes?.filter(
-    (item) =>      
-      (category === "all" || item?.role === category) &&
-      item.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
 
   return (
     <section className="section-pb">
@@ -71,16 +74,18 @@ const HeroDetailsAside = () => {
               </Listbox.Options>
             </Listbox> */}
              <div>
-                <div className="hidden lg:flex items-center sm:gap-3 gap-2 min-w-[300px] max-w-[670px] w-full px-20p py-16p bg-b-neutral-2 rounded-full">
-                  <span className="flex-c icon-20 text-white"><i className="ti ti-search"></i></span>
+                <div className="hidden lg:flex items-center sm:gap-3 gap-2 min-w-[300px] max-w-[670px] w-full px-20p py-16p bg-b-neutral-3 rounded-full">
+                  <span className="flex-c icon-20 text-white">
+                    <i className="ti ti-search"></i>
+                  </span>
                   <input
                     className="bg-transparent w-full"
                     type="text"
                     id="searchHero"
-                    placeholder="영웅 검색..."
+                    placeholder="영웅 검색"
                     name="search"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
+                    value={searchTerm} // ✅ 상태와 연결
+                    onChange={(e) => setSearchTerm(e.target.value)} // ✅ 입력 시 상태 변경
                   />
                 </div>
               </div>
@@ -95,7 +100,7 @@ const HeroDetailsAside = () => {
                       category === item ? "bg-b-neutral-2" : "bg-b-neutral-3"
                     } capitalize`}
                   >
-                    {item}
+                    {categoryLabels[item] || item} {/* 한글 이름 표시 */}
                   </button>
                 ))}
               </div>
@@ -132,12 +137,7 @@ const HeroDetailsAside = () => {
                  </Link>
               </div>
             ))}
-          </div>
-          {/* <div className="flex-c mt-48p">
-            <Link href="#" className="btn btn-xl py-3 btn-primary rounded-12">
-              Load More...
-            </Link>
-          </div> */}
+          </div>          
         </div>
       </div>
     </section>

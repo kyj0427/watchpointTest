@@ -3,6 +3,7 @@
 import { bookmarkData } from "@public/data/bookmarksData";
 import Link from "next/link";
 import { useState } from "react";
+import Pagination from "@/components/shared/Pagination";
 
 export type BookmarkItem = {
   id: string | number;
@@ -22,6 +23,14 @@ type Props = {
 const Bookmark = ({items, onUnbookmark}: Props)=> {
     //BookmarksData.ts 정보 사용 (초기 북마크 목록) 
     const [list, setList] = useState<BookmarkItem[]>(items ?? bookmarkData);
+    // 페이지네이션 상태
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 6;
+    const totalPages = Math.ceil(list.length / itemsPerPage);
+
+    const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
     //북마크 해제 기능
     //현재 list에서 해당 id를 가진 게시물 제거
     //여기에 DB 연동하시면됩니다.
@@ -29,7 +38,9 @@ const Bookmark = ({items, onUnbookmark}: Props)=> {
       setList((prev) => prev.filter((x) => x.id !== id));
       onUnbookmark?.(id);
   };
-
+  // 현재 페이지 아이템만 가져오기
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentItems = list.slice(startIndex, startIndex + itemsPerPage);
 
 return (
   <section className="section-pb pt-60p overflow-visible">
@@ -113,31 +124,12 @@ return (
             </ul>
           )}
           {/* 페이징 */}
-          <div className="pagination pagination-primary lg:pagination-center pagination-center pagination-circle pagination-xl w-full mt-48p">
-            <Link href="#" className="pagination-item">
-              <i className="ti ti-chevron-left" />
-            </Link>
-            <div className="pagination-list">
-              {[1, 2, 3, 4, 5].map((page) => (
-                <Link
-                  key={page}
-                  href="#"
-                  className={`pagination-item pagination-circle ${page === 1 ? "active" : ""}`}
-                >
-                  <span className="pagination-link">{page}</span>
-                </Link>
-              ))}
-              <span className="pagination-item pagination-circle">
-                <span className="pagination-link pagination-more">...</span>
-              </span>
-              <Link href="#" className="pagination-item pagination-circle">
-                <span className="pagination-link">10</span>
-              </Link>
-            </div>
-            <Link href="#" className="pagination-item pagination-next">
-              <i className="ti ti-chevron-right" />
-            </Link>
-          </div>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+            className="mt-48p"
+          />
         </div>
       </div>
     </div>

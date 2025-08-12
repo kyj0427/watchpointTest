@@ -48,7 +48,7 @@ const ImageUploader = ({ onFileChange }: Props) => {
             >
             {/* FileUpload 버튼으로 트리거 */}
             <FileUpload onFileSelect={handleFileSelect} accept="image/jpeg, image/png, image/gif" />
-            <p className="text-sm text-gray-500 mt-2">JPG, PNG, GIF (최대 5MB)</p>
+            <p className="text-sm text-gray-500">JPG, PNG, GIF (최대 5MB)</p>
             </div>
         ) : (
             <div className="w-full h-[200px] relative border rounded overflow-hidden">

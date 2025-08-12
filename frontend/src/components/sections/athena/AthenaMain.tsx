@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 
 const AthenaMain: FC = () => {
     const [openModal, setOpenModal] = useState<null | boolean>(null);
-    const [selectedFile, setSelectedFile] = useState<File | { type: 'url', url: string, platform: string } | null>(null);
+    const [selectedFile, setSelectedFile] = useState<File | { type: 'url', url: string, platform: string } | null >(null);
     const router = useRouter();
 
         const handleSubmit = async () => {
@@ -19,6 +19,7 @@ const AthenaMain: FC = () => {
 
         const formData = new FormData();
         
+
         // 파일인지 URL인지 확인
         if (selectedFile instanceof File) {
             formData.append("file", selectedFile);

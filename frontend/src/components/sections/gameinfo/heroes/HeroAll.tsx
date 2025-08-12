@@ -9,16 +9,26 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-const heroCategory = ["all", "tank", "damage", , "support"];
-
-const filterTypes = ["Popular", "tank", "damage", , "support"];
+const heroCategory = ["all", "tank", "damage", "support"];
+const filterTypes = ["Popular", "tank", "damage", "support"];
+const categoryLabels: Record<string, string> = {
+  all: "전체",
+  tank: "탱커",
+  damage: "딜러",
+  support: "서포터",
+};
 
 const HeroAll = () => {
   const [category, setCategory] = useState<string | unknown>("all");
-  const [selectedFilter, setSelectedFilter] = useState(filterTypes[0]);
-
+  const [selectedFilter, setSelectedFilter] = useState(filterTypes[0]);  
+  const [searchTerm, setSearchTerm] = useState("");
   const filteredhero = heroes?.filter(
-    (item) => category === "all" || item?.role === category
+    (item) => {
+      const matchesCategory = category === "all" || item?.role === category;
+      const searchTarget = `${item.name} ${categoryLabels[item.role]}`;
+      const matchesSearch = searchTarget.toLowerCase().includes(searchTerm.toLowerCase());
+      return matchesCategory && matchesSearch;
+    }
   );
 
   const {
@@ -35,10 +45,24 @@ const HeroAll = () => {
         </h2> */}
         <div>
           <div className="flex items-center justify-between flex-wrap gap-24p pb-30p border-b border-shap ">
-            <div className="hidden lg:flex items-center sm:gap-3 gap-2 min-w-[300px] max-w-[670px] w-full px-20p py-16p bg-b-neutral-2 rounded-full">
-              <span className="flex-c icon-20 text-white"><i className="ti ti-search"></i></span>
-              <input className="bg-transparent w-full" type="text" id="searchHero" placeholder="영웅 검색..." name="search" />
+            <div className="hidden lg:flex items-center sm:gap-3 gap-2 min-w-[300px] max-w-[670px] w-full px-20p py-16p bg-b-neutral-3 rounded-full">
+              <span className="flex-c icon-20 text-white">
+                <i className="ti ti-search"></i>
+              </span>
+              <input
+                className="bg-transparent w-full"
+                type="text"
+                id="searchHero"
+                placeholder="영웅 검색"
+                name="search"
+                value={searchTerm} // ✅ 상태와 연결
+                onChange={(e) => setSearchTerm(e.target.value)} // ✅ 입력 시 상태 변경
+              />
             </div>
+            {/* <div className="hidden lg:flex items-center sm:gap-3 gap-2 min-w-[300px] max-w-[670px] w-full px-20p py-16p bg-b-neutral-2 rounded-full">
+              <span className="flex-c icon-20 text-white"><i className="ti ti-search"></i></span>
+              <input className="bg-transparent w-full" type="text" id="searchHero" placeholder="영웅 검색" name="search" />
+            </div> */}
 
             {/* <Listbox
               ref={filterRef}
@@ -80,7 +104,7 @@ const HeroAll = () => {
                       category === item ? "bg-b-neutral-2" : "bg-b-neutral-3"
                     } capitalize`}
                   >
-                    {item}
+                    {categoryLabels[item] || item} {/* 한글 이름 표시 */}
                   </button>
                 ))}
               </div>
@@ -101,7 +125,8 @@ const HeroAll = () => {
                   <span className="badge badge-neutral absolute top-3 left-3 z-[2]">
                     <span className="avatar avatar-primary size-3"></span>
                     <span className="text-s-regular text-w-neutral-1">
-                      {item?.role}
+                      {categoryLabels[item?.role] || item?.role}
+                      {/* {item?.role} */}
                     </span>
                   </span>
                   <Image
@@ -118,12 +143,7 @@ const HeroAll = () => {
                  </Link>
               </div>
             ))}
-          </div>
-          <div className="flex-c mt-48p">
-            <Link href="#" className="btn btn-xl py-3 btn-primary rounded-12">
-              Load More...
-            </Link>
-          </div>
+          </div>         
         </div>
       </div>
     </section>
