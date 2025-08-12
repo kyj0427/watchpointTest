@@ -20,14 +20,14 @@ export default async function MapDetailsPage({
   const displayName = decodeURIComponent(raw);   
 
   const navLinks: NavLinkProps[] = [
-    { id: 1, url: "/", label: "Home" },
-    { id: 2, url: "/gameinfo/maps", label: "Maps" },
+    { id: 1, url: "/gameinfo/maps", label: "맵정보" },
+    { id: 2, url: "", label: `${displayName} 상세정보`},
     // URL은 인코딩 유지
-    { id: 3, url: `/gameinfo/maps/${encodeURIComponent(raw)}`, label: displayName },
+    // { id: 3, url: `/gameinfo/maps/${encodeURIComponent(raw)}`, label: displayName },
   ];
 
   const headerData: headerBannerType = {
-    title: `${displayName} 상세 정보`,  
+    title: displayName,  
     bgImgClasses: "",
     navLinks,
   };
