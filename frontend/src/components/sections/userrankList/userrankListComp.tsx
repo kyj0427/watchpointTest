@@ -1,96 +1,112 @@
-import { userrankLists } from "@public/data/userrankListData";
+// src/components/sections/userrankList/UserrankListComp.tsx
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
 
-// 선택: 티어 문자열 → 이미지로 매핑하려면 추가
-// import gm from "@public/images/ranks/gm.png"; ...
-// const getTierImage = (tier: string) => ...
+type PlayerRow = {
+  player_id: string;
+  name: string;
+  avatar?: string | null;
+  last_updated_at?: number | null;
+};
 
-const UserRankListComp = () => {
+const API = process.env.NEXT_PUBLIC_API_BASE || "http://192.168.0.31:4000";
+
+export default function UserrankListComp({ initialQuery }: { initialQuery?: string }) {
+  const q = useMemo(() => (initialQuery ?? "").trim(), [initialQuery]);
+  const hasQuery = q.length > 0;
+
+  const [loading, setLoading] = useState<boolean>(hasQuery);
+  const [rows, setRows] = useState<PlayerRow[]>([]);
+  const [err, setErr] = useState<string | null>(null);
+
+  useEffect(() => {
+    const ac = new AbortController();
+
+    if (!hasQuery) {
+      setLoading(false);
+      setRows([]);
+      setErr(null);
+      return;
+    }
+
+    setLoading(true);
+    setRows([]);     // 쿼리 바뀔 때 이전 결과 지우기
+    setErr(null);
+
+    fetch(`${API}/api/players?name=${encodeURIComponent(q)}`, {
+      cache: "no-store",
+      signal: ac.signal,
+    })
+      .then(r => r.ok ? r.json() : Promise.reject(new Error(String(r.status))))
+      .then(d => setRows(d?.results ?? []))
+      .catch(e => { if (!ac.signal.aborted) setErr(e.message || "불러오기 실패"); })
+      .finally(() => { if (!ac.signal.aborted) setLoading(false); });
+
+    return () => ac.abort();
+  }, [q, hasQuery]);
+
+  const showEmpty = hasQuery && !loading && rows.length === 0 && !err;
+
   return (
     <section className="section-pb pt-60p">
       <div className="container">
-        <div className="overflow-x-auto scrollbar-sm">
-          <table className="text-l-medium font-poppins text-w-neutral-1 w-full whitespace-nowrap">
-            <thead className="text-left">
-              <tr className="bg-shap rounded-t-12">
-                <th className="text-l-medium px-24p py-3 lg:min-w-[150px] min-w-25">목록</th>
-                <th className="px-24p py-3 min-w-[120px]">아이콘</th>
-                <th className="text-l-medium px-24p py-3 lg:min-w-[300px] min-w-[280px]">플레이어</th>
-                <th className="text-l-medium px-24p py-3 min-w-25">KDA</th>
-                <th className="text-l-medium px-24p py-3 min-w-25">승률</th>
-                <th className="text-l-medium px-24p py-3 min-w-25">플레이시간</th>
-                <th className="text-l-medium px-24p py-3 min-w-25">모스트영웅</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-solid divide-shap border-b border-shap bg-b-neutral-3">
-              {userrankLists?.map((item, idx) => (
-                <tr key={idx}>
-                  <td className="px-24p py-3">
-                    <div className="flex items-center gap-3">
-                      <span className="text-l-medium">{item?.목록}</span>
-                    </div>
-                  </td>
+        {hasQuery && loading && (
+          <div className="py-10 text-center text-w-neutral-4">검색 중…</div>
+        )}
 
-                  <td className="px-24p py-3">
-                    <div className="flex items-center *:avatar *:size-10 *:border *:border-white *:-ml-3 ml-3">
-                      {item?.아이콘?.slice(0, 3)?.map((avatar, idx) => (
-                        <Image key={idx} src={avatar} alt="heros" />
-                      ))}
-                    </div>
-                  </td>
-
-                  <td className="px-24p py-3">
-                    <Link href={`/userrankList/user`} className="text-primary hover:underline">
-                      {item?.플레이어}
-                    </Link>
-                  </td>
-
-                  <td className="px-24p py-3">{item?.KDA}</td>
-                  <td className="px-24p py-3">{item?.승률}%</td>
-                  <td className="px-24p py-3">{item?.플레이시간}분</td>
-                  <td className="px-24p py-3">
-                    <div className="flex items-center *:avatar *:size-10 *:border *:border-white *:-ml-3 ml-3">
-                      {item?.모스트영웅?.slice(0, 3)?.map((avatar, idx) => (
-                        <Image key={idx} src={avatar} alt="heros" />
-                      ))}
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        
-        {/* 페이지네이션 1,2,3,4,5 */}
-        <div className="pagination pagination-primary lg:pagination-center pagination-center pagination-circle pagination-xl w-full mt-48p">
-          <Link href="#" className="pagination-item pagination-prev">
-            <i className="ti ti-chevron-left" />
-          </Link>
-          <div className="pagination-list">
-            {[1, 2, 3, 4, 5].map((page) => (
-              <Link
-                key={page}
-                href="#"
-                className={`pagination-item pagination-circle ${page === 1 ? "active" : ""}`}
-              >
-                <span className="pagination-link">{page}</span>
-              </Link>
-            ))}
-            <span className="pagination-item pagination-circle">
-              <span className="pagination-link pagination-more">...</span>
-            </span>
-            <Link href="#" className="pagination-item pagination-circle">
-              <span className="pagination-link">10</span>
-            </Link>
+        {showEmpty && (
+          <div className="py-10 text-center text-w-neutral-4">
+            검색결과가 없습니다{q ? `: ${q}` : ""}.
           </div>
-          <Link href="#" className="pagination-item pagination-next">
-            <i className="ti ti-chevron-right" />
-          </Link>
-        </div>
+        )}
+
+        {err && (
+          <div className="py-10 text-center text-red-400">에러: {err}</div>
+        )}
+
+        {!loading && rows.length > 0 && (
+          <div className="overflow-x-auto scrollbar-sm">
+            <table className="text-l-medium font-poppins text-w-neutral-1 w-full whitespace-nowrap">
+              <thead className="text-left">
+                <tr className="bg-shap rounded-t-12">
+                  <th className="px-24p py-3 min-w-[80px]">#</th>
+                  <th className="px-24p py-3 min-w-[120px]">아이콘</th>
+                  <th className="px-24p py-3 min-w-[280px]">플레이어</th>
+                  <th className="px-24p py-3 min-w-[220px]">최근 업데이트</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-solid divide-shap border-b border-shap bg-b-neutral-3">
+                {rows.map((p, idx) => (
+                  <tr key={p.player_id}>
+                    <td className="px-24p py-3">{idx + 1}</td>
+                    <td className="px-24p py-3">
+                      {p.avatar ? (
+                        <Image src={p.avatar} alt={p.name} width={40} height={40} className="rounded-full" />
+                      ) : (
+                        <div className="w-10 h-10 rounded-full bg-zinc-700" />
+                      )}
+                    </td>
+                    <td className="px-24p py-3">
+                      <Link
+                        href={`/userrankList/user?q=${encodeURIComponent(p.name)}&uid=${encodeURIComponent(p.player_id)}`}
+                        className="text-primary hover:underline"
+                      >
+                        {p.name}
+                      </Link>
+                    </td>
+                    <td className="px-24p py-3">
+                      {p.last_updated_at ? new Date(p.last_updated_at * 1000).toLocaleString() : "-"}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
       </div>
     </section>
   );
-};
-
-export default UserRankListComp;
+}

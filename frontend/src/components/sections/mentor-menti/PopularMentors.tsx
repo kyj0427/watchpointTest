@@ -86,7 +86,7 @@ const PopularMentors = ({ className, type }: { className?: string; type: string 
                         </span>
                         </div>
                         <Link
-                        href={`/coaching/mentor-menti/mentoring-lists/${type}/${item.id}`}
+                        href={`/coaching/mentoring-lists/${type}/${item.id}`}
                         className="heading-3 text-w-neutral-1 4xl:line-clamp-2 line-clamp-1 link-1 my-16p"
                         >
                         {item?.title}

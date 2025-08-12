@@ -90,7 +90,7 @@ const Mentors = ({ data, type }: { data: Mentor[]; type: string }) => {
                 />
                 </div>
                 <div className="p-28p">
-                <Link href={`/coaching/mentor-menti/mentoring-lists/${type}/${item.id}`} className="heading-3 link-1 mb-2 line-clamp-1">
+                <Link href={`/coaching/mentoring-lists/${type}/${item.id}`} className="heading-3 link-1 mb-2 line-clamp-1">
                     {item.title}
                 </Link>
                 <p className="text-l-regular text-w-neutral-2">

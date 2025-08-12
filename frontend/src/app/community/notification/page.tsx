@@ -5,12 +5,12 @@ import { headerBannerType, NavLinkProps } from "@/config/types";
 import Link from "next/link";
 const Page = () => {
   const navLinks: NavLinkProps[] = [
-    { id: 1, url: "/", label: "Home" },
-    { id: 2, url: "", label: "Notification" },
+    { id: 1, url: "/community", label: "커뮤니티" },
+    { id: 2, url: "", label: "공지" },
   ];
 
   const headerData: headerBannerType = {
-    title: "Notification",
+    title: "공지",
     navLinks,
   };
 

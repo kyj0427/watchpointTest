@@ -4,12 +4,12 @@ import { headerBannerType, NavLinkProps } from "@/config/types";
 
 const Page = () => {
   const navLinks: NavLinkProps[] = [
-    { id: 1, url: "/", label: "Home" },
-    { id: 2, url: "", label: "Squad/Chat" },
+    { id: 1, url: "/community", label: "커뮤니티" },
+    { id: 2, url: "", label: "듀오/스쿼드 탐색" },
   ];
 
   const headerData: headerBannerType = {
-    title: "Squad/Chat",
+    title: "듀오/스쿼드 탐색",
     navLinks,
   };
 

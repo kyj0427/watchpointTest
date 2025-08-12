@@ -5,7 +5,7 @@ import { useMemo, useState } from "react";
 import ProfilePosts, { NewPost as PostType } from "./ProfilePosts_hw";
 import { blogPosts } from "@public/data/blogPosts";
 import { timelineItems as seedItems } from "@public/data/timelinePosts";
-import { useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import {
   IconTrendingUp,
   IconHash,
@@ -78,13 +78,31 @@ function normalizeSeed(items: any[]): PostType[] {
 
 export default function Community() {
   const sp = useSearchParams();
-  const currentBoard = (sp.get("board") as BoardKey) ?? "all";
+  const pathname = usePathname();
+
+  // 현재 보드 계산: 전용 라우트 우선 → 쿼리 파라미터 보조
+  const currentBoard: BoardKey = useMemo(() => {
+    if (pathname?.endsWith("/community/notification")) return "notify";
+    if (pathname?.endsWith("/community/SquadOrChat"))  return "duos-list";
+    if (pathname?.endsWith("/community/chat/create"))  return "duos-match";
+    return (sp.get("board") as BoardKey) ?? "all";
+  }, [pathname, sp]);
+
+  // 메뉴별 이동 경로
+  const getBoardHref = (key: BoardKey) => {
+    switch (key) {
+      case "notify":     return "/community/notification";
+      case "duos-list":  return "/community/SquadOrChat";
+      case "duos-match": return "/community/chat/create";
+      default:           return `/community?board=${key}`;
+    }
+  };
 
   const [posts] = useState<PostType[]>(normalizeSeed(seedItems as any[]));
   const [activeTab, setActiveTab] = useState<TabKey>("most");
   const [timeRange, setTimeRange] = useState<RangeKey>("all");
 
-  useMemo(() => blogPosts.slice(0, 5), []); // (미사용)
+  useMemo(() => blogPosts.slice(0, 5), []);
 
   // 보드 필터
   const boardFiltered = useMemo(() => {
@@ -129,7 +147,6 @@ export default function Community() {
     return base;
   }, [withRangeFiltered, activeTab]);
 
-
   const HEADER_OFFSET = "top-[96px]";
   const PAGE_PADDING_TOP = "pt-[135px]";
 
@@ -154,7 +171,7 @@ export default function Community() {
                   return (
                     <Link
                       key={b.key}
-                      href={`/community?board=${b.key}`}
+                      href={getBoardHref(b.key)}
                       className={[
                         "w-full h-[44px] px-3 rounded-12 text-[14px] flex items-center gap-2 transition justify-start",
                         active
@@ -171,54 +188,56 @@ export default function Community() {
               </nav>
             </div>
           </aside>
-{/* RIGHT */}
-<section className="min-w-0">
-  <div className="mx-auto w-full max-w-[1000px]">
-    {/* ▶ 필터바: sticky 제거, 두께 충분, 카드와 확실히 분리 */}
-    <div className="mb-5">
-      <div className="bg-b-neutral-3 rounded-12 px-6 py-5 border border-w-neutral-4/20 shadow-md">
-        <div className="flex flex-wrap items-center gap-3">
-          <button
-            className={`btn btn-sm ${activeTab === "most" ? "btn-primary" : ""}`}
-            onClick={() => setActiveTab("most")}
-          >
-            Most
-          </button>
-          <button
-            className={`btn btn-sm ${activeTab === "new" ? "btn-primary" : ""}`}
-            onClick={() => setActiveTab("new")}
-          >
-            New
-          </button>
-          <button
-            className={`btn btn-sm ${activeTab === "top" ? "btn-primary" : ""}`}
-            onClick={() => setActiveTab("top")}
-          >
-            Top ▾
-          </button>
 
-          <div className="ml-auto flex items-center gap-3">
-            <span className="text-xs text-w-neutral-4">Time range</span>
-            <select
-              className="select select-sm bg-b-neutral-2 rounded-8 min-w-[132px]"
-              value={timeRange}
-              onChange={(e) => setTimeRange(e.target.value as RangeKey)}
-            >
-              <option value="today">Today</option>
-              <option value="week">This week</option>
-              <option value="month">This month</option>
-              <option value="all">All time</option>
-            </select>
-          </div>
-        </div>
-      </div>
-    </div>
+          {/* RIGHT */}
+          <section className="min-w-0">
+            <div className="mx-auto w-full max-w-[1000px]">
 
-    {/* ▶ 게시물 리스트 */}
-    <ProfilePosts posts={visiblePosts} />
-  </div>
-</section>
+              {/* ▶ 게시물 리스트 (먼저) */}
+              <ProfilePosts posts={visiblePosts} />
 
+              {/* ▶ 배너/필터바 (아래로 이동) */}
+              <div className="mt-6">
+                <div className="bg-b-neutral-3 rounded-12 px-6 py-5 border border-w-neutral-4/20 shadow-md">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <button
+                      className={`btn btn-sm ${activeTab === "most" ? "btn-primary" : ""}`}
+                      onClick={() => setActiveTab("most")}
+                    >
+                      Most
+                    </button>
+                    <button
+                      className={`btn btn-sm ${activeTab === "new" ? "btn-primary" : ""}`}
+                      onClick={() => setActiveTab("new")}
+                    >
+                      New
+                    </button>
+                    <button
+                      className={`btn btn-sm ${activeTab === "top" ? "btn-primary" : ""}`}
+                      onClick={() => setActiveTab("top")}
+                    >
+                      Top ▾
+                    </button>
+
+                    <div className="ml-auto flex items-center gap-3">
+                      <span className="text-xs text-w-neutral-4">Time range</span>
+                      <select
+                        className="select select-sm bg-b-neutral-2 rounded-8 min-w-[132px]"
+                        value={timeRange}
+                        onChange={(e) => setTimeRange(e.target.value as RangeKey)}
+                      >
+                        <option value="today">Today</option>
+                        <option value="week">This week</option>
+                        <option value="month">This month</option>
+                        <option value="all">All time</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section>
         </div>
       </div>
     </main>

@@ -19,6 +19,10 @@ export const mentorings = [
         name: "홍길동",
         image: "/images/blogs/blog2.png",
         position: "Frontend Developer",
+        career: [
+            "2024 오버워치 챔피언스 시리즈 준우승",
+            "t1 수석코치(2024~2025)"
+        ]
         },
     },
     {
@@ -38,6 +42,10 @@ export const mentorings = [
         name: "김영희",
         image: "/images/blogs/blog4.png",
         position: "Backend Engineer",
+        career: [
+            "2024 오버워치 챔피언스 시리즈 준우승",
+            "t1 수석코치(2024~2025)"
+        ]
         },
     },
     {
@@ -57,6 +65,10 @@ export const mentorings = [
         name: "이철수",
         image: "/images/blogs/blog6.png",
         position: "Fullstack Developer",
+        career: [
+            "2024 오버워치 챔피언스 시리즈 준우승",
+            "t1 수석코치(2024~2025)"
+        ]
         },
     },
     {
@@ -76,6 +88,10 @@ export const mentorings = [
         name: "박지민",
         image: "/images/blogs/blog8.png",
         position: "DevOps Engineer",
+        career: [
+            "2024 오버워치 챔피언스 시리즈 준우승",
+            "t1 수석코치(2024~2025)"
+        ]
         },
     },
     {
@@ -95,6 +111,10 @@ export const mentorings = [
         name: "최수연",
         image: "/images/blogs/recentBlog1.png",
         position: "Senior Frontend Developer",
+        career: [
+            "2024 오버워치 챔피언스 시리즈 준우승",
+            "t1 수석코치(2024~2025)"
+        ]
         },
     },
     {
@@ -114,6 +134,10 @@ export const mentorings = [
         name: "한준호",
         image: "/images/blogs/blogDetails1.1.png",
         position: "Backend Architect",
+        career: [
+            "2024 오버워치 챔피언스 시리즈 준우승",
+            "t1 수석코치(2024~2025)"
+        ]
         },
     },
 ];
