@@ -6,13 +6,13 @@ import { headerBannerType, NavLinkProps } from "@/config/types";
 const Page = () => {
   //breadcrumb
   const navLinks: NavLinkProps[] = [  
-    { id: 1, url: "/", label: "Home" },
-    { id: 2, url: "", label: "Heroes" },
+    { id: 1, url: "/gameinfo", label: "게임정보" },
+    { id: 2, url: "", label: "영웅정보" },
   ];
 
   //비주얼 타이틀
   const headerData: headerBannerType = {
-    title: "Heroes",
+    title: "영웅정보",
     bgImgClasses: "",
     navLinks,
   };
