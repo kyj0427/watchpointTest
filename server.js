@@ -6,9 +6,10 @@
 // - Competitive/Quickplay (?mode=competitive|quickplay)
 // - 플랫폼 (?platform=pc|xbl|psn)
 // - 레이트리밋 재시도/로깅 + 디버그 패스스루
-// - 영웅 메타(이미지/역할) ES 병합
+// - 영웅 메타(이미지/역할) ES 병합 + 중복 정규화/집계
 // -------------------------------------------------------------
 
+"use strict";
 const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
@@ -17,12 +18,27 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// -------------------------------------------------------------
+// 상수/환경
+// -------------------------------------------------------------
+const OVERFAST = process.env.OVERFAST_BASE || "https://overfast-api.tekrop.fr";
+const ELASTIC_HOST = process.env.ELASTIC_HOST || "http://192.168.0.31:9200";
+const ELASTIC_AUTH = {
+  username: process.env.ELASTIC_USER || "elastic",
+  password: process.env.ELASTIC_PASS || "changeme",
+};
+const HERO_INDEX = process.env.HERO_INDEX || "test_overwatch_heroes";
+const PORT = Number(process.env.PORT || 4000);
+
+// -------------------------------------------------------------
+// 영웅 별칭/슬러그
+// -------------------------------------------------------------
 const HERO_ALIASES = {
-  "soldier-76": "soldier-76", // ES: "Soldier: 76"
-  "torbjorn": "torbjorn",     // ES: "Torbjörn"
-  "dva": "dva",               // ES: "D.Va"
+  "soldier-76": "soldier-76",
+  "torbjorn": "torbjorn",
+  "dva": "dva",
   "wrecking-ball": "wrecking-ball",
-  "cassidy": "cassidy",       // ES가 옛 'mccree'로 남아있다면 'mccree'로도 한번 더 시도
+  "cassidy": "cassidy",
   "mccree": "cassidy",
   "ramattra": "ramattra",
   "illari": "illari",
@@ -39,17 +55,7 @@ function heroSlug(s = "") {
     .replace(/[:.'’]/g, "")
     .replace(/[^a-z0-9-]/g, "");
 }
-// -------------------------------------------------------------
-// 상수/환경
-// -------------------------------------------------------------
-const OVERFAST = process.env.OVERFAST_BASE || "https://overfast-api.tekrop.fr";
-const ELASTIC_HOST = process.env.ELASTIC_HOST || "http://192.168.0.31:9200";
-const ELASTIC_AUTH = {
-  username: process.env.ELASTIC_USER || "elastic",
-  password: process.env.ELASTIC_PASS || "changeme",
-};
-const HERO_INDEX = process.env.HERO_INDEX || "test_overwatch_heroes";
-const PORT = Number(process.env.PORT || 4000);
+const CANON = (name = "") => HERO_ALIASES[heroSlug(name)] || heroSlug(name);
 
 // -------------------------------------------------------------
 // 로깅 & 헬스체크
@@ -86,16 +92,10 @@ const toNum = (v, d = 0) => {
   const n = Number(v);
   return Number.isFinite(n) ? n : d;
 };
+const sanitizePlayerId = (id) => String(id || "").replace("#", "-");
+const readPlayerId = (req) => sanitizePlayerId(req.params.playerId ?? req.query.tag ?? "");
 
-// 배틀태그 정규화(# -> -)
-function sanitizePlayerId(id) {
-  return String(id || "").replace("#", "-");
-}
-function readPlayerId(req) {
-  return sanitizePlayerId(req.params.playerId ?? req.query.tag ?? "");
-}
-
-// 레이트리밋/일시 오류 자동 재시도 (+ Retry-After 존중)
+// 레이트리밋/일시 오류 자동 재시도
 async function getWithRetry(url, params = {}, tries = 4) {
   for (let i = 0; i < tries; i++) {
     try {
@@ -125,7 +125,7 @@ async function getWithRetry(url, params = {}, tries = 4) {
   }
 }
 
-// ---- OverFast 원본 패치(디버그용)
+// ---- OverFast 원본(디버그)
 async function fetchOverfast(path, params = {}) {
   const url = `${OVERFAST}${path}`;
   const r = await axios.get(url, {
@@ -170,8 +170,7 @@ function normalizeSummary(summary, platform = "pc") {
   };
 
   const compPlat = summary?.competitive?.[platform] || summary?.competitive || {};
-  const qpPlat =
-    summary?.quickplay?.[platform] || summary?.quickplay || summary?.qp || {};
+  const qpPlat = summary?.quickplay?.[platform] || summary?.quickplay || summary?.qp || {};
 
   return { profile, competitive: compPlat, quickplay: qpPlat };
 }
@@ -181,16 +180,6 @@ function normalizeSummary(summary, platform = "pc") {
 // -------------------------------------------------------------
 const HERO_CACHE_TTL_MS = 5 * 60 * 1000; // 5분
 let HERO_CACHE = { at: 0, map: {} };
-
-function heroSlug(s = "") {
-  return String(s)
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/\s+/g, "-")
-    .replace(/[:.'’]/g, "")
-    .replace(/[^a-z0-9-]/g, "");
-}
 
 async function loadHeroMeta(force = false) {
   if (!force && Date.now() - HERO_CACHE.at < HERO_CACHE_TTL_MS) {
@@ -306,7 +295,7 @@ app.get("/api/players", async (req, res) => {
 });
 
 // -------------------------------------------------------------
-// 풀 프로필 (요약 + 모드별 통계)  ★ 영웅 메타 병합
+// 풀 프로필 (요약 + 모드별 통계)  ★ 영웅 메타 병합 + 중복 정규화/집계
 // -------------------------------------------------------------
 app.get("/api/profile/:playerId/full", async (req, res) => {
   const id = readPlayerId(req);
@@ -319,7 +308,7 @@ app.get("/api/profile/:playerId/full", async (req, res) => {
   try {
     // 0) 영웅 메타(ES)
     const heroMeta = await loadHeroMeta();
-    const metaOf = (nameOrKey = "") => heroMeta[heroSlug(nameOrKey)] || null;
+    const metaOf = (nameOrKey = "") => heroMeta[CANON(nameOrKey)] || null;
 
     // 1) Summary
     const summaryRaw = await getWithRetry(
@@ -332,7 +321,7 @@ app.get("/api/profile/:playerId/full", async (req, res) => {
     const statsRaw = await fetchStatsFlexible(id, platform, mode);
     const stats = statsRaw && statsRaw.data ? statsRaw.data : statsRaw;
 
-    // ---- 랭크(경쟁전만)
+    // ---- 대표 랭크
     const order = ["bronze","silver","gold","platinum","diamond","master","grandmaster","champion","ultimate"];
     const rolesObj = competitive || {};
     const roleKeys = ["tank", "damage", "support"];
@@ -346,7 +335,7 @@ app.get("/api/profile/:playerId/full", async (req, res) => {
       if (score > best.score) best = { label: `${r.division}${tierN ? ` ${tierN}` : ""}`, score };
     });
 
-    // ---- 합계 (all-heroes → game 섹션)
+    // ---- 합계 (all-heroes → game)
     const allHeroesArr = Array.isArray(stats?.["all-heroes"]) ? stats["all-heroes"] : [];
     const gameSec = allHeroesArr.find((s) => s?.category === "game");
     const gameMap = mapByKey(gameSec?.stats || [], "key", "value");
@@ -355,10 +344,14 @@ app.get("/api/profile/:playerId/full", async (req, res) => {
     let games  = toNum(gameMap.get("games_played"), 0);
     let losses = toNum(gameMap.get("games_lost"), 0);
     if (!losses && games >= wins) losses = games - wins;
-
     const winrate = games ? +((wins * 100) / games).toFixed(1) : 0;
 
-    // ---- 좌측 패널
+    // ---- 좌측 패널(+ 역할 아이콘)
+    const roleIcons = {
+      tank:    rolesObj?.tank?.role_icon    || "/images/roles/tank.svg",
+      damage:  rolesObj?.damage?.role_icon  || "/images/roles/damage.svg",
+      support: rolesObj?.support?.role_icon || "/images/roles/support.svg",
+    };
     const left = {
       profile,
       rank: mode === "competitive" ? best.label : "Quickplay",
@@ -377,14 +370,14 @@ app.get("/api/profile/:playerId/full", async (req, res) => {
                 : null,
             }
           : { tank: null, damage: null, support: null },
+      assets: { roleIcons },
     };
 
-    // ---- 영웅 표
-    const heroRows = [];
+    // ---- 영웅 표(중복 정규화/집계)
+    const acc = new Map(); // key=canon hero, val={wins,losses,games,kills,deaths,playtime,objSum,objCnt}
     if (stats && typeof stats === "object") {
-      for (const [key, arr] of Object.entries(stats)) {
-        if (key === "all-heroes") continue;
-        if (!Array.isArray(arr)) continue;
+      for (const [rawKey, arr] of Object.entries(stats)) {
+        if (rawKey === "all-heroes" || !Array.isArray(arr)) continue;
 
         const byCat = (cat) => arr.find((s) => s?.category === cat);
         const val = (cat, k) => {
@@ -393,16 +386,13 @@ app.get("/api/profile/:playerId/full", async (req, res) => {
           return it?.value ?? 0;
         };
 
-        const heroKey     = key; // e.g. "genji"
-        const meta        = metaOf(heroKey);
+        const k = CANON(rawKey);
         const gamesPlayed = toNum(val("game", "games_played"), 0);
         const winsH       = toNum(val("game", "games_won"), 0);
         const lossesH     = toNum(val("game", "games_lost"), Math.max(0, gamesPlayed - winsH));
-        const winrtH      = gamesPlayed ? Math.round((winsH * 100) / gamesPlayed) : 0;
 
         const kills  = toNum(val("combat", "final_blows"), toNum(val("combat", "eliminations"), 0));
         const deaths = toNum(val("combat", "deaths"), 0);
-        const kd     = deaths ? `${(kills / deaths).toFixed(2)} : 1` : "-";
 
         const obj10m =
           val("average", "objective_time_avg_per_10_min") ||
@@ -411,21 +401,40 @@ app.get("/api/profile/:playerId/full", async (req, res) => {
 
         const playSec = toNum(val("game", "time_played"), 0);
 
-        heroRows.push({
-          hero: heroKey,
-          role: meta?.heroRole ?? null,
-          icon: meta?.heroIcon ?? null,
-          images: meta?.heroImages ?? [],
-          detailUrl: meta?.heroDetailUrl ?? null,
-          wins: winsH,
-          losses: lossesH,
-          games: gamesPlayed,
-          winrate: winrtH,
-          kd,
-          objective_avg_10m: obj10m,
-          playtime: playSec,
-        });
+        const cur = acc.get(k) || { wins:0, losses:0, games:0, kills:0, deaths:0, playtime:0, objSum:0, objCnt:0 };
+        cur.wins     += winsH;
+        cur.losses   += lossesH;
+        cur.games    += gamesPlayed;
+        cur.kills    += kills;
+        cur.deaths   += deaths;
+        cur.playtime += playSec;
+        if (obj10m != null) { cur.objSum += obj10m; cur.objCnt += 1; }
+        acc.set(k, cur);
       }
+    }
+
+    const heroRows = [];
+    for (const [k, o] of acc.entries()) {
+      if (o.games <= 0) continue; // 0판 제거
+      const meta = metaOf(k);
+      const kd = o.deaths ? `${(o.kills / o.deaths).toFixed(2)} : 1` : "-";
+      const winrt = o.games ? Math.round((o.wins * 100) / o.games) : 0;
+      const obj10m = o.objCnt ? +(o.objSum / o.objCnt).toFixed(2) : null;
+
+      heroRows.push({
+        hero: k,
+        role:   meta?.heroRole ?? null,
+        icon:   meta?.heroIcon ?? null,
+        images: meta?.heroImages ?? [],
+        detailUrl: meta?.heroDetailUrl ?? null,
+        wins: o.wins,
+        losses: o.losses,
+        games: o.games,
+        winrate: winrt,
+        kd,
+        objective_avg_10m: obj10m,
+        playtime: o.playtime,
+      });
     }
 
     heroRows.sort((a, b) => (b.playtime || 0) - (a.playtime || 0));

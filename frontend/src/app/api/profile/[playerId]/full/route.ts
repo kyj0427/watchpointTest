@@ -15,11 +15,11 @@ const ORDER = [
 
 // ====== 영웅 별칭/슬러그 ======
 const HERO_ALIASES: Record<string,string> = {
-  "soldier-76": "soldier-76", // Soldier: 76
-  "torbjorn": "torbjorn",     // Torbjörn
-  "dva": "dva",               // D.Va
+  "soldier-76": "soldier-76",
+  "torbjorn": "torbjorn",
+  "dva": "dva",
   "wrecking-ball": "wrecking-ball",
-  "cassidy": "cassidy",       // (구) mccree
+  "cassidy": "cassidy",
   "mccree": "cassidy",
   "ramattra": "ramattra",
   "illari": "illari",
@@ -27,13 +27,13 @@ const HERO_ALIASES: Record<string,string> = {
   "junker-queen": "junker-queen",
   "lifeweaver": "lifeweaver",
 };
-
 const heroSlug = (s = "") =>
   s.toLowerCase()
     .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
     .replace(/\s+/g, "-")
     .replace(/[:.'’]/g, "")
     .replace(/[^a-z0-9-]/g, "");
+const CANON = (name = "") => HERO_ALIASES[heroSlug(name)] || heroSlug(name);
 
 // ====== 유틸 ======
 const mapByKey = (arr: any[] = [], key = "key", val = "value") => {
@@ -114,24 +114,22 @@ export async function GET(req: Request, { params }: { params: { playerId: string
     const mode = (searchParams.get("mode") || "competitive") as "competitive" | "quickplay";
     const platform = searchParams.get("platform") || "pc";
 
-    // Overfast URL
     const summaryUrl = `${OVERFAST}/players/${encodeURIComponent(id)}/summary?platform=${platform}`;
-    const statsUrl   = `${OVERFAST}/players/${encodeURIComponent(id)}/stats?gamemode=${mode}&platform=${platform}`;
-    console.log("[full] summary:", summaryUrl);
-    console.log("[full] stats  :", statsUrl);
+    const statsUrl1  = `${OVERFAST}/players/${encodeURIComponent(id)}/stats?gamemode=${mode}&platform=${platform}`;
+    const statsUrl2  = `${OVERFAST}/players/${encodeURIComponent(id)}/stats?game_mode=${mode}&platform=${platform}`;
 
-    // ES 메타 로딩(병렬)
-    const [summaryRes, statsRes, heroMetaMap] = await Promise.all([
+    const [summaryRes, statsResTry1, heroMetaMap] = await Promise.all([
       fetch(summaryUrl, { cache: "no-store" }),
-      fetch(statsUrl,   { cache: "no-store" }),
+      fetch(statsUrl1,   { cache: "no-store" }),
       loadHeroMeta(false),
     ]);
-
     if (!summaryRes.ok) return NextResponse.json({ error: "summary fetch failed" }, { status: 502 });
-    if (!statsRes.ok)   return NextResponse.json({ error: "stats fetch failed" }, { status: 502 });
+
+    const statsRes = statsResTry1.ok ? statsResTry1 : await fetch(statsUrl2, { cache: "no-store" });
+    if (!statsRes.ok) return NextResponse.json({ error: "stats fetch failed" }, { status: 502 });
 
     const summary = unwrap(await summaryRes.json());
-    const stats   = unwrap(await statsRes.json()); // 평면 구조: "all-heroes", "tracer", ...
+    const stats   = unwrap(await statsRes.json());
 
     // ---------- 대표티어 ----------
     const comp = summary?.competitive?.[platform] ?? summary?.competitive?.pc ?? {};
@@ -154,9 +152,9 @@ export async function GET(req: Request, { params }: { params: { playerId: string
     const games  = toNum(gameMap.get("games_played"), wins);
     let losses   = toNum(gameMap.get("games_lost"), Math.max(0, games - wins));
     if (losses > games) losses = Math.max(0, games - wins);
-
     const winrate = games ? +((wins * 100) / games).toFixed(1) : 0;
 
+    // ---------- 좌측 패널(+ 역할 아이콘) ----------
     const left = {
       profile: {
         username: summary?.username,
@@ -172,21 +170,22 @@ export async function GET(req: Request, { params }: { params: { playerId: string
         damage:  comp?.damage  ? { division: comp.damage.division,  tier: comp.damage.tier ?? null }  : null,
         support: comp?.support ? { division: comp.support.division, tier: comp.support.tier ?? null } : null,
       },
+      assets: {
+        roleIcons: {
+          tank:    comp?.tank?.role_icon    || "/images/roles/tank.svg",
+          damage:  comp?.damage?.role_icon  || "/images/roles/damage.svg",
+          support: comp?.support?.role_icon || "/images/roles/support.svg",
+        },
+      },
     };
 
-    // ---------- 영웅별 표(ES 메타 병합) ----------
-    const heroRows: any[] = [];
-    const missing: string[] = [];
-
-    const metaOf = (k: string) => {
-      const k1 = heroSlug(k);
-      const k2 = HERO_ALIASES[k1] || k1;
-      return heroMetaMap[k2] || null;
-    };
+    // ---------- 영웅별 표(중복 정규화/집계) ----------
+    const metaOf = (k: string) => heroMetaMap[CANON(k)] || null;
+    const acc = new Map<string, { wins:number; losses:number; games:number; kills:number; deaths:number; playtime:number; objSum:number; objCnt:number }>();
 
     if (stats && typeof stats === "object") {
-      for (const [key, arr] of Object.entries(stats)) {
-        if (key === "all-heroes") continue;
+      for (const [rawKey, arr] of Object.entries(stats)) {
+        if (rawKey === "all-heroes") continue;
         if (!Array.isArray(arr)) continue;
 
         const byCat = (cat: string) => (arr as any[]).find(s => s?.category === cat);
@@ -196,18 +195,13 @@ export async function GET(req: Request, { params }: { params: { playerId: string
           return it?.value ?? 0;
         };
 
-        const hero        = key; // e.g. "tracer", "soldier-76"
-        const meta        = metaOf(hero);
-        if (!meta) missing.push(hero);
-
+        const k = CANON(rawKey);
         const gamesPlayed = toNum(val("game", "games_played"), 0);
         const winsH       = toNum(val("game", "games_won"), 0);
         const lossesH     = toNum(val("game", "games_lost"), Math.max(0, gamesPlayed - winsH));
-        const winrtH      = gamesPlayed ? Math.round((winsH * 100) / gamesPlayed) : 0;
 
         const kills  = toNum(val("combat", "final_blows"), toNum(val("combat", "eliminations"), 0));
         const deaths = toNum(val("combat", "deaths"), 0);
-        const kd     = deaths ? `${(kills / deaths).toFixed(2)} : 1` : "-";
 
         const obj10m =
           val("average", "objective_time_avg_per_10_min") ||
@@ -216,33 +210,49 @@ export async function GET(req: Request, { params }: { params: { playerId: string
 
         const playSec = toNum(val("game", "time_played"), 0);
 
-        heroRows.push({
-          hero,
-          role:   meta?.heroRole ?? null,
-          icon:   meta?.heroIcon ?? "/images/heroes/_placeholder.png", // ← 플홀더
-          images: meta?.heroImages ?? [],
-          detailUrl: meta?.heroDetailUrl ?? null,
-          wins: winsH,
-          losses: lossesH,
-          games: gamesPlayed,
-          winrate: winrtH,
-          kd,
-          objective_avg_10m: obj10m,
-          playtime: playSec,
-        });
+        const cur = acc.get(k) || { wins:0, losses:0, games:0, kills:0, deaths:0, playtime:0, objSum:0, objCnt:0 };
+        cur.wins     += winsH;
+        cur.losses   += lossesH;
+        cur.games    += gamesPlayed;
+        cur.kills    += kills;
+        cur.deaths   += deaths;
+        cur.playtime += playSec;
+        if (obj10m != null) { cur.objSum += obj10m; cur.objCnt += 1; }
+        acc.set(k, cur);
       }
+    }
+
+    const heroRows: any[] = [];
+    for (const [k, o] of acc.entries()) {
+      if (o.games <= 0) continue;
+      const meta = metaOf(k);
+      const kd = o.deaths ? `${(o.kills / o.deaths).toFixed(2)} : 1` : "-";
+      const winrt = o.games ? Math.round((o.wins * 100) / o.games) : 0;
+      const obj10m = o.objCnt ? +(o.objSum / o.objCnt).toFixed(2) : null;
+
+      heroRows.push({
+        hero: k,
+        role:   meta?.heroRole ?? null,
+        icon:   meta?.heroIcon ?? "/images/heroes/_placeholder.png",
+        images: meta?.heroImages ?? [],
+        detailUrl: meta?.heroDetailUrl ?? null,
+        wins: o.wins,
+        losses: o.losses,
+        games: o.games,
+        winrate: winrt,
+        kd,
+        objective_avg_10m: obj10m,
+        playtime: o.playtime,
+      });
     }
 
     heroRows.sort((a, b) => (b.playtime || 0) - (a.playtime || 0));
 
-    // 최종
-    console.log("[full] all-heroes len:", allHeroesArr.length, "keys:", Object.keys(stats || {}));
     return NextResponse.json({
       left,
       right: { heroes: heroRows },
       mode,
       platform,
-      debug: { missing_meta: missing }, // ← 누락된 키 확인용
     });
 
   } catch (e: any) {

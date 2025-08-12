@@ -1,24 +1,16 @@
 "use client";
-
 import { FormEvent } from "react";
 import { useRouter } from "next/navigation";
 
-const MainSearchBar = () => {
+export default function MainSearchBar() {
   const router = useRouter();
-
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     const formData = new FormData(e.currentTarget);
-    const searchQuery = formData.get("search") as string;
-
-    if (searchQuery) {
-      router.push(`/userrankList?search=${encodeURIComponent(searchQuery)}`);
-    }
-    // Reset the form fields
+    const searchQuery = (formData.get("search") as string)?.trim();
+    if (searchQuery) router.push(`/userrankList?q=${encodeURIComponent(searchQuery)}`);
     e.currentTarget.reset();
   };
-
   return (
     <section className="section-pt">
       <div className="container relative">
@@ -69,4 +61,3 @@ const MainSearchBar = () => {
   );
 };
 
-export default MainSearchBar;

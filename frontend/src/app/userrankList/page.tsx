@@ -17,7 +17,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<Sea
   const headerData: headerBannerType = { title: "전적검색", navLinks };
 
   return (
-    <main>
+    <main >
       <UserrankListBreadcrumb breadcrumb={headerData} />
       {/* q를 클라이언트 컴포넌트로 내려보냄 */}
       <UserrankListComp initialQuery={q} />
