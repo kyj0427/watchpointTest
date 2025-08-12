@@ -8,12 +8,12 @@ const FaqDetailPage = () => {
   const [tab, setTab] = useState<'write' | 'history'>('write');
 
   const navLinks: NavLinkProps[] = [
-    { id: 1, url: '/', label: 'Home' },
-    { id: 2, url: '', label: '1:1 QnA' },
+    { id: 1, url: '/', label: '홈' },
+    { id: 2, url: '', label: '1 : 1 문의하기' },
   ];
 
   const headerData: headerBannerType = {
-    title: '1:1 QnA',
+    title: '1 : 1 문의하기',
     navLinks,
   };
 

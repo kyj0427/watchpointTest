@@ -13,7 +13,7 @@ const OverwatchStore = () => {
       <div className="container">
         <div className="flex items-center justify-between flex-wrap gap-24p">
           <h2 className="heading-2 text-w-neutral-1 text-split-left">
-            Overwatch2 상점
+            오버워치2 상점
           </h2>
           {/* <Link
             href="/marketplace-two"
