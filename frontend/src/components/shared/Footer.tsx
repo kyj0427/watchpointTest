@@ -18,20 +18,20 @@ const Footer = () => {
         <div className="relative z-10 lg:px-10">
           <div className="flex items-center justify-between gap-24p pb-60p">
             <div className="max-w-[530px]">
-              <h2 className="display-4 text-w-neutral-1 mb-32p text-split-left">
-                Subscribe to our
-              </h2>
-              <h2 className="display-lg mb-32p" data-aos="fade-up">
-                Newsletter
-              </h2>
+              <h4 className="display-5 text-w-neutral-1 mb-32p text-split-left">
+                오버워치의 모든 것,
+              </h4>
+              <h3 className="display-lg mb-32p" data-aos="fade-up">
+                WatchPoint
+              </h3>
             </div>
           </div>
           <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8 lg:gap-12 xl:gap-16 border-y-2 border-dashed border-shap py-80p">
             {/* 로고 및 연락처 */}
             <div className="lg:col-span-1">
               <Image className="mb-16p" src={logo} alt="logo" />
-              <p className="text-base text-w-neutral-3 mb-32p">
-                오버워치 게임의 모든 것을 Watchpoint에서.
+              <p className="text-base text-w-neutral-3 mb-40p">
+                {/* 오버워치 게임의 모든 것을 Watchpoint에서. */}
               </p>
               <div className="flex items-center gap-3 mb-32p">
                 <Link href="#" className="btn-socal-primary">
@@ -51,11 +51,11 @@ const Footer = () => {
                 </Link>
               </div>
 
-              <div className="pt-16">
-                <div className="flex items-center gap-24p mb-24p">
-                  <h4 className="heading-4 text-w-neutral-1 whitespace-nowrap">
-                    Contact Us
-                  </h4>
+              <div className="pt-1">
+                <div className="flex items-center gap-24p mb-10p">
+                  <h5 className="heading-5 text-w-neutral-1 whitespace-nowrap">
+                    이메일
+                  </h5>
                 </div>
                 <ul className="grid grid-cols-1 gap-y-2">
                   <li className="group hover:translate-x-2 -translate-x-2 flex items-start gap-1 hover:text-primary transition-1">
@@ -67,7 +67,7 @@ const Footer = () => {
                       support@watchpoint.com
                     </Link>
                   </li>
-                  <li className="group hover:translate-x-2 -translate-x-2 flex items-start gap-1 hover:text-primary transition-1">
+                  {/* <li className="group hover:translate-x-2 -translate-x-2 flex items-start gap-1 hover:text-primary transition-1">
                     <i className="ti ti-chevron-right group-hover:visible invisible text-primary group-hover:opacity-100 opacity-0 transition-1 mt-1 flex-shrink-0"></i>
                     <Link
                       href="tel:207555-0119"
@@ -75,7 +75,7 @@ const Footer = () => {
                     >
                       (207) 555-0119
                     </Link>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>
