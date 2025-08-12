@@ -15,7 +15,7 @@ const categoryLabels: Record<string, string> = {
   all: "전체",
   tank: "탱커",
   damage: "딜러",
-  support: "써포터",
+  support: "서포터",
 };
 
 const HeroAll = () => {
@@ -45,7 +45,7 @@ const HeroAll = () => {
         </h2> */}
         <div>
           <div className="flex items-center justify-between flex-wrap gap-24p pb-30p border-b border-shap ">
-            <div className="hidden lg:flex items-center sm:gap-3 gap-2 min-w-[300px] max-w-[670px] w-full px-20p py-16p bg-b-neutral-2 rounded-full">
+            <div className="hidden lg:flex items-center sm:gap-3 gap-2 min-w-[300px] max-w-[670px] w-full px-20p py-16p bg-b-neutral-3 rounded-full">
               <span className="flex-c icon-20 text-white">
                 <i className="ti ti-search"></i>
               </span>
@@ -143,12 +143,7 @@ const HeroAll = () => {
                  </Link>
               </div>
             ))}
-          </div>
-          <div className="flex-c mt-48p">
-            <Link href="#" className="btn btn-xl py-3 btn-primary rounded-12">
-              Load More...
-            </Link>
-          </div>
+          </div>         
         </div>
       </div>
     </section>
