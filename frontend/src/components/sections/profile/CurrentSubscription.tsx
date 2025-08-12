@@ -5,6 +5,9 @@
  * - 현재 구독 정보 표시
  * - 구독 변경 및 취소 버튼
  * 
+ *  미구현:구독 변경 및 취소 재개 로직
+ *       
+ * 
  * 백엔드 연동 포인트:
  * 1. currentSubscription 데이터를 API에서 가져오기
  * 
@@ -16,7 +19,7 @@
 import React, { useState } from 'react';
 import { Package, Settings, CheckCircle } from 'lucide-react';
 
-// 실제 프로젝트 import 경로 (문제 해결됨!)
+// 실제 프로젝트 import 경로
 import PlanChangeModal from './PlanChangeModal';
 import CancelSubscriptionModal from './CancelSubscriptionModal';
 
@@ -33,16 +36,26 @@ const CurrentSubscription: React.FC = () => {
   // 모달 표시 상태만 관리
   const [showPlanModal, setShowPlanModal] = useState(false);
   const [showCancelModal, setShowCancelModal] = useState(false);
+  // 구독 상태 관리 (취소 후 상태 변경용)
+  const [subscriptionStatus, setSubscriptionStatus] = useState<'active' | 'cancelled'>('active');
 
   // 백엔드 TODO: 실제 구독 정보를 API에서 가져오기
   // GET /api/subscription/current
   const currentSubscription: SubscriptionPlan = {
     id: 'sub_001',
     name: 'Premium Plan',
-    status: 'active',
+    status: subscriptionStatus,
     price: '₩9,900',
     nextBilling: '2025-09-11',
     features: ['독점 콘텐츠 접근', '프리미엄 비디오', '광고 제거', '우선 고객지원']
+  };
+
+  // 구독 취소 처리 함수
+  const handleCancelSubscription = () => {
+    // 백엔드 TODO: 구독 취소 API 호출
+    // POST /api/subscription/cancel
+    setSubscriptionStatus('cancelled');
+    setShowCancelModal(false);
   };
 
   // 구독 상태별 아이콘 반환
@@ -98,7 +111,17 @@ const CurrentSubscription: React.FC = () => {
                 {currentSubscription.price}
                 <span className="text-base text-gray-400">/월</span>
               </p>
-              <p className="text-gray-400">다음 결제일: {currentSubscription.nextBilling}</p>
+              <p className="text-gray-400">
+                {subscriptionStatus === 'cancelled' 
+                  ? '서비스 종료일: ' + currentSubscription.nextBilling
+                  : '다음 결제일: ' + currentSubscription.nextBilling
+                }
+              </p>
+              {subscriptionStatus === 'cancelled' && (
+                <p className="text-sm text-red-400 mt-1">
+                  구독이 취소되었습니다. 종료일까지 서비스를 이용하실 수 있습니다.
+                </p>
+              )}
             </div>
             {/* 설정 버튼 - 백엔드 TODO: 구독 설정 페이지 연결 */}
             <button className="p-2 hover:bg-gray-800 rounded-lg transition-colors">
@@ -121,25 +144,41 @@ const CurrentSubscription: React.FC = () => {
 
           {/* 액션 버튼들 */}
           <div className="flex gap-3 pt-4 border-t border-gray-700">
-            <button 
-              onClick={() => setShowPlanModal(true)}
-              className="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-4 rounded-lg transition-colors"
-            >
-              플랜 변경
-            </button>
-           
-            <button 
-              onClick={() => setShowCancelModal(true)}
-              className="flex-1 text-red-400 hover:text-red-300 hover:bg-red-500/10 font-medium py-3 px-4 rounded-lg border border-red-400/30 transition-colors"
-            >
-              구독 취소
-            </button>
+            {subscriptionStatus === 'active' ? (
+              <>
+                <button 
+                  onClick={() => setShowPlanModal(true)}
+                  className="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-4 rounded-lg transition-colors"
+                >
+                  플랜 변경
+                </button>
+               
+                <button 
+                  onClick={() => setShowCancelModal(true)}
+                  className="flex-1 text-red-400 hover:text-red-300 hover:bg-red-500/10 font-medium py-3 px-4 rounded-lg border border-red-400/30 transition-colors"
+                >
+                  구독 취소
+                </button>
+              </>
+            ) : (
+              <>
+                <button 
+                  onClick={() => setSubscriptionStatus('active')}
+                  className="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-4 rounded-lg transition-colors"
+                >
+                  구독 재개
+                </button>
+               
+                <button 
+                  onClick={() => setShowPlanModal(true)}
+                  className="flex-1 border border-gray-600 text-gray-300 hover:bg-gray-800 font-medium py-3 px-4 rounded-lg transition-colors"
+                >
+                  새 플랜 선택
+                </button>
+              </>
+            )}
           </div>
         </div>
-
-        {/* Usage Stats - 백엔드 TODO: 실제 사용 통계를 API에서 가져오기 */}
-        {/* GET /api/subscription/usage-stats */}
-       
       </div>
 
       {/* 모달 컴포넌트들 */}
@@ -156,6 +195,7 @@ const CurrentSubscription: React.FC = () => {
           isOpen={showCancelModal}
           onClose={() => setShowCancelModal(false)}
           currentSubscription={currentSubscription}
+          onConfirmCancel={handleCancelSubscription}
         />
       )}
     </>
