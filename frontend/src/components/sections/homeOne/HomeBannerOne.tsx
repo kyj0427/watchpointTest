@@ -83,12 +83,12 @@ const HomeBannerOne = () => {
                           {item?.language}
                         </span>
                       </div>
-                      <Link
+                      {/* <Link
                         href="/game-details-one"
                         className="btn btn-lg btn-primary rounded-12"
                       >
                         Start Now
-                      </Link>
+                      </Link> */}
                     </div>
                   </div>
                   <div className="overlay-1"></div>

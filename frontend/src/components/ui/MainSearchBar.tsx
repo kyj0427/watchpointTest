@@ -39,7 +39,7 @@ const MainSearchBar = () => {
                     type="text"
                     name="search"
                     id="search"
-                    placeholder="배틀태그#1234 로 검색..."
+                    placeholder="배틀태그#1234로 검색..."
                     required
                     title="배틀태그를 입력해주세요"
                   />

@@ -31,15 +31,15 @@ const featuredVideosData = [
 ];
 
 const RecommendedVideos = () => {
-  const filterTypes = ["Popular", "Action", "Adventure", "Sports"];
+  // const filterTypes = ["Popular", "Action", "Adventure", "Sports"];
 
-  const [selectedFilter, setSelectedFilter] = useState(filterTypes[0]);
+  // const [selectedFilter, setSelectedFilter] = useState(filterTypes[0]);
 
-  const {
-    open: filterOpen,
-    handleToggle: filterToggle,
-    ref: filterRef,
-  } = useToggle();
+  // const {
+  //   open: filterOpen,
+  //   handleToggle: filterToggle,
+  //   ref: filterRef,
+  // } = useToggle();
 
   return (
     <section className="section-pt">

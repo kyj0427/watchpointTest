@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Pagination from "@/components/shared/Pagination";
 
 interface MapInfo {
   name: string;
@@ -21,7 +22,7 @@ const MapList = () => {
   const [searchKeyword, setSearchKeyword] = useState<string>("");
 
   const [currentPage, setCurrentPage] = useState(1);
-  const mapsPerPage = 12;
+  const [itemsPerPage] = useState(12); //페이지당 아이템수
 
   useEffect(() => {
     const fetchMaps = async () => {
@@ -68,11 +69,18 @@ const MapList = () => {
     ...Array.from(new Set(maps.flatMap((map) => map.gamemodes))),
   ];
 
-  const totalPages = Math.ceil(filteredMaps.length / mapsPerPage);
-  const paginatedMaps = filteredMaps.slice(
-    (currentPage - 1) * mapsPerPage,
-    currentPage * mapsPerPage
-  );
+  // 전체 페이지 수 계산
+  const totalPages = Math.ceil(maps.length / itemsPerPage);
+
+  // 현재 페이지에 해당하는 데이터만 추출
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = maps.slice(indexOfFirstItem, indexOfLastItem);
+
+  // 페이지 변경 핸들러
+  const handlePageChange = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
 
   return (
     <section className="section-pb pt-60p">
@@ -117,7 +125,7 @@ const MapList = () => {
 
         {/* 맵 카드 리스트 */}
         <div className="grid 3xl:grid-cols-4 xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-30p">
-          {paginatedMaps.map((map, idx) => (
+          {currentItems.map((map, idx) => (
             <div
               key={idx}
               className="bg-b-neutral-3 py-24p px-30p rounded-12 group"
@@ -148,25 +156,15 @@ const MapList = () => {
           ))}
         </div>
 
-        {/* 페이지네이션 */}
-        {totalPages > 1 && (
-          <div className="flex justify-center mt-10 gap-2">
-            {Array.from({ length: totalPages }, (_, i) => (
-              <button
-                key={i + 1}
-                onClick={() => setCurrentPage(i + 1)}
-                className={`px-4 py-2 rounded-md font-medium border text-white transition-all ${
-                  currentPage === i + 1
-                    ? "bg-yellow-500 border-yellow-500"
-                    : "bg-b-neutral-2 border-b-neutral-3 hover:bg-b-neutral-1"
-                }`}
-              >
-                {i + 1}
-              </button>
-            ))}
-          </div>
-        )}
+        
       </div>
+        {/* 페이지네이션 */}
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+          className="mt-48p"
+        />
     </section>
   );
 };

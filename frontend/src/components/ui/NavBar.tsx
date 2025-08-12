@@ -291,7 +291,7 @@ const NavBar = () => {
                       type="text"
                       name="search"
                       id="search"
-                      placeholder="Search..."
+                      placeholder="컨텐츠 검색..."
                     />
                   </form>
                 </div>
@@ -304,7 +304,7 @@ const NavBar = () => {
                     <span className="size-48p flex-c bg-primary text-b-neutral-4 rounded-full">
                       <IconSpeakerphone stroke={1.5} size={32} />
                     </span>
-                    News For You
+                    공지사항
                   </Link>
                   {/* 알림 */}
                   <div className="flex items-center lg:gap-x-40p gap-x-2">
@@ -407,10 +407,10 @@ const NavBar = () => {
                       {userOpen && (
                         <div className="dropdown-content">
                           <Link href="/profile" className="dropdown-item">
-                            Profile
+                            내 프로필
                           </Link>
                           <Link href="/settings" className="dropdown-item">
-                            Settings
+                            설정
                           </Link>
                             <button type="button" className="dropdown-item" onClick={()=>{
                               // console.log("로그아웃 버튼 클릭됨"); // 디버깅용
@@ -418,10 +418,10 @@ const NavBar = () => {
                               logout(); //로그아웃
                               router.push('/login'); //로그인페이지로이동
                             }}>                          
-                              Logout                          
+                              로그아웃
                             </button>
-                          <Link href="/contact-us" className="dropdown-item">
-                            Help
+                          <Link href="/faq-details" className="dropdown-item">
+                            고객문의
                           </Link>
                         </div>
                       )}
