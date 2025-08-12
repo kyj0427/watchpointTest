@@ -17,16 +17,14 @@ import {
   IconBookmarkFilled,
 } from "@tabler/icons-react";
 
-// 경로는 너 프로젝트에 맞게 조정
 import type { NewPost } from "../community/Community_hw";
 
-// 로컬에서 북마크 상태를 추가로 들고가도록 확장
 type LocalPost = NewPost & { bookmarked?: boolean };
 
 type Props = {
   posts: NewPost[];
-  onAddComment?: (postId: number, text: string) => Promise<void> | void; // 선택(부모 저장)
-  onToggleBookmark?: (postId: number, bookmarked: boolean) => Promise<void> | void; // 선택(서버 동기화)
+  onAddComment?: (postId: number, text: string) => Promise<void> | void;
+  onToggleBookmark?: (postId: number, bookmarked: boolean) => Promise<void> | void;
 };
 
 export default function ProfilePosts({ posts, onAddComment, onToggleBookmark }: Props) {
@@ -37,7 +35,6 @@ export default function ProfilePosts({ posts, onAddComment, onToggleBookmark }: 
     posts.map((p) => ({ ...p, bookmarked: p.bookmarked ?? false }))
   );
 
-  // 부모에서 posts가 바뀌면 동기화
   useEffect(() => {
     setLocalPosts(posts.map((p) => ({ ...p, bookmarked: (p as any).bookmarked ?? false })));
   }, [posts]);
@@ -49,7 +46,6 @@ export default function ProfilePosts({ posts, onAddComment, onToggleBookmark }: 
       if (onAddComment) {
         await onAddComment(postId, text);
       } else {
-        // 로컬 업데이트(데모)
         setLocalPosts((prev) =>
           prev.map((p) =>
             p.id === postId
@@ -58,7 +54,7 @@ export default function ProfilePosts({ posts, onAddComment, onToggleBookmark }: 
                   comments: [
                     ...(p.comments ?? []),
                     {
-                      author: p.author, // 데모: 현재 사용자 타입 있으면 거기에 맞춰 바꿔도 좋음
+                      author: p.author,
                       comment: text,
                     },
                   ],
@@ -82,7 +78,6 @@ export default function ProfilePosts({ posts, onAddComment, onToggleBookmark }: 
     try {
       await onToggleBookmark?.(postId, after);
     } catch {
-      // 실패 시 롤백 (선택)
       setLocalPosts((prev) =>
         prev.map((p) => (p.id === postId ? { ...p, bookmarked: !after } : p))
       );
@@ -124,16 +119,16 @@ export default function ProfilePosts({ posts, onAddComment, onToggleBookmark }: 
                 </MenuButton>
                 <MenuItems className="dropdown-content">
                   <MenuItem as="button" className="dropdown-item">
-                    Save Link
+                    링크 저장
                   </MenuItem>
                   <MenuItem as="button" className="dropdown-item">
-                    Report
+                    신고
                   </MenuItem>
                   <MenuItem as="button" className="dropdown-item">
-                    Hide Post
+                    게시글 숨기기
                   </MenuItem>
                   <MenuItem as="button" className="dropdown-item">
-                    Block User
+                    사용자 차단
                   </MenuItem>
                 </MenuItems>
               </Menu>
@@ -147,7 +142,6 @@ export default function ProfilePosts({ posts, onAddComment, onToggleBookmark }: 
 
               {isExpanded && (
                 <>
-                  {/* Image */}
                   {item?.content?.image && (
                     <div className="overflow-hidden">
                       <Image
@@ -160,7 +154,6 @@ export default function ProfilePosts({ posts, onAddComment, onToggleBookmark }: 
                     </div>
                   )}
 
-                  {/* Video */}
                   {item?.content?.video?.embedUrl ? (
                     <div className="aspect-video w-full rounded-12 overflow-hidden bg-b-neutral-2">
                       <iframe
@@ -181,7 +174,6 @@ export default function ProfilePosts({ posts, onAddComment, onToggleBookmark }: 
               )}
             </div>
 
-            {/* Summary (collapsed) */}
             {!isExpanded && (
               <div className="flex items-center gap-4 text-sm text-w-neutral-4 mb-3">
                 <span>❤️ {item?.likes?.length ?? 0}</span>
@@ -189,7 +181,6 @@ export default function ProfilePosts({ posts, onAddComment, onToggleBookmark }: 
               </div>
             )}
 
-            {/* Footer (expanded actions + comments) */}
             {isExpanded && (
               <div>
                 <div className="flex items-center justify-between flex-wrap gap-24p mb-20p">
@@ -198,18 +189,17 @@ export default function ProfilePosts({ posts, onAddComment, onToggleBookmark }: 
                       type="button"
                       className="flex items-center gap-2 text-base text-w-neutral-1"
                     >
-                      <IconHeart size={24} className="text-w-neutral-4" /> Like
+                      <IconHeart size={24} className="text-w-neutral-4" /> 좋아요
                     </button>
 
                     <button
                       type="button"
                       className="flex items-center gap-2 text-base text-w-neutral-1"
                     >
-                      <IconMessage size={24} className="text-w-neutral-4" /> Comment
+                      <IconMessage size={24} className="text-w-neutral-4" /> 댓글
                     </button>
                   </div>
 
-                  {/* ✅ 북마크 버튼 (Tabler 아이콘) */}
                   <button
                     type="button"
                     onClick={() => handleToggleBookmark(item.id)}
@@ -220,13 +210,12 @@ export default function ProfilePosts({ posts, onAddComment, onToggleBookmark }: 
                     ) : (
                       <IconBookmark size={24} className="text-w-neutral-4" />
                     )}
-                    {item.bookmarked ? "Bookmarked" : "BookMark"}
+                    {item.bookmarked ? "북마크됨" : "북마크"}
                   </button>
                 </div>
 
                 {/* Comments */}
                 <div className="pt-20p border-t border-shap">
-                  {/* Top 2 comments */}
                   <div className="grid grid-cols-1 gap-20p mb-20p">
                     {item?.comments?.slice(0, 2).map((coment, idx) => (
                       <div key={`c-top-${item.id}-${idx}`} className="flex items-start gap-3">
@@ -259,11 +248,11 @@ export default function ProfilePosts({ posts, onAddComment, onToggleBookmark }: 
                           <div className="flex items-center gap-16p">
                             <button type="button" className="flex-y gap-1">
                               <IconHeart size={20} className="text-danger" />
-                              <span className="text-sm text-w-neutral-1">Like</span>
+                              <span className="text-sm text-w-neutral-1">좋아요</span>
                             </button>
                             <div className="flex-y gap-1">
                               <button type="button" className="text-sm text-w-neutral-1">
-                                Reply
+                                답글
                               </button>
                               <span className="text-sm text-w-neutral-1">{item?.publish}</span>
                             </div>
@@ -273,7 +262,6 @@ export default function ProfilePosts({ posts, onAddComment, onToggleBookmark }: 
                     ))}
                   </div>
 
-                  {/* More comments */}
                   <AnimateHeight duration={500} height={showMore ? "auto" : 0}>
                     <div className="grid grid-cols-1 gap-20p">
                       {item?.comments?.slice(2).map((coment, idx) => (
@@ -307,11 +295,11 @@ export default function ProfilePosts({ posts, onAddComment, onToggleBookmark }: 
                             <div className="flex items-center gap-16p">
                               <button type="button" className="flex-y gap-1">
                                 <IconHeart size={20} className="text-danger" />
-                                <span className="text-sm text-w-neutral-1">Like</span>
+                                <span className="text-sm text-w-neutral-1">좋아요</span>
                               </button>
                               <div className="flex-y gap-1">
                                 <button type="button" className="text-sm text-w-neutral-1">
-                                  Reply
+                                  답글
                                 </button>
                                 <span className="text-sm text-w-neutral-1">{item?.publish}</span>
                               </div>
@@ -332,12 +320,11 @@ export default function ProfilePosts({ posts, onAddComment, onToggleBookmark }: 
                       className="text-m-medium text-w-neutral-1 mb-16p block mt-20p"
                     >
                       {showMore
-                        ? "Hide comments"
-                        : `View ${item?.comments.length - 2} more comment`}
+                        ? "댓글 숨기기"
+                        : `댓글 ${item?.comments.length - 2}개 더 보기`}
                     </button>
                   )}
 
-                  {/* Comment input */}
                   <form
                     className="flex items-center justify-between gap-24p bg-b-neutral-2 rounded-full py-16p px-32p"
                     onSubmit={(e) => {
@@ -349,21 +336,21 @@ export default function ProfilePosts({ posts, onAddComment, onToggleBookmark }: 
                       className="w-full bg-transparent text-base text-white placeholder:text-w-neutral-1 outline-none"
                       type="text"
                       name={`comment-${item.id}`}
-                      placeholder="Add Your Comment..."
+                      placeholder="댓글을 입력하세요..."
                       value={commentInputs[item.id] ?? ""}
                       onChange={(e) =>
                         setCommentInputs((s) => ({ ...s, [item.id]: e.target.value }))
                       }
                     />
                     <div className="flex-y gap-3 icon-24 text-w-neutral-4">
-                      <button type="button" title="Emoji">
+                      <button type="button" title="이모지">
                         <i className="ti ti-mood-smile-beam"></i>
                       </button>
-                      <label htmlFor={`comment-media-${item.id}`} title="Attach photo">
+                      <label htmlFor={`comment-media-${item.id}`} title="사진 첨부">
                         <i className="ti ti-photo"></i>
                       </label>
                       <input type="file" id={`comment-media-${item.id}`} className="hidden" />
-                      <button type="submit" title="Send">
+                      <button type="submit" title="전송">
                         <i className="ti ti-send"></i>
                       </button>
                     </div>
@@ -372,7 +359,6 @@ export default function ProfilePosts({ posts, onAddComment, onToggleBookmark }: 
               </div>
             )}
 
-            {/* Expand/Collapse */}
             <div className="flex justify-end mt-2">
               <button
                 onClick={() => setExpandedPostId(isExpanded ? null : item.id)}
@@ -380,11 +366,11 @@ export default function ProfilePosts({ posts, onAddComment, onToggleBookmark }: 
               >
                 {isExpanded ? (
                   <>
-                    Close <IconChevronUp size={16} />
+                    닫기 <IconChevronUp size={16} />
                   </>
                 ) : (
                   <>
-                    Open <IconChevronDown size={16} />
+                    열기 <IconChevronDown size={16} />
                   </>
                 )}
               </button>

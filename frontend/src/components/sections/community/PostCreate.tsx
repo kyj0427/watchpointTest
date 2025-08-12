@@ -2,14 +2,14 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useForm, useFieldArray } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import {
   IconHash, IconX, IconPhoto, IconVideo, IconBrandYoutubeFilled,
   IconLink, IconUpload,
   IconTrendingUp, IconSwords, IconBulb
 } from "@tabler/icons-react";
 
-type Tab = "text" | "media" | "link" | "poll";
+type Tab = "text" | "media" | "link";
 
 // 게시판 키/라벨/아이콘
 type BoardKey = "popular" | "keywords" | "guides" | "tips";
@@ -28,9 +28,6 @@ type Form = {
   videoFile?: FileList;
   videoUrl?: string;
   linkUrl?: string;
-  pollOptions: { value: string }[];
-  allowMultiple: boolean;
-  durationDays: number;
   tagInput?: string;
   board?: BoardKey; // 선택 커뮤니티
 };
@@ -51,20 +48,15 @@ export default function RedditCreateBox() {
   const [boardOpen, setBoardOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
-  const { register, setValue, watch, handleSubmit, control, reset, setError, clearErrors } =
+  const { register, setValue, watch, handleSubmit, reset, setError, clearErrors } =
     useForm<Form>({
       defaultValues: {
         tab: "text",
         title: "",
         body: "",
-        pollOptions: [{ value: "" }, { value: "" }],
-        allowMultiple: false,
-        durationDays: 3,
-        board: undefined, // 기본 미선택
+        board: undefined,
       },
     });
-
-  const { fields, append, remove } = useFieldArray({ control, name: "pollOptions" });
 
   const tab = watch("tab");
   const title = (watch("title") || "").trim();
@@ -75,7 +67,6 @@ export default function RedditCreateBox() {
   const vurl = watch("videoUrl");
   const selectedBoard = watch("board");
 
-  // === THEME: Watchpoint =========================================================
   const containerCls = "mx-auto max-w-3xl";
   const cardCls = "bg-b-neutral-3 text-w-neutral-1 rounded-12 border border-b-neutral-2 p-5 shadow-xl";
   const labelCls = "text-sm text-w-neutral-3";
@@ -88,15 +79,12 @@ export default function RedditCreateBox() {
   const subtleText = "text-xxs text-w-neutral-4";
   const chipBtn =
     "px-3 py-1.5 rounded-full text-sm transition";
-  // ==============================================================================
 
-  // 미리보기
   const previews = useMemo(() => {
     if (!media?.length) return [];
     return Array.from(media).map((f) => URL.createObjectURL(f));
   }, [media]);
 
-  // 바깥 클릭/ESC로 드롭다운 닫기
   useEffect(() => {
     function onDocClick(e: MouseEvent) {
       if (!dropdownRef.current) return;
@@ -113,10 +101,9 @@ export default function RedditCreateBox() {
     };
   }, []);
 
-  // Post 가능 조건
   const canPost = useMemo(() => {
     if (!title) return false;
-    if (!selectedBoard) return false; // 게시판 미선택 시 비활성
+    if (!selectedBoard) return false;
     if (tab === "text") return true;
     if (tab === "media") {
       const hasImg = (media?.length ?? 0) > 0;
@@ -125,17 +112,11 @@ export default function RedditCreateBox() {
       return hasImg || hasFileV || hasUrlV;
     }
     if (tab === "link") return /^https?:\/\//i.test(linkUrl);
-    if (tab === "poll") {
-      const opts = fields.map((_, i) => (watch(`pollOptions.${i}.value`) || "").trim()).filter(Boolean);
-      const d = Number(watch("durationDays"));
-      return opts.length >= 2 && d >= 1 && d <= 7;
-    }
     return false;
-  }, [title, tab, media, vfile, vurl, linkUrl, fields, watch, selectedBoard]);
+  }, [title, tab, media, vfile, vurl, linkUrl, selectedBoard]);
 
   const onPost = handleSubmit(() => {
     if (!canPost) return;
-    // TODO: 서버 전송 (selectedBoard 포함)
     reset(); setTags([]);
   });
 
@@ -155,42 +136,34 @@ export default function RedditCreateBox() {
 
   return (
     <section className={containerCls}>
-      {/* 헤더 */}
       <div className="flex items-center justify-between mb-3">
-        <h2 className="text-xl font-semibold text-w-neutral-1">Create post</h2>
-        <span className="text-sm text-w-neutral-4">Drafts</span>
+        <h2 className="text-xl font-semibold text-w-neutral-1">게시글 작성</h2>
+        <span className="text-sm text-w-neutral-4">임시글</span>
       </div>
 
-      {/* ▼ 커뮤니티 선택 (드롭다운) */}
+      {/* ▼ 커뮤니티 선택 */}
       <div className="mb-3 relative" ref={dropdownRef}>
         <button
           type="button"
           onClick={() => setBoardOpen((v) => !v)}
           className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-b-neutral-2 text-w-neutral-2 hover:text-w-neutral-1 hover:bg-b-neutral-3 text-sm border border-b-neutral-2"
-          aria-haspopup="listbox"
-          aria-expanded={boardOpen}
         >
           <span className="inline-block w-5 h-5 rounded-full bg-black text-white text-[10px] grid place-items-center">r/</span>
           <span className={selectedBoard ? "text-w-neutral-1" : ""}>
             {selectedBoard
               ? BOARDS.find(b => b.key === selectedBoard)?.label
-              : "Select a community"}
+              : "게시판 선택"}
           </span>
         </button>
 
         {boardOpen && (
-          <ul
-            role="listbox"
-            className="absolute z-50 mt-2 w-64 rounded-12 border border-b-neutral-2 bg-b-neutral-3 shadow-xl overflow-hidden"
-          >
+          <ul className="absolute z-50 mt-2 w-64 rounded-12 border border-b-neutral-2 bg-b-neutral-3 shadow-xl overflow-hidden">
             {BOARDS.map((b) => {
               const active = selectedBoard === b.key;
               return (
                 <li key={b.key}>
                   <button
                     type="button"
-                    role="option"
-                    aria-selected={active}
                     onClick={() => { setValue("board", b.key); setBoardOpen(false); }}
                     className={[
                       "w-full px-3 py-2 text-left flex items-center gap-2",
@@ -211,7 +184,7 @@ export default function RedditCreateBox() {
 
       {/* 탭 */}
       <div className="flex items-center gap-4 border-b border-b-neutral-2 mb-4">
-        {(["text","media","link","poll"] as Tab[]).map((t) => (
+        {(["text","media","link"] as Tab[]).map((t) => (
           <button
             key={t}
             type="button"
@@ -223,17 +196,15 @@ export default function RedditCreateBox() {
                 : "text-w-neutral-3 hover:text-w-neutral-1 hover:bg-b-neutral-3",
             ].join(" ")}
           >
-            {t === "text" ? "Text" : t === "media" ? "Images & Video" : t === "link" ? "Link" : "Poll"}
+            {t === "text" ? "텍스트" : t === "media" ? "이미지·동영상" : "링크"}
           </button>
         ))}
       </div>
 
-      {/* 카드 */}
       <div className={cardCls}>
-        {/* 제목 */}
         <input
           {...register("title")}
-          placeholder="Title*"
+          placeholder="제목"
           className={inputBase}
           maxLength={300}
         />
@@ -244,11 +215,11 @@ export default function RedditCreateBox() {
           <IconHash size={16} className="text-w-neutral-4" />
           <input
             {...register("tagInput")}
-            placeholder="Add tags"
+            placeholder="태그 추가"
             onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); addTag(); } }}
             className={`${inputBase} !px-3 !py-2 text-xs`}
           />
-          <button onClick={addTag} type="button" className="text-xs text-w-neutral-3 hover:text-w-neutral-1">Add</button>
+          <button onClick={addTag} type="button" className="text-xs text-w-neutral-3 hover:text-w-neutral-1">추가</button>
         </div>
         {!!tags.length && (
           <div className="flex flex-wrap gap-2 mb-3">
@@ -263,11 +234,11 @@ export default function RedditCreateBox() {
           </div>
         )}
 
-        {/* 탭별 영역 */}
+        {/* 탭별 UI */}
         {tab === "text" && (
           <textarea
             {...register("body")}
-            placeholder="Body text (optional)"
+            placeholder="본문"
             rows={8}
             className={textAreaBase}
           />
@@ -275,18 +246,16 @@ export default function RedditCreateBox() {
 
         {tab === "media" && (
           <div className="space-y-3">
-            {/* 이미지 */}
             <label className="inline-flex items-center gap-2 text-sm text-w-neutral-1 cursor-pointer">
               <IconPhoto size={18} className="text-w-neutral-2" />
-              <span>Attach Photo(s)</span>
+              <span>사진 첨부</span>
               <input type="file" accept="image/*" multiple {...register("media")} className="hidden" />
             </label>
 
-            {/* 비디오 파일 + 링크 */}
             <div className="flex flex-col md:flex-row gap-3">
               <label className="inline-flex items-center gap-2 text-sm text-w-neutral-1 cursor-pointer">
                 <IconVideo size={18} className="text-w-neutral-2" />
-                <span>Attach Video File</span>
+                <span>동영상 파일 첨부</span>
                 <input
                   type="file"
                   accept="video/mp4,video/webm,video/ogg"
@@ -306,7 +275,7 @@ export default function RedditCreateBox() {
                 <IconBrandYoutubeFilled size={18} className="text-red-500" />
                 <input
                   type="text"
-                  placeholder="YouTube/Vimeo/MP4 URL (optional)"
+                  placeholder="YouTube/Vimeo/MP4 주소(선택)"
                   {...register("videoUrl")}
                   className={`${inputBase} flex-1`}
                 />
@@ -316,12 +285,10 @@ export default function RedditCreateBox() {
               </div>
             </div>
 
-            {/* 미리보기 */}
             {previews.length > 0 && (
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
                 {previews.map((src, i) => (
                   <div key={i} className="aspect-video rounded-lg overflow-hidden border border-b-neutral-2">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={src} alt={`preview-${i}`} className="object-cover w-full h-full" />
                   </div>
                 ))}
@@ -342,48 +309,12 @@ export default function RedditCreateBox() {
           </div>
         )}
 
-        {tab === "poll" && (
-          <div className="space-y-3">
-            {fields.map((f, i) => (
-              <div key={f.id} className="flex items-center gap-2">
-                <input
-                  {...register(`pollOptions.${i}.value` as const)}
-                  placeholder={`Option ${i + 1}`}
-                  className={`${inputBase} text-sm`}
-                />
-                {fields.length > 2 && (
-                  <button type="button" onClick={() => remove(i)} className="text-w-neutral-3 hover:text-w-neutral-1">
-                    <IconX size={18} />
-                  </button>
-                )}
-              </div>
-            ))}
-            <button type="button" onClick={() => append({ value: "" })} className={`${labelCls} underline`}>
-              Add option
-            </button>
-
-            <div className="flex items-center gap-4">
-              <label className="flex items-center gap-2 text-xs text-w-neutral-3">
-                <input type="checkbox" {...register("allowMultiple")} className="accent-primary" />
-                Allow multiple selection
-              </label>
-              <label className="flex items-center gap-2 text-xs text-w-neutral-3">
-                Duration
-                <select {...register("durationDays")} className="bg-b-neutral-2 text-w-neutral-1 border border-b-neutral-2 rounded px-2 py-1 text-xs">
-                  {[1,2,3,4,5,6,7].map((d)=> <option key={d} value={d}>{d} day{d>1?"s":""}</option>)}
-                </select>
-              </label>
-            </div>
-          </div>
-        )}
-
-        {/* 액션 */}
         <div className="flex justify-end items-center gap-3 mt-4">
           <button
             type="button"
             className="px-4 py-2 rounded-full text-sm bg-b-neutral-2 text-w-neutral-2 hover:text-w-neutral-1 hover:bg-b-neutral-3 border border-b-neutral-2"
           >
-            Save Draft
+            임시저장
           </button>
           <button
             type="button"
@@ -392,7 +323,7 @@ export default function RedditCreateBox() {
             className="px-5 py-2 rounded-full text-sm font-semibold bg-primary text-black disabled:opacity-40 inline-flex items-center gap-2"
           >
             <IconUpload size={16} />
-            Post
+            게시
           </button>
         </div>
       </div>

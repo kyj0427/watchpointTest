@@ -101,17 +101,17 @@ export const navMenu = [
             {
                 id: 51,
                 name: "공지사항",
-                link: "/community/noticification"
+                link: "/community/notification"
             },
             {
                 id: 52,
                 name: "인기글",
-                link: "/community/postlist?mode=hot"
+                link: "/community?board=popular"
             },
             {
                 id: 53,
-                name: "최신글",
-                link: "/community/postlist?mode=recent"
+                name: "자유게시판",
+                link: "/community?board=keywords"
             },
             {
                 id: 54,
