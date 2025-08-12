@@ -150,7 +150,7 @@ const ProfileHeader = () => {
                             type="text"
                             name="search"
                             id="search"
-                            placeholder="검색"
+                            placeholder="검색..."
                           />
                         </form>
                       </div>
