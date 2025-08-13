@@ -1,4 +1,4 @@
-package com.watchpoint.backend.domain;
+package com.watchpoint.backend.member.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;

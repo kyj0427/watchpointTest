@@ -1,4 +1,4 @@
-package com.watchpoint.backend.dto;
+package com.watchpoint.backend.auth.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

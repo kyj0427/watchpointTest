@@ -1,4 +1,4 @@
-package com.watchpoint.backend.dto;
+package com.watchpoint.backend.auth.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

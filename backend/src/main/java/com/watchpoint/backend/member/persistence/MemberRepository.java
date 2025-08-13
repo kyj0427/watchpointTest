@@ -1,4 +1,4 @@
-package com.watchpoint.backend.persistence;
+package com.watchpoint.backend.member.persistence;
 
 import java.util.Optional;
 
@@ -6,9 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-import com.watchpoint.backend.domain.Member;
+import com.watchpoint.backend.member.domain.Member;
 
-//JpaRepository 사용 (crud레파지토리보다 더 많은 기능 제공)
 public interface MemberRepository extends CrudRepository<Member, Long> {
     
     // 이메일로 회원 조회

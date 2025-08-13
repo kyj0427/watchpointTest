@@ -1,10 +1,11 @@
-package com.watchpoint.backend.controller;
+package com.watchpoint.backend.auth.controller;
 
-import com.watchpoint.backend.dto.ErrorRes;
-import com.watchpoint.backend.dto.MemberRes;
-import com.watchpoint.backend.dto.RegisterReq;
-import com.watchpoint.backend.domain.Member;
-import com.watchpoint.backend.service.AuthService;
+import com.watchpoint.backend.auth.dto.ErrorRes;
+import com.watchpoint.backend.auth.dto.MemberRes;
+import com.watchpoint.backend.auth.dto.RegisterReq;
+import com.watchpoint.backend.auth.service.AuthService;
+import com.watchpoint.backend.member.domain.Member;
+
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
