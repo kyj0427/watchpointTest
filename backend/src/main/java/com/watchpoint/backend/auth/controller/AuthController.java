@@ -1,15 +1,18 @@
 package com.watchpoint.backend.auth.controller;
 
 import com.watchpoint.backend.auth.dto.ErrorRes;
+import com.watchpoint.backend.auth.dto.LoginReq;
 import com.watchpoint.backend.auth.dto.MemberRes;
 import com.watchpoint.backend.auth.dto.RegisterReq;
 import com.watchpoint.backend.auth.service.AuthService;
 import com.watchpoint.backend.member.domain.Member;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -31,4 +34,76 @@ public class AuthController {
             return ResponseEntity.internalServerError().body(new ErrorRes("UNKNOWN_ERROR", "회원가입 처리 중 오류가 발생했습니다."));
         }
     }
+    // 로그인: 성공 시 세션 발급하고 MemberRes 반환
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@Valid @RequestBody LoginReq req, HttpServletRequest request) {
+        try {
+            Member member = authService.login(req.email(), req.password(), request);
+            return ResponseEntity.ok(MemberRes.from(member));
+        } catch (ResponseStatusException e) {
+            String errorCode = e.getReason();
+            String errorMessage;
+            
+            switch (errorCode) {
+                case "MEMBER_NOT_FOUND":
+                    errorMessage = "존재하지 않는 회원입니다.";
+                    break;
+                case "INVALID_CREDENTIALS":
+                    errorMessage = "이메일 또는 비밀번호가 올바르지 않습니다.";
+                    break;
+                default:
+                    errorMessage = "로그인 처리 중 오류가 발생했습니다.";
+            }
+            
+            return ResponseEntity.status(e.getStatusCode())
+                    .body(new ErrorRes(errorCode, errorMessage));
+        }
+    }
+
+    // 로그아웃: 세션 무효화
+    @PostMapping("/logout")
+    public ResponseEntity<?> logout(HttpServletRequest request) {
+        try {
+            authService.logout(request); // Service 메서드 호출
+            return ResponseEntity.ok().body("로그아웃 완료");
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError()
+                    .body(new ErrorRes("LOGOUT_ERROR", "로그아웃 처리 중 오류가 발생했습니다."));
+        }
+    }
+
+    // 현재 로그인한 사용자 정보 조회
+    @GetMapping("/me")
+    public ResponseEntity<?> me(HttpServletRequest request) {
+        try {
+            Member member = authService.me(request);
+            return ResponseEntity.ok(MemberRes.from(member));
+        } catch (ResponseStatusException e) {
+            String errorCode = e.getReason();
+            String errorMessage;
+            
+            switch (errorCode) {
+                case "NOT_LOGGED_IN":
+                    errorMessage = "로그인이 필요합니다.";
+                    break;
+                case "MEMBER_NOT_FOUND":
+                    errorMessage = "회원 정보를 찾을 수 없습니다.";
+                    break;
+                default:
+                    errorMessage = "사용자 정보 조회 중 오류가 발생했습니다.";
+            }
+            
+            return ResponseEntity.status(e.getStatusCode())
+                    .body(new ErrorRes(errorCode, errorMessage));
+        }
+    }
+
+    // 로그인 상태 확인
+    @GetMapping("/check")
+    public ResponseEntity<?> checkLogin(HttpServletRequest request) {
+        boolean isLoggedIn = authService.isLoggedIn(request);
+        return ResponseEntity.ok().body(isLoggedIn ? "로그인 상태" : "비로그인 상태");
+    }
+    
 }
+

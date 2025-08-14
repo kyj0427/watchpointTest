@@ -83,12 +83,12 @@ public class AuthServiceImpl implements AuthService{
         HttpSession session = request.getSession(false);
         if(session != null){
             session.invalidate();
-            System.out.println("세션 없애기 완료");
+            System.out.println("로그아웃 완료");
         }
         //
         SecurityContextHolder.clearContext();
 
-        System.out.println("로그아웃 완료");
+        System.out.println("세션 없애기 완료");
     }
 
     @Override

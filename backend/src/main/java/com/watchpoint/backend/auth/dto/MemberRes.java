@@ -1,6 +1,6 @@
-package com.watchpoint.backend.dto;
+package com.watchpoint.backend.auth.dto;
 
-import com.watchpoint.backend.domain.Member;
+import com.watchpoint.backend.member.domain.*;
 import lombok.Data;
 
 // 성공 응답 데이터 
@@ -20,7 +20,7 @@ public class MemberRes {
         this.email = m.getMember_email();
     }
 
-    /** 가독성을 위한 팩토리 메서드 */
+    // 가독성을 위한 팩토리 메서드 
     public static MemberRes from(Member m) {
         return new MemberRes(m);
     }
