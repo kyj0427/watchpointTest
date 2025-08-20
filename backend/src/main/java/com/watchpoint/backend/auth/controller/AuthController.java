@@ -104,6 +104,7 @@ public class AuthController {
         boolean isLoggedIn = authService.isLoggedIn(request);
         return ResponseEntity.ok().body(isLoggedIn ? "로그인 상태" : "비로그인 상태");
     }
-    
+ 
+    //추가로 작업한거 공유해야합니다
 }
 
