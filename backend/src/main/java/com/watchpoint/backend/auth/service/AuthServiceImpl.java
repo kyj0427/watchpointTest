@@ -121,6 +121,8 @@ public class AuthServiceImpl implements AuthService{
         // 세션 생성 및 사용자 정보 저장 
         HttpSession session = request.getSession(true);
         session.setAttribute("member_id", member.getMember_id()); // 실제 값 저장!
+
+        session.setAttribute("SPRING_SECURITY_CONTEXT", SecurityContextHolder.getContext());
         
         System.out.println(">>> 세션 생성 완료 - member_id: " + member.getMember_id());
     }

@@ -12,7 +12,6 @@ import java.util.List;
 
 @Configuration
 @EnableWebSecurity  // 추가: Spring Security 활성화
-@Profile("dev")
 public class DevSecurityConfig {
 
     @Bean
@@ -21,7 +20,7 @@ public class DevSecurityConfig {
             .csrf(AbstractHttpConfigurer::disable)       // CSRF disable
             .cors(c -> c.configurationSource(corsDev()))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/register", "/api/auth/login", "/api/auth/logout", "/api/auth/me", "/api/auth/check").permitAll()  // /check 추가
+                .requestMatchers("/api/auth/register", "/api/auth/login", "/api/auth/logout", "/api/auth/check").permitAll() 
                 .anyRequest().authenticated()
             )
             .formLogin(AbstractHttpConfigurer::disable)

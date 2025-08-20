@@ -5,9 +5,9 @@ export interface User {
     id: number;
     name: string;
     email: string;
-    image: string | null;
-    blizardId: string;
-    battleTag: string;
+    // image: string | null;
+    // blizardId: number | null;
+    // battleTag: string | null;
 }
 
 // 백엔드 원본 데이터 타입 (스네이크 케이스)
@@ -15,7 +15,7 @@ export interface UserFromAPI {
     member_id : number;
     member_name: string;
     member_email: string;
-    image: string | null;
-    blizard_id: string;
-    battle_tag: string;
+    // image: string | null;
+    // blizard_id: string;
+    // battle_tag: string;
 }

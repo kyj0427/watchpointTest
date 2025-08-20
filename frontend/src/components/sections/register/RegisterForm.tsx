@@ -49,9 +49,6 @@ const registerUser = async (userData: RegisterRequest): Promise<RegisterResponse
   return response.json();
 };
 
-
-// ------------------
-
 const RegisterForm = () => {
   
   // 소셜 로그인 

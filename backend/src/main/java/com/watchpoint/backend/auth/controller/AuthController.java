@@ -7,8 +7,13 @@ import com.watchpoint.backend.auth.dto.RegisterReq;
 import com.watchpoint.backend.auth.service.AuthService;
 import com.watchpoint.backend.member.domain.Member;
 
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
+
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -62,15 +67,26 @@ public class AuthController {
 
     // 로그아웃: 세션 무효화
     @PostMapping("/logout")
-    public ResponseEntity<?> logout(HttpServletRequest request) {
-        try {
-            authService.logout(request); // Service 메서드 호출
-            return ResponseEntity.ok().body("로그아웃 완료");
-        } catch (Exception e) {
-            return ResponseEntity.internalServerError()
-                    .body(new ErrorRes("LOGOUT_ERROR", "로그아웃 처리 중 오류가 발생했습니다."));
-        }
+    public ResponseEntity<Void> logout(HttpServletRequest request, HttpServletResponse response) {
+        authService.logout(request);     // 세션 무효화 + SecurityContext clear (이미 구현됨)
+
+        // JSESSIONID 쿠키 삭제 
+        Cookie jsessionCookie = new Cookie("JSESSIONID", null);
+        jsessionCookie.setPath("/");
+        jsessionCookie.setMaxAge(0); // 즉시 만료
+        response.addCookie(jsessionCookie);
+        
+        // remember 쿠키 삭제 
+        Cookie remember = new Cookie("remember", "");
+        remember.setPath("/");
+        remember.setHttpOnly(true);
+        remember.setMaxAge(0);
+        response.addCookie(remember);
+
+        // 바디 없이 성공만 알림(REST 관례)
+        return ResponseEntity.noContent().build(); // 204
     }
+
 
     // 현재 로그인한 사용자 정보 조회
     @GetMapping("/me")
@@ -100,11 +116,10 @@ public class AuthController {
 
     // 로그인 상태 확인
     @GetMapping("/check")
-    public ResponseEntity<?> checkLogin(HttpServletRequest request) {
-        boolean isLoggedIn = authService.isLoggedIn(request);
-        return ResponseEntity.ok().body(isLoggedIn ? "로그인 상태" : "비로그인 상태");
+    public Map<String, Boolean> isLoggedIn(HttpServletRequest request) {
+        return Map.of("loggedIn", authService.isLoggedIn(request));
     }
- 
-    //추가로 작업한거 공유해야합니다
+
+
 }
 

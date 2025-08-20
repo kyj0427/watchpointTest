@@ -5,6 +5,8 @@ import { IconBrandKakoTalk, IconChevronDown, IconBrandDiscord, IconBrandGoogle }
 import Link from "next/link";
 import { useState } from "react";
 import AnimateHeight from "react-animate-height";
+import { useAuth } from "@/contexts/AuthContext";
+import { useRouter } from "next/navigation";
 
 
 interface FormData {
@@ -22,17 +24,27 @@ const snsButtons = [
 ];
 
 const LoginForm = () => {
+  const router = useRouter();
+  // 로그인 함수
+  const { login } = useAuth();
   const [showMore, setShowMore] = useState<boolean>(false);
   const [remember, setRemember] = useState<boolean>(true);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<FormData>();
 
-  const onSubmit = (data: FormData) => {
-    console.log("Form Data:", data);
+  const onSubmit = async ({ email, password }: FormData) => { 
+    setSubmitError(null);
+    try {
+      await login(email, password);                     // 세션 생성 + user 세팅
+      router.push("/");                                 // 성공 시 이동
+    } catch (e: any) {
+      setSubmitError(e?.message ?? "로그인에 실패했습니다.");
+    }
   };
 
   return (
@@ -120,6 +132,7 @@ const LoginForm = () => {
               <button
                 type="submit"
                 className="btn btn-md btn-primary rounded-12 w-full mb-16p"
+                disabled={isSubmitting}   
               >
                 로그인
               </button>
