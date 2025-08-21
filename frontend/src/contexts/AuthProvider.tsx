@@ -47,23 +47,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       }
     };
 
-
-    // 로그아웃
-    // const handleLogout = async () => {
-    //   try {
-    //     await fetch(`${API}/api/auth/logout`, {
-    //       method: "POST",
-    //       credentials: "include",
-    //     });
-    //   } catch (err) {
-    //     console.error("로그아웃 요청 실패", err);
-    //   } finally {
-    //     setUser(null);
-    //     // 로그인 페이지로 리 다이렉트
-    //     router.push("/login");
-    //   }
-    // };
-    // 로그아웃
     const handleLogout = async () => {
         try {
             await fetch(`${API}/api/auth/logout`, {

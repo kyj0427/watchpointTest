@@ -1,6 +1,8 @@
 package com.watchpoint.backend.auth.config;
 
 import org.springframework.context.annotation.*;
+import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -11,41 +13,47 @@ import org.springframework.web.cors.*;
 import java.util.List;
 
 @Configuration
+
 @EnableWebSecurity  // 추가: Spring Security 활성화
 public class DevSecurityConfig {
 
+    //api/auth/** 전용 체인
     @Bean
-    public SecurityFilterChain securityFilterChainDev(HttpSecurity http) throws Exception {
+    @Order(0)
+    public SecurityFilterChain authOpenChain(HttpSecurity http) throws Exception {
         http
-            .csrf(AbstractHttpConfigurer::disable)       // CSRF disable
-            .cors(c -> c.configurationSource(corsDev()))
-            .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/register", "/api/auth/login", "/api/auth/logout", "/api/auth/check").permitAll()
-                .requestMatchers("/api/auth/me").authenticated() // me 는 보호(인증 필요) 
-                .anyRequest().authenticated()
-            )
-            .formLogin(AbstractHttpConfigurer::disable)
-            .httpBasic(AbstractHttpConfigurer::disable)
-            .sessionManagement(s -> s
-                .sessionFixation().migrateSession()
-                .maximumSessions(1)  // 추가: 동시 세션 제한
-                .maxSessionsPreventsLogin(false)  // 새 로그인시 기존 세션 만료
-            )
-            // .logout(l -> l
-            //     .logoutUrl("/api/auth/logout")
-            //     .invalidateHttpSession(true)
-            //     .clearAuthentication(true)
-            //     .deleteCookies("JSESSIONID","remember")
-            //     .logoutSuccessHandler((req,res,auth) -> res.setStatus(204)) // 204 No Content
-            // )
-            // 인증 안 된 상태로 보호 리소스 접근 시 401을 JSON으로 통일
-            .exceptionHandling(e -> e.authenticationEntryPoint((req, res, ex) -> {
-                res.setStatus(401);
-                res.setContentType("application/json;charset=UTF-8");
-                res.getWriter().write("{\"code\":\"NOT_LOGGED_IN\",\"message\":\"로그인이 필요합니다.\"}");
-            }));
+        .securityMatcher("/api/auth/**")                    // 이 경로만 이 체인이 처리
+        .csrf(AbstractHttpConfigurer::disable)
+        .cors(c -> c.configurationSource(corsDev()))
+        .authorizeHttpRequests(a -> a
+            .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // 프리플라이트 허용
+            .anyRequest().permitAll()                               // 익명 허용
+        )
+        .formLogin(AbstractHttpConfigurer::disable)
+        .httpBasic(AbstractHttpConfigurer::disable);
         return http.build();
     }
+    @Bean
+    @Order(1)
+    public SecurityFilterChain appChain(HttpSecurity http) throws Exception {
+        http
+        .csrf(AbstractHttpConfigurer::disable)
+        .cors(c -> c.configurationSource(corsDev()))
+        .authorizeHttpRequests(auth -> auth
+            .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+            // .anyRequest().authenticated()
+            .anyRequest().permitAll()  //임시 전부 허용
+        )
+        .formLogin(AbstractHttpConfigurer::disable)
+        .httpBasic(AbstractHttpConfigurer::disable)
+        .exceptionHandling(e -> e.authenticationEntryPoint((req, res, ex) -> {
+            res.setStatus(401);
+            res.setContentType("application/json;charset=UTF-8");
+            res.getWriter().write("{\"code\":\"NOT_LOGGED_IN\",\"message\":\"로그인이 필요합니다.\"}");
+        }));
+        return http.build();
+    }
+
 
     @Bean
     public CorsConfigurationSource corsDev() {
@@ -63,4 +71,9 @@ public class DevSecurityConfig {
     public PasswordEncoder passwordEncoder() {  // 추가: 비밀번호 암호화
         return new BCryptPasswordEncoder();
     }
+    
+    @Bean
+public org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer web() {
+  return (web) -> web.ignoring().requestMatchers("/api/auth/**"); // ⬅ 완전 우회(디버그용)
+}
 }

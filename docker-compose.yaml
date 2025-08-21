@@ -6,6 +6,7 @@ networks:
 volumes:
   esdata:
   kibana_data:
+  redis_data: {}
 
 services:
   elasticsearch:
@@ -46,7 +47,10 @@ services:
       - SPRING_JPA_PROPERTIES_HIBERNATE_FORMAT_SQL=true
       - SPRING_JPA_DATABASE_PLATFORM=org.hibernate.dialect.MySQL8Dialect
       - SPRING_DATA_ELASTICSEARCH_URIS=http://elasticsearch:9200
-    depends_on: [elasticsearch]
+      - SPRING_DATA_REDIS_HOST=redis
+      - SPRING_DATA_REDIS_PORT=6379
+
+    depends_on: [elasticsearch, redis]
     networks: [elastic]
 
   frontend:
@@ -79,4 +83,10 @@ services:
       # - ./package-lock.json:/app/package-lock.json:ro
     ports: ["4000:4000"]
     depends_on: [elasticsearch]
+    networks: [elastic]
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
     networks: [elastic]

@@ -12,6 +12,9 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
+
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,6 +24,7 @@ import org.springframework.web.server.ResponseStatusException;
 import org.springframework.http.HttpHeaders;
 
 @RestController
+@Slf4j
 @RequestMapping("/api/auth")
 public class AuthController {
 
@@ -28,7 +32,7 @@ public class AuthController {
     private AuthService authService;
 
     @Autowired
-    private EmailService EmailService;
+    private EmailService emailService;
 
     private HttpHeaders noStoreHeaders() {
     HttpHeaders h = new HttpHeaders();
@@ -121,6 +125,54 @@ public class AuthController {
                 .body(MemberRes.from(member));
     }
 
+    // 이메일 인증 코드 발송
+    @PostMapping("/send-verification")
+    public ResponseEntity<?> sendVerification(@RequestBody Map<String, String> request) {
+        String email = request.get("email");
+        
+        if (email == null || email.trim().isEmpty()) {
+            return ResponseEntity.badRequest().body("이메일을 입력해주세요.");
+        }
+        
+        try {
+            emailService.sendVerificationEmail(email);
+            log.info("Verification email requested for: {}", email);
+            return ResponseEntity.ok().body("인증 코드가 발송되었습니다.");
+        } catch (Exception e) {
+            log.error("Failed to send verification email: {}", e.getMessage());
+            return ResponseEntity.internalServerError().body("이메일 발송에 실패했습니다.");
+        }
+    }
+    
+    // 이메일 인증 코드 검증
+    @PostMapping("/verify-code")
+    public ResponseEntity<?> verifyEmail(@RequestBody Map<String, String> request) {
+        String email = request.get("email");
+        String code = request.get("code");
+        
+        if (email == null || email.trim().isEmpty()) {
+            return ResponseEntity.badRequest().body("이메일을 입력해주세요.");
+        }
+        
+        if (code == null || code.trim().isEmpty()) {
+            return ResponseEntity.badRequest().body("인증 코드를 입력해주세요.");
+        }
+        
+        try {
+            boolean isValid = emailService.verifyCode(email, code);
+            
+            if (isValid) {
+                log.info("Email verification successful for: {}", email);
+                return ResponseEntity.ok().body("이메일 인증이 완료되었습니다.");
+            } else {
+                log.warn("Email verification failed for: {}", email);
+                return ResponseEntity.badRequest().body("인증 코드가 올바르지 않거나 만료되었습니다.");
+            }
+        } catch (Exception e) {
+            log.error("Error during email verification: {}", e.getMessage());
+            return ResponseEntity.internalServerError().body("인증 처리 중 오류가 발생했습니다.");
+        }
+    }
 
 
 }

@@ -2,8 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import Link from "next/link";
-import { use, useEffect, useState } from "react";
-import AnimateHeight from "react-animate-height";
+import { useEffect, useState } from "react";
 import PreferenceTotal from "../preference/PreferenceTotal";
 
 
@@ -18,6 +17,7 @@ interface RegisterRequest {
   name: string;
   email: string;
   originalPassword: string;
+  verificationCode: string;
 }
 interface RegisterResponse {
   id: number;
@@ -28,10 +28,11 @@ interface ErrorResponse {
   code: string;
   message: string;
 }
+// const API_BASE_URL = 'http://localhost:8080';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8080";
 
 // API 호출 함수
 const registerUser = async (userData: RegisterRequest): Promise<RegisterResponse> => {
-  const API_BASE_URL = 'http://localhost:8080';
   
   const response = await fetch(`${API_BASE_URL}/api/auth/register`, {
     method: 'POST',
@@ -42,15 +43,46 @@ const registerUser = async (userData: RegisterRequest): Promise<RegisterResponse
   });
 
   if (!response.ok) {
-    const errorData: ErrorResponse = await response.json();
-    throw new Error(errorData.message || '회원가입에 실패했습니다.');
+    // 409(이메일 중복) / 400(인증코드 오류) 등 처리
+    const maybeJson = await response.text();
+    try {
+      const err = JSON.parse(maybeJson);
+      throw new Error(err.message ?? '회원가입에 실패했습니다.');
+    } catch {
+      throw new Error(maybeJson || '회원가입에 실패했습니다.');
+    }
   }
-
   return response.json();
 };
+  const sendVerificationCode = async (email: string) => {
+    const res = await fetch(`${API_BASE_URL}/api/auth/send-verification`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
+    if (!res.ok) {
+      const text = await res.text();
+      throw new Error(text || "인증 코드 전송 실패");
+    }
+  };
+
+  const verifyCode = async (email: string, code: string) => {
+    const res = await fetch(`${API_BASE_URL}/api/auth/verify-code`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, verificationCode: code }),
+    });
+    if (!res.ok) {
+      const text = await res.text();
+      throw new Error(text || "인증 코드가 올바르지 않습니다.");
+    }
+    return res.json();
+  };
 
 const RegisterForm = () => {
   
+  const { register, handleSubmit, formState: { errors }, watch } = useForm<FormData>();
+  const emailValue = watch("email")?.trim();
   // 소셜 로그인 
   const [showMore, setShowMore] = useState<boolean>(false);
   // 마케팅 동의 여부
@@ -80,6 +112,8 @@ const RegisterForm = () => {
   // 타이머 인증 만료
   const [isExpired, setIsExpired] = useState(false);
 
+  const [isVerifying, setIsVerifying] = useState(false);
+
   // 회원가입 성공시 모달창 띄우기 
   const [showPreferenceModal, setPreferenceModal] = useState(false);
 
@@ -105,34 +139,68 @@ const RegisterForm = () => {
         console.log("codeTimer:", codeTimer, "emailSent:", emailSent, "isVerified:", isVerified);
       if (codeTimer === 0 && emailSent && !isVerified) {
         alert("인증 시간이 만료되었습니다. 다시 시도해주세요.");
-        setEmailCode("");
+        //이메일이 바뀌면 인증 리셋시킴
+        setIsVerified(false);
         setEmailSent(false);
-        setIsExpired(true);
+        setIsExpired(false);
+        setEmailCode("");
+        setCodeTimer(0);
       }
-    }, [codeTimer]);
+    }, [emailValue]);
 
-  // 코드 재전송 핸들러
-  const handleResendCode = async () => {
+  // 코드 전송&재전송 핸들러
+  const handleSendCode = async () => {
     if (isResending) return; // 중복 클릭 방지
     setIsResending(true);
-    // 임시데이터 작성
-      try {
-    setEmailSent(true);
-    setCodeTimer(180); // 3분 재설정
-    setIsExpired(false);
-  } catch (err) {
-    alert("코드 전송 중 오류 발생");
-  } finally {
-    setIsResending(false);
-  }
+    
+    try {
+      const email = emailValue;
+      if (!email) {
+        alert("이메일을 먼저 입력해 주세요.");
+        return;
+      }
+      
+      // 이메일 형식 검증
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert("유효한 이메일 주소를 입력해 주세요.");
+        return;
+      }
+      
+      await sendVerificationCode(email);
+      setEmailSent(true);
+      setIsExpired(false);
+      setIsVerified(false);
+      setCodeTimer(300); // 백엔드 TTL 5분과 맞춤(EXPIRE_MINUTES=5)
+      alert("인증 코드를 발송했습니다. 메일함을 확인해 주세요.");
+    } catch (e: any) {
+      alert(e.message ?? "코드 전송 중 오류가 발생했습니다.");
+    } finally {
+      setIsResending(false);
     }
+  };
+  // 인증 코드 확인 핸들러 (새로 추가)
+  const handleVerifyCode = async () => {
+    if (isVerifying) return;
+    setIsVerifying(true);
 
-  //react-hook-form 설정
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormData>();
+    try {
+      const email = emailValue;
+      if (!email || !emailCode) {
+        alert("이메일과 인증 코드를 모두 입력해 주세요.");
+        return;
+      }
+
+      await verifyCode(email, emailCode);
+      setIsVerified(true);
+      alert("이메일 인증이 완료되었습니다.");
+    } catch (e: any) {
+      alert(e.message ?? "인증 코드 확인 중 오류가 발생했습니다.");
+    } finally {
+      setIsVerifying(false);
+    }
+  };  
+
 
   //제출시 동작
   const onSubmit = async(data: FormData) => {
@@ -141,6 +209,11 @@ const RegisterForm = () => {
       alert("약관에 동의하셔야 회원가입이 가능합니다")
       return;
     }  
+    // 인증 확인 추가
+    if (!isVerified) {
+      alert("이메일 인증을 완료해주세요.");
+      return;
+    }
     // 실제 회원가입 API 호출
     try{
       // interface RegisterRequest 데이터 매핑, 백엔드로 보낼 데이터로 변환 (실제 전달 객체)
@@ -148,15 +221,13 @@ const RegisterForm = () => {
         name: data.name,
         email: data.email,
         originalPassword: data.password,
+        verificationCode: emailCode,
       };
       
       //회원가입 API 호출
       const response = await registerUser(registerData);
-
       console.log("성공",response);
-
       setPreferenceModal(true);
-
     }catch (err: any) {
     console.error("회원가입 실패:", err);
     alert(err.message || "회원가입 중 오류가 발생했습니다.");
@@ -215,13 +286,23 @@ const RegisterForm = () => {
                   >
                     이메일 주소
                   </label>
-                  <input
-                    className="border-input-1"
-                    type="email"
-                    {...register("email", { required: "유효한 이메일 주소를 입력해주세요" })}
-                    id="userEmail"
-                    placeholder="Email"
-                  />
+                  <div className="relative w-full">
+                    <input
+                      className="border-input-1 w-full pr-[110px]"
+                      type="email"
+                      {...register("email", { required: "유효한 이메일 주소를 입력해주세요" })}
+                      id="userEmail"
+                      placeholder="Email"
+                    />
+                    <button
+                      type="button"
+                      onClick={handleSendCode} 
+                      className="absolute top-1/2 right-2 -translate-y-1/2 text-sm text-blue-500 hover:text-blue-700 hover:font-semibold transition cursor-pointer disabled:text-gray-400"
+                      disabled={isResending}
+                    >
+                      {emailSent ? "코드 재전송" : "코드 전송"}
+                    </button>
+                  </div>
                   {errors.email?.message && (
                     <p className="text-red-500 text-sm">
                       {String(errors.email.message)}
@@ -244,21 +325,27 @@ const RegisterForm = () => {
                       placeholder="인증 코드 입력"
                       value={emailCode}
                       onChange={(e) => setEmailCode(e.target.value)}
+                      disabled={isVerified} // 인증 완료되면 입력 막기
                     />
                     <button
                       type="button"
-                      onClick={handleResendCode}
+                      onClick={handleVerifyCode} // 인증하기로 변경
                       className="absolute top-1/2 right-2 -translate-y-1/2 text-sm text-blue-500 hover:text-blue-700 hover:font-semibold transition cursor-pointer disabled:text-gray-400"
-                      disabled={isResending}
+                      disabled={isVerifying || !emailCode || isVerified}
                     >
-                      코드 재전송하기
+                      {isVerified ? "인증완료" : "인증하기"} {/* 상태에 따라 텍스트 변경 */}
                     </button>
-
                   </div>
-                  {emailSent && !isExpired && codeTimer > 0 && (
+
+                  {/* 상태별 메시지들 */}
+                  {emailSent && !isExpired && codeTimer > 0 && !isVerified && (
                     <p className="text-xs text-white-500 mt-1">
                       남은 시간: {Math.floor(codeTimer / 60)}분 {codeTimer % 60}초
                     </p>
+                  )}
+
+                  {isVerified && (
+                    <p className="text-xs text-green-500 mt-1">✓ 이메일 인증이 완료되었습니다.</p>
                   )}
 
                   {isExpired && (
@@ -335,6 +422,7 @@ const RegisterForm = () => {
               <button
                 type="submit"
                 className="btn btn-md btn-primary rounded-12 w-full mb-16p"
+                disabled={!isVerified || !remember}
               >
                 계정생성
               </button>
