@@ -6,18 +6,19 @@ import com.watchpoint.backend.auth.dto.MemberRes;
 import com.watchpoint.backend.auth.dto.RegisterReq;
 import com.watchpoint.backend.auth.service.AuthService;
 import com.watchpoint.backend.member.domain.Member;
+import com.watchpoint.backend.auth.service.EmailService;
 
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.http.HttpHeaders;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -26,6 +27,15 @@ public class AuthController {
     @Autowired
     private AuthService authService;
 
+    @Autowired
+    private EmailService EmailService;
+
+    private HttpHeaders noStoreHeaders() {
+    HttpHeaders h = new HttpHeaders();
+    h.add(HttpHeaders.CACHE_CONTROL, "no-store, no-cache, must-revalidate");
+    h.add("Pragma", "no-cache");
+    return h;
+}
     // 회원가입: 중복이면 409, 성공 시 MemberRes 반환 
     @PostMapping("/register")
     public ResponseEntity<?> register(@Valid @RequestBody RegisterReq req) {
@@ -68,7 +78,7 @@ public class AuthController {
     // 로그아웃: 세션 무효화
     @PostMapping("/logout")
     public ResponseEntity<Void> logout(HttpServletRequest request, HttpServletResponse response) {
-        authService.logout(request);     // 세션 무효화 + SecurityContext clear (이미 구현됨)
+        authService.logout(request);     // 세션 무효화 + SecurityContext clear
 
         // JSESSIONID 쿠키 삭제 
         Cookie jsessionCookie = new Cookie("JSESSIONID", null);
@@ -83,7 +93,7 @@ public class AuthController {
         remember.setMaxAge(0);
         response.addCookie(remember);
 
-        // 바디 없이 성공만 알림(REST 관례)
+        // 바디 없이 성공만 알림
         return ResponseEntity.noContent().build(); // 204
     }
 
@@ -91,34 +101,26 @@ public class AuthController {
     // 현재 로그인한 사용자 정보 조회
     @GetMapping("/me")
     public ResponseEntity<?> me(HttpServletRequest request) {
-        try {
-            Member member = authService.me(request);
-            return ResponseEntity.ok(MemberRes.from(member));
-        } catch (ResponseStatusException e) {
-            String errorCode = e.getReason();
-            String errorMessage;
-            
-            switch (errorCode) {
-                case "NOT_LOGGED_IN":
-                    errorMessage = "로그인이 필요합니다.";
-                    break;
-                case "MEMBER_NOT_FOUND":
-                    errorMessage = "회원 정보를 찾을 수 없습니다.";
-                    break;
-                default:
-                    errorMessage = "사용자 정보 조회 중 오류가 발생했습니다.";
-            }
-            
-            return ResponseEntity.status(e.getStatusCode())
-                    .body(new ErrorRes(errorCode, errorMessage));
-        }
+        Member member = authService.me(request);
+        return ResponseEntity.ok()
+                .headers(noStoreHeaders())
+                .body(MemberRes.from(member));
     }
 
     // 로그인 상태 확인
     @GetMapping("/check")
-    public Map<String, Boolean> isLoggedIn(HttpServletRequest request) {
-        return Map.of("loggedIn", authService.isLoggedIn(request));
+    public ResponseEntity<?> check(HttpServletRequest request) {
+        if (!authService.isLoggedIn(request)) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .headers(noStoreHeaders())
+                    .build();
+        }
+        Member member = authService.me(request);
+        return ResponseEntity.ok()
+                .headers(noStoreHeaders())
+                .body(MemberRes.from(member));
     }
+
 
 
 }
