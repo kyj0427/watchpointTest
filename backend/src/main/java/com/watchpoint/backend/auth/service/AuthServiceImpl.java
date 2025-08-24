@@ -148,8 +148,8 @@ public class AuthServiceImpl implements AuthService{
             member = new Member();
             member.setMember_email(email);
             member.setMember_name(name);
-            member.setMember_login_provider(provider); // "DISCORD"
-            member.setMember_password(UUID.randomUUID().toString()); //비밀번호 
+            member.setMember_login_provider(provider); // sns 연동 
+            member.setMember_password(UUID.randomUUID().toString()); // 비밀번호 
             member = memberRepository.save(member);
         }
         // MemberRes로 변환해서 반환
