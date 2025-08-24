@@ -88,6 +88,25 @@ const handleKakaoLogin = async () => {
     setSubmitError('카카오 로그인 요청에 실패했습니다.');
   }
 };
+// 구글 로그인 처리
+const handleGoogleLogin = async () => {
+  try {
+    const res = await fetch('http://localhost:8080/api/oauth/google/url', {
+      credentials: 'include'
+    });
+    
+    if (!res.ok) {
+      throw new Error('구글 로그인 URL 요청 실패');
+    }
+    
+    const authUrl = await res.text();
+    window.location.href = authUrl;
+    
+  } catch (error) {
+    console.error('구글 로그인 실패:', error);
+    setSubmitError('구글 로그인 요청에 실패했습니다.');
+  }
+};
 
   return (
     <section className="section-py">
@@ -199,9 +218,10 @@ const handleKakaoLogin = async () => {
                       if (alt === 'Discord') {
                         handleDiscordLogin();  // 바로 호출
                       } else if (alt === 'Kakao') {
-                        handleKakaoLogin();  // 카카오 추가!
+                        handleKakaoLogin();
+                      } else if (alt === 'Google') {
+                        handleGoogleLogin();  // 구글 추가!
                       }
-                      // 구글 (나중에 추가)
                     }}
                     disabled={isSubmitting}
                   >
