@@ -1,6 +1,7 @@
 package com.watchpoint.backend.auth.dto;
 
-import com.watchpoint.backend.member.domain.*;
+import com.watchpoint.backend.member.domain.Member;
+
 import lombok.Data;
 
 // 성공 응답 데이터 

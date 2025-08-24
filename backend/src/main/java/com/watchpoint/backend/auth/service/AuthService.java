@@ -1,5 +1,6 @@
 package com.watchpoint.backend.auth.service;
 
+import com.watchpoint.backend.auth.dto.MemberRes;
 import com.watchpoint.backend.member.domain.Member;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -22,4 +23,8 @@ public interface AuthService {
     //Spring Security 인증 기반 → isLoggedIn() 으로 파라매터 없어도되는데 왜 next.js 
     boolean isLoggedIn(HttpServletRequest request);
 
+    //소셜 로그인 처리 (구글, 카카오, 디스코드)
+    MemberRes handleSocialLogin(String email, String name, String provider);    
+
+    public void createSessionForOAuth(Member member, HttpServletRequest request);
 } 

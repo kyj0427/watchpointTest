@@ -37,6 +37,7 @@ const LoginForm = () => {
     formState: { errors, isSubmitting },
   } = useForm<FormData>();
 
+  // 일반 로그인 처리
   const onSubmit = async ({ email, password }: FormData) => { 
     setSubmitError(null);
     try {
@@ -44,6 +45,26 @@ const LoginForm = () => {
       router.push("/");                                 // 성공 시 이동
     } catch (e: any) {
       setSubmitError(e?.message ?? "로그인에 실패했습니다.");
+    }
+  };
+  // 디스코드 로그인 처리
+  const handleDiscordLogin = async () => {
+    try {
+      // 1. 백엔드에서 디스코드 로그인 URL 받아오기
+      const res = await fetch('http://localhost:8080/api/oauth/discord/url', {
+        credentials: 'include'  // 세션 쿠키 포함
+      });
+      
+      if (!res.ok) {
+        throw new Error('디스코드 로그인 URL 요청 실패');
+      }
+      // 2. 디스코드 인증 페이지로 이동
+      const authUrl = await res.text();
+      window.location.href = authUrl;
+      
+    } catch (error) {
+      console.error('디스코드 로그인 실패:', error);
+      setSubmitError('디스코드 로그인 요청에 실패했습니다.');
     }
   };
 
@@ -150,8 +171,16 @@ const LoginForm = () => {
                 {snsButtons.map(({ src, alt }) => (
                   <button
                     key={alt}
-                    className=" p-3 rounded-full shadow-md hover:scale-110 transition"
+                    type="button"
+                    className="p-3 rounded-full shadow-md hover:scale-110 transition disabled:opacity-50"
                     title={`Log in with ${alt}`}
+                    onClick={() => {
+                      if (alt === 'Discord') {
+                        handleDiscordLogin();  // 바로 호출
+                      }
+                      // 나머지는 아무것도 안 함 (나중에 추가)
+                    }}
+                    disabled={isSubmitting}
                   >
                     <img src={src} alt={alt} className="w-10 h-10" />
                   </button>

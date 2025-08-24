@@ -1,5 +1,7 @@
 package com.watchpoint.backend.auth.service;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,6 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.watchpoint.backend.auth.dto.MemberRes;
 import com.watchpoint.backend.member.domain.Member;
 import com.watchpoint.backend.member.persistence.MemberRepository;
 
@@ -26,6 +29,10 @@ public class AuthServiceImpl implements AuthService{
     //비밀번호 암호화
     @Autowired
     private PasswordEncoder encoder;
+
+    //sns 연동 
+    @Autowired  
+    private MemberRepository memberRepository;
 
     @Override
     public Member register(String name, String email, String originalPassword) {
@@ -126,4 +133,30 @@ public class AuthServiceImpl implements AuthService{
         
         System.out.println(">>> 세션 생성 완료 - member_id: " + member.getMember_id());
     }
+
+    @Override
+    public MemberRes handleSocialLogin(String email, String name, String provider) {
+        // 1. 이메일로 기존 회원 찾기
+        Optional<Member> existingMember = memberRepository.findByMemberEmail(email);
+        
+        Member member;
+        if (existingMember.isPresent()) {
+            // 기존 회원이면 로그인 처리
+            member = existingMember.get();
+        } else {
+            // 새 회원이면 회원가입 처리
+            member = new Member();
+            member.setMember_email(email);
+            member.setMember_name(name);
+            member.setMember_login_provider(provider); // "DISCORD"
+            member.setMember_password(UUID.randomUUID().toString()); //비밀번호 
+            member = memberRepository.save(member);
+        }
+        // MemberRes로 변환해서 반환
+        return new MemberRes(member); 
+    }
+    @Override
+    public void createSessionForOAuth(Member member, HttpServletRequest request) {
+        issueSession(member, request); // private 메서드 재사용
+}
 }

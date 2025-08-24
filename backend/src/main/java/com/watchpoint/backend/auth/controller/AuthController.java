@@ -1,27 +1,32 @@
 package com.watchpoint.backend.auth.controller;
 
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
+
 import com.watchpoint.backend.auth.dto.ErrorRes;
 import com.watchpoint.backend.auth.dto.LoginReq;
 import com.watchpoint.backend.auth.dto.MemberRes;
 import com.watchpoint.backend.auth.dto.RegisterReq;
 import com.watchpoint.backend.auth.service.AuthService;
-import com.watchpoint.backend.member.domain.Member;
 import com.watchpoint.backend.auth.service.EmailService;
+import com.watchpoint.backend.member.domain.Member;
 
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
-
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
-import org.springframework.http.HttpHeaders;
 
 @RestController
 @Slf4j
@@ -53,6 +58,7 @@ public class AuthController {
             return ResponseEntity.internalServerError().body(new ErrorRes("UNKNOWN_ERROR", "회원가입 처리 중 오류가 발생했습니다."));
         }
     }
+
     // 로그인: 성공 시 세션 발급하고 MemberRes 반환
     @PostMapping("/login")
     public ResponseEntity<?> login(@Valid @RequestBody LoginReq req, HttpServletRequest request) {
@@ -126,51 +132,47 @@ public class AuthController {
     }
 
     // 이메일 인증 코드 발송
-    @PostMapping("/send-verification")
+    @PostMapping(value = {"/send-code", "/send-verification"}, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> sendVerification(@RequestBody Map<String, String> request) {
         String email = request.get("email");
-        
-        if (email == null || email.trim().isEmpty()) {
-            return ResponseEntity.badRequest().body("이메일을 입력해주세요.");
+        if (email == null || email.isBlank()) {
+            return ResponseEntity.badRequest().body(Map.of("ok", false, "message", "이메일을 입력해주세요."));
         }
-        
         try {
             emailService.sendVerificationEmail(email);
             log.info("Verification email requested for: {}", email);
-            return ResponseEntity.ok().body("인증 코드가 발송되었습니다.");
+            return ResponseEntity.ok(Map.of("ok", true, "message", "인증 코드가 발송되었습니다."));
         } catch (Exception e) {
             log.error("Failed to send verification email: {}", e.getMessage());
-            return ResponseEntity.internalServerError().body("이메일 발송에 실패했습니다.");
+            return ResponseEntity.internalServerError().body(Map.of("ok", false, "message", "이메일 발송에 실패했습니다."));
         }
     }
     
     // 이메일 인증 코드 검증
-    @PostMapping("/verify-code")
-    public ResponseEntity<?> verifyEmail(@RequestBody Map<String, String> request) {
-        String email = request.get("email");
-        String code = request.get("code");
-        
-        if (email == null || email.trim().isEmpty()) {
-            return ResponseEntity.badRequest().body("이메일을 입력해주세요.");
+    @PostMapping(value = "/verify-code", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> verifyEmail(@RequestBody Map<String, Object> request) {
+        String email = (String) request.get("email");
+        String code  = (String) (request.getOrDefault("verificationCode", request.get("code")));
+
+        if (email == null || email.isBlank()) {
+            return ResponseEntity.badRequest().body(Map.of("ok", false, "message", "이메일을 입력해주세요."));
         }
-        
-        if (code == null || code.trim().isEmpty()) {
-            return ResponseEntity.badRequest().body("인증 코드를 입력해주세요.");
+        if (code == null || code.isBlank()) {
+            return ResponseEntity.badRequest().body(Map.of("ok", false, "message", "인증 코드를 입력해주세요."));
         }
-        
+
         try {
-            boolean isValid = emailService.verifyCode(email, code);
-            
-            if (isValid) {
+            boolean ok = emailService.verifyCode(email, code);
+            if (ok) {
                 log.info("Email verification successful for: {}", email);
-                return ResponseEntity.ok().body("이메일 인증이 완료되었습니다.");
+                return ResponseEntity.ok(Map.of("ok", true, "message", "이메일 인증이 완료되었습니다."));
             } else {
                 log.warn("Email verification failed for: {}", email);
-                return ResponseEntity.badRequest().body("인증 코드가 올바르지 않거나 만료되었습니다.");
+                return ResponseEntity.badRequest().body(Map.of("ok", false, "message", "인증 코드가 올바르지 않거나 만료되었습니다."));
             }
         } catch (Exception e) {
             log.error("Error during email verification: {}", e.getMessage());
-            return ResponseEntity.internalServerError().body("인증 처리 중 오류가 발생했습니다.");
+            return ResponseEntity.internalServerError().body(Map.of("ok", false, "message", "인증 처리 중 오류가 발생했습니다."));
         }
     }
 

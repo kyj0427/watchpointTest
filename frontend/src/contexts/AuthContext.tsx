@@ -21,46 +21,6 @@ export const AuthContext = createContext<AuthContextType>({
     login: async () => {}
 });
 
-// // AuthProvider 컴포넌트
-// export const AuthProvider = ({ children }: { children: ReactNode }) => {
-//     const [user, setUser] = useState<User | null>(null);
-//     const [loading, setLoading] = useState(true);
-
-//     // 초기 로드 시 로컬 스토리지에서 사용자 정보 확인
-//     useEffect(() => {
-//         const savedUser = localStorage.getItem('user');
-//         if (savedUser) {
-//             try {
-//                 setUser(JSON.parse(savedUser));
-//             } catch (error) {
-//                 console.error('Failed to parse user data:', error);
-//             }
-//         }
-//         setLoading(false);
-//     }, []);
-
-//     // 로그인 함수
-//     const login = (userData: User) => {
-//         setUser(userData);
-//         localStorage.setItem('user', JSON.stringify(userData));
-//     };
-
-//     // 로그아웃 함수
-//     const logout = () => {
-//         setUser(null);
-//         localStorage.removeItem('user');
-        
-        
-//     };
-
-//     return (
-//         <AuthContext.Provider value={{ user, loading, logout, login }}>
-//             {children}
-//         </AuthContext.Provider>
-//     );
-// };
-
-// 커스텀 훅
 export const useAuth = () => {
     const context = useContext(AuthContext);
     if (!context) {
