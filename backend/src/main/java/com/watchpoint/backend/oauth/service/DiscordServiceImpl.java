@@ -36,6 +36,7 @@ public class DiscordServiceImpl implements DiscordService {
     @Value("${discord.redirect.uri}")
     private String redirectUri;
 
+    // 기존 auth 서비스 재사용 (세션 관리)
     @Autowired
     private AuthService authService;
     // HTTP 요청을 위한 RestTemplate

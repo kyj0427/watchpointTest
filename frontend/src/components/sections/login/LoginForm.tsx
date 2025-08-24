@@ -67,6 +67,27 @@ const LoginForm = () => {
       setSubmitError('디스코드 로그인 요청에 실패했습니다.');
     }
   };
+// 카카오 로그인 처리
+const handleKakaoLogin = async () => {
+  try {
+    // 1. 백엔드에서 카카오 로그인 URL 받아오기
+    const res = await fetch('http://localhost:8080/api/oauth/kakao/url', {
+      credentials: 'include'  // 세션 쿠키 포함
+    });
+    
+    if (!res.ok) {
+      throw new Error('카카오 로그인 URL 요청 실패');
+    }
+    
+    // 2. 카카오 인증 페이지로 이동
+    const authUrl = await res.text();
+    window.location.href = authUrl;
+    
+  } catch (error) {
+    console.error('카카오 로그인 실패:', error);
+    setSubmitError('카카오 로그인 요청에 실패했습니다.');
+  }
+};
 
   return (
     <section className="section-py">
@@ -177,8 +198,10 @@ const LoginForm = () => {
                     onClick={() => {
                       if (alt === 'Discord') {
                         handleDiscordLogin();  // 바로 호출
+                      } else if (alt === 'Kakao') {
+                        handleKakaoLogin();  // 카카오 추가!
                       }
-                      // 나머지는 아무것도 안 함 (나중에 추가)
+                      // 구글 (나중에 추가)
                     }}
                     disabled={isSubmitting}
                   >
